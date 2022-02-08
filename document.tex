@@ -1,0 +1,119 @@
+\documentclass[
+    oneside,
+	pdftex,
+	a4paper,
+	11pt,
+	headsepline,
+	bibliography=totocnumbered,
+	listof=numbered
+]{scrbook}
+% or scrbook
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{array}
+\usepackage[makeroom]{cancel}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{svg}
+\usepackage{makeidx}
+%\usepackage[numbers, square,sort&compress]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage[a4paper,left=2.5cm,right=2.0cm, bottom=2.5cm]{geometry}
+\usepackage[ngerman]{babel}
+%\usepackage{esvect}
+%\usepackage{caption}
+
+\usepackage[section]{placeins}
+\usepackage{float}
+\usepackage[export]{adjustbox}
+\usepackage[nottoc,notlot,notlof,numbib]{tocbibind}
+\usepackage{multirow}
+\usepackage{newunicodechar}
+\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage{tikz}
+\usepackage{booktabs}
+%\usepackage{subcaption}
+\usepackage[position=top, justification=raggedright, singlelinecheck = false]{subfig}
+\usepackage{pict2e}
+\usepackage{tablefootnote}
+\usepackage{overpic}
+\usepackage{csquotes}
+\usepackage{dcolumn}
+\usepackage{textcomp}
+\usepackage{gensymb}
+\usepackage{url}
+\usepackage{etoolbox}
+
+\usepackage{makeidx}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+	\setlength{\captionmargin}{10pt}
+	\renewcommand{\captionfont}{\footnotesize}
+\usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries}
+%\setcounter{biburllcpenalty}{9000}
+%\setcounter{biburlucpenalty}{9000}
+\sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE}
+
+%\bibliographystyle{plainnat}
+%previously set as 
+%\bibliographystyle{unsrtnat}
+\usepackage{biblatex}
+
+\addbibresource{biblio.bib}
+
+\usepackage{svg}
+
+\graphicspath{{image/}}
+\usepackage{nameref}
+
+% \newcommand*{\currentname}{\@currentlabelname}
+
+% \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\usepackage{fancyhdr}
+
+% lädt die Infos der Gruppe und des Versuches aus Definitionen.tex
+% passt Kopfzeile an
+
+\pagestyle{fancy}
+\fancyhead[L]{\leftmark \rightmark }
+\fancyhead[R]{\thepage}
+%\pagestyle{headings}
+%\markright{Lunin \hfill Röntgenabsorptions-Feinstruktur-Sepktroskopie \hfill}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document}
+% Inhaltsverzeichnis
+\pagenumbering{roman} 	% römische Zahlen (I,II,III,IV,...) für Inhaltsverzeichnis
+%\tableofcontents		% Inhaltsverzeichnis
+%\listoffigures			% Abbildungsverzeichnis
+%\listoftables			% Tabellenverzeichnis
+
+% der Rest ist arabisch (1,2,3,4,...) numeriert:
+\frontmatter
+
+\input{01_frontpages/01_titlepage}
+\input{01_frontpages/02_erklaerung}
+\tableofcontents
+
+\mainmatter
+\input{02_middlepages/03_einleitung}
+\input{02_middlepages/04_experimentelle_methodik}
+\input{02_middlepages/05_auswertung}
+
+%\pagenumbering{arabic}	% arabische Numerierung
+%\setcounter{page}{1}	% setzt den Seitenzähler auf "1"
+
+\input{03_endpages/06_zusammenfassung}
+\backmatter
+ 
+%\input{Durchfuehrung.tex}
+%\input{Auswertung.tex}
+%\input{Fehlerrechnung.tex}
+%\input{Zusammenfassung.tex}
+%\bibliography{biblio}
+\printbibliography
+\input{03_endpages/07_danksagung}
+\end{document}
