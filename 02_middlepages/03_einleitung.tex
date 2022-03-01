@@ -1,29 +1,40 @@
 \chapter{Einleitung}
+\label{text:einleitung}
 Magnetische Domänen stellen ein großes Interesse in dem Bereich von Festkörperphysik dar. Zum Durchführen der Streuexperimentean an den mikroskopischen magnetischen Strukturen wird die Röntgenstrahlung verwendet. Die vorausgesetzten Anforderungen an die Kohärenz und Brillanz der Quelle können hauptsächlich nur mithilfe von speziellen Anlagen wie Synchrotron oder Freie-Elektronen-Laser erfüllt werden. Limitierte Kapazität, technische Komplexität und Einzigartigkeit solcher Anlagen bestimmt (legt fest) eine (strikte) zeitliche Grenze, innerhalb deren ein Experiment durchgeführt werden kann. Unter anderem (Darüber hinaus) tauchen die zusätzlichen Anforderungen in Form von zeitaufwendiger Einarbeitung und pausenlosem mehrtägigem Einsatz der Mitarbeiter auf.
 
-Ausgehend davon (Daher, Infolgedessen), wäre die Möglichkeit bevorzugt, diese Art von Experimenten im Labor durchzuführen. Die vergleichbaren Strahlungscharakteristiken  sind allerdings mit den existierenden Röntgenquellen im Labor nicht erreicht. Da es bisher technisch bedingt nicht realisierbar ist, können die Messergebnisse durch die neuen Mess- und Auswertungsmethoden verbessert werden.  
+Davon ausgehend, wäre die Möglichkeit bevorzugt, diese Art von Experimenten im Labor durchzuführen. Die vergleichbaren Strahlungscharakteristiken  sind allerdings mit den existierenden Röntgenquellen im Labor nicht erreicht. Da es bisher technisch bedingt nicht realisierbar ist, können die Messergebnisse durch die neuen Mess- und Auswertungsmethoden verbessert werden.  
 
 %weiche röntgenstrahlung, kleiner Flux -> kleiner Kontrast
-Das Ziel dieser Arbeit ist so ein  Mess- und Auswertungsverfahren mit dem Einsatz von extrem kurzen Röntgenpulsen anzubieten (herauszufinden), in dem man einzelne Photonen in einem Streubild detektieren und die von Hintergrundrauschen des Bildes (ab)trennen kann. Eine besondere Herausforderung  
+Das Ziel dieser Arbeit ist so ein Mess- und Auswertungsverfahren mit dem Einsatz der Kurzpulsquelle weicher Röntgenstrahlung anzubieten (herauszufinden), in dem man einzelne Photonen in einem Streubild detektieren und die von Hintergrundrauschen des Bildes (ab)trennen kann. Eine besondere Herausforderung 
+
+% Idee: für die höhere x-ray Energien ist es möglich die Photonen von dem Rauschen mit einem Komporator (x > threshold) zu trennen. In dem Weichröntgenbereich ist es nicht möglich. Die Innovation liegt daran:  einzelne Photonen in den Aufnahmen mit ultrakurzen Belichtungszeiten zu erkennen, was in Verbindung mit einer hervorragend kurzen Auslesezeit des Detektors ermöglicht, die rauschenlosen Aufnahmen zu bekommen.
 
 
-
-Idee: für die höhere x-ray Energien ist es möglich die Photonen von dem Rauschen mit einem Komporator (x > threshold) zu trennen. In dem Weichröntgenbereich ist es nicht möglich. Die Innovation liegt daran:  einzelne Photonen in den Aufnahmen mit ultrakurzen Belichtungszeiten zu erkennen, was in Verbindung mit einer hervorragend kurzen Auslesezeit des Detektors ermöglicht, die rauschenlosen Aufnahmen zu bekommen.
 \chapter{Theoretische Grundlagen}
+\label{text:theorie}
+
 % Ich habe noch ganz vergessen, was zu deinem Inhaltsverzeichnis des Theorieteils deiner Arbeit zu sagen. Im Prinzip hast du die richtigen Themen erkannt. Ich würde etwas weiter einengen:
 % 1. Resonante Röntgenstreuung von mesoskopischen magnetischen Texturen – bitte lass uns rechtzeitig darüber reden, was da genau rein soll.
 % 2. Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen – hier benötigst du fast ausschließlich das Paper von Daniel (https://www.osapublishing.org/optica/abstract.cfm?uri=optica-8-9-1237). Einfach die technischen Details zusammenfassen.
 % 3. Der MÖNCH-Detektor – Hier bitte die Paper von den PSI-Leuten nutzen. Nicht zu viel allgemeines, lieber genau den MÖNCH-Detektor erklären.
 % 4. Droplet Algorithmen – kurze Übersicht und dann genauer ein Algorithmus, den du ausprobieren möchtest.
 
+\newacronym{pxs}{LPR}{Laser getriebene Plasma-Röntgenquelle}
+\newacronym{rzp}{RZP}{Reflexionszonenplatten}
 \section{Resonante Röntgenstreuung von mesoskopischen magnetischen Texturen}
+\label{text:streuung_theorie}
+Die Probe ist nach dem Rezept \cite{tripathi_dichroic_2011} hergestellt. MFM Bilder
 \section{Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen}
-\cite{schick_laser-driven_2021}
-Kurze Einleitung, wie man die Röntgenstrahlung durch Belichten eines wolframzylinders bekommt (verweis auf TU-Paper)
+Als die Quelle der weichen Röntgenstrahlung in den weiteren Experimenten dient die \gls{pxs} \cite{schick_laser-driven_2021}. Deren Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch hochenergetische Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. Das Spektrum von \gls{pxs} wurde mit einem kaliebrierten Spektrometer vermessen und ist in der Abbildung \ref{fig:xps_spectrum} zu sehen. Die zu untersuchende mehrschichtige Probe (s. Abschnitt \ref{text:streuung_theorie}), wie bereits erwähnt wurde, besteht aus Gd und Fe. Mithilfe der \gls{rzp} wird die Energie der M5 Gd-Absorptionskante $E_{Gd, M5} = \SI{1185(1)}{\eV}$ \cite[Abb. 6(a)]{prieto_x-ray_2005} auf die Probe abgebildet.
+
 \section{Der MÖNCH-Detektor}
+\label{text:moench_theorie}
 Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet. \cite{bergamaschi_monch_2018}
-Kurze Einletung zum MOENCH (Verweis auf Moench papers), Velgleich mit CCD, Vorteile im Sinne der Auslesezeit....
+
+
+
 \section{Detektionsvorgänge der einzelnen Photonen}
+\label{text:single_photon_theorie}
 kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (SNR oder so was) vergleichen und sagen, welches besser sein soll...
 % \subsection{Algorythmus 1}
 % \subsection{Algorythmus 2}
