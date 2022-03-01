@@ -21,7 +21,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{url}
-\usepackage[a4paper,left=2.5cm,right=2.0cm, bottom=2.5cm]{geometry}
+\usepackage[a4paper,left=2.5cm,right=2.0cm]{geometry}
 \usepackage[ngerman]{babel}
 %\usepackage{esvect}
 %\usepackage{caption}
@@ -46,10 +46,23 @@
 \usepackage{gensymb}
 \usepackage{url}
 \usepackage{etoolbox}
+%\usepackage{pgfplots} % CHECK IS IT REALLY NECEASSRY?
 
 \usepackage{makeidx}
 \usepackage[shortlabels]{enumitem}
 \usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black,
+    draft=false,
+	pdftitle={Bachelorarbeit},
+	pdfauthor={Leonid Lunin},
+	pdfkeywords={physics, science, action},
+	pdfsubject={Importang messung}
+}
 	\setlength{\captionmargin}{10pt}
 	\renewcommand{\captionfont}{\footnotesize}
 \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries}
@@ -63,10 +76,15 @@
 \usepackage{biblatex}
 
 \addbibresource{biblio.bib}
+\addbibresource{moenchdetektor.bib}
+\addbibresource{quelle.bib}
 
 \usepackage{svg}
 
 \graphicspath{{image/}}
+
+\usepackage{chngcntr} % CONTIUNOUS NUMBERING BOOK 
+\counterwithout{figure}{chapter} %
 \usepackage{nameref}
 
 % \newcommand*{\currentname}{\@currentlabelname}
