@@ -12,17 +12,25 @@ Justage mit ccd ascan und maximum of signal1/signal2 bezogen auf rzp\_phi
 % MOTIVATION SINGLE PHOTON COUNTING
 \section{Der MÖNCH-Detektor}
 \label{text:moench_theorie}
+\newacronym{rhs}{RHS}{relative Helligkeitsstufe}
 Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet. \cite{bergamaschi_monch_2018}
 Kurze Einletung zum MOENCH (Verweis auf Moench papers), Velgleich mit CCD, Vorteile 
 im Sinne der Auslesezeit.... NOISE VERHALTNIS  UND QUANTUM EFFICENCY
 
+Der Detektor bildet die Intensität in \gls{rhs} ab. In der Abb. \ref{fig:response_moench} ist die Repsonsefunktion im Weichröntgenbereich zu sehen. 
+%TODO: add Gd M5 line to direkt compare
 \begin{figure}[H]
     \centering
-    \input{images/test.pgf}
+    \input{images/response.pgf}
     \caption{Caption}
     \label{fig:response_moench}
 \end{figure}
-
+\begin{figure}[H]
+    \centering
+    \input{images/noise.pgf}
+    \caption{Caption}
+    \label{fig:noise_moench}
+\end{figure}
 \section{Detektionsvorgänge der einzelnen Photonen}
 \label{text:single_photon_theorie}
 kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (SNR oder so was) vergleichen und sagen, welches besser sein soll...
