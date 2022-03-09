@@ -30,20 +30,21 @@ Die Streuung an einem Element wird durch den elementspezifischen atomaren Streuf
 f(h\nu) = (\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{e}_0})f_c - i(\mathbf{\hat{e}_f^*} \times \mathbf{\hat{e}_0})\cdot\mathbf{\hat{m}}f_{m1}+(\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{m}})(\mathbf{\hat{e}_0}\cdot\mathbf{\hat{m}})f_{m2} + \dots
 \label{eq:atomfaktoren}
 \end{align}
-beschrieben, wobei $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ - die einfallenden und auslaufenden normierten Polarisationsvektoren, $\mathbf{\hat{m}}$ - der Einheitsvektor entlang der Magnetisierungsachse und $f_c, f_{m1}, f_{m2}$ - die konstanten Streukoeffizienten von Atom.
+beschrieben, wobei $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ - die einfallenden und auslaufenden normierten Polarisationsvektoren, $\mathbf{\hat{m}}$ - der Einheitsvektor entlang der Magnetisierungsachse und $f_c, f_{m1}, f_{m2} \in \mathbb{C}$ - die konstanten Streukoeffizienten von Atom.
 
 \noindent
-Die normierten Polarisationsvektoren sind in dem \emph{Jones-Formalismus} gegeben. D.h., dass die Ausbreitungsrichtung $\mathbf{k} = \mathbf{e_{z}}$ ein $z$-Einheitsvektor ist und die lineare Polarisation in $x$- bzw. $y$-Richtung durch die Vektoren
+Die normierten Polarisationsvektoren sind in der Basis von \emph{Jones-Vektoren} gegeben. D.h., dass der Wellenvektor der einlaufenden Welle $\mathbf{k_0} = \mathbf{e_{z}}$ ein $z$-Einheitsvektor ist und die lineare Polarisation in $x$- bzw. $y$-Richtung durch die Vektoren
 \begin{equation}
     \mathbf{\hat{e}_{\text{lin $x$}}} = \begin{pmatrix}
     1\\
     0
     \end{pmatrix}
-    \text{und }
+    \text{bzw. }
     \mathbf{\hat{e}_{\text{lin $y$}}} = \begin{pmatrix}
     0\\
     1
-    \end{pmatrix}    
+    \end{pmatrix}
+    \label{eq:lin_jones}
 \end{equation}
 beschrieben wird, wobei die rechts bzw links zirkulare Polarisation sich durch die Vektoren 
 \begin{equation}
@@ -51,25 +52,29 @@ beschrieben wird, wobei die rechts bzw links zirkulare Polarisation sich durch d
     1\\
     +i
     \end{pmatrix}
-    \text{und }
+    \text{bzw. }
     \mathbf{\hat{e}_-} = \frac{1}{\sqrt{2}}\begin{pmatrix}
     1\\
     -i
-    \end{pmatrix}    
+    \end{pmatrix}
+    \label{eq:circ_jones}
 \end{equation}
-darstellen lässt.
+darstellen lässt. Unter anderem gilt die folgende Beziehung zwischen den Vektorenpaaren:
+\begin{equation}
+    \mathbf{\hat{e}_{\text{lin $x$}}} = \frac{1}{\sqrt{2}}(\mathbf{\hat{e}_+} + \mathbf{\hat{e}_-}) \text{ bzw. } \mathbf{\hat{e}_{\text{lin $y$}}} = \frac{-i}{\sqrt{2}}(\mathbf{\hat{e}_+} - \mathbf{\hat{e}_-})
+\end{equation}
 
 \noindent
-Die Streukoeffizienten lassen sich nach der physikalischen Natur der Streuung voneinander unterscheiden. Der Streuung, die mit dem Koeffizienten $f_c$ beschrieben wird, liegt die Ladung des Atoms zugrunde. Für die Beschreibung der Streuung, die sich auf den magnetischen Effekten basieren, dienen die Koeffizienten $f_{m1}$ und $f_{m2}$.
+Die Streukoeffizienten lassen sich nach der physikalischen Natur der Streuung voneinander unterscheiden. Der Streuung, die mit dem Koeffizienten $f_c$ beschrieben wird, liegt die Ladung des Atoms zugrunde. Für die Beschreibung der Streuung, die sich auf den magnetischen Effekten basiert, dienen die Koeffizienten $f_{m1}$ und $f_{m2}$.
 
 
 \noindent
 Für den Photonenergiebereich $h\nu$, der weit von der Resonanzabsorptionsfrequenz des Elements liegt, sind die Streukoeffizienten  $f_{m1}, f_{m2}$ öfters klein gegen $f_c$ und werden daher vernachlässigt. Aus diesem Grund hängt der Streufaktor $f(h\nu)$ in dem Bereich lediglich von den Polarisationsvektoren $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ ab.
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \input{wellenvektoren.pdf_tex}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:wellenvektoren}
 \end{figure}
 
 \noindent
@@ -77,26 +82,35 @@ Im Photonenenergiebereich $h\nu$, der nah an der Resonanzabsorptionsfrequenz des
 
 
 \noindent
-Weiter wird die Wechselwirkung mit einem magnetischkontrasten Material betrachtet. Die theoretischen Grundlagen der physikalischen Prozessen, die zur Entstehung einer räumlich periodischen abwechselnden Magnetisierungsstruktur im Festkörper führen, gehören nicht zum Hauptthema dieser Arbeit und werden daher weggelassen.  
+Weiter wird die Wechselwirkung mit einem magnetischkontrasten Material genauer betrachtet. Die theoretischen Grundlagen der physikalischen Prozessen, die zur Entstehung einer räumlich periodischen abwechselnden Magnetisierungsstruktur im Festkörper führen, gehören nicht zum Hauptthema dieser Arbeit und werden daher weggelassen.  
 
 \noindent
 Für eine Probe mit der perpendikulären Ausrichtung der magnetischen Domänen sieht die Transmissionsgeometrie der Streuung wie folgt aus:
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \input{magnet_domain.pdf_tex}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:transmission_geometrie}
 \end{figure}
-
+Betrachtet man den Fall der zirkular polarisierten ein- und auslaufenden Strahlung, ergibt sich aus den Gleichungen (\ref{eq:atomfaktoren}) und (\ref{eq:lin_jones}) die folgende Beziehung:
+\begin{equation}
+    f_{+-}(h\nu)=\mathbf{k_0}f_{c}\mp \mathbf{k_0}\mathbf{\hat{m}} f_{m1}
+\end{equation}
 %  Kurze Einleitung, wie man die Röntgenstrahlung durch Belichten eines wolframzylinders bekommt (verweis auf TU-Paper). DAS SPEKTRUM von Pape
 % \section{Resonante Röntgenstreuung von mesoskopischen magnetischen Texturen}
 
 Die Probe ist nach dem Rezept \cite{tripathi_dichroic_2011} hergestellt. MFM Bilder, Simulation mit \cite{schick_udkm1dsim_2021}.
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.25\textwidth]{images/ds220126_R1_membrane_amplitude_cropped.png}
     \caption{Die aufgenommenen Domäne von der Probe. Aufgenommen mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im MFM Modus.}
     \label{fig:mfm_amplitude}
+\end{figure}[ht]
+\begin{figure}
+    \centering
+    \input{images/ds220107_R1_moke.pgf}
+    \caption{Caption}
+    \label{fig:hysterese_sample}
 \end{figure}
 %„ “
 
