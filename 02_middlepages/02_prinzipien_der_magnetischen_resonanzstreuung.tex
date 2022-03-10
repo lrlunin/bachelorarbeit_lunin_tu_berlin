@@ -1,24 +1,3 @@
-\chapter{Einleitung}
-\label{text:einleitung}
-Magnetische Domänen stellen ein großes Interesse in dem Bereich von Festkörperphysik dar. Zum Durchführen der Streuexperimentean an den mikroskopischen magnetischen Strukturen wird die Röntgenstrahlung verwendet. Die vorausgesetzten Anforderungen an die Kohärenz und Brillanz der Quelle können hauptsächlich nur mithilfe von speziellen Anlagen wie Synchrotron oder Freie-Elektronen-Laser erfüllt werden. Limitierte Kapazität, technische Komplexität und Einzigartigkeit solcher Anlagen bestimmt (legt fest) eine (strikte) zeitliche Grenze, innerhalb deren ein Experiment durchgeführt werden kann. Unter anderem (Darüber hinaus) tauchen die zusätzlichen Anforderungen in Form von zeitaufwendiger Einarbeitung und pausenlosem mehrtägigem Einsatz der Mitarbeiter auf.
-
-\noindent
-Davon ausgehend, wäre die Möglichkeit bevorzugt, diese Art von Experimenten im Labor durchzuführen. Die vergleichbaren Strahlungscharakteristiken  sind allerdings mit den existierenden Röntgenquellen im Labor nicht erreicht. Da es bisher technisch bedingt nicht realisierbar ist, können die Messergebnisse durch die neuen Mess- und Auswertungsmethoden verbessert werden.
-
-%weiche röntgenstrahlung, kleiner Flux -> kleiner Kontrast
-\noindent
-Das Ziel dieser Arbeit ist so ein Mess- und Auswertungsverfahren mit dem Einsatz der Kurzpulsquelle weicher Röntgenstrahlung anzubieten (herauszufinden), in dem man einzelne Photonen in einem Streubild detektieren und die von Hintergrundrauschen des Bildes (ab)trennen kann. Eine besondere Herausforderung 
-MOTIVATION SINGLE PHOTON COUNTING
-
-Idee: für die höhere x-ray Energien ist es möglich die Photonen von dem Rauschen mit einem Komporator (x > threshold) zu trennen. In dem Weichröntgenbereich ist es nicht möglich. Die Innovation liegt daran:  einzelne Photonen in den Aufnahmen mit ultrakurzen Belichtungszeiten zu erkennen, was in Verbindung mit einer hervorragend kurzen Auslesezeit des Detektors ermöglicht, die rauschenlosen Aufnahmen zu bekommen.
-
-% Ich habe noch ganz vergessen, was zu deinem Inhaltsverzeichnis des Theorieteils deiner Arbeit zu sagen. Im Prinzip hast du die richtigen Themen erkannt. Ich würde etwas weiter einengen:
-% 1. Resonante Röntgenstreuung von mesoskopischen magnetischen Texturen – bitte lass uns rechtzeitig darüber reden, was da genau rein soll.
-% 2. Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen – hier benötigst du fast ausschließlich das Paper von Daniel (https://www.osapublishing.org/optica/abstract.cfm?uri=optica-8-9-1237). Einfach die technischen Details zusammenfassen.
-% 3. Der MÖNCH-Detektor – Hier bitte die Paper von den PSI-Leuten nutzen. Nicht zu viel allgemeines, lieber genau den MÖNCH-Detektor erklären.
-% 4. Droplet Algorithmen – kurze Übersicht und dann genauer ein Algorithmus, den du ausprobieren möchtest.
-% e Qualität bietet sich das Signal-Rausch-Verhältnis (engl. signal-to-noise-ratio, kurz: SNR) 
-
 \newacronym{moke}{MOKE}{magnetooptischer Kerr-Effekt}
 \chapter{Prinzipien der magnetischen Resonanzstreuung}
 \label{text:streuung}
@@ -34,10 +13,11 @@ f(h\nu) = (\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{e}_0})f_c - i(\mathbf{\hat{e}
 beschrieben, wobei $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ - die einfallenden und auslaufenden normierten Polarisationsvektoren, $\mathbf{\hat{m}}$ - der Einheitsvektor entlang der Magnetisierungsachse und $f_c(h\nu), f_{m1}(h\nu), f_{m2}(h\nu) \in \mathbb{C}$ - die energieabhängigen Streukoeffizienten von Atom. Die letzten werden auch häufig durch die Paaren von reellen Koeffzienten
 \begin{equation}
     \begin{split}
-    f_c(h\nu) &= f_{c,1} + if_{c,2}\\
-    f_{m1}(h\nu) &= f_{m1,1} + if_{m1,2}\\
-    f_{m2}(h\nu) &= f_{m2,1} + if_{m2,2}
+    f_c(h\nu) &= f_{c,1}(h\nu) + if_{c,2}(h\nu)\\
+    f_{m1}(h\nu) &= f_{m1,1}(h\nu) + if_{m1,2}(h\nu)\\
+    f_{m2}(h\nu) &= f_{m2,1}(h\nu) + if_{m2,2}(h\nu)
 \end{split}
+\label{eq:komplex_paar}
 \end{equation}
 gegeben.
 
@@ -79,7 +59,7 @@ Die Streukoeffizienten lassen sich nach der physikalischen Natur der Streuung vo
 
 
 \noindent
-Für den Photonenergiebereich $h\nu$, der weit von der Resonanzabsorptionsfrequenz des Elements liegt, sind die Streukoeffizienten  $f_{m1}, f_{m2}$ öfters klein gegen $f_c$ und werden daher vernachlässigt. Aus diesem Grund hängt der Streufaktor $f(h\nu)$ in dem Bereich lediglich von den Polarisationsvektoren $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ ab.
+Für die Photonenfrequenz $\nu_{\text{nichtresonant}}$, die weit von der Resonanzabsorptionsfrequenz des Atoms liegt, sind die magnetischen Streukoeffizienten  $f_{m1}, f_{m2}$ ungefähr gleich 0. Aus diesem Grund hängt der Streufaktor $f(h\nu_{\text{nichtresonant}})$ lediglich von den Polarisationsvektoren $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ ab.
 \begin{figure}[ht]
     \centering
     \input{wellenvektoren.pdf_tex}
@@ -88,14 +68,14 @@ Für den Photonenergiebereich $h\nu$, der weit von der Resonanzabsorptionsfreque
 \end{figure}
 
 \noindent
-Im Photonenenergiebereich $h\nu$, der nah an der Resonanzabsorptionsfrequenz des Atoms liegt, nehmen die Streukoeffizienten $f_{m1}, f_{m2}$ zu und leisten den dominierenden Beitrag zum Gesamtwert des Streufaktors $f(h\nu)$. Es ist auch wichtig zu beachten, dass der Streufaktor $f(h\nu)$ nun auch von der räumlichen Ausrichtung der Magnetisierungsachse $\mathbf{\hat{m}}$ in Bezug auf $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ abhängt.
+Im Photonenfrequenzbereich $\nu_\text{resonant}$, der nah an der Resonanzabsorptionsfrequenz des Atoms liegt, nehmen die Streukoeffizienten $f_{m1}, f_{m2}$ zu und leisten den wesentlichen Beitrag zum Gesamtwert des Streufaktors $f$. Es ist auch wichtig zu beachten, dass der Streufaktor $f(h\nu_\text{resonant})$ nun sowohl von den Polarisationsvektoren $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$, als auch von der räumlichen Ausrichtung der Atommagnetisierungsachse des  $\mathbf{\hat{m}}$ in Bezug auf $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ abhängt.
 
 
 \noindent
 Weiter wird die Wechselwirkung mit einem magnetischkontrasten Material genauer betrachtet. Die theoretischen Grundlagen der physikalischen Prozessen, die zur Entstehung einer räumlich periodischen abwechselnden Magnetisierungsstruktur im Festkörper führen, gehören nicht zum Hauptthema dieser Arbeit und werden daher weggelassen.  
 
 \noindent
-Für eine Probe mit der perpendikulären Ausrichtung der magnetischen Domänen sieht die Transmissionsgeometrie der Streuung wie folgt aus:
+Die Transmissionsgeometrie der Streuung an einer Probe mit der perpendikulären Ausrichtung der magnetischen Domänen ist in der Abb. \ref{fig:transmission_geometrie} dargestellt.
 \begin{figure}[ht]
     \centering
     \input{magnet_domain.pdf_tex}
@@ -111,7 +91,7 @@ Betrachtet man den Fall der zirkular polarisierten ein- und auslaufenden Strahlu
 \end{equation}
 %  Kurze Einleitung, wie man die Röntgenstrahlung durch Belichten eines wolframzylinders bekommt (verweis auf TU-Paper). DAS SPEKTRUM von Pape
 % \section{Resonante Röntgenstreuung von mesoskopischen magnetischen Texturen}
-Nach der \emph{Bornsche Näherung} lässt sich die Intensität der Streuung $I$ an den $N$-Atomen als die Summe der Streuung an jedem $n$-ten Atom darstellen. Die Streuung am $n$-ten Atom wird  als Produkt dessen Streufaktors mit dem Streuufaktor $f_{\pm}^n$ mit dem Term $e^{i\mathbf{qr_n}}$ definiert.
+Nach der \emph{Bornsche Näherung} lässt sich die Intensität der Streuung $I$ an den $N$-Atomen als die Summe der Streuung an jedem $n$-ten Atom darstellen. Die Streuung am $n$-ten Atom wird  als Produkt dessen Streufaktors mit dem Streuufaktor $f_{\pm}^n$ mit dem Term $e^{i\mathbf{qr_n}}$ definiert, wobei $\mathbf{q}$ - der Streuvektor ist.
 
 \begin{equation}
     I_{\pm} \propto \left| \sum_{n}^N f_{\pm}^n e^{i\mathbf{qr_n}} \right|^2 \propto^{(\ref{eq:faktor_zirc})} \left| \sum_{n}^N (f_{c}^n\mp \mathbf{k_0}\mathbf{\hat{m}}^n f_{m1}^n) e^{i\mathbf{qr_n}} \right|^2
@@ -134,13 +114,19 @@ wobei $\text{Re}(z)$ - der reelle Teil der komplexen Größe ist. Nach der Gleic
     I_{\text{lin $x$}} \propto I_+ + I_- \propto  \left| F_c \right|^2 + \left| F_m \right|^2
     % \left| F_c \right|^2 \underbrace{-2\text{Re}(F_c^*F_m) + 2\text{Re}(F_c^*F_m)}_{=0} + \left| F_m \right|^2 =
 \end{equation}
-bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Der Summand $\left|F_m\right|^2$ kann in Hinblick auf die Gleichung (\ref{eq:fc_fm_substitution}) umgeschrieben werden und als
+bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Der Summand $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden
 \begin{equation}
-    1+1 =2
+    \left|F_m\right|^2 =  \left|\sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n \left[(f_{m1,1}^n)^2 + (f_{m1,2}^n)^2\right] e^{i\mathbf{qr_n}}\right|^2 ,
 \end{equation}
-
-
-\noindent
+und im Falle der Resonanzbedingungen, die nur für ein Element auftreten ($f_{m1}^n = \text{konst } \forall n \in N$), weiter vereinfacht werden. Also ergibt sich die folgende Beziehung
+\begin{equation}
+   \left|F_m\right|^2 = (f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}),
+\end{equation}
+wobei $S_m(\mathbf{q})$ - die Fourier-Transformierte magnetische Topographie der Probe ist. D.h., dass die Intensität 
+\begin{equation}
+    I_{\text{lin $x$}} \propto  \left| F_c \right|^2 + \left(f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}\right)
+\end{equation}
+\section{Probenvorbereitung}
 Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets \textit{udkm1Dsim} \cite{schick_udkm1dsim_2021} wurden die Kontrastextremen in Bezug auf Wiederholungszahl von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht bei den Photonenenergien $h\nu_1 = \SI{706.97}{\eV}$ und $h\nu_2 = \SI{1184.79}{\eV}$, die den Resonanzenergien von Fe und Gd entsprechen, gesucht. Die Werte von Koeffizienten $f_{m1}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto_x-ray_2005} abgeleitet.
 
 \noindent
@@ -152,7 +138,7 @@ Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird,
 \noindent
 Die zweite Probe, die weiter unter dem Namen \textbf{DS220126} bezeichnet wird, besteht aus 116 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus
 Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). 
-Die Probe ist nach dem Rezept \cite{tripathi_dichroic_2011} hergestellt. MFM Bilder, Simulation mit .
+Die Probe ist nach dem Rezept \cite{tripathi_dichroic_2011} hergestellt. MFM Bilder, Simulation mit . ABSOLUTER BETRAG VON TP**2 VERGLEICHEN UND ZEIGEN, DASS DIES BEI GD HÖHER IST. 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.25\textwidth]{images/ds220126_R1_membrane_amplitude_cropped.png}
