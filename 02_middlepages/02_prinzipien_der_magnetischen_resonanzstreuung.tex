@@ -1,4 +1,5 @@
 \newacronym{moke}{MOKE}{magnetooptischer Kerr-Effekt}
+\newacronym[user1=\emph{engl. magnetic force microscope}]{mfm}{MFM}{Magnetkraftmikroskop}
 \chapter{Prinzipien der magnetischen Resonanzstreuung}
 \label{text:streuung}
 In diesem Kapitel werden die Aspekte der magnetischen Streuung erläutert, um besseres Verständnis und Motivation zur Wahl des Experimentaufbaus dadurch zu bringen. Die Theorie basiert sich auf hauptsächlich \cite{kortright_resonant_2013}. 
@@ -126,42 +127,53 @@ wobei $S_m(\mathbf{q})$ - die Fourier-Transformierte magnetische Topographie der
 \begin{equation}
     I_{\text{lin $x$}} \propto  \left| F_c \right|^2 + \left(f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}\right)
 \end{equation}
-Der Betrag des ersten Summanden $\left|F_c\right|^2$ ist wesentlich höher sowohl für Fe \cite[Abb. 7]{kortright_resonant_2013}, als auch für Gd \cite[Abb. 5]{peters_soft_2004}. Der bleibt allerdings konstant, wobei der zweite Summand durch den Faktor $S_m(\mathbf{q)}$ erhöht werden kann. Um dies Verfahren geht es im nächsten Abschnitt.
+Der Betrag des ersten Summanden $\left|F_c\right|^2$ ist wesentlich höher als die Summe $(f_{m1,1}^2 + f_{m1,2}^2)$ sowohl für Fe \cite[Abb. 7]{kortright_resonant_2013}, als auch für Gd \cite[Abb. 5]{peters_soft_2004}. RESONANTFREQUNZEN FUR FE UND GD LIEGEN WEIT VON EINANDER UND KÖNNEN SEPARAT BETRACHTET WERDEN. Der bleibt allerdings konstant, wobei der zweite Summand durch den Faktor $S_m(\mathbf{q)}$ erhöht werden kann. Um dies Verfahren geht es im nächsten Abschnitt.
 
 \section{Probenvorbereitung}
-Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets \textit{udkm1Dsim} \cite{schick_udkm1dsim_2021} werden für die  in Bezug auf Wiederholungszahl von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht bei den Photonenenergien $h\nu_1 = \SI{706.97}{\eV}$ und $h\nu_2 = \SI{1184.79}{\eV}$, die den Resonanzenergien von Fe und Gd entsprechen, gesucht. Die Wahl dieser zwei Elementen wird später im Abschnitt (Kapitel) \ref{text:quelle_roentgen} motiviert. Die Werte von Koeffizienten $f_{m1}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto_x-ray_2005} abgeleitet.
+Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die optimale Dicke bzw. Wiederholungszahl N von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_1 = \SI{706.97}{\eV}$ und $h\nu_2 = \SI{1184.79}{\eV}$, die den Resonanzenergien von Fe und Gd entsprechen, gesucht. Die Wahl dieser zwei Elementen wird später im Kapitel \ref{text:quelle_roentgen} motiviert. Die Werte von Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto_x-ray_2005} abgeleitet.
 
 \noindent
-Die mit dem Programmpaket werden die Transmissionen $T$ für links recht polarisierten berechnet. Dann P = T+ - T- / Tavg und dann TP2 abbilden.
-\begin{figure}[ht]
+Mit dem Programmpaket werden die Transmissionen T$_+$ und T$_-$ fürs rechts und links polarisierte Licht berechnet. Die durchschnittliche Transmission
+\begin{equation}
+    \bar{\text{T}} = \frac{\text{T}_+ + \text{T}_-}{2}
+\end{equation}
+wird ermittelt und zur Berechnung der Gütezahl der Streuungsintesität
+\begin{equation}
+    \text{TP}^2 = \bar{\text{T}}\cdot\left(\frac{\text{T}_+ - \text{T}_-}{\bar{\text{T}}}\right)^2
+\end{equation}
+verwendet. Die größere Gütezahl $\text{TP}^2$ entspricht der höheren Streuungsintensität und muss deswegen maximiert werden. Die verfügbare Herstellungstechnologie von mehrschichtigen Systemen limitiert die maximale Schichtenzahl einer Probe. Ohne allzu große technische Herausforderungen könnte eine Probe mit 200 Wiederholungen erstellt werden. Aus diesem Grund werden die Maxima im Bereich der Wiederholungszahl N von 1 bis 200 gesucht.
+
+\noindent
+In der Abb. \ref{fig:proben_vergleich} (oder) \ref{fig:proben_vergleich_centered} sind die Rechenergebnisse aufgetragen. (\textcolor{red}{\textbf{Anmerkung für Bastian: Welche Abbildung von zwei scheint besser zu sein und soll bleiben?}}) Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_1=52$ bzw. $N_2=72$ für die Photonenenergien $h\nu_2=\SI{1184,79}{\eV}$ bzw. $h\nu_1=\SI{706,97}{\eV}$. Außerdem ist es wichtig, dass  dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenrgie $h\nu_2=\SI{1184,79}{\eV}$ ca. zwei mal so groß als bei der Photonenenrgie $h\nu_1=\SI{706,97}{\eV}$ ist. Diese Tatsache bezeichnet die Photonenenergie $h\nu_2$ als die bevorzugte zur Durchführung der Streuexperimente.
+\begin{figure}[H]
     \centering
     \input{images/proben_vergleich.pgf}
-    \caption{Die Hysteresekurve von der Probe \textbf{DS220126}. Aufgenommen mit dem selbskonstruirten Messgerät, das sich auf dem \gls{moke} basiert. Das magnetische Feld $B$ wird senkrecht zu der Probenfläche angelegt (in Plane).}
+    \caption{Die Abhängigkeit der Transmission T (orange Linien) und Gütezahl TP$^2$ (blaue Linien) einer Probe ist in Bezug auf Wiederholungszahl N abgebildet. Die Maxima der Gütezahl TP$^2$ werden bei der Wert $N=52$ für die Photonenenergien $h\nu_2=\SI{1184,79}{\eV}$ (blaue punktierte Linie) bzw. bei der Wert $N=72$ für die Photonenenergie $h\nu_1=\SI{706,97}{\eV}$ (blaue durchgezogene Linie) erreicht.}
     \label{fig:proben_vergleich}
 \end{figure}
-\begin{figure}[ht]
+\noindent
+
+\begin{figure}[h]
     \centering
     \input{images/proben_vergleich_split_center.pgf}
-    \caption{Die Hysteresekurve von der Probe \textbf{DS220126}. Aufgenommen mit dem selbskonstruirten Messgerät, das sich auf dem \gls{moke} basiert. Das magnetische Feld $B$ wird senkrecht zu der Probenfläche angelegt (in Plane).}
+    \caption{Die Abhängigkeit des Transmissionsmittelwertes $\bar{\text{T}}$ (orange Linien) und der Gütezahl TP$^2$ (blaue Linien) einer Probe ist in Bezug auf Wiederholungszahl N abgebildet. Die Maxima der Gütezahl TP$^2$ werden bei der Wert $N=52$ für die Photonenenergie $h\nu_2=\SI{1184,79}{\eV}$ (blaue punktierte Linie) bzw. bei der Wert $N=72$ für die Photonenenergie $h\nu_2=\SI{706,97}{\eV}$ (blaue durchgezogene Linie) erreicht.}
     \label{fig:proben_vergleich_centered}
 \end{figure}
 
 \noindent
-Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, 
+Als Schlussfolge werden insgesamt zwei Proben hergestellt:
+Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, besteht aus 61 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Die Wiederholungszahl $\bar{N} = 61$ wurde als Mittelwert zwischen den Werten $N_1 = 52$ und $N_2 = 72$ genommen, um nur eine Probe herzustellen und dem zufolge die hochwertigen Materialien und die Produktionszeit zu sparen.
 
 \noindent
-Die zweite Probe, die weiter unter dem Namen \textbf{DS220126} bezeichnet wird, besteht aus 116 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus
-Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). 
-Die Probe ist nach dem Rezept \cite{tripathi_dichroic_2011} hergestellt.
+Die zweite zu produzierende Probe, die weiter unter dem Namen \textbf{DS220126} bezeichnet wird, besteht aus 116 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus
+Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Für die Wahl der Wiederholungszahl $N=116$ wurde \cite[Abschnitt „Sample Preparation“]{tripathi_dichroic_2011} als Referenz genommen.
 
-
-MFM Bilder, Simulation mit . ABSOLUTER BETRAG VON TP**2 VERGLEICHEN UND ZEIGEN, DASS DIES BEI GD HÖHER IST.
 \begin{figure}[ht]
     \centering
     \subfloat[]{\includegraphics[width=0.25\textwidth]{images/ds220126_R1_membrane_amplitude_cropped.png} \label{fig:mfm_ds220126}}
     \hspace{5mm}
     \subfloat[]{\includegraphics[width=0.25\textwidth]{images/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
-    \caption{Die aufgenommenen Domäne von der Probe (a) \textbf{DS220126} und (b) \textbf{ds211221}. Aufgenommen mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im MFM Modus.}
+    \caption{Die aufgenommenen Domäne von der Probe (a) \textbf{DS220126} und (b) \textbf{DS211221}. Aufgenommen mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im MFM Modus.}
     \label{fig:mfm_amplitude}
 \end{figure}
 \begin{figure}[ht]

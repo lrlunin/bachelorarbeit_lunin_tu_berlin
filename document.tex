@@ -21,7 +21,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{url}
-\usepackage[a4paper,left=2.5cm,right=2.0cm]{geometry}
+\usepackage[a4paper,left=2.5cm,right=2.0cm, bottom=2.5cm]{geometry}
 \usepackage[ngerman]{babel}
 %\usepackage{esvect}
 %\usepackage{caption}
@@ -37,6 +37,7 @@
 \usepackage{booktabs}
 %\usepackage{subcaption}
 \usepackage[position=top, justification=raggedright, singlelinecheck = false]{subfig}
+
 \usepackage{pict2e}
 \usepackage{tablefootnote}
 \usepackage{overpic}
@@ -103,8 +104,8 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LO]{\nouppercase{\leftmark}} % \rightmark
-\fancyhead[R]{}
-\fancyfoot[C]{\thepage}
+\fancyhead[R]{\thepage}
+%\fancyfoot[C]{}
 %\pagestyle{headings}
 %\markright{Lunin \hfill Röntgenabsorptions-Feinstruktur-Sepktroskopie \hfill}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
