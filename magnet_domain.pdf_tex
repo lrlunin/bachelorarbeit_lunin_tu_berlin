@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{183.68503991bp}%
+    \setlength{\unitlength}{371.6469841bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,14 +50,20 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.42438271)%
+  \begin{picture}(1,0.28735151)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{magnet_domain.pdf}}%
-    \put(0.24258376,0.22225406){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{k_0}$, $\mathbf{\hat{e}_0}$\end{tabular}}}}%
+    \put(0.1766401,0.1442051){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{k_0}$, $\mathbf{\hat{e}_0}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{magnet_domain.pdf}}%
-    \put(0.50886529,0.23973789){\rotatebox{23.987384}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{k_f}$, $\mathbf{\hat{e}_f}$\end{tabular}}}}}%
-    \put(0.80408034,0.25700014){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{q}$\end{tabular}}}}%
+    \put(0.57507289,0.18192537){\rotatebox{25.50967533}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{k_f}$, $\mathbf{\hat{e}_f}$\end{tabular}}}}}%
+    \put(0.8185202,0.18874538){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{q}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{magnet_domain.pdf}}%
+    \put(0.09177578,0.02404871){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$z$\end{tabular}}}}%
+    \put(0.03909818,0.10348246){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y$\end{tabular}}}}%
+    \put(-0.00101822,0.01828289){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
+    \put(0.47609001,0.26871614){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\mathbf{\hat{m}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{magnet_domain.pdf}}%
+    \put(0.69198464,0.16567964){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$2\theta$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
