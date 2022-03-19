@@ -2,6 +2,7 @@
 \label{text:moench_theorie}
 \newacronym[user1=\emph{engl. analog-digital untis}]{adu}{ADU}{Analog-Digital-Wandler Auslese}
 \newacronym[user1=\emph{engl. complementary metal-oxide-semiconductor}]{cmos}{CMOS}{komplementärer Metall-Oxid-Halbleiter}
+\newacronym{ptb}{PTB}{Physikalisch-Technische Bundesanstalt}
 Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet. Die zur Verfügung stehenden Werte werden in \gls{adu} angegeben. \cite{bergamaschi_monch_2018}
 Kurze Einletung zum MOENCH (Verweis auf Moench papers), Velgleich mit CCD, Vorteile 
 im Sinne der Auslesezeit.... NOISE VERHALTNIS  UND QUANTUM EFFICENCY
@@ -11,15 +12,18 @@ Der Detektor bildet die Intensität in \gls{adu} ab. In der Abb. \ref{fig:respon
 \begin{figure}[H]
     \centering
     \input{images/response_700_1400ev.pgf}
-    \caption{Caption}
+    \caption{Die Sensorresponse und die berechnete Quantumeffizienz des MÖNCH-Detektors in Bezug auf die Photonenenergie $h\nu$. Die entsprechenden Messungen an der kalibrierten Röntgenquelle von \gls{ptb} wurden am 8. Oktober 2020 durchgeführt.}
     \label{fig:response_moench}
 \end{figure}
+Die von uns vermessenen und ausgewerteten Rauschen-Charakteristiken sind eben besser (niedriger) im Vergleich mit dem Paper \cite{ramilli_measurements_2017}.
 \begin{figure}[H]
     \centering
     \input{images/noise.pgf}
-    \caption{Caption}
+    \caption{Der Rauschcharakteristik des MÖNCH-Detektors in Bezug auf die Belichtungszeit $\tau$. Die entsprechenden Messungen wurden am 2. März 2022 durchgeführt.}
     \label{fig:noise_moench}
 \end{figure}
 \section{Detektionsvorgänge der einzelnen Photonen}
 \label{text:single_photon_theorie}
 kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (SNR oder so was) vergleichen und sagen, welches besser sein soll...
+
+\chapter{Experimenteller Aufbau}

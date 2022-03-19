@@ -54,20 +54,21 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{ferromagnet_antiferromagnet.pdf}}%
-    \put(0.19807416,0.16689811){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
-    \put(0.19807416,0.13057331){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
-    \put(0.19807416,0.09021239){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
-    \put(0.19807416,0.05388757){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
-    \put(0.58103392,0.16802126){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
-    \put(0.58103392,0.13169643){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
-    \put(0.58103392,0.09133552){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
-    \put(0.58103392,0.05501069){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
+    \put(0.14928,0.17601538){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
+    \put(0.1500007,0.13644726){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{ferromagnet_antiferromagnet.pdf}}%
     \put(0.00764531,0.01869925){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y$\end{tabular}}}}%
     \put(0.05942951,0.098133){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$z$\end{tabular}}}}%
     \put(0.09954591,0.01293344){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{ferromagnet_antiferromagnet.pdf}}%
-    \put(0.35661691,0.2271284){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda_{\text{AF}}$\end{tabular}}}}%
-    \put(0.74004532,0.2271284){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda_{\text{FM}}$\end{tabular}}}}%
+    \put(0.35437861,0.22738322){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda_{\text{AF}}$\end{tabular}}}}%
+    \put(0.80548746,0.22754032){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\lambda_{\text{FM}}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{ferromagnet_antiferromagnet.pdf}}%
+    \put(0.14928012,0.09345569){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
+    \put(0.15000082,0.05388757){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
+    \put(0.60132227,0.17601538){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
+    \put(0.60204297,0.13644726){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
+    \put(0.60132239,0.09345569){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gd\end{tabular}}}}%
+    \put(0.60204309,0.05388757){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fe\end{tabular}}}}%
   \end{picture}%
 \endgroup%

@@ -133,30 +133,52 @@ Betrachtet werden die Photonenenergien der L$_{3}$-Absorptionslinie $h\nu_{\text
 \noindent
 Der Betrag des ersten Summanden $\left|F_c\right|^2$ ist wesentlich höher als die Summe $(f_{m1,1}^2 + f_{m1,2}^2)$ sowohl für Fe \cite[Abb. 7]{kortright_resonant_2013}, als auch für Gd \cite[Abb. 5]{peters_soft_2004}. Der bleibt allerdings konstant, wobei der zweite Summand durch den Faktor $S_m(\mathbf{q)}$ erhöht werden kann. Um dies Verfahren geht es im nächsten Abschnitt.
 
-\section{magnetisch hochkontraste mehrschichtige Systeme}
-Die starke perpendikulare magnetische Anisotropie, wodurch der höhere Wert von $S_m(\mathbf{q})$ erreicht wird, kann bei mehrschichtigen Systemen getroffen werden, die aus abwechselnden ferro- und antiferromagnetischen Beschichtungen bestehen. Typischerweise werden die Elementenpaare von Co/Pt oder Fe/Gd benutzt.
+\section{Magnetisch hochkontraste mehrschichtige Systeme}
+Damit die weitere Diskussion im Zusammenhang mit der Abbildung \ref{fig:transmission_geometrie} konsistent bleibt, ist die perpendikulare Richtung als $z$-Achse festgelegt. Die Schichten, die weiter behandelt werden, liegen also in den zueinander parallelen $x$-$y$-Ebenen. 
 
 \noindent
-Die Gesamtenergie eines mehrschichtigen Systems ist als die Summe von der Energie der magnetischen Austauschwechselwirkung, Domänenwand-Energie und Energie der magnetischen Anisotropie \cite{hellwig_domain_2007}, \cite[Kap. 3.2]{hubert_magnetic_1998} darzustellen. Solche Systeme haben typischerweise mehrere metastabile Zustände. Die Bildung eines bestimmten Systemzustandes hängt von mehreren inneren und äußeren Faktoren ab. Zu denen gehören die Schichtenzahl, die Temperatur, die Stärke und zeitliche Dynamik externes Magnetfeldes, das angelegt wird oder bereits angelegt wurde.  
+Die starke perpendikulare magnetische Anisotropie, wodurch der höhere Wert von $S_m(\mathbf{q})$ erreicht wird, kann bei mehrschichtigen Systemen getroffen werden, die aus abwechselnden ferro- und antiferromagnetischen Beschichtungen bestehen. Typischerweise werden die Elementenpaare von Co/Pt oder Fe/Gd benutzt. 
+
+\noindent
+Die Gesamtenergie eines Mehrschichtsystems lässt sich als die Summe der folgenden Energien betrachten: Energie der Austauschwechselwirkung, Domänenwand-Energie und Energie der Anisotropie \cite[Kap. 3.2]{hubert_magnetic_1998}, \cite{hellwig_domain_2007}. Die werden weiter genauer betrachtet.
 
 \newacronym{fm}{FM}{ferromagnetisch}
 \newacronym{am}{AM}{antiferromagnetisch}
+\noindent
+Die Austauschwechselwirkung nimmt sehr stark mit dem Abstand ab und deren Einfluss ist deswegen nur auf sehr kurzen Abständen zu betrachten. Die entsteht beispielsweise zwischen den benachbarten Schichten und kann verschieden sein. Sind die Domänenmagnetisierungen der benachbarten Schichten entgegensetzt ausgerichtet - nennt man diese Art der Kopllung \gls{am}. Sind sie in dieselbe Richtung orientiert - heißt diese Kopplung \gls{fm}. Die Art der Kopplung wirkt sich unmittelbar auf die Domänengröße und die Gesamtmagnetisierung der Probe aus. Dies ist schematisch in der Abb. \ref{fig:am_fm_kopplung} dargestellt.
 
 \noindent
-Die Austauschwechselwirkung zwischen den benachbarten Schichten kann \gls{fm} oder \gls{am} stattfinden.
+Die Domänenwand-Energie ...
 
+\noindent
+Die Energie der Anisotropie ist innnerhalb einer Schicht zu betrachten.
+
+
+\noindent
+Solche Systeme haben typischerweise mehrere metastabile Zustände. Die Bildung eines bestimmten Systemzustandes hängt von mehreren inneren und äußeren Faktoren ab. Zu denen gehören die Schichtenzahl, die Temperatur, die Stärke und zeitliche Dynamik externes Magnetfeldes, das angelegt wird oder bereits angelegt wurde.  
+
+%sind die \gls{am}- und \gls{fm}-Kopplung und die resultierende Domänengrößen $\lambda_{\text{AF}}$ und $\lambda_{\text{FM}}$ schematisch dargestellt.
 \begin{figure}[H]
     \centering
     \input{ferromagnet_antiferromagnet.pdf_tex}
-    \caption{Caption}
+    \caption{schematisch dargestellte Austauschwechselwikrung zwischen den benachbarten Schichten am Beispiel von Gd/Fe. Die Kopplung (links) heißt \gls{am} und hat die Domänengröße $\lambda_{\text{AF}}$ und (rechts) heißt \gls{fm} und hat die Domänengröße $\lambda_{\text{FM}}$.}
     \label{fig:am_fm_kopplung}
 \end{figure}
 
 \noindent
-Im Falle 
+Im Falle der \gls{fm}-Kopplung summieren sich die Magnetisierungstärken der einzelnen Schichten auf. Dadurch wird die resultierende Gesammagnetisierung entlang der $z$-Achse verstärkt. Der Spin-Bahn-Kopplung wirkt die Formanistropie innerhalb einer Schicht entgegen. Die Austauschwechselwirkung tritt lediglich an den Grenzschichten auf. D.h., dass die Zahl von Grenzschichten, also die Wiederholungszahl, gegen der Schichtendicke maximiert werden soll, um die möglichst starke \gls{fm}-Kopplung zu erzeugen. 
 
 \noindent
-Die gewünschte hohe perpendikulare magnetische Anisotropie is
+
+
+\noindent
+So ist die gewünschte hohe perpendikulare magnetische Anisotropie ist bei der \gls{fm}-Kopplung zu erreichen.
+
+% * Heterostrukturen aus einem magnetischen Übergangsmetall (Fe, Co, Ni) und einem anderen schweren Metall (Pt, Pd, Au, Gd) können eine senkrechte magnetische Anisotropie ausbilden. Diese Anisotropie entsteht durch Spin-Bahn-Ww an der Grenzschicht. Das funktioniert aber nur, wenn diese Grenzschichteffekte stark gegenüber der Formanisotropie sind, die eigentlich eine in-plane Magnetisierung bevorzugt. Deshalb müssen die Schichten sehr dünn sein.
+% * Um das magnetische Moment zu erhöhen, macht man deshalb ML mit vielen dieser Grenzschichten.
+% * In Fe/Gd besteht noch der Spezialfall, dass Gd auch eine Magnetisierung hat und die Schichten ferrimagnetisch koppeln bzw. noch komplexere Spinstruktuen ausbilden
+% * ML mit einem hohen magnetischen Moment und senkrechter Anisotropie haben im gesättigten Zustand ein hohes Streufeld, das sehr viel Energie kostet. Um diese zu minimieren, bilden die ML Domänen mit entgegengesetzter Magnetisierung aus. Die Bildung von Domänenwänden kostet aber auch wieder Energie (weil die Drehung der Spin in der Domänenwand gegen die AustauschWw geht), was zu einer gewissen Gleichgewichtsbreite der Domänen führt und damit zu sehr regelmäßigen Mustern.
+
 
 \section{Probenvorbereitung}
 Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die optimale Dicke bzw. Wiederholungszahl N von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_1$ und $h\nu_2$ gesucht. Die Wahl dieser zwei Elementen wird später im Kapitel \ref{text:quelle_roentgen} motiviert. Die Werte von Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto_x-ray_2005} abgeleitet.

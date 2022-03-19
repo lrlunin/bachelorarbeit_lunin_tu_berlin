@@ -1,17 +1,49 @@
 \newacronym[user1=\emph{engl. „plasma x-ray source“}]{pxs}{PXS}{Laser getriebene Plasma-Röntgenquelle}
-\newacronym[user1=\emph{engl. „refection zone plate“}]{rzp}{RZP}{Reflexionszonenplatten}
+\newacronym[user1=\emph{engl. „refection zone plate“}]{rzp}{RZP}{Reflexionszonenplatte}
 \chapter{Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen}
 \label{text:quelle_roentgen}
-Als die Quelle der weichen Röntgenstrahlung in den weiteren Experimenten dient die \gls{pxs} \cite{schick_laser-driven_2021}. Deren Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch hochenergetische Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. Das Spektrum von \gls{pxs} wurde mit einem kaliebrierten Spektrometer vermessen und ist in der Abbildung \ref{fig:xps_spectrum} zu sehen.
+Typischerweise werden die Streuexperimente, wie es bereits in der Einleitung erwähnt wurde, mithilfe der Quellen mit der hohen Brillanz durchgeführt. Die Brillanz ist eine Charakteristik
+\begin{equation}
+    B \stackrel{\text{def.}}{=} / := \frac{\Delta N}{t\cdot A \cdot \Delta \Omega \cdot \frac{\Delta \lambda}{\lambda}},
+\end{equation}
+wobei $\Delta N$ - die Anzahl der Photonen pro Zeit $t$, Fläche $A$, Raumwinkel $\Delta \Omega$ und innerhalb der Wellenlängebandbreite $\frac{\Delta \lambda}{\lambda}$ ist, mit der die Bündelung eines emittierten Strahls beschrieben werden kann. Weiter wird die Einheit „\emph{Schwinger}“ benutzt, die wie folgt definiert ist:
+\begin{equation}
+    1 \text{ Sch} = \frac{1 \text{ Photon}}{\si{\second}\cdot \si{\milli\meter\squared}\cdot \si{\milli\radian\squared}\cdot\SI{0,1}{\percent}\text{ Bandbreite}}
+\end{equation}
+Das Synchrotron PETRA III kann als Beispiel einer Quelle mit der hohen Brillanz dienen. Die Brillanzwerte $B_\text{PETRA}$ im Photonenenergiebereich von 0 bis \SI{2000}{\eV} liegen bei ca. $10^{20}$ - $10^{21}$ Sch \cite[Abb. 1]{franz_technical_2006}. Mit Hinblick auf die Strahlfläche, die im Bereich von ca. 10 bis \SI{50}{\micro\meter\squared} liegt, \cite{viefhaus_variable_2013} kann der Photonenfluss des Synchrotrons
+\begin{equation}
+    \text{Q}_\text{PETRA} \approx 10^{17} \frac{\text{Photonen}}{\si{\second}\cdot\si{\milli\radian\squared}\cdot\SI{0,1}{\percent}\text{ Bandbreite}}
+\end{equation}
+abgeschätzt werden.
 
+\noindent
+Ein Synchrotron emittiert die Strahlung in Form der getrennten Pulsen. Die typische Pulslänge $t_\text{PETRA}$ ist \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ kann variiert werden und kann \qtylist{8;16;192}{\nano\second} \cite{petra-values-website} betragen.
+
+\noindent
+Als die Quelle der weichen Röntgenstrahlung in dem weiteren Experiment dient die \gls{pxs}, deren Aufbau in \cite{schick_laser-driven_2021} beschrieben ist. Deren Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch hochenergetische Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. Aus diesem Grund emittiert die \gls{pxs} die Röntgenstrahlung in Form von Pulsen. Im Gegensatz zu PETRA III sind die Pulsslängen $t_\text{PXS}$ wesentlich kürzer sind und betragen ca. \SI{10}{\pico\second}, wobei die Pulsperiode $T_\text{XPS}$ viel größer ist und \SI{10}{\milli\second} beträgt. Das Spektrum von \gls{pxs} wurde mit einem kalibrierten Spektrometer vermessen und ist in der Abbildung \ref{fig:xps_spectrum} zu sehen.
+
+\noindent
+Die emittierte Strahlung wird mithilfe einer \gls{rzp} fokussiert. Zur Verfügung stehen nämlich drei \gls{rzp}, die für die Zielphotonenenergien von Fe (\SI{705}{\eV}), Gd (\SI{1189}{\eV}) und Dy (\SI{1292}{\eV}) konstruiert wurden. Der mit der \gls{rzp} fokussierte Strahl wird in Form einer Sanduhr (oder auch Schmetterling) auf der Detektorfläche (s. Abb. \ref{fig:butterfly_moench}) abgebildet, wobei die Zielphotonenenergie in der Mitte liegt und die benachbarten Photonenenergien entlang der horizontalen Symmetrieachse des Strahlprofils um den Fokupunkt aufgelöst werden. Die Lage des Strahls auf dem Detektor lässt sich sowohl horizontal, als auch vertikal mit den hochpräzisen Schrittmotoren feinjustieren.
 \begin{figure}[H]
     \centering
-    \input{images/xps_spectrum_700_1400.pgf}
-    \caption{BB - Bandbreite}
+    \input{images/butterfly_latex.pgf}
+    %\includegraphics[width=0.4\textwidth]{images/butterfly_sum_26026_frames_plt.png}
+    \caption{Das direkte Strahprofil an dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Der hellste Bereich entspricht der \SI{1189}{\eV}, die Photonenenergie nimmt von unten nach oben ab. Der Bereich, wo die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ abgebildet wurde, ist mit dem rotem Viereck schematisch markiert. Die Position von $h\nu_{\text{Gd, M5}}$ wurde dadurch gefunden, dass die Probe vertikal gefahren wurde und die Stelle der höheren Absorption genommen wurde.}
+    \label{fig:butterfly_moench}
+\end{figure}
+\noindent
+Der Streuungseffekt der Proben ist sehr frequenzselektiv und ist deswegen nur im schmalen Bereich um der Resonanzenergie $h\nu_{\text{Fe, L3}}$ bzw. $h\nu_{\text{Gd, M5}}$ zu erwarten. Diese Energien sind jedoch nicht die Zielenergien der beiden \gls{rzp}. Aus diesem Grund muss der Strahl mit dem Fokuspunkt horizontal verschoben werden, damit die Resonanzenergie mittig an dem Detektor liegt und an die Probe projiziert werden kann. Mit der zunehmenden Entfernung von der Fokuspunkt nimmt die Effizienz und die Abbildungsschärfe, also der Energiebereich pro Längeeinheit entlang der Energieachse, der \gls{rzp} ab. 
+% Gd M4 = 1212eV 
+\begin{figure}[H]
+    \centering
+    \input{images/xps_spectrum_700_1400_mrad.pgf}
+    \caption{Das Spektrum der benutzten \gls{pxs}. Mit der Abkürzung „BB“ ist die Bandbreite zu verstehen. Die schwarzen Hilfelinien mit den Titeln entsprechen den Photonenenrgien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$. Adaptiert von \cite{schick_laser-driven_2021}, mit Genehmigung von \href{https://orcid.org/0000-0001-7988-6489}{Herrn Schick}.}
     \label{fig:xps_spectrum}
 \end{figure}
-Der Strahl kann mithilfe der \gls{rzp} fokussiert werden. Zur Verfügung stehen nämlich die zwei \gls{rzp}, die für die Frequenzen Fe und Gd konstruiert wurden. 
+\noindent
+Nach dem Spektrum der \gls{pxs} (s. Abb. \ref{fig:xps_spectrum}) ist es leicht zu sehen, dass der Photonenfluss von \gls{pxs} Q$_{\text{PXS}}$ sowohl bei $h\nu_{\text{Fe, l3}}$ als auch bei $h\nu_{\text{Gd, M5}}$ ca. 10$^{13}$ mal niedriger als der Photonenfluss von Petra III Q$_\text{PETRA}$ ist. Dies führt dazu, dass der ausreichende Kontrast bei denselben oder vergleichbaren Belichtungszeiten des Detektors nicht erreicht werden kann. In dem Fall gibt es zwei Strategien fürs Aufnahmeverfahren: es kann entweder die extrem hohe Belichtungszeit gesetzt werden, wobei das Hintergrundrauschen des Detektors relativ klein gegen der Belichtungszeit steigt, oder eine Methode vom Trennen des Hintergrundrauschens vom dem Streusignal angewendet werden. Um den zweiten Lösungsweg und die Bedingungen, die dem Detektor auferlegt werden, wird es im nächsten Kapitel genauer diskutiert. 
 
+\noindent
 Die zu untersuchende mehrschichtige Probe (s. Abschnitt \ref{text:streuung}), wie bereits erwähnt wurde, besteht aus Gd und Fe. Mithilfe der \gls{rzp} wird die Energie der M5 Gd-Absorptionskante $E_{Gd, M5} = \SI{1185(1)}{\eV}$ \cite[Abb. 6(a)]{prieto_x-ray_2005} auf die Probe abgebildet.
 
 Justage mit ccd ascan und maximum of signal1/signal2 bezogen auf rzp\_phi 
