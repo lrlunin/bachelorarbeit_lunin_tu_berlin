@@ -2,35 +2,52 @@
 \label{text:moench_theorie}
 \newacronym[user1=\emph{engl. analog-digital untis}]{adu}{ADU}{Analog-Digital-Wandler Auslese}
 \newacronym[user1=\emph{engl. analog-to-digital converter}]{adc}{ADC}{Analog-Digital-Umsetzer}
-\newacronym[user1=\emph{engl. complementary metal-oxide-semiconductor}]{cmos}{CMOS}{komplementärer Metall-Oxid-Halbleiter}
+\newacronym[user1=\emph{engl. com\-ple\-men\-tary metal-oxide-semiconductor}]{cmos}{CMOS}{komplementärer Metall-Oxid-Halbleiter}
 \newacronym[user1=\emph{engl. charge-coupled device}]{ccd}{CCD}{ladungsgekoppeltes Bauteil}
+\newacronym[user1=\emph{engl. active pixel sensor}]{aps}{APS}{aktiver Pixelsensor}
 \newacronym{ptb}{PTB}{Physikalisch-Technische Bundesanstalt}
-Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren (oder Kameras) gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Der einfallende Photonenfluss wird mithilfe mehrerer Fotodioden an der Sensorfläche in die Ladung umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell/grundsätzlich/hauptsächlich zwei Primärtechnologien, wonach alle lichtempfindliche Sensoren sich aufteilen lassen.
+Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren (oder Kameras) gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Das wichtigste Bauteil aller Detektoren ist ein (photonen)lichtempfindlicher Sensor. Die einfallende Photonen werden mit mehreren Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell/grundsätzlich/hauptsächlich zwei Primärtechnologien (Sensorarten), wonach alle Sensoren sich aufteilen lassen.
 
 \section{CCD-Sensor}
-Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. In dieser Art des Sensors wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Dann werden die Ladungen am Leiter durch die zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten), wodurch das Gesamtbild an dem Sensor nach der Reihen ausgelesen wird.
+Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei dieser Art des Sensors wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Dann werden die Ladungen am Leiter durch die zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten), wodurch das Gesamtbild an dem Sensor nach der Reihen ausgelesen wird.
 \begin{figure}[H]
     \centering
-    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_1.pdf} \label{fig:ccd_scheme_frame_1}}
-    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_2.pdf} \label{fig:ccd_scheme_frame_2}}
-    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_3.pdf} \label{fig:ccd_scheme_frame_3}}
-    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_4.pdf} \label{fig:ccd_scheme_frame_4}}
-    \caption{Die Phasen/Schritte vom Ausleseprozess des CCD-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen, die gelben und brauen Tafeln entsprechen den Leiterbereichen, wo der Ladungstransport vertikal bzw. horizontal erfolgt. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden aufgebaut und (b) dann an den vertikalen Leiter übertragen. Die Ladungen von Fotodioden der untersten Reihe (c) werden auf den horizontalen Leiter (Schieberegister) am frühsten kommen. Im Laufe der Zeit (d) werden die Ladungen im Schieberegister weiter nach rechts zum \gls{adc} verschoben. Als die Ladungen der untersten Reihe verarbeitet werden, wiederholt sich der Prozess in den Stufen (c) und (d) bis zu Ende der horizontalen Sensorauflösung.}
+    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_1_amp.pdf} \label{fig:ccd_scheme_frame_1}}
+    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_2_amp.pdf} \label{fig:ccd_scheme_frame_2}}
+    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_3_amp.pdf} \label{fig:ccd_scheme_frame_3}}
+    \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_4_amp.pdf} \label{fig:ccd_scheme_frame_4}}
+    \caption{Die prinzipiellen Schritte vom Ausleseprozess eines 2x2 CCD-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen, die gelben und brauen Tafeln entsprechen den Leiterbereichen, wo der Ladungstransport vertikal bzw. horizontal erfolgt. Der horizontale Leiter wird auch Schieberegister genannt. Der grüne Dreieck ist ein Verstärker. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden aufgebaut und (b) dann an den vertikalen Leiter übertragen. Die Ladungen von Fotodioden der untersten Reihe (c) werden auf den Schieberegister am frühsten kommen. Im Laufe der Zeit (d) werden die Ladungen im Schieberegister weiter nach rechts zum Verstärker verschoben, wo die Ladung in die Spannung umgewandelt wird. Als die Ladungen der untersten Reihe verarbeitet werden, wiederholt sich der Prozess in den Stufen (c) und (d) bis zu Ende der horizontalen Sensorauflösung.}
     \label{fig:ccd_scheme}
 \end{figure}
 \noindent
-So werden die Ladungen seriell mit einem einzigen \gls{adc} ins Signal umgewandelt. Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ groß sein. Als Beispiel (Referenz) einer aktiv benutzten CCD-Kamera kann es Princeton Instruments
+So werden die Ladungen seriell mit einem einzigen Verstärker in die Spannung umgewandelt. Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ groß sein. Als Beispiel (Referenz) einer aktiv benutzten CCD-Kamera kann es Princeton Instruments
 PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der Auslese mit der höhsten Rate \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} des gesamten Sensors 2048x2048 kann es bis \SI{4,2}{\second} dauern oder im Falle eines 400x400 Bild - \SI{160}{\milli\second}. 
 
+\noindent
+Gegen einer langen Auslesezeit hat diese Sensorart einen Vorteil des niedrigen Hintergrundrauschenpegels.
 
 \section{CMOS-Sensor}
-Ein \gls{cmos} Sensor ist bla bla bla
+Die zweite große Sensorfamilie heißt \gls{cmos} sowie \gls{aps} oder \gls{cmos}-Sensor. Bei dieser Art des Sensors ist jede Fotodiode mit einem eigenen \gls{adc} versorgt, somit wird die Ladung von Fotodioden direkt innerhalb einer Zelle digitalisiert. 
+Ein \gls{cmos}-Sensor ist bla bla bla
+\begin{figure}[H]
+    \centering
+    \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_1_fat.pdf} \label{fig:cmos_scheme_frame_1}}
+    \hfill
+    \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_2_fat.pdf} \label{fig:cmos_scheme_frame_2}}
+    \hfill
+    \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_3_fat.pdf} \label{fig:cmos_scheme_frame_3}}
+    % \hfill
+    % \subfloat[]{\includegraphics[width=0.24\textwidth]{images/cmos_scheme/cmos_auslese_frame_4_fat.pdf} \label{fig:cmos_scheme_frame_4}}
+    \caption{123}
+    \label{fig:cmos_scheme}
+\end{figure}
 
-\noindent
-Der genaure Pixelaufbau Beschreibung \cite{dinapoli_monch_2014}. über moench03 und dessen rauschen \cite{ramilli_measurements_2017}
 
 \section{MÖNCH-Detektor}
 Der MÖNCH-Detektor stellt einen \gls{cmos} Detektor dar,
+
+\noindent
+Der genaure Pixelaufbau Beschreibung \cite{dinapoli_monch_2014}. über moench03 und dessen rauschen \cite{ramilli_measurements_2017}
 Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet. Die zur Verfügung stehenden Werte werden in \gls{adu} angegeben. \cite{bergamaschi_monch_2018}
 Kurze Einletung zum MOENCH (Verweis auf Moench papers), Velgleich mit CCD, Vorteile 
 im Sinne der Auslesezeit.... NOISE VERHALTNIS  UND QUANTUM EFFICENCY
