@@ -6,7 +6,11 @@
 \newacronym[user1=\emph{engl. charge-coupled device}]{ccd}{CCD}{ladungsgekoppeltes Bauteil}
 \newacronym[user1=\emph{engl. active pixel sensor}]{aps}{APS}{aktiver Pixelsensor}
 \newacronym{ptb}{PTB}{Physikalisch-Technische Bundesanstalt}
-Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren (oder Kameras) gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Das wichtigste Bauteil aller Detektoren ist ein (photonen)lichtempfindlicher Sensor. Die einfallende Photonen werden mit mehreren Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell/grundsätzlich/hauptsächlich zwei Primärtechnologien (Sensorarten), wonach alle Sensoren sich aufteilen lassen.
+\newacronym{psi}{PSI}{Paul Scherrer Institut}
+\newacronym{sls}{SLS}{Swiss Light Source}
+\newacronym{moench03}{MÖNCH03}{dritte Generation des MÖNCH-Detektors}
+\newacronym[user1=\emph{engl. signal to noise ratio}]{snr}{SNR}{Signal-Rausch-Verhältnis}
+Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Das wichtigste Bauteil aller Detektoren ist ein photonenempfindlicher Sensor. Die einfallende Photonen werden mit mehreren Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell (grundsätzlich/hauptsächlich) zwei Primärtechnologien (Sensorarten), wonach alle Sensoren sich aufteilen lassen.
 
 \section{CCD-Sensor}
 Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei dieser Art des Sensors wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Dann werden die Ladungen am Leiter durch die zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten), wodurch das Gesamtbild an dem Sensor nach der Reihen ausgelesen wird.
@@ -20,15 +24,14 @@ Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei dieser A
     \label{fig:ccd_scheme}
 \end{figure}
 \noindent
-So werden die Ladungen seriell mit einem einzigen Verstärker in die Spannung umgewandelt. Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ groß sein. Als Beispiel (Referenz) einer aktiv benutzten CCD-Kamera kann es Princeton Instruments
-PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der Auslese mit der höhsten Rate \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} des gesamten Sensors 2048x2048 kann es bis \SI{4,2}{\second} dauern oder im Falle eines 400x400 Bild - \SI{160}{\milli\second}. 
+So werden die Ladungen seriell mit einem einzigen Verstärker in die Spannung und danach mit einem \gls{adc} umgewandelt. Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ groß sein. Als Beispiel eines im Röntgenbereich aktiv benutzten CCD-Detektors kann es Princeton Instruments
+PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate mit der \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} kann die Auslese des gesamten Sensors 2048x2048px bis \SI{4,2}{\second} dauern. Die Auslesezeit kann jedoch durch die Auslese des verkleinerten Sensorbereichs verkürzt werden und beträgt im Falle eines 400x400px Sensorunterbereichs \SI{160}{\milli\second}.
 
 \noindent
 Gegen einer langen Auslesezeit hat diese Sensorart einen Vorteil des niedrigen Hintergrundrauschenpegels.
 
 \section{CMOS-Sensor}
-Die zweite große Sensorfamilie heißt \gls{cmos} sowie \gls{aps} oder \gls{cmos}-Sensor. Bei dieser Art des Sensors ist jede Fotodiode mit einem eigenen \gls{adc} versorgt, somit wird die Ladung von Fotodioden direkt innerhalb einer Zelle digitalisiert. 
-Ein \gls{cmos}-Sensor ist bla bla bla
+Die zweite große Sensorfamilie heißt \gls{cmos} sowie \gls{aps} oder \gls{cmos}-Sensor. Bei dieser Art des Sensors ist jede Fotodiode mit einem eigenen Verstärker versorgt, somit wird die Ladung von Fotodioden direkt innerhalb einer Zelle in die Spannung umgewandelt. 
 \begin{figure}[H]
     \centering
     \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_1_fat.pdf} \label{fig:cmos_scheme_frame_1}}
@@ -38,39 +41,79 @@ Ein \gls{cmos}-Sensor ist bla bla bla
     \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_3_fat.pdf} \label{fig:cmos_scheme_frame_3}}
     % \hfill
     % \subfloat[]{\includegraphics[width=0.24\textwidth]{images/cmos_scheme/cmos_auslese_frame_4_fat.pdf} \label{fig:cmos_scheme_frame_4}}
-    \caption{123}
+    \caption{Die prinzipiellen Schritte vom Ausleseprozess eines 2x2 CMOS-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen. Jeder grüne Dreieck ist ein Verstärker. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden aufgebaut und (b) dann durch den Verstärker an jedem Pixel in die Spannung umgewandelt. Die Schalter an bestimmter Reihe- und Spalt (c) werden geschlossen. Durch ihre Permutationen werden die Spannungen jedes Pixels übertragen. Im Gegensatz zu einem CCD-Sensor kann die Auslese von verschiedenen Spalten simultan eintreten.}
     \label{fig:cmos_scheme}
 \end{figure}
-
-
-\section{MÖNCH-Detektor}
-Der MÖNCH-Detektor stellt einen \gls{cmos} Detektor dar,
+\noindent
+Damit können die Spannungen danach parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe beträgt liegt im \si{\micro\second}-Bereich, was im Falle des 2000x2000 Bildes (2000 Reihen) einige \si{\milli\second} betragen würde.
 
 \noindent
-Der genaure Pixelaufbau Beschreibung \cite{dinapoli_monch_2014}. über moench03 und dessen rauschen \cite{ramilli_measurements_2017}
-Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet. Die zur Verfügung stehenden Werte werden in \gls{adu} angegeben. \cite{bergamaschi_monch_2018}
-Kurze Einletung zum MOENCH (Verweis auf Moench papers), Velgleich mit CCD, Vorteile 
-im Sinne der Auslesezeit.... NOISE VERHALTNIS  UND QUANTUM EFFICENCY
+Nichtsdestotrotz hat ein \gls{cmos}-Sensor im Allgemeinen einen höheren Rauschpegel. Warum?..
 
-Der Detektor bildet die Intensität in \gls{adu} ab. In der Abb. \ref{fig:response_moench} ist die Repsonsefunktion im Weichröntgenbereich zu sehen. 
-%TODO: add Gd M5 line to direkt compare
+\section{MÖNCH-Detektor}
+Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrahlung von \gls{sls} am \gls{psi}. Dieser stellt einen hybrid-Detektor dar, dessen Sensor hauptsächlich seinem Aufbau nach einem \gls{cmos}-Sensor ähnelt. Die technischen Nachbersserungen in der Abb. \ref{fig:moench_pixel} lassen das Verstärkungsgrad variieren und die Auslesezeit durch den Einbau eines zusätzlichen Kondensatorspeichers beschleunigen.
 \begin{figure}[H]
     \centering
-    \input{images/response_700_1400ev.pgf}
-    \caption{Die Sensorresponse und die berechnete Quantumeffizienz des MÖNCH-Detektors in Bezug auf die Photonenenergie $h\nu$. Die entsprechenden Messungen an der kalibrierten Röntgenquelle von \gls{ptb} wurden am 8. Oktober 2020 durchgeführt.}
-    \label{fig:response_moench}
+    \includegraphics[width=0.6\textwidth]{images/moench/paper_crop.png}
+    \caption{schmeatischer Aufbau eines Pixels des MÖNCH-Sensors. Quelle: \cite{dinapoli_monch_2014}}
+    \label{fig:moench_pixel}
 \end{figure}
-Die von uns vermessenen und ausgewerteten Rauschen-Charakteristiken sind eben besser (niedriger) im Vergleich mit dem Paper \cite{ramilli_measurements_2017}.
+
+\noindent
+Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung 400x400px hat und die verbesserte Rauschencharakteristik im Vergleich mit den vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, sei die Sensorfläche mit \SI{500}{\nano\meter} Al-Beschichtung versorgt.
+
+\noindent
+Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal (bis) auf \SI{100}{\nano\second} gesetzt werden. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
+
+\noindent
+Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat ein für eine bestimmte Belichtugnszeit $\tau$ konstantes Offset, der durch den Abzug eines Dunkelbildes bei der Datennachbearbeitung beseitigt werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
+
+
+\noindent
+Da der Rauschenpegel des Detektors von den einzelnen Bauelementen abhängt und sich innerhalb einer Baureihe unterscheiden kann, sollen die  Detektorcharateristiken im Einzelfall ausgewertet werden. Aus diesem Grund wurde die Rauschencharakteristik mit dem verfügbaren \gls{moench03} aufgenommen.
 \begin{figure}[H]
     \centering
-    \input{images/noise.pgf}
+    \input{images/moench/noise.pgf}
     \caption{Der Rauschcharakteristik des MÖNCH-Detektors in Bezug auf die Belichtungszeit $\tau$. Die entsprechenden Messungen wurden am 2. März 2022 durchgeführt.}
     \label{fig:noise_moench}
 \end{figure}
+\noindent
+In dem Fall ist es zu sehen, dass die Rauschcharakterestik vom verfügbaren \gls{moench03} den deutlich niedrigen Rauschpegel für diesselben Belichtungszeiten $\tau$ zeigt, als ein \gls{moench03} im Referenzblatt \cite{ramilli_measurements_2017} von \gls{psi}.
+
+\noindent
+Das Auslesesignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonenenergie $h\nu$ des einfallenden Lichtes. Der Zusammenhang dieser Größen heißt die Responsecharateristik. Diese hängt auch von der Verstärkungsgradeinstellung des Detektors. Bei der Aufnahme der Responsecharakteristik und im Laufe der weiteren Messungen wird das höchste Verstärkungsgrad (G4\_HIGHGAIN) benutzt. Der Detektor wird mithilfe eines äußeren Wasserdurchlaufkühlers auf die Temperatur von \SI{17}{\celsius} gekühlt. Wie es bereits erwähnt wurde, habe der Sensor eine \SI{500}{\nano\meter} Al-Beschichtung. Das verhindert die Photonentransmission, und zwar proportional dem photonenenergieabhängigen Absortiopnskoeffizienten $\mu_\text{Al}(h\nu)$, und beeinflusst dadurch die Responsecharakterstik des Detektors.
+% \begin{figure}[H]
+%     \centering
+%     \input{images/moench/response_700_1400ev.pgf}
+%     \caption{Die Sensorresponse und die berechnete Quantumeffizienz des MÖNCH-Detektors in Bezug auf die Photonenenergie $h\nu$. Die entsprechenden Messungen an der kalibrierten Röntgenquelle von \gls{ptb} wurden am 8. Oktober 2020 durchgeführt.}
+%     \label{fig:response_moench}
+% \end{figure}
+
+\noindent
+Um die beste Anpassung der Messdaten zu gewährleisteten, werden das Aluminiumoxid Al$_2$O$_3$ und Silizium Si als am Photonenweg hochwahrscheinlich präsentierte Materialien in der Gesamttransmission einbezogen. Aus diesem Grund werden die Messpunkte mit der Funktion
+\begin{equation}
+    R(h\nu, r, \{d_m\}) = h\nu\cdot r\cdot\exp[-\Sigma_{m}\mu_m(h\nu)d_m]
+\end{equation}
+angepasst, wobei $r$ - konstanter Responsekoeffizient in \gls{adu} \si{\eV}$^{-1}$ pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - Materialdicke sind. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}.
+\begin{figure}[H]
+    \centering
+    \input{images/moench/response_200_1900ev.pgf}
+    \caption{Die Sensorresponse (orange Linie) und die berechnete Quantumeffizienz (rote Linie) des MÖNCH-Detektors in Bezug auf die Photonenenergie $h\nu$. Die entsprechenden Messungen an der kalibrierten Röntgenquelle von \gls{ptb} wurden am 8. Oktober 2020 durchgeführt. Der starker Knick von der Sensorresponse und der Quantumeffizienz bei der $h\nu \approx \SI{1559}{\eV}$ entspricht der K-Absorptionskante von Al.}
+    \label{fig:response_moench}
+\end{figure}
+
+
+\noindent
+Die Anpassung ergab die Werte
+$r = \SI{1.514e-1}{\adu\per\eV}$, $d_\text{Si} = \SI{26.2}{\nano\meter}$, $d_\text{Al} = \SI{454}{\nano\meter}$,
+$d_\text{Al$_2$O$_3$} = \SI{4.74}{\nano\meter}$, die sehr plausibel mit der gegebenen Dicke der Al-Beschichtung scheinen. Außerdem ist es auch möglich, die erwarteten \gls{adu}-Werte für die Photonenenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abzuschätzen, die ca. \SI{70,7(1)}{\adu} und \SI{162,1(1)}{\adu} betragen.
+
+\noindent
+Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}.
+
 \section{Detektionsvorgänge der einzelnen Photonen}
 \label{text:single_photon_theorie}
 kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (SNR oder so was) vergleichen und sagen, welches besser sein soll...
-
 \chapter{Experimenteller Aufbau}
 \begin{figure}[H]
     \centering
