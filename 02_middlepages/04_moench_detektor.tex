@@ -10,7 +10,7 @@
 \newacronym{sls}{SLS}{Swiss Light Source}
 \newacronym{moench03}{MÖNCH03}{dritte Generation des MÖNCH-Detektors}
 \newacronym[user1=\emph{engl. signal to noise ratio}]{snr}{SNR}{Signal-Rausch-Verhältnis}
-Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Das wichtigste Bauteil aller Detektoren ist ein photonenempfindlicher Sensor. Die einfallende Photonen werden mit mehreren Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell (grundsätzlich/hauptsächlich) zwei Primärtechnologien (Sensorarten), wonach alle Sensoren sich aufteilen lassen.
+Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Das wichtigste Bauteil aller Detektoren ist ein photonenempfindlicher Sensor. Die einfallende Photonen werden mit mehreren Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell (grundsätzlich/hauptsächlich) zwei Primärtechnologien, wonach alle Sensoren sich aufteilen lassen.
 
 \section{CCD-Sensor}
 Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei dieser Art des Sensors wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Dann werden die Ladungen am Leiter durch die zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten), wodurch das Gesamtbild an dem Sensor nach der Reihen ausgelesen wird.
@@ -45,7 +45,7 @@ Die zweite große Sensorfamilie heißt \gls{cmos} sowie \gls{aps} oder \gls{cmos
     \label{fig:cmos_scheme}
 \end{figure}
 \noindent
-Damit können die Spannungen danach parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe beträgt liegt im \si{\micro\second}-Bereich, was im Falle des 2000x2000 Bildes (2000 Reihen) einige \si{\milli\second} betragen würde.
+Damit können die Spannungen danach parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle des 2000x2000 Bildes (2000 Reihen) einige \si{\milli\second} betragen würde.
 
 \noindent
 Nichtsdestotrotz hat ein \gls{cmos}-Sensor im Allgemeinen einen höheren Rauschpegel. Warum?..
@@ -92,9 +92,9 @@ Das Auslesesignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonene
 \noindent
 Um die beste Anpassung der Messdaten zu gewährleisteten, werden das Aluminiumoxid Al$_2$O$_3$ und Silizium Si als am Photonenweg hochwahrscheinlich präsentierte Materialien in der Gesamttransmission einbezogen. Aus diesem Grund werden die Messpunkte mit der Funktion
 \begin{equation}
-    R(h\nu, r, \{d_m\}) = h\nu\cdot r\cdot\exp[-\Sigma_{m}\mu_m(h\nu)d_m]
+    R(h\nu, r, \{d_m\}) = h\nu\cdot r\cdot\exp\left[-\sum_{m}\mu_m(h\nu)d_m\right]
 \end{equation}
-angepasst, wobei $r$ - konstanter Responsekoeffizient in \gls{adu} \si{\eV}$^{-1}$ pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - Materialdicke sind. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}.
+angepasst, wobei $r$ - konstanter Responsekoeffizient in \si{\adu\per\eV} pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - Materialdicke sind. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}.
 \begin{figure}[H]
     \centering
     \input{images/moench/response_200_1900ev.pgf}
@@ -105,19 +105,45 @@ angepasst, wobei $r$ - konstanter Responsekoeffizient in \gls{adu} \si{\eV}$^{-1
 
 \noindent
 Die Anpassung ergab die Werte
-$r = \SI{1.514e-1}{\adu\per\eV}$, $d_\text{Si} = \SI{26.2}{\nano\meter}$, $d_\text{Al} = \SI{454}{\nano\meter}$,
-$d_\text{Al$_2$O$_3$} = \SI{4.74}{\nano\meter}$, die sehr plausibel mit der gegebenen Dicke der Al-Beschichtung scheinen. Außerdem ist es auch möglich, die erwarteten \gls{adu}-Werte für die Photonenenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abzuschätzen, die ca. \SI{70,7(1)}{\adu} und \SI{162,1(1)}{\adu} betragen.
-
+$r = \SI{1.514e-1}{\adu\per\eV}$ pro Photon, $d_\text{Si} = \SI{26.2}{\nano\meter}$, $d_\text{Al} = \SI{454}{\nano\meter}$,
+$d_\text{Al$_2$O$_3$} = \SI{4.74}{\nano\meter}$, die sehr plausibel mit der gegebenen Dicke der Al-Beschichtung scheinen. Außerdem ist es auch möglich, die erwarteten \gls{adu}-Werte $W$ für die Photonenenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abzuschätzen. Diese ergeben sich 
+\begin{equation}
+\begin{split}
+     W_{\text{Fe, L3}} &= \SI{71}{\adu}\\
+     W_{\text{Gd, M5}} &= \SI{162}{\adu}.
+\end{split}
+\label{eq:auselesewerte_fe_gd}
+\end{equation}
 \noindent
-Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}.
+Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz aufgrund des Auslesezeit-\gls{snr}-Verhältnisses insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}. Die Trennung des Hintergrundrauschens vom Streusignal kann grundsätzlich durch die Vergrößerung der Differenz ihrer Auslesewerte erleichtert, was dadurch zu realisieren ist, dass die Belichtungszeit $\tau$ möglichst verkürzt wird und die Photonenenergie $h\nu_{\text{Gd, M5}}$, bei der der erwartete \gls{adu}-Wert $W_{\text{Gd, M5}}$ wesentlich größer ist, gewählt wird.
 
 \section{Detektionsvorgänge der einzelnen Photonen}
 \label{text:single_photon_theorie}
-kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (SNR oder so was) vergleichen und sagen, welches besser sein soll...
-\chapter{Experimenteller Aufbau}
-\begin{figure}[H]
-    \centering
-    \input{aufbau.pdf_tex}
-    \caption{Anlage}
-    \label{fig:anlage}
-\end{figure}
+Clustering NxN px \cite{cartier_micron_2014}
+
+\begin{equation}
+    \sum_{l=i-1}^{i} \sum_{m=j-1}^{j} W_{l,m} = \mathbf{W} * \mathbf{K}_{\text{N}} = Q_{i,j} > 2c\sigma_{i,j},
+\end{equation}
+wobei $\mathbf{W}$ - Auslesewerte des Sensors dargestellt als Matrix $\mathbb{Z}^{400\times 400}$, $\mathbf{K}_{\text{N}}$ - Clusteringkern, mit $*$ wird die Faltung-Operation gekennzeichnet.
+\begin{equation}
+    \mathbf{K}_{2} = \begin{bmatrix}
+1 & 1\\
+1 & 1
+\end{bmatrix}
+\text{ bzw. }
+    \mathbf{K}_{3} = \begin{bmatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 1
+\end{bmatrix}
+\end{equation}
+Im Allgemeinen
+\begin{equation}
+    \mathbf{K}_\text{N} = \begin{bmatrix}
+1 & \cdots & 1\\
+\vdots & \ddots & \vdots\\
+1 & \cdots & 1
+\end{bmatrix}
+\in \mathbb{Z}^{\text{N}\times \text{N}}
+\end{equation}
+kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (\gls{snr} oder so was) vergleichen und sagen, welches besser sein soll...

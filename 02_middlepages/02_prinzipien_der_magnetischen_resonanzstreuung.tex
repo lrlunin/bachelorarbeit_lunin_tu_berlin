@@ -11,7 +11,7 @@ Die Streuung an einem Element wird durch den elementspezifischen atomaren Streuf
 f(h\nu) = (\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{e}_0})f_c - i(\mathbf{\hat{e}_f^*} \times \mathbf{\hat{e}_0})\cdot\mathbf{\hat{m}}f_{m1}+(\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{m}})(\mathbf{\hat{e}_0}\cdot\mathbf{\hat{m}})f_{m2} + \dots
 \label{eq:atomfaktoren}
 \end{align}
-beschrieben, wobei $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ - die einfallenden und auslaufenden normierten Polarisationsvektoren, $\mathbf{\hat{m}}$ - der Einheitsvektor entlang der Magnetisierungsachse und $f_c(h\nu), f_{m1}(h\nu), f_{m2}(h\nu) \in \mathbb{C}$ - die energieabhängigen Streukoeffizienten von Atom. Die letzten werden auch häufig durch die Paaren von reellen Koeffzienten
+beschrieben, wobei $\mathbf{\hat{e}_f}$ und $\mathbf{\hat{e}_0}$ - die einfallenden und auslaufenden normierten Polarisationsvektoren, $\mathbf{\hat{m}}$ - der Einheitsvektor entlang der Magnetisierungsachse und $f_c(h\nu), f_{m1}(h\nu), f_{m2}(h\nu) \in \mathbb{C}$ - die energieabhängigen Streukoeffizienten von Atom. Die letzten werden auch häufig durch die Paaren von reellen Koeffzienten
 \begin{equation}
     \begin{split}
     f_c(h\nu) &= f_{c,1}(h\nu) + if_{c,2}(h\nu)\\
@@ -148,7 +148,7 @@ Die inneren Wechselwirkungen, die zur Domänenbildung führen, lassen sich auf v
 Die Austauschwechselwirkung ist sehr kurzreichweitig und ist zur Ausrichtung der Elektornenspins (Kopplung) entscheidend. Sind die Elektronenspins zueinander entgegen orientiert - nennt man diese Art der Kopplung \gls{am}. Sind sie in dieselbe Richtung orientiert - heißt diese Kopplung \gls{fm}. Die Art der Kopplung wirkt sich unmittelbar auf Gesamtmagnetisierung der Probe aus. Dies ist schematisch in der Abb. \ref{fig:am_fm_kopplung} dargestellt. In einem Mehrschichtsystem aus Fe und Gd sind die magnetischen Domänen innerhalb einer Schicht \gls{fm} gekoppelt, wobei die benachbarten Schichten \gls{am} gekoppelt sind. Die resultierende Magnetisierung des Mehrschichtsystems lässt sich als die Summe der Fe/Gd-Doppelschichtmagnetisierung darstellen, wobei die Doppelschichtmagnetisierung die Differenz von den magnetischen Momenten von Fe und Gd ist. Die ist relativ klein, aber nicht null, da der absolute Betrag des magnetischen Momentes von Fe höher als von Gd ist [link?]. Daher soll die Schichtenzahl hoch sein, um die höhere Gesamtmagnetisierung zu erwarten. 
 
 \noindent
-Die Formanisotropie führt zum Entstehen der Vorzugsachsen der Magnetisierung innerhalb eines Mediums, womit die potenzielle Energie minimiert werden soll. Typischerweise liegen die Vorzugsachsen in der Materialebene. Im Falle des Mehrschichtsystems aus Schwermetallen, wo die Schichtdicke nur wenigen \si{\angstrom} beträgt, überwiegen die Grenzschichteffekte, wobei die Bahnmomenten, sowohl die Spinmomenten aufgrund der Spin-Bahn-Kopplung, an der Grenzschicht senkrecht zur Ebene ausrichten.
+Die Formanisotropie führt zum Entstehen der Vorzugsachsen der Magnetisierung innerhalb eines Mediums, womit die potenzielle Energie minimiert werden soll. Typischerweise liegen die Vorzugsachsen in der Materialebene. Im Falle des Mehrschichtsystems aus Schwermetallen, wo die Schichtdicke nur wenigen \text{Ånsgtröme} beträgt, überwiegen die Grenzschichteffekte, wobei die Bahnmomenten, sowohl die Spinmomenten aufgrund der Spin-Bahn-Kopplung, an der Grenzschicht senkrecht zur Ebene ausrichten.
 
 \noindent
 Die Magnetisierung aus der Ebene erhöht aber die Streufeldenergie. Die kann dadurch minimiert werden, dass die Domänenwände, die sich langsam räumlich ändernde magnetische Momente, sich bilden. Die Periodizität der Domänen und ihre Größen hängen von den Schichtdicken und der Schichtenzahl ab. 
@@ -169,7 +169,7 @@ Solche Systeme haben typischerweise diverse metastabile Zustände. Die Bildung e
 
 
 \section{Probenvorbereitung}
-Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die optimale Dicke bzw. Wiederholungszahl N von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_1$ und $h\nu_2$ gesucht. Die Wahl dieser zwei Elementen wird später im Kapitel \ref{text:quelle_roentgen} motiviert. Die Werte von Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto_x-ray_2005} abgeleitet.
+Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die optimale Dicke bzw. Wiederholungszahl $N$ von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_{\text{Fe, L3}}$ und $h\nu_{\text{Gd, M5}}$ gesucht. Die Wahl dieser zwei Elementen wird später im Kapitel \ref{text:quelle_roentgen} motiviert. Die Werte von Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto_x-ray_2005} abgeleitet.
 
 \noindent
 Mit dem Programmpaket werden die Transmissionen T$_+$ und T$_-$ fürs rechts und links polarisierte Licht berechnet. Die durchschnittliche Transmission
@@ -180,10 +180,10 @@ wird ermittelt und zur Berechnung der Gütezahl der Streuungsintesität
 \begin{equation}
     \text{TP}^2 = \bar{\text{T}}\cdot\left(\frac{\text{T}_+ - \text{T}_-}{\bar{\text{T}}}\right)^2
 \end{equation}
-verwendet. Die größere Gütezahl $\text{TP}^2$ entspricht der höheren Streuungsintensität und muss deswegen maximiert werden. Die verfügbare Herstellungstechnologie von mehrschichtigen Systemen limitiert die maximale Schichtenzahl einer Probe. Ohne allzu große technische Herausforderungen könnte eine Probe mit 200 Wiederholungen erstellt werden. Aus diesem Grund werden die Maxima im Bereich der Wiederholungszahl N von 1 bis 200 gesucht.
+verwendet. Die größere Gütezahl $\text{TP}^2$ entspricht der höheren Streuungsintensität und muss deswegen maximiert werden. Die verfügbare Herstellungstechnologie von mehrschichtigen Systemen limitiert die maximale Schichtenzahl einer Probe. Ohne allzu große technische Herausforderungen könnte eine Probe mit 200 Wiederholungen erstellt werden. Aus diesem Grund werden die Maxima im Bereich der Wiederholungszahl $N$ von 1 bis 200 gesucht.
 
 \noindent
-In der Abb. \ref{fig:proben_vergleich_centered} sind die Rechenergebnisse aufgetragen. Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_1=52$ bzw. $N_2=72$ für die Photonenenergien $h\nu_2=\SI{1184,79}{\eV}$ bzw. $h\nu_1=\SI{706,97}{\eV}$. Außerdem ist es wichtig, dass  dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenrgie $h\nu_2=\SI{1184,79}{\eV}$ ca. zwei mal so groß als bei der Photonenenrgie $h\nu_1=\SI{706,97}{\eV}$ ist. Diese Tatsache bezeichnet die Photonenenergie $h\nu_2$ als die bevorzugte zur Durchführung der Streuexperimente.
+In der Abb. \ref{fig:proben_vergleich_centered} sind die Rechenergebnisse aufgetragen. Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_{\text{Fe, L3}}=72$  bzw. $N_{\text{Gd, M5}}=52$ für die Photonenenergien $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$. Außerdem ist es wichtig, dass dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenrgie $h\nu_{\text{Gd, M5}}$ ca. zwei mal so groß als bei der Photonenenrgie $h\nu_{\text{Fe, L3}}$ ist. Diese Tatsache bezeichnet die Photonenenergie $h\nu_{\text{Gd, M5}}$ als die bevorzugte zur Durchführung der Streuexperimente.
 % \begin{figure}[H]
 %     \centering
 %     \input{images/proben_vergleich.pgf}
@@ -193,13 +193,13 @@ In der Abb. \ref{fig:proben_vergleich_centered} sind die Rechenergebnisse aufget
 % \noindent
 \begin{figure}[H]
     \centering
-    \input{images/proben_vergleich_split_center.pgf}
-    \caption{Die Abhängigkeit des Transmissionsmittelwertes $\bar{\text{T}}$ (orange Linien) und der Gütezahl TP$^2$ (blaue Linien) einer Probe ist in Bezug auf Wiederholungszahl N abgebildet. Die Maxima der Gütezahl TP$^2$ werden bei der Wert $N=52$ für die Photonenenergie $h\nu_2=\SI{1184,79}{\eV}$ (blaue Linie) bzw. bei der Wert $N=72$ für die Photonenenergie $h\nu_2=\SI{706,97}{\eV}$ (orange Linie) erreicht.}
+    \input{images/probe_simulation/proben_vergleich_split_center_3.pgf}
+    \caption{Die Abhängigkeit des Transmissionsmittelwertes $\bar{\text{T}}$ (orange Linien) und der Gütezahl TP$^2$ (blaue Linien) einer Probe ist in Bezug auf Wiederholungszahl $N$ abgebildet. Die Maxima der Gütezahl TP$^2$ werden bei dem Wert $N_{\text{Fe, L3}}=72$ für die Photonenenergie $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ (orange Linie) bzw. bei dem Wert $N_{\text{Gd, M5}}=52$ für die Photonenenergie $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$ (blaue Linie) erreicht.}
     \label{fig:proben_vergleich_centered}
 \end{figure}
 \noindent
 Als Schlussfolge werden insgesamt zwei Proben hergestellt:
-Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, besteht aus 61 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Die Wiederholungszahl $\bar{N} = 61$ wurde als Mittelwert zwischen den Werten $N_1 = 52$ und $N_2 = 72$ genommen, um nur eine Probe herzustellen und dem zufolge die hochwertigen Materialien und die Produktionszeit zu sparen.
+Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, besteht aus 61 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Die Wiederholungszahl $\bar{N} = 61$ wurde als Mittelwert zwischen den Werten $N_{\text{Fe, L3}}=72$ und $N_{\text{Gd, M5}}=52$ genommen, um nur eine Probe herzustellen und dem zufolge die hochwertigen Materialien und die Produktionszeit zu sparen.
 
 \noindent
 Die zweite zu produzierende Probe, die weiter unter dem Namen \textbf{DS220126} bezeichnet wird, besteht aus 116 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus
@@ -209,13 +209,23 @@ Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Für 
 Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Topographie des Materials abbilden lässt, ist ein \gls{mfm}. Die mit dem \gls{mfm} gemachten Aufnahmen sind in der Abbildung \ref{fig:mfm_amplitude} dargestellt.
 \begin{figure}[H]
     \centering
-    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
+    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
     \hspace{1cm}
-    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/ds211221_R1_membrane_amplitude_crop_2um .png} \label{fig:mfm_ds211221_2um}}
+    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop_2um .png} \label{fig:mfm_ds211221_2um}}
     \hspace{1cm}
-    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/ds220126_R1_membrane_amplitude_cropped.png} \label{fig:mfm_ds220126}}
+    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds220126_R1_membrane_amplitude_cropped.png} \label{fig:mfm_ds220126}}
     \caption{Die aufgenommenen Domäne von der Probe (a) \textbf{DS211221} und (b) \textbf{DS220126}. Aufgenommen mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm} Modus. Den kleineren Werten des senkrecht ausgerichteten Anteils der Magnetisierung $\hat{\mathbf{m}}$ entsprechen die dunkleren Farben. Den größeren Werten - die helleren. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Aus diesem Grund sind die Magnetisierungsstärken verschiedener Proben miteinander nicht zu vergleichen.}
     \label{fig:mfm_amplitude}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \subfloat[]{\input{images/mfm/ft/61_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}}
+    \subfloat[]{\hspace{1mm}\input{images/mfm/ft/61_ft.pgf}}
+    \hspace{1cm}
+    \subfloat[]{\input{images/mfm/ft/116_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}}
+    \subfloat[]{\hspace{1mm}\input{images/mfm/ft/116_ft.pgf}}
+    \caption{Die aufgenommenen Domäne und die Fourier-Transformierte von der Probe (a), (b) \textbf{DS211221} und (c), (d) \textbf{DS220126}. Die Domänen sind mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm} Modus aufgenommen. Den höheren Werten des senkrecht ausgerichteten Anteils der Magnetisierung $\hat{\mathbf{m}}$ entsprechen die dunkleren Farben. Den kleineren Werten - die helleren. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Aus diesem Grund sind die Magnetisierungsstärken verschiedener Proben miteinander nicht zu vergleichen.}
+    \label{fig:mfm_amplitude_ft}
 \end{figure}
 \noindent
 Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in der Abb. \ref{fig:mfm_ds211221} wesentlich größer als die Domänengröße der Probe \textbf{DS220126} in der Abb. \ref{fig:mfm_ds220126} ist.
@@ -224,10 +234,12 @@ Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in 
 Aus diesem Grund wurde die Probe \textbf{DS220126} in dem weiteren Verlauf des Experiments verwendet.
 \begin{figure}[ht]
     \centering
-    \input{images/ds220107_R1_moke.pgf}
+    \input{images/moke/ds220107_R1_moke.pgf}
     \caption{Die Hysteresekurve von der Probe \textbf{DS220126}. Aufgenommen mit dem selbskonstruirten Messgerät, das sich auf dem \gls{moke} basiert. Das magnetische Feld $B$ wird senkrecht zu der Probenfläche angelegt (in Plane).}
     \label{fig:hysterese_sample}
 \end{figure}
+
+
 
 
 

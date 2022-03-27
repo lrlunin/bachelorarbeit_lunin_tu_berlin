@@ -32,9 +32,11 @@
 \usepackage[nottoc,notlot,notlof,numbib]{tocbibind}
 \usepackage{multirow}
 \usepackage{newunicodechar}
-\usepackage[output-decimal-marker={,}]{siunitx}
+\usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx}
 \DeclareSIUnit\angstrom{\text {Å}}
 \DeclareSIUnit\adu{\text{ADU}}
+\DeclareSIUnit\photons{\text{Photonen}}
+\DeclareSIUnit\bar{bar}
 \usepackage{tikz}
 \usepackage{booktabs}
 %\usepackage{subcaption}
@@ -77,7 +79,7 @@
 
 %\setcounter{biburllcpenalty}{9000}
 %\setcounter{biburlucpenalty}{9000}
-\sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE}
+\sisetup{separate-uncertainty = true, locale = DE}
 
 %\bibliographystyle{plainnat}
 %previously set as 
@@ -89,8 +91,7 @@
 \setlength{\parskip}{\baselineskip} %paragraph spacing
 \usepackage{svg}
 
-\graphicspath{{images/}}
-
+\graphicspath{{images/}{images/mfm/ft/}{images/xps/}}
 \usepackage{chngcntr} % CONTIUNOUS NUMBERING BOOK 
 \counterwithout{figure}{chapter} %
 \usepackage{nameref}
@@ -131,7 +132,8 @@
 \input{02_middlepages/02_prinzipien_der_magnetischen_resonanzstreuung}
 \input{02_middlepages/03_laser_getriebenes_instrument_fuer_resonante_streuung_mit_weichen_roentgenstrahlen}
 \input{02_middlepages/04_moench_detektor}
-\input{02_middlepages/05_auswertung}
+\input{02_middlepages/05_experimenteller_aufbau}
+\input{02_middlepages/06_auswertung}
 
 
 %\pagenumbering{arabic}	% arabische Numerierung
