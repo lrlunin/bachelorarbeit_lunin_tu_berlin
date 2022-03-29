@@ -10,10 +10,10 @@
 \newacronym{sls}{SLS}{Swiss Light Source}
 \newacronym{moench03}{MÖNCH03}{dritte Generation des MÖNCH-Detektors}
 \newacronym[user1=\emph{engl. signal to noise ratio}]{snr}{SNR}{Signal-Rausch-Verhältnis}
-Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Das wichtigste Bauteil aller Detektoren ist ein photonenempfindlicher Sensor. Die einfallende Photonen werden mit mehreren Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es aktuell (grundsätzlich/hauptsächlich) zwei Primärtechnologien, wonach alle Sensoren sich aufteilen lassen.
+Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Ein photonenempfindlicher Sensor ist das wichtigste Bauteil aller Detektoren. Die einfallende Photonen werden mit der Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es grundsätzlich zwei Primärtechnologien, wonach alle Sensoren sich aufteilen lassen.
 
 \section{CCD-Sensor}
-Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei dieser Art des Sensors wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Dann werden die Ladungen am Leiter durch die zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten), wodurch das Gesamtbild an dem Sensor nach der Reihen ausgelesen wird.
+Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei diesem Sensortyp wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Danach werden die Ladungen am Leiter durch die koordinierte zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten) bis zu dem einzigen horizontalen Leiter. Dieser wird auch ein Schieberegister genannt und ermöglicht den weiteren Ladungstransport zum Verstärker. Dieses Verfahren ist genauerer in der Abb. \ref{fig:ccd_scheme} dargestellt.
 \begin{figure}[H]
     \centering
     \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_1_amp.pdf} \label{fig:ccd_scheme_frame_1}}
@@ -24,14 +24,14 @@ Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei dieser A
     \label{fig:ccd_scheme}
 \end{figure}
 \noindent
-So werden die Ladungen seriell mit einem einzigen Verstärker in die Spannung und danach mit einem \gls{adc} umgewandelt. Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ groß sein. Als Beispiel eines im Röntgenbereich aktiv benutzten CCD-Detektors kann es Princeton Instruments
-PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate mit der \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} kann die Auslese des gesamten Sensors 2048x2048px bis \SI{4,2}{\second} dauern. Die Auslesezeit kann jedoch durch die Auslese des verkleinerten Sensorbereichs verkürzt werden und beträgt im Falle eines 400x400px Sensorunterbereichs \SI{160}{\milli\second}.
+Die Ladungen werden seriell mit einem einzigen Verstärker zuerst in die Spannung und denn mit einem \gls{adc} in das Signal umgewandelt. So wird Gesamtbild an dem Sensor nach der Reihen ausgelesen.
 
 \noindent
-Gegen einer langen Auslesezeit hat diese Sensorart einen Vorteil des niedrigen Hintergrundrauschenpegels.
+Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ lang sein. Als Beispiel eines im Röntgenbereich aktiv benutzten CCD-Detektors kann ein Princeton Instruments
+PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate von \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} kann die Auslese des gesamten Sensors 2048x2048px bis \SI{4,2}{\second} dauern. Die Auslesezeit kann  durch die Auslese eines kleineren Sensorbereichs verkürzt werden und beträgt im Falle eines 400x400px Sensorunterbereichs \SI{160}{\milli\second}. Gegen einer langen Auslesezeit hat dieser Sensortyp einen Vorteil des niedrigen Hintergrundrauschenpegels.
 
 \section{CMOS-Sensor}
-Die zweite große Sensorfamilie heißt \gls{cmos} sowie \gls{aps} oder \gls{cmos}-Sensor. Bei dieser Art des Sensors ist jede Fotodiode mit einem eigenen Verstärker versorgt, somit wird die Ladung von Fotodioden direkt innerhalb einer Zelle in die Spannung umgewandelt. 
+Die zweite große Sensorfamilie heißt \gls{cmos}. Die wird auch häufig \gls{aps} oder auch \gls{cmos}-Sensor genannt. Bei diesem Sensortyp ist jede Fotodiode mit einem eigenen Verstärker versorgt, somit wird die Ladung unmittelbar nah an der Fotodiode ohne weiteren Ladungstransport in die Spannung umgewandelt. Die Digitalisierung der Spannung von einer bestimmten Fotodiode kann durchs Schlissen vom Paar entsprechender Schalter in der Reihe und dem Spalt, wobei alle andere Schalter geschlossen bleiben. Dieses Verfahren ist in der Abb. \ref{fig:cmos_scheme} genauer dargestellt.
 \begin{figure}[H]
     \centering
     \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_1_fat.pdf} \label{fig:cmos_scheme_frame_1}}
@@ -45,10 +45,10 @@ Die zweite große Sensorfamilie heißt \gls{cmos} sowie \gls{aps} oder \gls{cmos
     \label{fig:cmos_scheme}
 \end{figure}
 \noindent
-Damit können die Spannungen danach parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle des 2000x2000 Bildes (2000 Reihen) einige \si{\milli\second} betragen würde.
+Dadurch können die Spannungen parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle eines 2048x2048px Bildes einige \si{\milli\second} betragen würde.
 
 \noindent
-Nichtsdestotrotz hat ein \gls{cmos}-Sensor im Allgemeinen einen höheren Rauschpegel. Warum?..
+Diese Sensorfamilie ist allerdings nicht frei von Nachteilen. Der entscheidende Faktor, warum \gls{cmos}-Sensoren die \gls{ccd}-Sensoren nicht in allen Bereichen verdrängten, ist der wesentlich höhere Rauschpegel. Es gibt also verschiedene Szenarien, wo ein oder anderer Sensortyp angewendet werden kann. Die Wahl hängt von der verfügbaren Zeit, erzielten Präzision und Art der Messung ab.
 
 \section{MÖNCH-Detektor}
 Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrahlung von \gls{sls} am \gls{psi}. Dieser stellt einen hybrid-Detektor dar, dessen Sensor hauptsächlich seinem Aufbau nach einem \gls{cmos}-Sensor ähnelt. Die technischen Nachbersserungen in der Abb. \ref{fig:moench_pixel} lassen das Verstärkungsgrad variieren und die Auslesezeit durch den Einbau eines zusätzlichen Kondensatorspeichers beschleunigen.
@@ -94,7 +94,7 @@ Um die beste Anpassung der Messdaten zu gewährleisteten, werden das Aluminiumox
 \begin{equation}
     R(h\nu, r, \{d_m\}) = h\nu\cdot r\cdot\exp\left[-\sum_{m}\mu_m(h\nu)d_m\right]
 \end{equation}
-angepasst, wobei $r$ - konstanter Responsekoeffizient in \si{\adu\per\eV} pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - Materialdicke sind. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}.
+angepasst, wobei $r$ - konstanter Responsekoeffizient in \si{\adu\per\eV} pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - entsprechende Materialdicke. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}.
 \begin{figure}[H]
     \centering
     \input{images/moench/response_200_1900ev.pgf}

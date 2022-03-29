@@ -206,29 +206,29 @@ Die zweite zu produzierende Probe, die weiter unter dem Namen \textbf{DS220126} 
 Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Für die Wahl der Wiederholungszahl $N=116$ wurde \cite[Abschnitt „Sample Preparation“]{tripathi_dichroic_2011} als Referenz genommen.
 
 \section{Probenauswertung}
-Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Topographie des Materials abbilden lässt, ist ein \gls{mfm}. Die mit dem \gls{mfm} gemachten Aufnahmen sind in der Abbildung \ref{fig:mfm_amplitude} dargestellt.
+Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Topographie des Materials abbilden lässt, ist ein \gls{mfm}. Die mit dem \gls{mfm} aufgenommenen Domänenmuster und ihre Darstellungen im Fourier-Raum sind in der Abbildung \ref{fig:mfm_amplitude_ft} dargestellt.
+% \begin{figure}[H]
+%     \centering
+%     \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
+%     \hspace{1cm}
+%     \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop_2um .png} \label{fig:mfm_ds211221_2um}}
+%     \hspace{1cm}
+%     \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds220126_R1_membrane_amplitude_cropped.png} \label{fig:mfm_ds220126}}
+%     \caption{Die aufgenommenen Domäne von der Probe (a) \textbf{DS211221} und (b) \textbf{DS220126}. Aufgenommen mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm} Modus. Den kleineren Werten des senkrecht ausgerichteten Anteils der Magnetisierung $\hat{\mathbf{m}}$ entsprechen die dunkleren Farben. Den größeren Werten - die helleren. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Aus diesem Grund sind die Magnetisierungsstärken verschiedener Proben miteinander nicht zu vergleichen.}
+%     \label{fig:mfm_amplitude}
+% \end{figure}
 \begin{figure}[H]
     \centering
-    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
+    \subfloat[]{\input{images/mfm/ft/61_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}\label{fig:mfm_ds211221}}
+    \subfloat[]{\hspace{1mm}\input{images/mfm/ft/61_ft.pgf}\label{fig:mfm_ds211221_ft}}
     \hspace{1cm}
-    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop_2um .png} \label{fig:mfm_ds211221_2um}}
-    \hspace{1cm}
-    \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds220126_R1_membrane_amplitude_cropped.png} \label{fig:mfm_ds220126}}
-    \caption{Die aufgenommenen Domäne von der Probe (a) \textbf{DS211221} und (b) \textbf{DS220126}. Aufgenommen mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm} Modus. Den kleineren Werten des senkrecht ausgerichteten Anteils der Magnetisierung $\hat{\mathbf{m}}$ entsprechen die dunkleren Farben. Den größeren Werten - die helleren. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Aus diesem Grund sind die Magnetisierungsstärken verschiedener Proben miteinander nicht zu vergleichen.}
-    \label{fig:mfm_amplitude}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \subfloat[]{\input{images/mfm/ft/61_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}}
-    \subfloat[]{\hspace{1mm}\input{images/mfm/ft/61_ft.pgf}}
-    \hspace{1cm}
-    \subfloat[]{\input{images/mfm/ft/116_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}}
-    \subfloat[]{\hspace{1mm}\input{images/mfm/ft/116_ft.pgf}}
-    \caption{Die aufgenommenen Domäne und die Fourier-Transformierte von der Probe (a), (b) \textbf{DS211221} und (c), (d) \textbf{DS220126}. Die Domänen sind mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm} Modus aufgenommen. Den höheren Werten des senkrecht ausgerichteten Anteils der Magnetisierung $\hat{\mathbf{m}}$ entsprechen die dunkleren Farben. Den kleineren Werten - die helleren. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Aus diesem Grund sind die Magnetisierungsstärken verschiedener Proben miteinander nicht zu vergleichen.}
+    \subfloat[]{\input{images/mfm/ft/116_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}\label{fig:mfm_ds220126}}
+    \subfloat[]{\hspace{1mm}\input{images/mfm/ft/116_ft.pgf}\label{fig:mfm_ds220126_ft}}
+    \caption{Die aufgenommenen Domänenmuster der Probe (a) \textbf{DS211221} und (c) \textbf{DS220126}, sowie  (b),(d) die Fourier-Transformierte von gegebenen Mustern. Die Domänenmuster wurden mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm}-Modus aufgenommen. Die dunklere Farbe entspricht dem größeren Signalwert. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. So sind die Magnetisierungsstärken verschiedener Proben miteinander nicht zu vergleichen.}
     \label{fig:mfm_amplitude_ft}
 \end{figure}
 \noindent
-Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in der Abb. \ref{fig:mfm_ds211221} wesentlich größer als die Domänengröße der Probe \textbf{DS220126} in der Abb. \ref{fig:mfm_ds220126} ist.
+Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in der Abb. \ref{fig:mfm_ds211221} wesentlich größer als die Domänengröße der Probe \textbf{DS220126} in der Abb. \ref{fig:mfm_ds220126} ist. Mit den Fourier-Transformierten (Abb. \ref{fig:mfm_ds211221_ft} und Abb. \ref{fig:mfm_ds220126_ft}) 
 
 \noindent
 Aus diesem Grund wurde die Probe \textbf{DS220126} in dem weiteren Verlauf des Experiments verwendet.

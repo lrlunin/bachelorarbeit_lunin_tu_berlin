@@ -75,11 +75,11 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.000000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.899682in}{1.181433in}}%
-\pgfpathlineto{\pgfqpoint{0.998960in}{1.181433in}}%
-\pgfpathlineto{\pgfqpoint{0.998960in}{1.169202in}}%
-\pgfpathlineto{\pgfqpoint{0.899682in}{1.169202in}}%
-\pgfpathlineto{\pgfqpoint{0.899682in}{1.181433in}}%
+\pgfpathmoveto{\pgfqpoint{0.879798in}{1.181433in}}%
+\pgfpathlineto{\pgfqpoint{1.018843in}{1.181433in}}%
+\pgfpathlineto{\pgfqpoint{1.018843in}{1.169202in}}%
+\pgfpathlineto{\pgfqpoint{0.879798in}{1.169202in}}%
+\pgfpathlineto{\pgfqpoint{0.879798in}{1.181433in}}%
 \pgfpathclose%
 \pgfusepath{fill}%
 \end{pgfscope}%
@@ -87,7 +87,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.717208in,y=0.979757in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 1 \(\displaystyle \mathrm{\mu}\)m\(\displaystyle ^{-1}\)}%
+\pgftext[x=0.717208in,y=0.979757in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont 5 \(\displaystyle \mathrm{\mu}\)m\(\displaystyle ^{-1}\)}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
