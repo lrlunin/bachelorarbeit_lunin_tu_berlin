@@ -24,7 +24,7 @@ Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei diesem S
     \label{fig:ccd_scheme}
 \end{figure}
 \noindent
-Die Ladungen werden seriell mit einem einzigen Verstärker zuerst in die Spannung und denn mit einem \gls{adc} in das Signal umgewandelt. So wird Gesamtbild an dem Sensor nach der Reihen ausgelesen.
+Die Ladungen werden seriell mit einem einzigen Verstärker zuerst in die Spannung und denn mit einem \gls{adc} in das Signal umgewandelt. So wird das Gesamtbild an dem Sensor nach der Reihen ausgelesen.
 
 \noindent
 Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ lang sein. Als Beispiel eines im Röntgenbereich aktiv benutzten CCD-Detektors kann ein Princeton Instruments
@@ -63,7 +63,7 @@ Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrah
 Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung 400x400px hat und die verbesserte Rauschencharakteristik im Vergleich mit den vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, sei die Sensorfläche mit \SI{500}{\nano\meter} Al-Beschichtung versorgt.
 
 \noindent
-Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal (bis) auf \SI{100}{\nano\second} gesetzt werden. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
+Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal (bis) auf \SI{100}{\nano\second} gesetzt werden. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
 
 \noindent
 Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat ein für eine bestimmte Belichtugnszeit $\tau$ konstantes Offset, der durch den Abzug eines Dunkelbildes bei der Datennachbearbeitung beseitigt werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
@@ -74,7 +74,7 @@ Da der Rauschenpegel des Detektors von den einzelnen Bauelementen abhängt und s
 \begin{figure}[H]
     \centering
     \input{images/moench/noise.pgf}
-    \caption{Der Rauschcharakteristik des MÖNCH-Detektors in Bezug auf die Belichtungszeit $\tau$. Die entsprechenden Messungen wurden am 2. März 2022 durchgeführt.}
+    \caption{Die Rauschcharakteristik des \gls{moench03} in Bezug auf die Belichtungszeit $\tau$. Die entsprechenden Messungen wurden am 2. März 2022 durchgeführt.}
     \label{fig:noise_moench}
 \end{figure}
 \noindent
@@ -92,39 +92,72 @@ Das Auslesesignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonene
 \noindent
 Um die beste Anpassung der Messdaten zu gewährleisteten, werden das Aluminiumoxid Al$_2$O$_3$ und Silizium Si als am Photonenweg hochwahrscheinlich präsentierte Materialien in der Gesamttransmission einbezogen. Aus diesem Grund werden die Messpunkte mit der Funktion
 \begin{equation}
-    R(h\nu, r, \{d_m\}) = h\nu\cdot r\cdot\exp\left[-\sum_{m}\mu_m(h\nu)d_m\right]
+    R(h\nu) = h\nu\cdot r\cdot\underbrace{\exp\left[-\sum_{m}\mu_m(h\nu)d_m\right]}_{\text{Transmissionsfaktor}}
+\label{eq:response_durchschnitt}
 \end{equation}
-angepasst, wobei $r$ - konstanter Responsekoeffizient in \si{\adu\per\eV} pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - entsprechende Materialdicke. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}.
+angepasst, wobei $r$ - konstanter Responsekoeffizient in \si{\adu\per\eV} pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - entsprechende Materialdicke. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}. Die gesuchten Koeffizienten sind $r$ und $\{d_m\}$.
 \begin{figure}[H]
     \centering
     \input{images/moench/response_200_1900ev.pgf}
     \caption{Die Sensorresponse (orange Linie) und die berechnete Quantumeffizienz (rote Linie) des MÖNCH-Detektors in Bezug auf die Photonenenergie $h\nu$. Die entsprechenden Messungen an der kalibrierten Röntgenquelle von \gls{ptb} wurden am 8. Oktober 2020 durchgeführt. Der starker Knick von der Sensorresponse und der Quantumeffizienz bei der $h\nu \approx \SI{1559}{\eV}$ entspricht der K-Absorptionskante von Al.}
     \label{fig:response_moench}
 \end{figure}
-
-
 \noindent
 Die Anpassung ergab die Werte
-$r = \SI{1.514e-1}{\adu\per\eV}$ pro Photon, $d_\text{Si} = \SI{26.2}{\nano\meter}$, $d_\text{Al} = \SI{454}{\nano\meter}$,
-$d_\text{Al$_2$O$_3$} = \SI{4.74}{\nano\meter}$, die sehr plausibel mit der gegebenen Dicke der Al-Beschichtung scheinen. Außerdem ist es auch möglich, die erwarteten \gls{adu}-Werte $W$ für die Photonenenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abzuschätzen. Diese ergeben sich 
+$r = \SI{1.51e-1}{\adu\per\eV}$ pro Photon, $d_\text{Si} = \SI{26.2}{\nano\meter}$, $d_\text{Al} = \SI{454}{\nano\meter}$,
+$d_\text{Al$_2$O$_3$} = \SI{4.74}{\nano\meter}$, die sehr plausibel mit der gegebenen Dicke der Al-Beschichtung scheinen.
+
+\noindent
+Die in der Abb. \ref{fig:response_moench} dargestellte Responsecharakterstik bezeichnet die durchschnittliche Sensorresponse. D.h., dass das Responsesignal gleichmäßig auf die gesamte Photonenzahl geteilt wird, ungeachtet darauf, ob das Photon tatsächlich detektiert wird oder in der Sensorbeschichtung verlorengeht und den Sensor nicht erreicht.
+
+\noindent
+So, wenn es um das Responsesignal eines tatsächlich detektierten Photons geht, muss der Transmissionsfaktor in der Gleichung (\ref{eq:response_durchschnitt}) der Anpassungsfunktion $R$ weggelassen werden. So ergibt sich die lineare Proportionalität
+\begin{equation}
+    R_\text{detek}(h\nu) = h\nu \cdot r
+\end{equation}
+zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei derselbe Koeffizient $r = \SI{1.51e-1}{\adu\per\eV}$ pro Photon eingesetzt werden kann. Somit lassen sich die erwarteten \gls{adu}-Werte $W$ für tatsächlich detektierte Photonen mit den Enenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abschätzen. Diese ergeben sich 
 \begin{equation}
 \begin{split}
-     W_{\text{Fe, L3}} &= \SI{71}{\adu}\\
-     W_{\text{Gd, M5}} &= \SI{162}{\adu}.
+     W_{\text{Fe, L3}} = \SI{1.51e-1}{\adu\per\eV} \cdot \SI{706.97}{\eV} &=  \SI{107(1)}{\adu}\\
+     W_{\text{Gd, M5}} = \SI{1.51e-1}{\adu\per\eV} \cdot \SI{1184.79}{\eV} &=  \SI{180(1)}{\adu}.
 \end{split}
 \label{eq:auselesewerte_fe_gd}
 \end{equation}
-\noindent
-Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz aufgrund des Auslesezeit-\gls{snr}-Verhältnisses insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}. Die Trennung des Hintergrundrauschens vom Streusignal kann grundsätzlich durch die Vergrößerung der Differenz ihrer Auslesewerte erleichtert, was dadurch zu realisieren ist, dass die Belichtungszeit $\tau$ möglichst verkürzt wird und die Photonenenergie $h\nu_{\text{Gd, M5}}$, bei der der erwartete \gls{adu}-Wert $W_{\text{Gd, M5}}$ wesentlich größer ist, gewählt wird.
 
 \section{Detektionsvorgänge der einzelnen Photonen}
 \label{text:single_photon_theorie}
-Clustering NxN px \cite{cartier_micron_2014}
+Die Präsenz des Triggerinterfaces am \gls{moench03} in Kombination damit, dass die Belichtungszeit von \gls{moench03} einwandfrei bis auf \SI{100}{\nano\second} gesetzt werden kann und die Totzeit ca. \SI{250}{\micro\second} lang ist, wobei die \gls{pxs} die Pulsperiode T$_\text{PXS} = \SI{10}{\milli\second}$ hat, lässt die von \gls{pxs} ausgelösten Pulse einzeln aufnehmen. In Hinblick auf die Tatsache, dass der Photonenfluss der \gls{pxs} innerhalb eines Pulses niedrig ist, ist es möglich, die einzelnen Photonen sich direkt in der Aufnahme zu erkennen.
 
+\noindent
+Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz aufgrund des Auslesezeit-\gls{snr}-Verhältnisses insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}. Die Trennung des Hintergrundrauschens vom Streusignal kann grundsätzlich durch die Vergrößerung der Differenz ihrer Auslesewerte erleichtert. Das ist dadurch zu realisieren, dass die Belichtungszeit $\tau$ möglichst verkürzt wird, um den Rauschenpegel zu senken, und die Photonenenergie mit dem höheren erwarteten \gls{adu}-Wert nämlich $h\nu_{\text{Gd, M5}}$ gewählt wird.
+
+\noindent
+Die Detektion der einzelnen Photonen (in der Literatur oft als \emph{engl. single-photon counting} gezeichnet) stellt eine besondere algorithmische Herausforderung dar. Es gibt zahlreiche Algorithmen und es wird ständig nach besseren Lösungen gesucht. Die Effizienz des Einsatzes eines oder anderen Algorithmen hängt von der Detektorauflösung, Photonenfluss, Auslesewerte vom Rauschen und Signal etc ab. In folgenden Unterabschnitten werden die Grundlagen der eingesetzten Algorithmen erfasst.
+
+\subsection{Schwellenwert-Algorithmus}
+Einfach ein threshold einsetzen
+
+\subsection{\emph{Clustering}-Algorithmus}
+Eines der einfachsten Auswertungsalgorithmen ist ein \emph{Clustering}-Algorithmus. Die Funktionsfähigkeit dieses Algorithmus wurde mit einem MÖNCH-Detektor in \cite{cartier_micron_2014} bewiesen.
+
+\noindent
+Die Grundidee dieses Algorithmus ist die Abbildung zu jedem $i,j$-ten Pixel seiner Summe mit den benachbarten Pixeln. Als der Nachbarbereich ist typischerweise ein Quadrat mit der Seite N gewählt. Die Form und die Größe des Nachbarbereichs kann dem Detektor entsprechend angepasst werden, um die Präzision des Algorithmus zu erhöhen.
+
+\noindent
+In anderen Worten wird zur Gesamtbildmatrix $\mathbf{V}$ eine Clustermatrix $\mathbf{Q}$ zugeordnet. Dieses Verfahren lässt sich formal wie folgt aufschreiben:
 \begin{equation}
-    \sum_{l=i-1}^{i} \sum_{m=j-1}^{j} W_{l,m} = \mathbf{W} * \mathbf{K}_{\text{N}} = Q_{i,j} > 2c\sigma_{i,j},
+    \mathbf{V} * \mathbf{K}_{\text{N}} = \sum_{l=i-\left[\frac{\text{N}}{2}\right]}^{i+\left[\frac{\text{N}}{2}\right]-1} \sum_{m=j-\left[\frac{\text{N}}{2}\right]}^{j+\left[\frac{\text{N}}{2}\right]-1} V_{l,m} = \mathbf{Q} 
 \end{equation}
-wobei $\mathbf{W}$ - Auslesewerte des Sensors dargestellt als Matrix $\mathbb{Z}^{400\times 400}$, $\mathbf{K}_{\text{N}}$ - Clusteringkern, mit $*$ wird die Faltung-Operation gekennzeichnet.
+wobei $\mathbf{V}$ - Auslesewerte des Sensors (Gesamtbild) dargestellt als Matrix, $\mathbf{K}_{\text{N}}$ - Cluster-Kern, mit $*$ wird die Faltung-Operation gekennzeichnet. Der Cluster-Kern lautet im Allgemeinen gleich
+\begin{equation}
+    \mathbf{K}_\text{N} = \begin{bmatrix}
+1 & \cdots & 1\\
+\vdots & \ddots & \vdots\\
+1 & \cdots & 1
+\end{bmatrix}
+\in \mathbb{Z}^{\text{N}\times \text{N}}
+\end{equation}
+Für den \gls{moench03} mit der Auflösung 400x400px ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Kerngrößen N für den Detektor seien 2 oder 3  \cite[Abschnitt 4]{cartier_micron_2014}. So werden die Cluster-Kerne
 \begin{equation}
     \mathbf{K}_{2} = \begin{bmatrix}
 1 & 1\\
@@ -137,13 +170,21 @@ wobei $\mathbf{W}$ - Auslesewerte des Sensors dargestellt als Matrix $\mathbb{Z}
 1 & 1 & 1
 \end{bmatrix}
 \end{equation}
-Im Allgemeinen
+bei der Datenauswertung benutzt.
+
+\noindent
+Die Einträge der Clustermatrix $Q_{i,j}$ mit einem Schwellenwert 
 \begin{equation}
-    \mathbf{K}_\text{N} = \begin{bmatrix}
-1 & \cdots & 1\\
-\vdots & \ddots & \vdots\\
-1 & \cdots & 1
-\end{bmatrix}
-\in \mathbb{Z}^{\text{N}\times \text{N}}
+    s(\text{N}, \sigma, c) = c\text{N}\sigma
 \end{equation}
+verglichen, wobei N - Kerngröße, $\sigma$ - Standardabweichung vom Hintergrundrauschen und $c$ - Konstante. Die Einträge, der Ungleichung
+\begin{equation}
+    Q_{i,j} > s
+\label{eq:cluster_threshold}
+\end{equation}
+genügen, werden bleiben und als Clustern mit einem Photon drin bezeichnet. Diejenige Einträge, die der Ungleichung (\ref{eq:cluster_threshold}) nicht genügen, werden als Photonlose-Regionen wahrgenommen (als Rauschen) und auf null gesetzt.
+
+\noindent
+Beim nächsten Schritt werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und die werden gezählt. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in N$^2$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer N sein muss.
+
 kurze Zusammenfassung von algorithmen, vergleich mit einandner. In der Auswertung: probieren jedes Algorythmus anzuwenden und das Ergebnisse nach den bestimmten Metriken (\gls{snr} oder so was) vergleichen und sagen, welches besser sein soll...

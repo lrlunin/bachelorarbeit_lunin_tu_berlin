@@ -2,12 +2,12 @@
 \newacronym[user1=\emph{engl. „refection zone plate“}]{rzp}{RZP}{Reflexionszonenplatte}
 \chapter{Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen}
 \label{text:quelle_roentgen}
-Typischerweise werden die Streuexperimente, wie es in der Einleitung bereits erwähnt wurde, mithilfe der Röntgenquellen mit der möglichst monochromatischen Strahlung, hohen räumlichen Kohärenz und dem hohen Photonenfluss durchgeführt. Die Strahllinie P04 am Synchrotron PETRA III kann als ein Vertreter solcher betrachtet. Die technischen Angaben stammen aus \cite{viefhaus_variable_2013}.
+Typischerweise werden die Streuexperimente, wie es in der Einleitung bereits erwähnt wurde, mithilfe der Röntgenquellen mit der möglichst monochromatischen Strahlung, hohen räumlichen Kohärenz und dem hohen Photonenfluss durchgeführt. Die Strahllinie P04 am Synchrotron PETRA III kann als ein Vertreter solcher Röntgenquellen betrachtet. Die technischen Angaben stammen aus \cite{viefhaus_variable_2013}.
 % \noindent
 % Der Strahl an der Strahlinie ist stark kollimiert. So ist dessen Fläche von 10 bis \SI{50}{\micro\meter\squared} groß, wobei der Photonenfluss mehr als $\SI{1e12}{\photons\per\second}$ beträgt. Die Strahlung wird in Form der zeitlich periodischen Pulsen emittiert. Die typische Pulsdauer $t_\text{PETRA}$ ist \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ kann zwischen den Werten \qtylist{8;16;192}{\nano\second} variiert werden \cite{petra-values-website}.
 
 \noindent
-Als die Quelle der weichen Röntgenstrahlung in dem weiteren Experiment dient eine \gls{pxs}, deren Aufbau und Charakteristiken in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrer Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer $t_\text{PETRA}$ \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ betragen, ist die Pulsdauer $t_\text{PXS}$ wesentlich kürzer und beträgt ca. \SI{10}{\pico\second}, wobei die Pulsperiode $T_\text{PXS}$ viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
+Als die Quelle der weichen Röntgenstrahlung in dem weiteren Experiment dient eine \gls{pxs}, deren Aufbau und Charakteristiken in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrer Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer $t_\text{PETRA}$ \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ \qtylist{8;16;192}{\nano\second}  betragen, ist die Pulsdauer $t_\text{PXS}$ wesentlich kürzer und beträgt ca. \SI{10}{\pico\second}, wobei die Pulsperiode $T_\text{PXS}$ viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
 \begin{figure}[H]
     \centering
     \input{images/xps/xps_spectrum_700_1400_mrad.pgf}
@@ -22,9 +22,11 @@ Im Gegensatz zur hoch kollimierten monochromatischen Strahlung an der Strahllini
 Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten Photonenenergiebereich zu selektieren. Dafür wird die emittierte Strahlung mithilfe einer \gls{rzp} fokussiert. Zur Verfügung stehen nämlich drei \gls{rzp}, die für die Zielphotonenenergien von Fe (\SI{705}{\eV}), Gd (\SI{1189}{\eV}) und Dy (\SI{1292}{\eV}) konstruiert wurden. Der mit der \gls{rzp} fokussierte Strahl wird in Form einer Sanduhr auf der Detektorfläche (s. Abb. \ref{fig:butterfly_moench}) abgebildet, wobei die Zielphotonenenergie in der Sanduhrtaille liegt und die benachbarten Photonenenergien entlang der horizontalen Symmetrieachse des Strahlprofils um den Fokuspunkt energetisch aufgelöst werden. Die Lage des Strahls auf dem Detektor lässt sich sowohl horizontal, als auch vertikal mit den hochpräzisen Schrittmotoren feinjustieren.
 \begin{figure}[H]
     \centering
-    \input{images/xps/butterfly_latex.pgf}
+    \subfloat[]{\input{images/xps/butterfly_latex.pgf}\label{fig:butterfly_moench_sum}}
+    \hfill
+    \subfloat[]{\input{images/xps/butterfly_latex_single_shot.pgf}\label{fig:butterfly_moench_single_shot}}
     %\includegraphics[width=0.4\textwidth]{images/butterfly_sum_26026_frames_plt.png}
-    \caption{Das direkte Strahprofil an dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Der hellste Bereich entspricht der \SI{1189}{\eV}, die Photonenenergie nimmt von unten nach oben ab. Abgebildet ist die Summe von 2000 Pulsen. Der Bereich, wo die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ abgebildet wurde, ist mit dem rotem Viereck schematisch markiert. Die Position von $h\nu_{\text{Gd, M5}}$ wurde dadurch gefunden, dass die Probe vertikal gefahren wurde und die Stelle der höheren Absorption genommen wurde.}
+    \caption{Das direkte Strahprofil an dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Abgebildet sind (a) die Summe von 2000 Pulsen und (b) das einzelne Puls. Der hellste Bereich entspricht der \SI{1189}{\eV}, die Photonenenergie nimmt von unten nach oben ab. Der Bereich, wo die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ abgebildet wurde, ist mit dem rotem Viereck schematisch markiert.}
     \label{fig:butterfly_moench}
 \end{figure}
 \noindent

@@ -75,6 +75,10 @@
 %\usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries}
 \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra}
 \setabbreviationstyle[acronym]{long-short-user}
+\glssetcategoryattribute{acronym}{nohyperfirst}{true}
+
+\renewcommand*{\glsdonohyperlink}[2]{%
+{\glsxtrprotectlinks \glsdohypertarget{#1}{#2}}}
 \usepackage{xcolor}
 
 %\setcounter{biburllcpenalty}{9000}
