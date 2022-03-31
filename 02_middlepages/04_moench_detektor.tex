@@ -132,10 +132,16 @@ Die Präsenz des Triggerinterfaces am \gls{moench03} in Kombination damit, dass 
 Der MÖNCH-Detektor stellt einen Detektor dar, dessen Einsatz aufgrund des Auslesezeit-\gls{snr}-Verhältnisses insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}. Die Trennung des Hintergrundrauschens vom Streusignal kann grundsätzlich durch die Vergrößerung der Differenz ihrer Auslesewerte erleichtert. Das ist dadurch zu realisieren, dass die Belichtungszeit $\tau$ möglichst verkürzt wird, um den Rauschenpegel zu senken, und die Photonenenergie mit dem höheren erwarteten \gls{adu}-Wert nämlich $h\nu_{\text{Gd, M5}}$ gewählt wird.
 
 \noindent
-Die Detektion der einzelnen Photonen (in der Literatur oft als \emph{engl. single-photon counting} gezeichnet) stellt eine besondere algorithmische Herausforderung dar. Es gibt zahlreiche Algorithmen und es wird ständig nach besseren Lösungen gesucht. Die Effizienz des Einsatzes eines oder anderen Algorithmen hängt von der Detektorauflösung, Photonenfluss, Auslesewerte vom Rauschen und Signal etc ab. In folgenden Unterabschnitten werden die Grundlagen der eingesetzten Algorithmen erfasst.
+Die Detektion der einzelnen Photonen (in der Literatur oft als \emph{engl. single-photon counting} gezeichnet) stellt eine besondere algorithmische Herausforderung dar. Es gibt zahlreiche Algorithmen und es wird ständig nach besseren Lösungen gesucht. Die Effizienz des Einsatzes eines oder anderen Algorithmen hängt von der Detektorauflösung, Photonenfluss, Auslesewerte vom Rauschen und Signal usw. ab. In folgenden Unterabschnitten werden die Grundlagen der eingesetzten Algorithmen erfasst.
 
 \subsection{Schwellenwert-Algorithmus}
-Einfach ein threshold einsetzen
+Die einfachste Lösung ist der Schwellenwert-Filter für die \gls{adu}-Werte einzusetzen. So werden alle Pixelwerte, die gleich oder kleiner als Schwellenwert $s_V$ sind, als Rauschen gekennzeichnet und auf 0 gesetzt. Ist der Pixelwert $V_{i,j}$ jedoch größer als $s_V$ - ist dieser Pixel als ein Pixel mit einem Photon zu identifizieren.
+
+\noindent
+Das Algorithmus ist anwendungsfähig, hat aber gewisse Nachteile. Bei den reellen Sensoren tritt häufig ein Effekt auf, dass die Ladung eines Pixels über die benachbarten Pixeln verteilt wird. So wird auch der \gls{adu}-Wert dementsprechend verteilt. Im Falle der zu starken Ladungsverteilung kann der verbleibende \gls{adu}-Wert des Pixels, wo ein Photon tatsächlich gelandet hat, allerdings nicht ausreichend sein, um den Schwellenwert $s_V$ zu bewältigen. Die Punktspreizfunktion des Detektors beschreibt, wie weit die Ladung abfließt.
+
+\noindent
+Um das Algorithmus, das auch den Fall richtig verarbeiten soll, geht es im nächsten Unterabschnitt.
 
 \subsection{\emph{Clustering}-Algorithmus}
 Eines der einfachsten Auswertungsalgorithmen ist ein \emph{Clustering}-Algorithmus. Die Funktionsfähigkeit dieses Algorithmus wurde mit einem MÖNCH-Detektor in \cite{cartier_micron_2014} bewiesen.
@@ -175,11 +181,11 @@ bei der Datenauswertung benutzt.
 \noindent
 Die Einträge der Clustermatrix $Q_{i,j}$ mit einem Schwellenwert 
 \begin{equation}
-    s(\text{N}, \sigma, c) = c\text{N}\sigma
+    s_Q(\text{N}, \sigma, c) = c\text{N}\sigma
 \end{equation}
 verglichen, wobei N - Kerngröße, $\sigma$ - Standardabweichung vom Hintergrundrauschen und $c$ - Konstante. Die Einträge, der Ungleichung
 \begin{equation}
-    Q_{i,j} > s
+    Q_{i,j} > s_Q
 \label{eq:cluster_threshold}
 \end{equation}
 genügen, werden bleiben und als Clustern mit einem Photon drin bezeichnet. Diejenige Einträge, die der Ungleichung (\ref{eq:cluster_threshold}) nicht genügen, werden als Photonlose-Regionen wahrgenommen (als Rauschen) und auf null gesetzt.
