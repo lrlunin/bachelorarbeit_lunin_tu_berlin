@@ -1,5 +1,5 @@
 \chapter{Röntgen-Detektor}
-\label{text:moench_theorie}
+\label{text:detector_theorie}
 \newacronym[user1=\emph{engl. analog-digital untis}]{adu}{ADU}{Analog-Digital-Wandler Auslese}
 \newacronym[user1=\emph{engl. analog-to-digital converter}]{adc}{ADC}{Analog-Digital-Umsetzer}
 \newacronym[user1=\emph{engl. com\-ple\-men\-tary metal-oxide-semiconductor}]{cmos}{CMOS}{komplementärer Metall-Oxid-Halbleiter}
@@ -14,6 +14,7 @@
 Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Ein photonenempfindlicher Sensor ist das wichtigste Bauteil aller Detektoren. Die einfallende Photonen werden mit der Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es grundsätzlich zwei Primärtechnologien, wonach alle Sensoren sich aufteilen lassen.
 
 \section{CCD-Sensor}
+\label{text:ccd_theorie}
 Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei diesem Sensortyp wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Danach werden die Ladungen am Leiter durch die koordinierte zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten) bis zu dem einzigen horizontalen Leiter. Dieser wird auch ein Schieberegister genannt und ermöglicht den weiteren Ladungstransport zum Verstärker. Dieses Verfahren ist genauerer in der Abb. \ref{fig:ccd_scheme} dargestellt.
 \begin{figure}[H]
     \centering
@@ -32,6 +33,7 @@ Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und
 PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate von \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} kann die Auslese des gesamten Sensors 2048x2048px bis \SI{4,2}{\second} dauern. Die Auslesezeit kann  durch die Auslese eines kleineren Sensorbereichs verkürzt werden und beträgt im Falle eines 400x400px Sensorunterbereichs \SI{160}{\milli\second}. Gegen einer langen Auslesezeit hat dieser Sensortyp einen Vorteil des niedrigen Hintergrundrauschenpegels.
 
 \section{CMOS-Sensor}
+\label{text:cmos_theorie}
 Die zweite große Sensorfamilie heißt \gls{cmos}. Die wird auch häufig \gls{aps} oder auch \gls{cmos}-Sensor genannt. Bei diesem Sensortyp ist jede Fotodiode mit einem eigenen Verstärker versorgt, somit wird die Ladung unmittelbar nah an der Fotodiode ohne weiteren Ladungstransport in die Spannung umgewandelt. Die Digitalisierung der Spannung von einer bestimmten Fotodiode kann durchs Schlissen vom Paar entsprechender Schalter in der Reihe und dem Spalt, wobei alle andere Schalter geschlossen bleiben. Dieses Verfahren ist in der Abb. \ref{fig:cmos_scheme} genauer dargestellt.
 \begin{figure}[H]
     \centering
@@ -52,6 +54,7 @@ Dadurch können die Spannungen parallel in Spalten mit \gls{adc} digitalisiert w
 Diese Sensorfamilie ist allerdings nicht frei von Nachteilen. Der entscheidende Faktor, warum \gls{cmos}-Sensoren die \gls{ccd}-Sensoren nicht in allen Bereichen verdrängten, ist der wesentlich höhere Rauschpegel. Es gibt also verschiedene Szenarien, wo ein oder anderer Sensortyp angewendet werden kann. Die Wahl hängt von der verfügbaren Zeit, erzielten Präzision und Art der Messung ab.
 
 \section{MÖNCH-Detektor}
+\label{text:moench_theorie}
 Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrahlung von \gls{sls} am \gls{psi}. Dieser stellt einen hybrid-Detektor dar, dessen Sensor hauptsächlich seinem Aufbau nach einem \gls{cmos}-Sensor ähnelt. Die technischen Nachbersserungen in der Abb. \ref{fig:moench_pixel} lassen das Verstärkungsgrad variieren und die Auslesezeit durch den Einbau eines zusätzlichen Kondensatorspeichers beschleunigen.
 \begin{figure}[H]
     \centering
@@ -67,8 +70,7 @@ Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung 400x400px h
 Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal (bis) auf \SI{100}{\nano\second} gesetzt werden. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
 
 \noindent
-Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat ein für eine bestimmte Belichtugnszeit $\tau$ konstantes Offset, das durch den Abzug eines Dunkelbildes bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
-
+Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat ein für eine bestimmte Belichtugnszeit $\tau$ konstantes Offset, das durch den Abzug der gemittelten Dunkelbilder bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
 
 \noindent
 Da der Rauschenpegel des Detektors von den einzelnen Bauelementen abhängt und sich innerhalb einer Baureihe unterscheiden kann, sollen die  Detektorcharateristiken im Einzelfall ausgewertet werden. Aus diesem Grund wurde die Rauschencharakteristik mit dem verfügbaren \gls{moench03} aufgenommen.
@@ -125,6 +127,7 @@ zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei
 \label{eq:auselesewerte_fe_gd}
 \end{equation}
 
+
 \section{Detektionsvorgänge der einzelnen Photonen}
 \label{text:single_photon_theorie}
 Die Präsenz des Triggerinterfaces am \gls{moench03} in Kombination damit, dass die Belichtungszeit des Detektors einwandfrei bis auf \SI{1}{\micro\second} gesetzt werden kann und die Totzeit ca. \SI{250}{\micro\second} lang ist, wobei die \gls{pxs} die Pulsperiode T$_\text{PXS} = \SI{10}{\milli\second}$ hat, lässt die von \gls{pxs} ausgelösten Pulse einzeln aufnehmen. Das resultierende \gls{snr} für ein Photon würde im besten Fall, und zwar bei der möglichst kurzen Belichtungszeit $\tau = \SI{1e-7}{\second}$, im Bereich von 7-\SI{10}{\decibel} liegen. Bei so einem niedrigen Wert stellt sich Beobachten eines Streubildes eher als unmöglich. Es gibt jedoch Software-Lösungen, die das \gls{snr} erhöhen lassen.  
@@ -168,13 +171,12 @@ wobei $\mathbf{V}$ - Auslesewerte des Sensors (Gesamtbild) dargestellt als Matri
 \in \mathbb{Z}^{\text{N}\times \text{N}}
 \end{equation}
 
-
 \noindent
 Die Einträge der Clustermatrix $Q_{i,j}$ werden mit einem Schwellenwert 
 \begin{equation}
     s_Q(\text{N}, \sigma, c) = c\text{N}\sigma
 \end{equation}
-verglichen, wobei N - Kerngröße, $\sigma$ - Standardabweichung vom Hintergrundrauschen und $c$ - Konstante. Die Einträge, die größer als der Schwellenwert $s_Q$ sind, werden bleiben und als Clustern mit Photon(en) drin bezeichnet. Diejenige Einträge, die der Ungleichung nicht genügen, werden als Photonlose-Regionen wahrgenommen (als Rauschen) und auf null gesetzt.
+verglichen, wobei N - Kerngröße, $\sigma$ - Standardabweichung vom Hintergrundrauschen und $c$ - freier Parameter. Die Einträge, die größer als der Schwellenwert $s_Q$ sind, werden bleiben und als Clustern mit Photon(en) drin bezeichnet. Diejenige Einträge, die der Ungleichung nicht genügen, werden als Photonlose-Regionen wahrgenommen (als Rauschen) und auf null gesetzt.
 
 \noindent
 Beim nächsten Schritt werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und die werden gezählt. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in N$^2$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer N sein muss.

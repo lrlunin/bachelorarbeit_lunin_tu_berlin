@@ -35,7 +35,10 @@
 \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx}
 \DeclareSIUnit\angstrom{\text {Å}}
 \DeclareSIUnit\adu{\text{ADU}}
-\DeclareSIUnit\photons{\text{Photonen}}
+\DeclareSIUnit\px{\text{px}}
+\DeclareSIUnit\photons{\text{Pho\-to\-nen}}
+\DeclareSIUnit\photon{\text{Pho\-ton}}
+\sisetup{range-phrase=--}
 \DeclareSIUnit\bar{bar}
 \usepackage{tikz}
 \usepackage{booktabs}
@@ -101,7 +104,9 @@
 \usepackage{nameref}
 
 % \newcommand*{\currentname}{\@currentlabelname}
+\usepackage[symbol]{footmisc}
 
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 % \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \usepackage{fancyhdr}
 
@@ -116,6 +121,7 @@
 %\pagestyle{headings}
 %\markright{Lunin \hfill Röntgenabsorptions-Feinstruktur-Sepktroskopie \hfill}
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\DeclareMathOperator{\sinc}{sinc}
 
 \begin{document}
 % Inhaltsverzeichnis
