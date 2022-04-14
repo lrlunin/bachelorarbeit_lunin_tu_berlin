@@ -6,3 +6,5 @@
 *.pdf
 *.run.xml
 *.toc
+*.bbl
+*.blg

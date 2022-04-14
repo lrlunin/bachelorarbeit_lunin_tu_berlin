@@ -1,5 +1,5 @@
 \chapter{Experimenteller Aufbau}
-Die Streuung der Röntgenstrahlung an der Probe wird bei den kleinen Winkeln beobachtet. Die Probe im Strahlengang wird \SI{160}{\milli\meter} nach hinten von dem Fokuspunkt der \gls{rzp} gestellt/verschoben. Für die schärfere Abbildung des Streubildes soll der Detektor möglichst nah an der Probe gebracht werden. In der aktuellen Aufbaukonfiguration (s. Abb. \ref{fig:anlage}) heißt das, dass der Detektor an der gegenüberliegenden Wand ca. \SI{620}{\milli\meter} von der Probe entfernt befestigt wird.
+Die Streuung der Röntgenstrahlung an der Probe wird bei den kleinen Winkeln beobachtet. Die Probe im Strahlengang wird \SI{160}{\milli\meter} nach hinten von dem Fokuspunkt der \gls{rzp} gestellt/verschoben. Für die schärfere Abbildung des Streubildes soll der Detektor möglichst nah an der Probe gebracht werden. In der aktuellen Aufbaukonfiguration konnte das dadurch realisiert werden, dass der Detektor an der gegenüberliegenden Wand ca. \SI{620}{\milli\meter} von der Probe entfernt befestigt wird.
 \begin{figure}[H]
     \centering
     \includegraphics{images/aufbau/aufbau_empty.pdf}
@@ -7,14 +7,26 @@ Die Streuung der Röntgenstrahlung an der Probe wird bei den kleinen Winkeln beo
     \label{fig:anlage}
 \end{figure}
 \noindent
-Aufgrund des fast doppelt so hohen \gls{adu}-Wertes (siehe Gl. (\ref{eq:auselesewerte_fe_gd})) pro ein Photon an der $h\nu_\text{Gd, M5}$ Energie wurden die Messungen an dieser Photonenenrgie durchgeführt. 
-!!! STREURING RADIUS !!!
+Die Messungen wurden im Rahmen dieser Arbeit lediglich an der Photonenenergie $h\nu_\text{Gd, M5}$ durchgeführt, weil der \gls{adu}-Wert pro ein Photon bei dieser Photonenenergie fast doppelt so hoch ist, als bei der Photonenenergie $h\nu_\text{Fe, L3}$, was im Endeffekt das ursprüngliche \gls{snr} erhöht und die potenziell bessere Ergebnisse nach der Auswertung gewährleisten soll.
 
 \noindent
-Um das ursprüngliche \gls{snr} der Aufnahmen zu erhöhen, sollen die Dunkelbilder während einer Messung (s. Abschnitt \ref{text:moench_theorie}) aufgenommen werden, die nachher aus den Aufnahmen subtrahiert werden. Es werden \num{10000} Dunkelbilder jede 30 Minuten aufgenommen, um die zeitliche Entwicklung des Hintergrundrauschens mitzunehmen. Ein kontinuierlicher Aufnahmevorgang der \gls{pxs} kann höchstens bis \SI{20}{\second} dauern. Die Pulsfrequenz $f_\text{\gls{pxs}}$ ist konstant und beträgt \SI{100}{\hertz}. So werden es \num{2000} Pulsen innerhalb eines \SI{20}{\second} Aufnahmevorgangs emittiert. Jedem Puls geht ein Triggersignal voraus, das \SI{1}{\milli\second} vor dem Puls generiert wird.
+In der ersten Näherung kann die Domänenstruktur der Probe \textbf{DS220126} als ein Gitter betrachtet werden, wobei die Domänengröße dem Spaltabstand $d$ entspricht. Dieser kann mit den MFM-Aufnahmen (Abb. \ref{fig:mfm_ds220126}) mit ca. \SI{300}{\nano\meter} abgeschätzt werden. In Hinblick darauf, dass die Streuung in der aktuellen Transmissionsgeometrie unter den kleinen Winkeln beobachtet wird, lässt sich der Abstand des $k$-ten Maximums zum $0$-ten Maximum wie folgt ermitteln
+\begin{equation}
+     r_{k} = \frac{kl\lambda}{d},
+ \end{equation}
+ wobei $l$ - Abstand vom Gitter bis zur Beobachtungsfläche und $\lambda$ - Photonenwellenlänge. Die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ entspricht der Wellenlänge $\lambda_{\text{Gd, M5}} = \SI{1,05}{\nano\meter}$. So ist der erwartete Abstand des 1. Streuringes bis zum $0$-ten Hauptmaxima 
+ \begin{equation}
+     r_{1} = \frac{kl\lambda_{\text{Gd, M5}}}{d} = \frac{1\cdot\SI{620}{\milli\meter}\cdot\SI{1,05}{\nano\meter}}{\SI{300}{\nano\meter}} = \SI{2.17}{\milli\meter}.
+ \end{equation}
+
+\noindent
+Die Dunkelbilder, die nachher aus den Aufnahmen subtrahiert werden (s. Abschnitt \ref{text:moench_theorie}), werden jede 30 Minuten in Höhe von \num{10000} Stück aufgenommen, um die zeitliche Entwicklung des Hintergrundrauschens mitzunehmen. Ein kontinuierlicher Aufnahmevorgang der \gls{pxs} kann höchstens bis \SI{20}{\second} dauern. Die Pulsfrequenz $f_\text{\gls{pxs}}$ ist konstant und beträgt \SI{100}{\hertz}. So werden es \num{2000} Pulsen innerhalb eines \SI{20}{\second} Aufnahmevorgangs emittiert. Jedem Puls geht ein Triggersignal voraus, das \SI{1}{\milli\second} vor dem Puls generiert wird.
 
 \noindent
 Der \gls{moench03} hat eine einstellbare Verzögerung zwischen dem Aufnahmestart und dem Trigersignaleingang. Diese wird so konfiguriert, dass der \SI{10}{\femto\second} Röntgen-Puls der \gls{pxs} innerhalb des Belichtungszeitfensters $\tau$ vollständig/komplett hineinpasst. So könne die Belichtungszeit theoretisch weit bis dieselbe Großenordnung wie Pulslänge gesenkt. Das konnte aber praktisch nicht realisiert werden, weil die resultierende zeitliche Schwankung des Triggersignal-Generators, inneren Taktieren von \gls{moench03} Dutzende von \si{\nano\second} beträgt. So konnte die Belichtungszeit $\tau$ unter der Bedingung, dass jeder Puls komplett in jeder Aufnahme aufgenommen wird, höchstens bis auf \SI{1}{\micro\second} heruntergesetzt werden.
+
+\noindent
+Durch die Verkleinerung der Spalthöhe lässt sich ein kleinerer Energiebereich um die Resonanzenergie, der auf die Probe abgebildet wird, selektieren und die nichtresonanten Energien abschneiden, wodurch die Überlagerung des Direktstahls mit dem Streuring vermieden werden kann und die bessere Energieauflösung erreichbar ist. Die Beugung an den Spaltkanten kann sich jedoch mit der Beugung an der Probe überlagern und nicht davon trennbar sein. Aus diesem Grund wurden die Messungen sowohl mit dem schmal eingestellten Spalt als auch ohne den Spalt durchgeführt
 
 \noindent
 Neben der Strahlung im Röntgenspektrum tritt bei der \gls{pxs} auch Strahlung im sichtbaren Spektrum, Streuung des einfallenden Laserlichts und Elektronenemission auf. Obwohl der Sensor von \gls{moench03} \SI{500}{\nano\meter} Al-Beschichtung habe, scheint sie am Rande dünner zu sein. So wurden die Pixel am Rande des Detektors ständig belichtet, selbst wenn der Röntgenstrahl in großer Entfernung von dem Sensorrand projiziert wurde. Es wurde daher zusätzlich im Strahlgang eine Mylar Folie mit \SI{200}{\nano\meter} Al-Beschichtung installiert, die die Intensität des sichtbaren und infraroten Lichtes deutlich abschwächte und dadurch den beobachteten Halo-Effekt beseitigte. Obwohl die Elektronen mit einem starken Magnet von dem Strahlgang großenteils abgelenkt werden, konnten einigen Elektronen auf dem \gls{moench03} detektiert werden. Der installierte Filter reduzierte ihre Zahl auch.
