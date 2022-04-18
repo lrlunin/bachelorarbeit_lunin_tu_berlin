@@ -5,7 +5,13 @@
 Typischerweise werden die Streuexperimente, wie es in der Einleitung bereits erwähnt wurde, mithilfe der Röntgenquellen mit der möglichst monochromatischen Strahlung, hohen räumlichen Kohärenz und dem hohen Photonenfluss durchgeführt. Die Strahllinie P04 am Synchrotron PETRA III kann als ein Vertreter solcher Röntgenquellen betrachtet. Die technischen Angaben stammen aus \cite{viefhaus_variable_2013}.
 % \noindent
 % Der Strahl an der Strahlinie ist stark kollimiert. So ist dessen Fläche von 10 bis \SI{50}{\micro\meter\squared} groß, wobei der Photonenfluss mehr als $\SI{1e12}{\photons\per\second}$ beträgt. Die Strahlung wird in Form der zeitlich periodischen Pulsen emittiert. Die typische Pulsdauer $t_\text{PETRA}$ ist \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ kann zwischen den Werten \qtylist{8;16;192}{\nano\second} variiert werden \cite{petra-values-website}.
-
+\begin{figure}[H]
+    \centering
+    \input{aufbau_skizze.pdf_tex}
+    \caption{schematischer Aufbau}
+    \label{fig:pxs_aufbau}
+\end{figure}
+%textwidht = 6.49733inch
 \noindent
 Als die Quelle der weichen Röntgenstrahlung in dem weiteren Experiment dient eine \gls{pxs}, deren Aufbau und Charakteristiken in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrer Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer $t_\text{PETRA}$ \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ \qtylist{8;16;192}{\nano\second}  betragen, ist die Pulsdauer $t_\text{PXS}$ wesentlich kürzer und beträgt ca. \SI{10}{\pico\second}, wobei die Pulsperiode $T_\text{PXS}$ viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
 \begin{figure}[H]
@@ -14,9 +20,6 @@ Als die Quelle der weichen Röntgenstrahlung in dem weiteren Experiment dient ei
     \caption{Das Spektrum der benutzten \gls{pxs}. Mit der Abkürzung „BB“ ist die Bandbreite zu verstehen. Die schwarzen Hilfelinien mit den Titeln entsprechen den Photonenenrgien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$. Adaptiert von \cite{schick_laser-driven_2021}, mit Genehmigung von \href{https://orcid.org/0000-0001-7988-6489}{D. Schick}.}
     \label{fig:pxs_spectrum}
 \end{figure}
-\noindent
-!!! PXS AUFBAU SKIZZE, LASER -> ZYLINDER -> RZP !!!
-
 \noindent
 Im Gegensatz zur hoch kollimierten monochromatischen Strahlung an der Strahllinie P04, wo die zu emittierende Photonenenergie direkt technisch voreinstellbar ist, strahlt die \gls{pxs} gleichzeitig die Photonen des ganzen Spektrums (s. Abb. \ref{fig:pxs_spectrum}) in alle Richtungen aus.
 
