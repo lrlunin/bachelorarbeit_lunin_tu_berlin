@@ -57,9 +57,9 @@
     \put(0.04508802,0.21529428){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Scheibenlaser\end{tabular}}}}%
     \put(0.07889021,0.1720852){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Linse\end{tabular}}}}%
     \put(0.00558202,0.04147774){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Wolfram-\\zylinder\end{tabular}}}}%
-    \put(0.12620142,0.03172437){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Reflexionszonenplatte\end{tabular}}}}%
-    \put(0.43874977,0.16912408){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Spalt\end{tabular}}}}%
-    \put(0.6628033,0.15076825){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Probe\end{tabular}}}}%
+    \put(0.12904314,0.02135215){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Reflexionszonenplatte\end{tabular}}}}%
+    \put(0.42795129,0.16912408){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Spalt\end{tabular}}}}%
+    \put(0.66138243,0.15076825){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Probe\end{tabular}}}}%
     \put(0.82322241,0.20206029){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Detektorsensor\end{tabular}}}}%
   \end{picture}%
 \endgroup%

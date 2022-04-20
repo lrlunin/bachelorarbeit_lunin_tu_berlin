@@ -1,6 +1,12 @@
 \chapter{Auswertung}
 \label{text:auswertung}
-Die Auswertung von Messdaten wird durch ihre Größe erschwert. Eine Aufnahme-Session beträgt ca. 500GB von Aufnahmen, die einzeln ausgewertet werden sollen. Aus diesem Grund ist eine hoch effizente Bibliothek mit der Parallelisierung erforderlich. Eine davon ist \textit{dask-image} \cite{dask-library}.
+Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \numrange{75000}{100000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln ausgewertet werden. So kann der Auswertungsvorgang parallelisiert werden. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
+
+\noindent
+Die Summe von ca. 7000 aufgenommenen Dunkelbildern wird gemittelt und als einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild. Dieses gemittelte Bild wird von jeder Aufnahme vor der weiteren Auswertung subtrahiert.
+
+\noindent
+Für jeden Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text:threshold_algorithm} und \ref{text:clustering_algorithm}) eingesetzt und die beiden Auswertungsergebnisse werden miteinander verglichen.
 
 \section{Ermittlung des tatsächlichen Photonenflusses}
 \label{text:butterfly_counting}
