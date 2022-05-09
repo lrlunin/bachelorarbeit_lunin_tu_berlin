@@ -1,16 +1,45 @@
 \chapter{Auswertung}
 \label{text:auswertung}
-Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \numrange{75000}{100000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln ausgewertet werden. So kann der Auswertungsvorgang parallelisiert werden. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
+Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \numrange{75000}{100000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln und kann von anderen Aufnahmen unabhängig ausgewertet werden. So ist der Auswertungsvorgang leicht parallelisierbar. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
 
 \noindent
-Die Summe von ca. 7000 aufgenommenen Dunkelbildern wird gemittelt und als einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild. Dieses gemittelte Bild wird von jeder Aufnahme vor der weiteren Auswertung subtrahiert.
+Das gemitteltes Dunkelbild von \num{10000} aufgenommenen Dunkelbildern wird ermittelt und als einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung über große Aufnahmenzahl eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild, der erwartet groß sein soll. Das gemittelte Bild wird von jeder Aufnahme vor der weiteren Auswertung subtrahiert.
 
 \noindent
-Für jeden Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text:threshold_algorithm} und \ref{text:clustering_algorithm}) eingesetzt und die beiden Auswertungsergebnisse werden miteinander verglichen.
+Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebildet ist, ist, wie erwartet, extrem klein gegenüber das Rohbild und das gemittelte Dunkelbild, die in der Abb. \ref{fig:capture_ped_diff}a) bzw. \ref{fig:capture_ped_diff}b) zu sehen sind. 
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/capture_ped_diff.pgf}
+    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder und (c) die resultierende Differenz von ersten zwei Bildern.}
+    \label{fig:capture_ped_diff}
+\end{figure}
+
+\noindent
+Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text:threshold_algorithm} und \ref{text:clustering_algorithm}) eingesetzt und die Auswertungsergebnisse werden miteinander verglichen.
+\section{Hintergrundrauschen Auswertung der Streubilder}
+\label{text:streuung_counting}
+Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei diverse Werte aus dem Intervall \SIrange{150}{600}{\adu} dem Schwellenwert $s_V$ zugewiesen werden. Die Zahl der detektierten Photonen mit dem variablen Schwellenwert lässt quantitativ anschauen, wie stark der erwartete \gls{adu}-Wert eines Photons $W_\text{Gd, M5} =  \SI{180(1)}{\adu}$ (s. Gl. (\ref{eq:auselesewerte_fe_gd})).
+
+\noindent
+In der Abb. \ref{fig:th_150_170_180} es ist 
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_150_170_180.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{170}{\adu} und (c) \SI{180}{\adu}. Aufsummiert werden \num{50000} Aufnahmen.}
+    \label{fig:th_150_170_180}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_180_450_600.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{180}{\adu}, (b) \SI{450}{\adu} und (c) \SI{600}{\adu}. Aufsummiert werden \num{50000} Aufnahmen. Die detektierten Photonen, die mit allen Schwellenwerten auftauchen, werden mit grün eingekreist. }
+    \label{fig:th_180_450_600}
+\end{figure}
+
+
+
+\noindent
+Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}}$ und $h\nu_{\text{Gd, M4}}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
 
 \section{Ermittlung des tatsächlichen Photonenflusses}
 \label{text:butterfly_counting}
 
-
-\section{Hintergrundrauschen Auswertung der Streubilder}
-\label{text:streuung_counting}
