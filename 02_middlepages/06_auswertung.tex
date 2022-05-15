@@ -18,16 +18,35 @@ Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebi
 Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text:threshold_algorithm} und \ref{text:clustering_algorithm}) eingesetzt und die Auswertungsergebnisse werden miteinander verglichen.
 \section{Hintergrundrauschen Auswertung der Streubilder}
 \label{text:streuung_counting}
-Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei diverse Werte aus dem Intervall \SIrange{150}{600}{\adu} dem Schwellenwert $s_V$ zugewiesen werden. Die Zahl der detektierten Photonen mit dem variablen Schwellenwert lässt quantitativ anschauen, wie stark der erwartete \gls{adu}-Wert eines Photons $W_\text{Gd, M5} =  \SI{180(1)}{\adu}$ (s. Gl. (\ref{eq:auselesewerte_fe_gd})).
+\subsection{Schwellenwert}
+Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei diverse Werte aus dem Intervall \SIrange{0}{600}{\adu} dem Schwellenwert $s_V$ zugewiesen werden.
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_150_sums.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert \SI{150}{\adu}, wobei es (a) \num{1}, (b) \num{5}, (c) \num{1000}, (d) \num{10000}, (e) \num{20000} und (f) \num{50000} Aufnahmen aufsummiert werden.}
+    \label{fig:th_150_sums}
+\end{figure}
+
+
+Die Zahl der detektierten Photonen mit dem variablen Schwellenwert lässt quantitativ anschauen, wie stark der erwartete \gls{adu}-Wert eines Photons $W_\text{Gd, M5} =  \SI{180(1)}{\adu}$ (s. Gl. (\ref{eq:auselesewerte_fe_gd})).
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_0_100_125_150_170_180.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{0}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Eine dunklere Linie im Zentrum vom Direktstrahl entspricht der Absorptionskante. Aufgenommen an der Resonanzfrequenz Gd M5.}
+    \label{fig:th_0_100_125_150_170_180}
+\end{figure}
+
+
+
 
 \noindent
 In der Abb. \ref{fig:th_150_170_180} es ist 
-\begin{figure}[H]
-    \centering
-    \input{images/auswertung/th_150_170_180.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{170}{\adu} und (c) \SI{180}{\adu}. Aufsummiert werden \num{50000} Aufnahmen.}
-    \label{fig:th_150_170_180}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \input{images/auswertung/th_150_170_180.pgf}
+%     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{170}{\adu} und (c) \SI{180}{\adu}. Aufsummiert werden \num{50000} Aufnahmen.}
+%     \label{fig:th_150_170_180}
+% \end{figure}
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_180_450_600.pgf}
@@ -35,11 +54,51 @@ In der Abb. \ref{fig:th_150_170_180} es ist
     \label{fig:th_180_450_600}
 \end{figure}
 
-
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_150_200_masked_radial_transform.pgf}
+    \caption{}
+    \label{fig:th-150-200-maske-radial-transform}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/radius_fit.pgf}
+    \caption{}
+    \label{fig:radius_fit}
+\end{figure}
 
 \noindent
 Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}}$ und $h\nu_{\text{Gd, M4}}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
 
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_0_100_125_150_170_180_off_resonance.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{0}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
+    \label{fig:th_0_100_125_150_170_180_off_resonance}
+\end{figure}
+\subsection{Clustering}
+\noindent
+Test
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/cl_2_0_100_125_150_170_180_resonance.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Gd M5 Resonanzfrequenz.}
+    \label{fig:th_0_100_125_150_170_180_resonance}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/cl_150_180_200_220_250_290_off_resonance.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
+    \label{fig:th_0_100_125_150_170_180_off_resonance}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/no_pr_cl_2_cl_3_histograms.pgf}
+    \caption{Histogramme der (a) direkten Pixelwerte und der mit (b) 2x2- und (c) 3x3- Clustering-Algorithmus bearbeiteten Pixelwerte. In den jeweils eingefügten Graphen sind die Bereiche detailliert dargestellt, wo sich die Schnittpunkte (vertikale Linien) von Dunkelbilder- und Streubilder-Histogramme befinden. Für jedes Histogramm werden \num{10000} Dunkelbilder sowie Streubilder verwendet.}
+    \label{fig:no_pr_cl_2_cl_3_histograms}
+\end{figure}
+...
 \section{Ermittlung des tatsächlichen Photonenflusses}
 \label{text:butterfly_counting}
 
