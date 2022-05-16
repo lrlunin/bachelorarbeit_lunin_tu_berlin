@@ -6,6 +6,14 @@ Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahm
 Das gemitteltes Dunkelbild von \num{10000} aufgenommenen Dunkelbildern wird ermittelt und als einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung über große Aufnahmenzahl eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild, der erwartet groß sein soll. Das gemittelte Bild wird von jeder Aufnahme vor der weiteren Auswertung subtrahiert.
 
 \noindent
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/noise_hist_fit.pgf}
+    \caption{\num{10000} Dunkelbilder}
+    \label{fig:noise_hist_fit}
+\end{figure}
+
+\noindent
 Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebildet ist, ist, wie erwartet, extrem klein gegenüber das Rohbild und das gemittelte Dunkelbild, die in der Abb. \ref{fig:capture_ped_diff}a) bzw. \ref{fig:capture_ped_diff}b) zu sehen sind. 
 \begin{figure}[H]
     \centering
@@ -19,13 +27,23 @@ Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text
 \section{Hintergrundrauschen Auswertung der Streubilder}
 \label{text:streuung_counting}
 \subsection{Schwellenwert}
-Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei diverse Werte aus dem Intervall \SIrange{0}{600}{\adu} dem Schwellenwert $s_V$ zugewiesen werden.
+Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei der Schwellenwert $s_V$ im Intervall von \SIrange{50}{260}{\adu} variiert wird. In der Abbildung \ref{fig:th_50_100_125_150_170_180_200_220_260} werden die Ergebnisse der Algorithmusverarbeitung in log-Skala dargestellt.
 \begin{figure}[H]
     \centering
-    \input{images/auswertung/th_150_sums.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert \SI{150}{\adu}, wobei es (a) \num{1}, (b) \num{5}, (c) \num{1000}, (d) \num{10000}, (e) \num{20000} und (f) \num{50000} Aufnahmen aufsummiert werden.}
-    \label{fig:th_150_sums}
+    \input{images/auswertung/th_50_100_125_150_170_180_200_220_260.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
+    \label{fig:th_50_100_125_150_170_180_200_220_260}
 \end{figure}
+In der Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}a), wo der Schwellenwert $s_V = \SI{50}{\adu}$ gleich ist, 
+
+
+
+% \begin{figure}[H]
+%     \centering
+%     \input{images/auswertung/th_150_sums.pgf}
+%     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert \SI{150}{\adu}, wobei es (a) \num{1}, (b) \num{5}, (c) \num{1000}, (d) \num{10000}, (e) \num{20000} und (f) \num{50000} Aufnahmen aufsummiert werden. Es werden jeweils \num{6}, \num{41}, \num{13262}, \num{135780}, \num{264699} und \num{543377} Photonen gezählt.}
+%     \label{fig:th_150_sums}
+% \end{figure}
 
 
 Die Zahl der detektierten Photonen mit dem variablen Schwellenwert lässt quantitativ anschauen, wie stark der erwartete \gls{adu}-Wert eines Photons $W_\text{Gd, M5} =  \SI{180(1)}{\adu}$ (s. Gl. (\ref{eq:auselesewerte_fe_gd})).
@@ -40,7 +58,7 @@ Die Zahl der detektierten Photonen mit dem variablen Schwellenwert lässt quanti
 
 
 \noindent
-In der Abb. \ref{fig:th_150_170_180} es ist 
+In der Abb. \ref{fig:th_0_100_125_150_170_180} es ist 
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_170_180.pgf}
@@ -83,14 +101,14 @@ Test
     \centering
     \input{images/auswertung/cl_2_0_100_125_150_170_180_resonance.pgf}
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Gd M5 Resonanzfrequenz.}
-    \label{fig:th_0_100_125_150_170_180_resonance}
+    \label{fig:cl_2_0_100_125_150_170_180_resonance}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \input{images/auswertung/cl_150_180_200_220_250_290_off_resonance.pgf}
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
-    \label{fig:th_0_100_125_150_170_180_off_resonance}
+    \label{fig:cl_150_180_200_220_250_290_off_resonance}
 \end{figure}
 \begin{figure}[H]
     \centering
