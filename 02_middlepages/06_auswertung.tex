@@ -34,31 +34,34 @@ Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
     \label{fig:th_50_100_125_150_170_180_200_220_260}
 \end{figure}
-In der Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}a), wo der Schwellenwert $s_V = \SI{50}{\adu}$ gleich ist, 
+% \begin{figure}[H]
+%     \centering
+%     \input{images/auswertung/th_0_100_125_150_170_180.pgf}
+%     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{0}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Eine dunklere Linie im Zentrum vom Direktstrahl entspricht der Absorptionskante. Aufgenommen an der Resonanzfrequenz Gd M5.}
+%     \label{fig:th_0_100_125_150_170_180}
+% \end{figure}
+\noindent
+In der Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}, wo der Schwellenwert $s_V = \SI{50}{\adu}$ gleich ist, 
 
-
-
+\noindent
+Um den optimalen Wert von Schwellenwert $s_V$ zu bestimmen, wird es nach dem maximalen \gls{snr} gesucht. Dafür werden die Signal- und Rauschen-Bereiche mit den binären Signal- und Rauschen-Masken (Abb. \ref{fig:th_150_mask_snr}) definiert. So werden die Bilder mit den Signal-/Rauschen-Masken multipliziert und auf die Maskenflächen normiert. Die Verhältnisse von normierten Signal- und Rauschen-Werten werden über den Schwellenwert $s_V$ aufgetragen und maximiert. Das Maximum von \gls{snr} liegt an der Stelle $s_V = \SI{150}{\adu}$. Aus diesem Grund wird das Bild als das beste Zwischenergebnis betrachtet und für die die weitere Auswertung benutzt. 
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_150_mask_snr.pgf}
+    \caption{Am Beispiel mit dem $s_V = \SI{150}{\adu}$ (a) werden die Bereiche mit (grün) Signal und (aqua) Rauschen hervorgehoben. Es ist wichtig zu beachten, dass die beiden Bereiche den Direktstrahl nicht enthalten. Das \gls{snr} (b) wird über den Schwellenwert $s_V$ aufgetragen. Das gewünschte maximale \gls{snr} wird an der Stelle $s_V = \SI{150}{\adu}$ angenommen.}
+    \label{fig:th_150_mask_snr}
+\end{figure}
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_sums.pgf}
 %     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert \SI{150}{\adu}, wobei es (a) \num{1}, (b) \num{5}, (c) \num{1000}, (d) \num{10000}, (e) \num{20000} und (f) \num{50000} Aufnahmen aufsummiert werden. Es werden jeweils \num{6}, \num{41}, \num{13262}, \num{135780}, \num{264699} und \num{543377} Photonen gezählt.}
 %     \label{fig:th_150_sums}
 % \end{figure}
-
-
-Die Zahl der detektierten Photonen mit dem variablen Schwellenwert lässt quantitativ anschauen, wie stark der erwartete \gls{adu}-Wert eines Photons $W_\text{Gd, M5} =  \SI{180(1)}{\adu}$ (s. Gl. (\ref{eq:auselesewerte_fe_gd})).
-\begin{figure}[H]
-    \centering
-    \input{images/auswertung/th_0_100_125_150_170_180.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{0}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Eine dunklere Linie im Zentrum vom Direktstrahl entspricht der Absorptionskante. Aufgenommen an der Resonanzfrequenz Gd M5.}
-    \label{fig:th_0_100_125_150_170_180}
-\end{figure}
-
-
-
+\noindent
+Die Tatsache, dass das \gls{snr} bei $s_V = \SI{150}{\adu}$ deutlich höher als bei \SI{170}{\adu} ist, weist direkt darauf hin, dass bis \SI{30}{\adu} ($\approx \SI{17}{\percent}$) von dem \gls{adu}-Wert $W_\text{Gd, M5} = \SI{180}{\adu}$ in die benachbarten Pixels gespreizt wird. 
 
 \noindent
-In der Abb. \ref{fig:th_0_100_125_150_170_180} es ist 
+Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Punkte finden (Abb. \ref{fig:th_180_450_600}), die unter dem Schwellenwert $s_V = \SI{600}{\adu}$ verbleiben. Diese Punkte können sowohl die von der \gls{pxs} ausgelösten Elektronen, als auch hochenergetische kosmische Strahlung sein. Die Wahrscheinlichkeit, das sei 4 oder mehr Photonen, die in denselben Punkt außerhalb des Direktstrahls landeten, ist sehr gering, insbesondere in Hinblick darauf, dass es sogar im Direktstrahl keine solche Punkte (Abb.  \ref{fig:th_180_450_600}c)) vorhanden sind.
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_170_180.pgf}
@@ -71,17 +74,33 @@ In der Abb. \ref{fig:th_0_100_125_150_170_180} es ist
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{180}{\adu}, (b) \SI{450}{\adu} und (c) \SI{600}{\adu}. Aufsummiert werden \num{50000} Aufnahmen. Die detektierten Photonen, die mit allen Schwellenwerten auftauchen, werden mit grün eingekreist. }
     \label{fig:th_180_450_600}
 \end{figure}
+\noindent
+Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedingung im Schwellenwert-Algorithmus eingesetzt wird, und zwar, dass die \gls{adu}-Werte der Doppelungleichung $\SI{150}{\adu} < s_V < \SI{600}{\adu}$ genügen müssen. Das resultierende Bild ist in der Abb. \ref{fig:th-150-200-maske-radial-transform}a) dargestellt.
 
+\noindent
+Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
+
+\noindent
+Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich, der in der Abb. \ref{fig:th_150_mask_snr}a) als transparenter Bereich gekennzeichnet wurde, zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_150_200_masked_radial_transform.pgf}
-    \caption{}
+    \caption{Das Bild (a), das sowie mit dem Schwellenwert $s_V = \SI{150}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurde. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Das Bild (c) ist das in Polarkoordinaten transformierte Bild (b).}
     \label{fig:th-150-200-maske-radial-transform}
 \end{figure}
+\noindent
+Nun wird das Bild \ref{fig:th-150-200-maske-radial-transform}c) azimutal, also über den Azimutwinkel $\varphi$ aufintegriert. Die radiale Intensitätsdichte $\rho(r)$ wird mit der Funktion 
+\begin{equation}
+    G(r, \mu, \sigma, A) = \frac{A}{\sqrt{2\pi \sigma^2}}\exp{-\frac{(r - \mu)^2}{2\sigma^2}}
+\end{equation}
+angepasst.
+
+!!! RELATION PX <-> mm !!!
+
 \begin{figure}[H]
     \centering
     \input{images/auswertung/radius_fit.pgf}
-    \caption{}
+    \caption{aufsummiert über $\varphi$ und gefittet mit gaus  }
     \label{fig:radius_fit}
 \end{figure}
 
@@ -90,9 +109,9 @@ Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollme
 
 \begin{figure}[H]
     \centering
-    \input{images/auswertung/th_0_100_125_150_170_180_off_resonance.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{0}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
-    \label{fig:th_0_100_125_150_170_180_off_resonance}
+    \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
+    \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
 \subsection{Clustering}
 \noindent
