@@ -6,6 +6,18 @@ Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahm
 Das gemitteltes Dunkelbild von \num{10000} aufgenommenen Dunkelbildern wird ermittelt und als einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung über große Aufnahmenzahl eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild, der erwartet groß sein soll. Das gemittelte Bild wird von jeder Aufnahme vor der weiteren Auswertung subtrahiert.
 
 \noindent
+Die Verteilung des Signals wird mit der Funktion
+\begin{equation}
+    N(W, W_0, \sigma, A) = G(x=W,\mu=W_0,\sigma, A),
+\end{equation}
+wobei die Funktion
+\begin{equation}
+    G(x, \mu, \sigma, A) = \frac{A}{\sqrt{2\pi \sigma^2}}\exp\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
+    \label{eq:gauss_funktion}
+\end{equation}
+die auf die Fläche $A$ normierte Gauß-Funktion mit der Mittelwert $\mu$ und Standardabweichung $\sigma$ ist.
+
+\noindent
 \begin{figure}[H]
     \centering
     \input{images/auswertung/noise_hist_fit.pgf}
@@ -85,34 +97,48 @@ Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Gr
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_150_200_masked_radial_transform.pgf}
-    \caption{Das Bild (a), das sowie mit dem Schwellenwert $s_V = \SI{150}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurde. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Das Bild (c) ist das in Polarkoordinaten transformierte Bild (b).}
+    \caption{Das Bild (a) ist die Summe von \num{50000} Aufnahmen, die sowie mit dem Schwellenwert $s_V = \SI{150}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurden. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Das Bild (c) ist das in Polarkoordinaten transformierte Bild (b).}
     \label{fig:th-150-200-maske-radial-transform}
 \end{figure}
 \noindent
-Nun wird das Bild \ref{fig:th-150-200-maske-radial-transform}c) azimutal, also über den Azimutwinkel $\varphi$ aufintegriert. Die radiale Intensitätsdichte $\rho(r)$ wird mit der Funktion 
+Das Bild \ref{fig:th-150-200-maske-radial-transform}c) wird über den Azimutwinkel $\varphi$ aufintegriert. Die resultierende radiale Intensitätsdichte $\rho(r)$ wird mit der Funktion
 \begin{equation}
-    G(r, \mu, \sigma, A) = \frac{A}{\sqrt{2\pi \sigma^2}}\exp{-\frac{(r - \mu)^2}{2\sigma^2}}
+    \mathrm{P}(r, r_0, \sigma, A) = G(x=r,\mu=r_0,\sigma,A)
 \end{equation}
-angepasst.
-
-!!! RELATION PX <-> mm !!!
+angepasst, wobei die Funktion $G$ in der Gl. (\ref{eq:gauss_funktion}) definiert ist. Die Umrechnung der Größen zwischen px- und \si{\milli\meter}-Einheiten erfolgt nach der Relation (\ref{eq:px_mm_ratio}).
 
 \begin{figure}[H]
     \centering
     \input{images/auswertung/radius_fit.pgf}
-    \caption{aufsummiert über $\varphi$ und gefittet mit gaus  }
+    \caption{Aufintegriertes Bild \ref{fig:th-150-200-maske-radial-transform}c) über Azimutwinkel $\varphi$ und angepasst mit $P(r, r_0, \sigma, A)$, wobei $r_0 = \SI{74.0(3)}{\px}$, $\sigma = \SI{17.7(3)}{\px}$ und $A = \SI{1.82(3)}{\photons\per\px}$. Die rote vertikale Linie entspricht dem theoretischen Wert $r_{1, \text{ Gd, M5}}$ aus der Gl. (\ref{eq:theo_r1}).}
     \label{fig:radius_fit}
 \end{figure}
+\noindent
+In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensitätsdichte außerhalb Direktstrahl $r_1 = \SI{74.0(3)}{\px}$, das dem 1. Streuring entsprechen soll, um ca. \SI{14,6}{\percent} kleiner als der theoretische Wert $r_{1, \text{ Gd, M5}} = \SI{84,8(8)}{px}$ ist. Der theoretische Wert liegt jedoch innerhalb der ersten $\sigma$-Intervall der radialen Intensitätsdichteverteilung. Die Abweichung des ermittelten Wertes $r_1$ von dem theoretischen Wert $r_{1, \text{ Gd, M5}}$ liegt an ???.
 
 \noindent
-Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}}$ und $h\nu_{\text{Gd, M4}}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
+Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
 
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie, die ca. \SI{1158}{\eV} beträgt, also weit von $h\nu_\text{Gd, M5}$ Resonanzfrequenz.}
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
+!!! Domain\_Scattering\_Session\_1.spec 7.1 smb2/smb1 graph mit M4 M5 und Off resonnant !!! 
+!!! HIER VLT AUCH AUSMASKEN UND TRANSFORMATION INTENSITÁT ABER ICH DENKE NICHT NÖTIG !!!
+\begin{equation}
+    \bar{\beta} = \frac{\beta \text{ par.} + \beta \text{ antipar.}}{2}
+\end{equation}
+
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/rzp_phi_ev.pgf}
+    \caption{rzp phi.}
+    \label{fig:rzp_phi_ev}
+\end{figure}
+
+
 \subsection{Clustering}
 \noindent
 Test

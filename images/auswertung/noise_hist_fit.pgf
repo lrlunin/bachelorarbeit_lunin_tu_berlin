@@ -1517,16 +1517,16 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{4.199421in}{3.345663in}}%
-\pgfpathlineto{\pgfqpoint{6.183899in}{3.345663in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{6.211677in}{3.345663in}}{\pgfqpoint{6.211677in}{3.373440in}}%
+\pgfpathmoveto{\pgfqpoint{3.855962in}{3.150706in}}%
+\pgfpathlineto{\pgfqpoint{6.183899in}{3.150706in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{6.211677in}{3.150706in}}{\pgfqpoint{6.211677in}{3.178484in}}%
 \pgfpathlineto{\pgfqpoint{6.211677in}{4.064762in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{6.211677in}{4.092540in}}{\pgfqpoint{6.183899in}{4.092540in}}%
-\pgfpathlineto{\pgfqpoint{4.199421in}{4.092540in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.171643in}{4.092540in}}{\pgfqpoint{4.171643in}{4.064762in}}%
-\pgfpathlineto{\pgfqpoint{4.171643in}{3.373440in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.171643in}{3.345663in}}{\pgfqpoint{4.199421in}{3.345663in}}%
-\pgfpathlineto{\pgfqpoint{4.199421in}{3.345663in}}%
+\pgfpathlineto{\pgfqpoint{3.855962in}{4.092540in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{3.828184in}{4.092540in}}{\pgfqpoint{3.828184in}{4.064762in}}%
+\pgfpathlineto{\pgfqpoint{3.828184in}{3.178484in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{3.828184in}{3.150706in}}{\pgfqpoint{3.855962in}{3.150706in}}%
+\pgfpathlineto{\pgfqpoint{3.855962in}{3.150706in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -1537,28 +1537,34 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.498039,0.054902}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{4.227198in}{3.816718in}}%
-\pgfpathlineto{\pgfqpoint{4.366087in}{3.816718in}}%
-\pgfpathlineto{\pgfqpoint{4.504976in}{3.816718in}}%
+\pgfpathmoveto{\pgfqpoint{3.883740in}{3.719239in}}%
+\pgfpathlineto{\pgfqpoint{4.022628in}{3.719239in}}%
+\pgfpathlineto{\pgfqpoint{4.161517in}{3.719239in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.616087in, y=3.941328in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Gauß-Anpassung mit}%
+\pgftext[x=4.272628in, y=3.932817in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Anpassung \(\displaystyle N(W, W_0, \sigma, A)\) mit}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.616087in, y=3.789329in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  \(\displaystyle \mu\) = \SI{-0.32(2)}{ADU},}%
+\pgftext[x=4.272628in, y=3.773095in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  \(\displaystyle W_0\) = \SI{-0.32(2)}{ADU},}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.616087in, y=3.629607in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \(\displaystyle \sigma = \SI{19.94(2)}{ADU}\)}%
+\pgftext[x=4.272628in, y=3.613373in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \(\displaystyle \sigma = \SI{19.94(2)}{ADU}\),}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=4.272628in, y=3.434650in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \(\displaystyle A = \num{1.59(1)e9}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1584,7 +1590,7 @@
 \pgfusepath{stroke,fill}%
 }%
 \begin{pgfscope}%
-\pgfsys@transformshift{4.366087in}{3.476829in}%
+\pgfsys@transformshift{4.022628in}{3.281872in}%
 \pgfsys@useobject{currentmarker}{}%
 \end{pgfscope}%
 \end{pgfscope}%
@@ -1592,7 +1598,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.616087in,y=3.428218in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Dunkelbilder}%
+\pgftext[x=4.272628in,y=3.233261in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Dunkelbilder}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
