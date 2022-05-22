@@ -24,13 +24,65 @@ die auf die Fläche $A$ normierte Gauß-Funktion mit der Mittelwert $\mu$ und St
     \caption{\num{10000} Dunkelbilder}
     \label{fig:noise_hist_fit}
 \end{figure}
+\noindent
+Die vertikale Verschiebung des Stahls, die der Verschiebung entlang der Energie entspricht, erfolgt durch die Drehung der \gls{rzp} mithilfe eines Schrittmotors, der weiter unter dem Namen $\varphi_\text{\gls{rzp}}$ bezeichnet wird. Die Motorposition sind in den beliebigen/willkürlichen Einheiten angegeben. Mit einer CCD-Kamera werden die Aufnahmen der Probe für jede Motorposition $\varphi_\text{\gls{rzp}}$ im Intervall von  \num{-115} bis \num{-50} mit dem Schritt \num{0,5} gemacht. Die CCD-Kamera wurde nur darum benutzt, weil die zum Zeitpunkt bereits in die Steuerungssoftware integriert wurde und somit die mit der Motorpositionsveränderung synchronisierten Aufnahmen ermöglichte.
 
 \noindent
+In jeder Aufnahme werden zwei Bereiche selektiert. Die Breiten von beiden Bereichen werden gleich festgesetzt, wobei die Höhe des ersten Bereichs der Höhe der Absoprtionskante angepasst wird. Die Höhe des zweiten Bereichs wird möglichst groß gewählt, damit der Bereich die verbleibende Fläche des Direktstrahls abdeckt. Der zweite Bereich dient nämlich zur Normierung des Photonflusses, der stark von der Photonenenergie (s. Abb. \ref{fig:pxs_spectrum}) an der Quelle und der Lage von \gls{rzp} abhängt. Die Intensitäten beider Bereiche werden auf deren Flächen normiert. Das Verhältnis zwischen den Größen ist nicht anderes, als die Absoprtionsspektrum der Probe. Das wird über die Motorposition $\varphi_\text{\gls{rzp}}$ aufgetragen.
+
+\noindent
+Das Absorptionsspektrum wird mit dem Referenzabsorptionsspektrum von Gd verglichen. Die gegebenen \cite[Abb. 2]{prieto-x-ray-2005} Absoprtionskoeffzienten $\beta \text{ (anti-)par.}$ entsprechen der zirkular polarisierten Strahlung. Der linear polarisierten Strahlung wird der Wert 
+\begin{equation}
+    \bar{\beta} = \frac{\beta \text{ par.} + \beta \text{ antipar.}}{2}
+\end{equation}
+entsprechen, der dem Mittelwert von beiden gleicht.
+
+\noindent
+In dem vermessenen Absorptionsspektrum sind zwei Peaks an den Stellen \num{-87} und \num{-67} zu erkennen. Der größte Peak wird der $h\nu_\text{Gd, M5}$ zugeordnet und der kleinere - $h\nu_\text{Gd, M4}$. Unter der Annahme, dass die Energieverschiebung linear proportional zur Motorposition $\varphi_\text{\gls{rzp}}$ ist, wird die lineare Identität
+\begin{equation}
+    \begin{split}
+        h\nu(\varphi_\text{\gls{rzp}}) &= a\cdot \varphi_\text{\gls{rzp}} + b\\
+        \varphi_\text{\gls{rzp}}(h\nu) &= \frac{h\nu - b}{a}
+    \end{split}
+\end{equation}
+festgestellt.
+
+\noindent
+Mit den bekannten Photonenenergien $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ und $h\nu_\text{Gd, M4} \approx \SI{1215}{\eV}$ ergibt sich das folgende Gleichungssystem
+\begin{equation}
+    \begin{cases}
+    \SI{1184,79}{\eV} = a\cdot \num{-67} + b\\
+    \SI{1215}{\eV} = a\cdot \num{-87} + b
+    \end{cases}
+    \Rightarrow
+    \begin{cases}
+    a = \SI{-1,5}{\eV}\\
+    b = \SI{1084,5}{\eV}
+    \end{cases}
+    \label{eq:rzp_phi_to_ev}
+\end{equation}
+\noindent
+So können die Absorptionsspektren zusammen aufgetragen werden.
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/rzp_phi_ev.pgf}
+    \caption{rzp phi.}
+    \label{fig:rzp_phi_ev}
+\end{figure}
+
+
+
+
+
+
+\noindent
+!!! AM BEISPIEL EINES BILDES WIRD DAS BEARBEITUNGSPIPELINE DEMONSTRIERT !!!
+
 Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebildet ist, ist, wie erwartet, extrem klein gegenüber das Rohbild und das gemittelte Dunkelbild, die in der Abb. \ref{fig:capture_ped_diff}a) bzw. \ref{fig:capture_ped_diff}b) zu sehen sind. 
 \begin{figure}[H]
     \centering
     \input{images/auswertung/capture_ped_diff.pgf}
-    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder und (c) die resultierende Differenz von ersten zwei Bildern.}
+    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder.  Die resultierende Differenz (c) von ersten zwei Bildern und (d) angewendete Schwellenwert \SI{150}{\adu}.}
     \label{fig:capture_ped_diff}
 \end{figure}
 
@@ -107,6 +159,11 @@ Das Bild \ref{fig:th-150-200-maske-radial-transform}c) wird über den Azimutwink
 \end{equation}
 angepasst, wobei die Funktion $G$ in der Gl. (\ref{eq:gauss_funktion}) definiert ist. Die Umrechnung der Größen zwischen px- und \si{\milli\meter}-Einheiten erfolgt nach der Relation (\ref{eq:px_mm_ratio}).
 
+
+\cite{bagschik_employing_2016}
+\begin{equation}
+    g(x) = \frac{x^{k-1}\exp\left[-\frac{x}{\vartheta}\right]}{\vartheta^k\Gamma(k)}
+\end{equation}
 \begin{figure}[H]
     \centering
     \input{images/auswertung/radius_fit.pgf}
@@ -119,6 +176,10 @@ In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radial
 \noindent
 Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
 
+
+
+
+
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
@@ -127,16 +188,9 @@ Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollme
 \end{figure}
 !!! Domain\_Scattering\_Session\_1.spec 7.1 smb2/smb1 graph mit M4 M5 und Off resonnant !!! 
 !!! HIER VLT AUCH AUSMASKEN UND TRANSFORMATION INTENSITÁT ABER ICH DENKE NICHT NÖTIG !!!
-\begin{equation}
-    \bar{\beta} = \frac{\beta \text{ par.} + \beta \text{ antipar.}}{2}
-\end{equation}
 
-\begin{figure}[H]
-    \centering
-    \input{images/auswertung/rzp_phi_ev.pgf}
-    \caption{rzp phi.}
-    \label{fig:rzp_phi_ev}
-\end{figure}
+
+
 
 
 \subsection{Clustering}
@@ -162,6 +216,3 @@ Test
     \label{fig:no_pr_cl_2_cl_3_histograms}
 \end{figure}
 ...
-\section{Ermittlung des tatsächlichen Photonenflusses}
-\label{text:butterfly_counting}
-
