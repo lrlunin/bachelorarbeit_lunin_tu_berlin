@@ -84,8 +84,7 @@ Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung.
 Da der Rauschenpegel des Detektors von den einzelnen Bauelementen abhängt und sich innerhalb einer Baureihe unterscheiden kann, sollen die  Detektorcharateristiken im Einzelfall ausgewertet werden. Aus diesem Grund wurde die Rauschencharakteristik mit dem verfügbaren \gls{moench03} aufgenommen.
 \begin{figure}[H]
     \centering
-    \subfloat[]{\input{images/moench/noise_half_width.pgf}}\\
-    \subfloat[]{\input{images/moench/noise_fit_half_width_test.pgf}}
+    \input{images/moench/noise_referenz_two_plots.pgf}
     \caption{Die Rauschcharakteristik des \gls{moench03} in Bezug auf die Belichtungszeit $\tau$ ist in (a) in \gls{adu} und logarithmisch bzw. (b) in den erzeugten Elementarladungen e$^-$ linear aufgetragen. Die entsprechenden Messungen (blau) wurden am 2. März 2022 unmittelbar mit dem \gls{moench03} durchgeführt. Die Koeffizienten für Referenz Anpassung (b) $\sigma(\tau)$ stammen aus \cite{ramilli-measurements-2017}. Die Referenz demonstriert den vergleichbaren Rauschpegel am Anfang der Kurve und den deutlich niedrigeren Rauschpegel mit der zunehmenden Belichtungszeit $\tau$.}
     \label{fig:noise_moench}
 \end{figure}
@@ -104,7 +103,7 @@ Das Auslesesignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonene
 \noindent
 Um die beste Anpassung der Messdaten zu gewährleisteten, werden das Aluminiumoxid Al$_2$O$_3$ und Silizium Si als am Photonenweg hochwahrscheinlich präsentierte Materialien in der Gesamttransmission einbezogen. Aus diesem Grund werden die Messpunkte mit der Funktion
 \begin{equation}
-    R(h\nu) = h\nu\cdot r\cdot\underbrace{\exp\left[-\sum_{m}\mu_m(h\nu)d_m\right]}_{\text{Transmissionsfaktor}}
+    R(h\nu, r, \{d_m\}) = h\nu\cdot r\cdot\underbrace{\exp\left[-\sum_{m}\mu_m(h\nu)d_m\right]}_{\text{Transmissionsfaktor}}
 \label{eq:response_durchschnitt}
 \end{equation}
 angepasst, wobei $r$ - konstanter Responsekoeffizient in \si{\adu\per\eV} pro Photon, $\mu_m(h\nu)$ - materialspezifischer energieabhängiger Absorptionskoeffzient für $m \in \{\text{Al}, \text{Si}, \text{Al$_2$O$_3$}\}$,  $d_m$ - entsprechende Materialdicke. Die Absorptionskoeffzienten $\mu_m(h\nu)$ stammen aus \cite{xray-coeffs}. Die gesuchten Koeffizienten sind $r$ und $\{d_m\}$.
@@ -126,6 +125,7 @@ Die in der Abb. \ref{fig:response_moench} dargestellte Responsecharakterstik bez
 So, wenn es um das Responsesignal eines tatsächlich detektierten Photons geht, muss der Transmissionsfaktor in der Gleichung (\ref{eq:response_durchschnitt}) der Anpassungsfunktion $R$ weggelassen werden. So ergibt sich die lineare Proportionalität
 \begin{equation}
     R_\text{detek}(h\nu) = h\nu \cdot r
+    \label{eq:adu_to_ev}
 \end{equation}
 zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei derselbe Koeffizient $r = \SI{1.51e-1}{\adu\per\eV}$ pro Photon eingesetzt werden kann. Somit lassen sich die erwarteten \gls{adu}-Werte $W$ für tatsächlich detektierte Photonen mit den Enenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abschätzen. Diese ergeben sich 
 \begin{equation}
@@ -208,5 +208,11 @@ Für den \gls{moench03} mit der Auflösung 400x400px ist $\mathbf{V} \in \mathbb
 \end{equation}
 bei der Datenauswertung benutzt.
 
+\noindent
+In der beschriebenen Arbeit wurde der Parameter $c$ von 3 bis 5 variiertet. Der Schwellenwert $s_Q = c\text{N}\sigma$ mit $c=5$ gleicht dem Wert $\SI{200}{\adu}$, was eben höher als der erwartete \gls{adu}-Wert eines Gd M5 Photons. Das heißt, dass der Schwellenwert $s_Q$ im Falle der niedriegeren Energien genauer angepasst werden soll.
+Die Wahl dieses Schwellenwertes stellt den Fall dar, wo die erwarteten \gls{adu}-Werte höher gegenüber dem Rauschen sind. Die kleinsten Energien waren \SI{1500}{\eV} So ist der motiviert
+
 
 !!! THRESHOLDING FOR SIGNAL DIES IST VIEL HÖHER GEPLANT (ADU VOM SIGNAL IST SCHON 200)!!!
+
+!!! SOLL ES HIER BLEIBEN ODER LIEBER IN Auswerung Clustering-Abschnitt schieben??? !!!

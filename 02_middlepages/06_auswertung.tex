@@ -1,44 +1,41 @@
 \chapter{Auswertung}
 \label{text:auswertung}
-Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \numrange{75000}{100000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln und kann von anderen Aufnahmen unabhängig ausgewertet werden. So ist der Auswertungsvorgang leicht parallelisierbar. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
+Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \num{50000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln und kann von anderen Aufnahmen unabhängig ausgewertet werden. So ist der Auswertungsvorgang leicht parallelisierbar. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
 
 \noindent
-Das gemitteltes Dunkelbild von \num{10000} aufgenommenen Dunkelbildern wird ermittelt und als einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung über große Aufnahmenzahl eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild, der erwartet groß sein soll. Das gemittelte Bild wird von jeder Aufnahme vor der weiteren Auswertung subtrahiert.
+Die \num{10000} aufgenommenen Dunkelbilder werden gemittelt und als ein einzelnes Bild gespeichert. In dem Bild soll das statistische Rauschen durch die Mittlung über die große Zahl von Aufnahmen eliminiert. So bleibt lediglich der konstante Offset von jedem Pixel in dem Bild, der erwartet groß sein soll. 
 
 \noindent
-Die Verteilung des Signals wird mit der Funktion
+Das gemittelte Bild wird von den \num{10000} Dunkelbildern  subtrahiert. Die Pixelwerte, die sich als Differenzen ergeben, werden in ein Histogramm eingetragen und diese Verteilung wird mit der Funktion
 \begin{equation}
-    N(W, W_0, \sigma, A) = G(x=W,\mu=W_0,\sigma, A),
-\end{equation}
-wobei die Funktion
-\begin{equation}
-    G(x, \mu, \sigma, A) = \frac{A}{\sqrt{2\pi \sigma^2}}\exp\left[-\frac{(x - \mu)^2}{2\sigma^2}\right]
+    G(W, \mu, \sigma, A) = \frac{A}{\sqrt{2\pi \sigma^2}}\exp\left[-\frac{(W - \mu)^2}{2\sigma^2}\right]
     \label{eq:gauss_funktion}
 \end{equation}
-die auf die Fläche $A$ normierte Gauß-Funktion mit der Mittelwert $\mu$ und Standardabweichung $\sigma$ ist.
-
-\noindent
+angepasst, die auf die Fläche $A$ normierte Gauß-Funktion mit dem Mittelwert $\mu$ und Standardabweichung $\sigma$ ist.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/noise_hist_fit.pgf}
-    \caption{\num{10000} Dunkelbilder}
+    \caption{\num{10000} Dunkelbilder angepasst durch $G(W,\mu,\sigma, A)$ mit $\mu= \SI{-0.32(2)}{\adu}$, $\sigma = \SI{19.94(2)}{\adu}$ und $A = \num{1.59e9}$.}
     \label{fig:noise_hist_fit}
 \end{figure}
 \noindent
-Die vertikale Verschiebung des Stahls, die der Verschiebung entlang der Energie entspricht, erfolgt durch die Drehung der \gls{rzp} mithilfe eines Schrittmotors, der weiter unter dem Namen $\varphi_\text{\gls{rzp}}$ bezeichnet wird. Die Motorposition sind in den beliebigen/willkürlichen Einheiten angegeben. Mit einer CCD-Kamera werden die Aufnahmen der Probe für jede Motorposition $\varphi_\text{\gls{rzp}}$ im Intervall von  \num{-115} bis \num{-50} mit dem Schritt \num{0,5} gemacht. Die CCD-Kamera wurde nur darum benutzt, weil die zum Zeitpunkt bereits in die Steuerungssoftware integriert wurde und somit die mit der Motorpositionsveränderung synchronisierten Aufnahmen ermöglichte.
+Die vertikale Verschiebung des Stahls, die der Verschiebung entlang der Energie entspricht, erfolgt durch die Bewegung der \gls{rzp} mithilfe eines Schrittmotors, der weiter unter dem Namen $\varphi_\text{\gls{rzp}}$ bezeichnet wird. Die Motorpositionen sind in den willkürlichen Einheiten angegeben.
 
 \noindent
-In jeder Aufnahme werden zwei Bereiche selektiert. Die Breiten von beiden Bereichen werden gleich festgesetzt, wobei die Höhe des ersten Bereichs der Höhe der Absoprtionskante angepasst wird. Die Höhe des zweiten Bereichs wird möglichst groß gewählt, damit der Bereich die verbleibende Fläche des Direktstrahls abdeckt. Der zweite Bereich dient nämlich zur Normierung des Photonflusses, der stark von der Photonenenergie (s. Abb. \ref{fig:pxs_spectrum}) an der Quelle und der Lage von \gls{rzp} abhängt. Die Intensitäten beider Bereiche werden auf deren Flächen normiert. Das Verhältnis zwischen den Größen ist nicht anderes, als die Absoprtionsspektrum der Probe. Das wird über die Motorposition $\varphi_\text{\gls{rzp}}$ aufgetragen.
+Um die Motorpositionen dem auf die Probe abgebildeten Photonenenergiebereich zuzuordnen, werden der Direktstrahl an der Probe über die Motorposition $\varphi_\text{\gls{rzp}}$ im Intervall von \num{-115} bis \num{-50} mit dem Schritt \num{0,5} aufgenommen. Diese Messung wird mit einer CCD-Kamera durchgeführt, die bereits in die Labor-Steuerungssoftware integriert wurde und somit die mit der Motorpositionsveränderung synchronisierten Aufnahmen ermöglichte. 
 
 \noindent
-Das Absorptionsspektrum wird mit dem Referenzabsorptionsspektrum von Gd verglichen. Die gegebenen \cite[Abb. 2]{prieto-x-ray-2005} Absoprtionskoeffzienten $\beta \text{ (anti-)par.}$ entsprechen der zirkular polarisierten Strahlung. Der linear polarisierten Strahlung wird der Wert 
+In jeder Aufnahme werden zwei Bereiche selektiert. Die Breiten von beiden Bereichen werden gleich festgesetzt, wobei die Höhe des ersten Bereichs der Höhe der Absoprtionskante angepasst wird. Die Höhe des zweiten Bereichs wird möglichst groß gewählt, damit der Bereich die verbleibende Fläche des Direktstrahls abdeckt. Der zweite Bereich dient nämlich zur Normierung des Photonflusses, der stark von der Photonenenergie abhängt. Die Intensitäten beider Bereiche werden auf deren Flächen normiert. Das Verhältnis zwischen den Größen ist nicht anderes, als die Absoprtionsspektrum der Probe, das über die Motorposition $\varphi_\text{\gls{rzp}}$ aufgetragen wird.
+
+\noindent
+Das vermessene Absorptionsspektrum wird mit dem Referenzabsorptionsspektrum von Gd im weichen Röntgenstrahlungsbereich verglichen. In dem Energieintervall nimmt das Spektrum zwei Maxima an den Gd M4 und Gd M5 Absorptionslinien an. Die gegebenen \cite[Abb. 2]{prieto-x-ray-2005} Absoprtionskoeffzienten $\beta \text{ (anti-)par.}$ entsprechen der (anti-)parallel zirkular polarisierten Strahlung relativ zur Magnetisierungachse des Atoms. Der Absoprtionskoeffzient für die linear polarisierte Strahlung 
 \begin{equation}
     \bar{\beta} = \frac{\beta \text{ par.} + \beta \text{ antipar.}}{2}
 \end{equation}
-entsprechen, der dem Mittelwert von beiden gleicht.
+gleicht deren Mittelwert.
 
 \noindent
-In dem vermessenen Absorptionsspektrum sind zwei Peaks an den Stellen \num{-87} und \num{-67} zu erkennen. Der größte Peak wird der $h\nu_\text{Gd, M5}$ zugeordnet und der kleinere - $h\nu_\text{Gd, M4}$. Unter der Annahme, dass die Energieverschiebung linear proportional zur Motorposition $\varphi_\text{\gls{rzp}}$ ist, wird die lineare Identität
+In dem vermessenen Absorptionsspektrum sind zwei Peaks an den Stellen $\varphi_\text{\gls{rzp}} = \num{-87}$ und \num{-67} zu identifizieren. Der größte Peak wird der Absorptionslinie Gd M5 zugeordnet und der kleinere - Gd M4. Unter der Annahme, dass die Energieverschiebung linear proportional zur Motorposition $\varphi_\text{\gls{rzp}}$ ist, wird die lineare Identität
 \begin{equation}
     \begin{split}
         h\nu(\varphi_\text{\gls{rzp}}) &= a\cdot \varphi_\text{\gls{rzp}} + b\\
@@ -48,7 +45,7 @@ In dem vermessenen Absorptionsspektrum sind zwei Peaks an den Stellen \num{-87} 
 festgestellt.
 
 \noindent
-Mit den bekannten Photonenenergien $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ und $h\nu_\text{Gd, M4} \approx \SI{1215}{\eV}$ ergibt sich das folgende Gleichungssystem
+Mit den bekannten Photonenenergien der Absorptionslinien $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ und $h\nu_\text{Gd, M4} \approx \SI{1215}{\eV}$ ergibt sich das folgende Gleichungssystem
 \begin{equation}
     \begin{cases}
     \SI{1184,79}{\eV} = a\cdot \num{-67} + b\\
@@ -62,22 +59,22 @@ Mit den bekannten Photonenenergien $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ und 
     \label{eq:rzp_phi_to_ev}
 \end{equation}
 \noindent
-So können die Absorptionsspektren zusammen aufgetragen werden.
+Demnach können die beiden Spektren in demselben Graph aufgetragen werden.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/rzp_phi_ev.pgf}
-    \caption{rzp phi.}
+    \caption{Absorptionsspektrum }
     \label{fig:rzp_phi_ev}
 \end{figure}
-
-
-
-
-
+\noindent
+Somit werden die Streubilder an der Motorposition $\varphi_\text{\gls{rzp}} = \num{-67}$ aufgenommen, an der die gewünschte Photonenenergie $h\nu_\text{Gd, M5}$ an die Probe abgebildet wird. An der Motorposition $\varphi_\text{\gls{rzp}} = \num{-52}$ wird eine Kontrollmessung an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$ gemacht, die nachgewiesen weit von beiden Resonanzenergien $h\nu_\text{Gd, M5}$ und $h\nu_\text{Gd, M4}$ liegt und dem zufolge keine magnetische Streuung induzieren soll. Der erwartete \gls{adu}-Wert an der Photonenenenergie $h\nu_\text{Gd, Off-Res}$ ist nach der Gl. (\ref{eq:adu_to_ev})
+\begin{equation}
+    W_\text{Gd, Off-Res} = \SI{1,51e-1}{\adu\per\eV} \cdot \SI{1163}{\eV} = \SI{176(1)}{\adu}
+\end{equation}
+und unterscheidet sich lediglich um $\SI{2}{\percent}$ von $W_\text{Gd, M5} = \SI{180(1)}{\adu}$, was im Endeffekt dieselben Parameter vom Auswertungsverfahren für die Photonendetektion ließt.
 
 \noindent
-!!! AM BEISPIEL EINES BILDES WIRD DAS BEARBEITUNGSPIPELINE DEMONSTRIERT !!!
-
+In der unteren Abbildung werden Einzelschritte des Auswertungsverfahren am Beispiel eines aufgenommenen Streubildes demonstriert. 
 Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebildet ist, ist, wie erwartet, extrem klein gegenüber das Rohbild und das gemittelte Dunkelbild, die in der Abb. \ref{fig:capture_ped_diff}a) bzw. \ref{fig:capture_ped_diff}b) zu sehen sind. 
 \begin{figure}[H]
     \centering
@@ -85,12 +82,16 @@ Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebi
     \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder.  Die resultierende Differenz (c) von ersten zwei Bildern und (d) angewendete Schwellenwert \SI{150}{\adu}.}
     \label{fig:capture_ped_diff}
 \end{figure}
-
 \noindent
-Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text:threshold_algorithm} und \ref{text:clustering_algorithm}) eingesetzt und die Auswertungsergebnisse werden miteinander verglichen.
+Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text:threshold_algorithm} und \ref{text:clustering_algorithm}) eingesetzt und die Auswertungsergebnisse werden miteinander verglichen. 
 \section{Hintergrundrauschen Auswertung der Streubilder}
 \label{text:streuung_counting}
 \subsection{Schwellenwert}
+Diese oben beschriebenen Algorithmen wird zu jeder Einzelaufnahme angewendet, die dann in Höhe von \num{50000} Stück in einem gemeinsamen Bild aufsummiert werden. 
+Zur Erinnerung
+\begin{equation}
+         W_{\text{Gd, M5}} =  \SI{180(1)}{\adu}.
+\end{equation}
 Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei der Schwellenwert $s_V$ im Intervall von \SIrange{50}{260}{\adu} variiert wird. In der Abbildung \ref{fig:th_50_100_125_150_170_180_200_220_260} werden die Ergebnisse der Algorithmusverarbeitung in log-Skala dargestellt.
 \begin{figure}[H]
     \centering
@@ -105,14 +106,11 @@ Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei
 %     \label{fig:th_0_100_125_150_170_180}
 % \end{figure}
 \noindent
-In der Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}, wo der Schwellenwert $s_V = \SI{50}{\adu}$ gleich ist, 
-
-\noindent
 Um den optimalen Wert von Schwellenwert $s_V$ zu bestimmen, wird es nach dem maximalen \gls{snr} gesucht. Dafür werden die Signal- und Rauschen-Bereiche mit den binären Signal- und Rauschen-Masken (Abb. \ref{fig:th_150_mask_snr}) definiert. So werden die Bilder mit den Signal-/Rauschen-Masken multipliziert und auf die Maskenflächen normiert. Die Verhältnisse von normierten Signal- und Rauschen-Werten werden über den Schwellenwert $s_V$ aufgetragen und maximiert. Das Maximum von \gls{snr} liegt an der Stelle $s_V = \SI{150}{\adu}$. Aus diesem Grund wird das Bild als das beste Zwischenergebnis betrachtet und für die die weitere Auswertung benutzt. 
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_150_mask_snr.pgf}
-    \caption{Am Beispiel mit dem $s_V = \SI{150}{\adu}$ (a) werden die Bereiche mit (grün) Signal und (aqua) Rauschen hervorgehoben. Es ist wichtig zu beachten, dass die beiden Bereiche den Direktstrahl nicht enthalten. Das \gls{snr} (b) wird über den Schwellenwert $s_V$ aufgetragen. Das gewünschte maximale \gls{snr} wird an der Stelle $s_V = \SI{150}{\adu}$ angenommen.}
+    \caption{Am Beispiel mit dem $s_V = \SI{150}{\adu}$ (a) werden die Bereiche mit (grün) Signal und (aqua) Rauschen hervorgehoben. Es ist wichtig zu beachten, dass die beiden Bereiche den Direktstrahl nicht enthalten. Das \gls{snr} (b) wird über den Schwellenwert $s_V$ aufgetragen. Das maximale \gls{snr} wird an der Stelle $s_V = \SI{150}{\adu}$ angenommen.}
     \label{fig:th_150_mask_snr}
 \end{figure}
 % \begin{figure}[H]
@@ -122,10 +120,10 @@ Um den optimalen Wert von Schwellenwert $s_V$ zu bestimmen, wird es nach dem max
 %     \label{fig:th_150_sums}
 % \end{figure}
 \noindent
-Die Tatsache, dass das \gls{snr} bei $s_V = \SI{150}{\adu}$ deutlich höher als bei \SI{170}{\adu} ist, weist direkt darauf hin, dass bis \SI{30}{\adu} ($\approx \SI{17}{\percent}$) von dem \gls{adu}-Wert $W_\text{Gd, M5} = \SI{180}{\adu}$ in die benachbarten Pixels gespreizt wird. 
+Die Tatsache, dass das \gls{snr} bei $s_V = \SI{150}{\adu}$ deutlich höher als bei \SI{170}{\adu} ist, weist direkt darauf hin, dass bis zu \SI{30}{\adu} ($\approx \SI{17}{\percent}$) von dem \gls{adu}-Wert $W_\text{Gd, M5} = \SI{180}{\adu}$ in die benachbarten Pixels gespreizt wird. 
 
 \noindent
-Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Punkte finden (Abb. \ref{fig:th_180_450_600}), die unter dem Schwellenwert $s_V = \SI{600}{\adu}$ verbleiben. Diese Punkte können sowohl die von der \gls{pxs} ausgelösten Elektronen, als auch hochenergetische kosmische Strahlung sein. Die Wahrscheinlichkeit, das sei 4 oder mehr Photonen, die in denselben Punkt außerhalb des Direktstrahls landeten, ist sehr gering, insbesondere in Hinblick darauf, dass es sogar im Direktstrahl keine solche Punkte (Abb.  \ref{fig:th_180_450_600}c)) vorhanden sind.
+Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Pixelgebiete finden (Abb. \ref{fig:th_180_450_600}), die unter dem Schwellenwert $s_V = \SI{600}{\adu}$ verbleiben. Diese Punkte können sowohl die von der \gls{pxs} ausgelösten Elektronen, als auch hochenergetische kosmische Strahlung sein. Die Wahrscheinlichkeit, das sei 4 oder mehr Photonen, die in denselben Punkt außerhalb des Direktstrahls landeten, ist sehr gering, insbesondere in Hinblick darauf, dass es sogar im Direktstrahl keine solche Punkte (Abb.  \ref{fig:th_180_450_600}c)) vorhanden sind.
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_170_180.pgf}
@@ -135,7 +133,7 @@ Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Punkte finden (Abb.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_180_450_600.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{180}{\adu}, (b) \SI{450}{\adu} und (c) \SI{600}{\adu}. Aufsummiert werden \num{50000} Aufnahmen. Die detektierten Photonen, die mit allen Schwellenwerten auftauchen, werden mit grün eingekreist. }
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{180}{\adu}, (b) \SI{450}{\adu} und (c) \SI{600}{\adu}. Aufsummiert werden \num{50000} Aufnahmen. Die detektierten Photonen, die mit allen Schwellenwerten auftauchen, werden mit grün eingekreist.}
     \label{fig:th_180_450_600}
 \end{figure}
 \noindent
@@ -145,7 +143,7 @@ Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedi
 Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
 
 \noindent
-Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich, der in der Abb. \ref{fig:th_150_mask_snr}a) als transparenter Bereich gekennzeichnet wurde, zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
+Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich, der in der Abb. \ref{fig:th_150_mask_snr}a) als transparenter Bereich beider Masken gekennzeichnet wurde, zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_150_200_masked_radial_transform.pgf}
@@ -153,25 +151,37 @@ Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Gr
     \label{fig:th-150-200-maske-radial-transform}
 \end{figure}
 \noindent
-Das Bild \ref{fig:th-150-200-maske-radial-transform}c) wird über den Azimutwinkel $\varphi$ aufintegriert. Die resultierende radiale Intensitätsdichte $\rho(r)$ wird mit der Funktion
+Mit der bekannten Identität (\ref{eq:px_mm_ratio}) zwischen Größen auf dem Sensor in \si{\px} und in \si{\milli\meter} kann der Radius in \si{\milli\meter} umberechnet werden. Mit der gegebenen Streugeometrie gilt es für den Streuwinkel $\theta$  folgende Beziehung
 \begin{equation}
-    \mathrm{P}(r, r_0, \sigma, A) = G(x=r,\mu=r_0,\sigma,A)
+    \tan{\theta} = \frac{r}{l} \Rightarrow \theta = \arctan \frac{r}{l},
 \end{equation}
-angepasst, wobei die Funktion $G$ in der Gl. (\ref{eq:gauss_funktion}) definiert ist. Die Umrechnung der Größen zwischen px- und \si{\milli\meter}-Einheiten erfolgt nach der Relation (\ref{eq:px_mm_ratio}).
+wobei $r$ - Radius am Sensor und $l$ - Abstand zwischen der Probe und dem Sensor. Der Streuvektor
+\begin{equation}
+    q = \left|\mathbf{q}\right| = \frac{4\pi}{\lambda}\sin{\frac{\theta}{2}},
+\end{equation}
+wobei $\lambda$ - Wellenlänge der einfallenden Photonen. 
 
 
+\noindent
+Das Bild \ref{fig:th-150-200-maske-radial-transform}c) wird über den Azimutwinkel $\varphi$ aufintegriert. Die resultierende radiale Intensitätsdichte $\rho(q)$ wird mit der Funktion
 \cite{bagschik_employing_2016}
 \begin{equation}
-    g(x) = \frac{x^{k-1}\exp\left[-\frac{x}{\vartheta}\right]}{\vartheta^k\Gamma(k)}
+    g(q, k, \vartheta, A) = A\frac{q^{k-1}\exp\left[-\frac{q}{\vartheta}\right]}{\vartheta^k\Gamma(k)}
 \end{equation}
+Maximum liegt an der Stelle $q_\text{max} = k\vartheta$.
+
+Die Umrechnung der Größen zwischen px- und \si{\milli\meter}-Einheiten erfolgt nach der Relation (\ref{eq:px_mm_ratio}). 
+
+
+
 \begin{figure}[H]
     \centering
-    \input{images/auswertung/radius_fit.pgf}
-    \caption{Aufintegriertes Bild \ref{fig:th-150-200-maske-radial-transform}c) über Azimutwinkel $\varphi$ und angepasst mit $P(r, r_0, \sigma, A)$, wobei $r_0 = \SI{74.0(3)}{\px}$, $\sigma = \SI{17.7(3)}{\px}$ und $A = \SI{1.82(3)}{\photons\per\px}$. Die rote vertikale Linie entspricht dem theoretischen Wert $r_{1, \text{ Gd, M5}}$ aus der Gl. (\ref{eq:theo_r1}).}
+    \input{images/auswertung/radial_integral_fits.pgf}
+    \caption{Aufintegriertes Bild \ref{fig:mfm-amplitude-ft}d) über Azimutwinkel $\varphi$. Anpassung (aqua) $g(q)$ mit den Parametern $k = \SI{18.66(6)}{}$ und $\vartheta = \SI{0.99(3)}{}$ ($q_\text{max} = \SI{19(1)}{\micro\meter^{-1}}$). Anpassung (pink) $g(q)$ mit den Parametern $k = \SI{16.5(4)}{}$ und $\vartheta = \SI{1.16(2)}{}$ ($q_\text{max} = \SI{19.1(9)}{\micro\meter^{-1}}$). Der maximum von MFM integration liegt an der \SI{18(1)}{\micro\meter^{-1}}}
     \label{fig:radius_fit}
 \end{figure}
 \noindent
-In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensitätsdichte außerhalb Direktstrahl $r_1 = \SI{74.0(3)}{\px}$, das dem 1. Streuring entsprechen soll, um ca. \SI{14,6}{\percent} kleiner als der theoretische Wert $r_{1, \text{ Gd, M5}} = \SI{84,8(8)}{px}$ ist. Der theoretische Wert liegt jedoch innerhalb der ersten $\sigma$-Intervall der radialen Intensitätsdichteverteilung. Die Abweichung des ermittelten Wertes $r_1$ von dem theoretischen Wert $r_{1, \text{ Gd, M5}}$ liegt an ???.
+In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensität. Verteilung in den pinken Sektoren ist damit zu erklären, dass der Resonanzfrequenzbereich ist  mehr horizontal ausgezogen.
 
 \noindent
 Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
@@ -183,22 +193,16 @@ Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollme
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie, die ca. \SI{1158}{\eV} beträgt, also weit von $h\nu_\text{Gd, M5}$ Resonanzfrequenz.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
-!!! Domain\_Scattering\_Session\_1.spec 7.1 smb2/smb1 graph mit M4 M5 und Off resonnant !!! 
-!!! HIER VLT AUCH AUSMASKEN UND TRANSFORMATION INTENSITÁT ABER ICH DENKE NICHT NÖTIG !!!
-
-
-
-
-
+Das Fehlen des charakteristischen Ringmusters weist seinen magnetischen Ursprung nach. 
 \subsection{Clustering}
 \noindent
 Test
 \begin{figure}[H]
     \centering
-    \input{images/auswertung/cl_2_0_100_125_150_170_180_resonance.pgf}
+    \input{images/auswertung/cl_2_150_180_200_220_250_290_resonance.pgf}
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Gd M5 Resonanzfrequenz.}
     \label{fig:cl_2_0_100_125_150_170_180_resonance}
 \end{figure}

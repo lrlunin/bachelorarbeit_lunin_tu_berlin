@@ -19,7 +19,7 @@
 %%   \import{<path to file>}{<filename>.pgf}
 %%
 %% Matplotlib used the following preamble
-%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra}
+%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra} \DeclareSIUnit\adu{\text{ADU}} \DeclareSIUnit\px{\text{px}} \DeclareSIUnit\photons{\text{Pho\-to\-nen}} \DeclareSIUnit\photon{\text{Pho\-ton}}
 %%
 \begingroup%
 \makeatletter%
@@ -2531,7 +2531,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.122655in,y=1.614765in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont normierte Absorptionsrate}%
+\pgftext[x=0.122655in,y=1.614765in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Absorptionsstärke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.452903in}{0.398883in}}{\pgfqpoint{5.728219in}{2.431763in}}%
@@ -2568,8 +2568,8 @@
 \definecolor{currentstroke}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{0.577722in}{0.398883in}}%
-\pgfpathlineto{\pgfqpoint{0.577722in}{2.830646in}}%
+\pgfpathmoveto{\pgfqpoint{0.702239in}{0.398883in}}%
+\pgfpathlineto{\pgfqpoint{0.702239in}{2.830646in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
@@ -2831,7 +2831,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.652432in,y=2.627999in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Off-Resonanz}%
+\pgftext[x=0.776949in,y=2.627999in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Off-Resonanz}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%

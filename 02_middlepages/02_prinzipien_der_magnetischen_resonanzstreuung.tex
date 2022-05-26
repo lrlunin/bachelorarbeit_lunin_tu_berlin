@@ -97,40 +97,54 @@ Nach der \emph{Bornsche Näherung} lässt sich die Intensität der Streuung $I$ 
     I_{\pm} \propto \left| \sum_{n}^N f_{\pm}^n e^{i\mathbf{qr_n}} \right|^2 \propto^{(\ref{eq:faktor_zirc})} \left| \sum_{n}^N (f_{c}^n\mp \mathbf{k_0}\mathbf{\hat{m}}^n f_{m1}^n) e^{i\mathbf{qr_n}} \right|^2
     \label{eq:intencity_circ}
 \end{equation}
-Mit der Substitution
+Man führt die Formfaktoren $F_c$ und $F_m$ ein, die als
 \begin{equation}
     \begin{dcases}
-     F_c &= \sum^N_n f_c^n e^{i\mathbf{qr_n}}\\
-     F_m &= \sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n f_{m1}^n e^{i\mathbf{qr_n}}
+     F_c(\mathbf{q}) &= \sum^N_n f_c^n e^{i\mathbf{qr_n}}\\
+     F_m(\mathbf{q}) &= \sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n f_{m1}^n e^{i\mathbf{qr_n}}
     \end{dcases}
     \label{eq:fc_fm_substitution}
 \end{equation}
-lässt sich die Gleichung (\ref{eq:intencity_circ}) wie folgt umschreiben
+definiert werden. Somit lässt sich die Gleichung (\ref{eq:intencity_circ}) wie folgt umschreiben
 \begin{equation}
      I_{\pm} \propto \left| F_c \mp F_m \right|^2 = \left| F_c \right|^2 \mp 2\text{Re}(F_c^*F_m) + \left| F_m \right|^2,
 \end{equation}
-wobei $\text{Re}(z)$ - der reelle Teil der komplexen Größe ist. Nach der Gleichung (\ref{eq:lin_circ_jones}) kann die Intensität der Streuung des linear polarisierten Lichtes $I_{\text{lin $x$}}$ als die Summe
+wobei $\text{Re}(z)$ - der reelle Teil der komplexen Größe ist.
+
+\noindent
+Nach der Gleichung (\ref{eq:lin_circ_jones}) kann die Intensität der Streuung des linear polarisierten Lichtes $I_{\text{lin $x$}}$ als die Summe
 \begin{equation}
     I_{\text{lin $x$}} \propto I_+ + I_- \propto  \left| F_c \right|^2 + \left| F_m \right|^2
     % \left| F_c \right|^2 \underbrace{-2\text{Re}(F_c^*F_m) + 2\text{Re}(F_c^*F_m)}_{=0} + \left| F_m \right|^2 =
 \end{equation}
-bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Der Summand $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden
+bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Der Betragsquadrat vom Formfaktor $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden
 \begin{equation}
-    \left|F_m\right|^2 =  \left|\sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n \left[(f_{m1,1}^n)^2 + (f_{m1,2}^n)^2\right] e^{i\mathbf{qr_n}}\right|^2
+    \left|F_m(\mathbf{q})\right|^2 =  \left|\sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n \left[f_{m1,1}^n + if_{m1,2}^n\right] e^{i\mathbf{qr_n}}\right|^2.
+    \label{eq:f_m}
 \end{equation}
-und im Falle der Resonanzbedingungen, die nur für ein Element auftreten ($f_{m1}^n = \text{konst } \forall n \in N$), weiter vereinfacht werden. Also ergibt sich die folgende Beziehung
+Wird die Streuung unter der Resonanzbedingungen für ein Element betrachtet, können die Koeffizienten $f_{m1,1/2}$ aller anderen Elemente als vernachlässigbar klein weggelassen werden. Die Annahme
 \begin{equation}
-   \left|F_m\right|^2 = (f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}),
+    f_{m1,1/2}^n = f_{m1,1/2} = \text{konst. } \forall n \in N
 \end{equation}
-wobei $S_m(\mathbf{q})$ - die Fourier-Transformierte magnetische Topographie der Probe ist. D.h., dass die Intensität 
+lässt die Gleichung (\ref{eq:f_m}) weiter vereinfachen
 \begin{equation}
-    I_{\text{lin $x$}} \propto  \left| F_c \right|^2 + \left(f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}\right)
-    \label{eq:intensitat_fourier}
+   \left|F_m(\mathbf{q})\right|^2 = \left|f_{m1,1} + if_{m1,2}\right|^2 \cdot \left|\sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n e^{i\mathbf{qr_n}}\right|^2 = (f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}),
 \end{equation}
-Betrachtet werden die Photonenenergien der L3-Absorptionslinie $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ von Fe und M5-Absorptionslinie $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ von Gd. Eine wichtige Tatsache, dass die zu betrachtenden Resonanzenergien $h\nu_{\text{Fe, L3}}$ und  $h\nu_{\text{Gd, M5}}$ sehr weit voneinander liegen, lässt die Energien separat behandeln und die Gleichung (\ref{eq:intensitat_fourier}) für die Photonenenergien unabhängig voneinander benutzen. 
+wobei $S_m(\mathbf{q})$ - Betragsquadrat Fourier-Transformierte magnetische Topographie der Probe ist.
 
 \noindent
-Der Betrag des ersten Summanden $\left|F_c\right|^2$ ist wesentlich höher als die Summe $(f_{m1,1}^2 + f_{m1,2}^2)$ sowohl für Fe \cite[Abb. 7]{kortright_resonant_2013}, als auch für Gd \cite[Abb. 5]{peters_soft_2004}. Der bleibt allerdings konstant, wobei der zweite Summand durch den Faktor $S_m(\mathbf{q)}$ erhöht werden kann. Um dies Verfahren geht es im nächsten Abschnitt.
+Schließlich ergibt sich der folgende Zusammenhang für die Streuintensität 
+\begin{equation}
+    I_{\text{lin $x$}} \propto  \left| F_c(\mathbf{q}) \right|^2 + \left(f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}\right)
+    \label{eq:intensitat_fourier}
+\end{equation}
+Betrachtet werden die Photonenenergien der Fe L3-Absorptionslinie $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und Gd M5-Absorptionslinie $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$. Eine wichtige Tatsache, dass die zu betrachtenden Resonanzenergien $h\nu_{\text{Fe, L3}}$ und  $h\nu_{\text{Gd, M5}}$ sehr weit voneinander liegen, lässt die Energien separat behandeln und die Gleichung (\ref{eq:intensitat_fourier}) für die Photonenenergien unabhängig voneinander benutzen. 
+
+\noindent
+Analog zur Proportionalität des Betragsquadrats des Formfaktors $\left|F_m(\mathbf{q})\right|^2$ der Fourier-Trans\-for\-mier\-te der magnetischen Topographie $S_m(\mathbf{q})$ ist der Betragsquadrat des Formfaktors $\left|F_c(\mathbf{q})\right|^2$ proportional zur Fourier-Transformierte des Atomgitters $S_c(\mathbf{q})$. Die magnetische Topographie verändert sich jedoch auf \si{\micro\meter}-Skala, wobei die typische Bindungslänge innerhalb eines Atomgitters einige Ångströme beträgt. So ist der Beitrag von $S_c(\mathbf{q})$ zur Streuintensität nur bei deutlich größeren Streuvektorenlängen $q$ (größeren Streuwinkeln) zu betrachten.%liegen im Bereich von  sind viel größerordnung, d.h. dass unter der sehr kleinen winkeln (kleine streuvektoren) wird die magnetische streuung betrachet.
+
+\noindent
+So beschreibt der Faktor $S_m(\mathbf{q})$ die räumliche Streuintensitätsverteilung bei den kleinen Streuwinkeln. Im nächsten Abschnitt wird es darüber diskutiert, wie der Faktor sich $S_m(\mathbf{q})$ in Bezug auf die Zusammensetzung der Probe verändert.
 
 \section{Magnetisch hochkontraste mehrschichtige Systeme}
 Damit die weitere Diskussion im Zusammenhang mit der Abbildung \ref{fig:transmission_geometrie} konsistent bleibt, ist die perpendikulare Richtung als $z$-Achse festgelegt. Die Schichten, die weiter behandelt werden, liegen also in den zueinander parallelen $x$-$y$-Ebenen. 
@@ -198,7 +212,7 @@ Die zweite zu produzierende Probe, die weiter unter dem Namen \textbf{DS220126} 
 Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Für die Wahl der Wiederholungszahl $N=116$ wurde \cite[Abschnitt „Sample Preparation“]{tripathi_dichroic_2011} als Referenz genommen.
 
 \section{Probenauswertung}
-Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Topographie des Materials abbilden lässt, ist ein \gls{mfm}. Die mit dem \gls{mfm} aufgenommenen Domänenmuster und ihre absoluten Beträge von Fourier-Transformierten in logarithmischer Darstellung sind in der Abbildung \ref{fig:mfm_amplitude_ft} dargestellt.
+Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Topographie des Materials abbilden lässt, ist ein \gls{mfm}. Die mit dem \gls{mfm} aufgenommenen Domänenmuster und ihre absoluten Beträge von Fourier-Transformierten in logarithmischer Darstellung sind in der Abbildung \ref{fig:mfm-amplitude-ft} dargestellt.
 % \begin{figure}[H]
 %     \centering
 %     \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
@@ -218,10 +232,10 @@ Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$
     % \subfloat[]{\hspace{1mm}\input{images/mfm/ft/116_ft.pgf}\label{fig:mfm_ds220126_ft}}
     \input{images/mfm/mfm_fourier.pgf}
     \caption{Die aufgenommenen Domänenmuster der Probe (a) \textbf{DS211221} und (c) \textbf{DS220126}, sowie (b),(d) die absoluten Beträge von Fourier-Transformierten in logarithmischer Darstellung von gegebenen Mustern. Die Domänenmuster wurden mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm}-Modus aufgenommen. Die hellere Farbe entspricht dem größeren Signalwert. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Die absoluten Magnetisierungsstärken verschiedener Proben sind miteinander nicht zu vergleichen.}
-    \label{fig:mfm_amplitude_ft}
+    \label{fig:mfm-amplitude-ft}
 \end{figure}
 \noindent
-Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in der Abb. \ref{fig:mfm_amplitude_ft}a) wesentlich größer als die Domänengröße der Probe \textbf{DS220126} in der Abb. \ref{fig:mfm_amplitude_ft}b) ist. Darüber hinaus ist die Periodizität von Domänen in der Probe \textbf{DS211221} deutlich niedriger, als in der Probe  \textbf{DS220126}. Das widerspiegelt sich in den Fourier-Transformierten von Domänenmustern beider Proben (Abb. \ref{fig:mfm_amplitude_ft}c) und \ref{fig:mfm_amplitude_ft}d)), die proportional dem $S_m(\mathbf{q)}$ sind. In der Fourier-Transformierten von \textbf{DS220126} Domänenmuster ist ein viel schärferes Ringmuster zu sehen, das im Endeffekt bei dem Streuexperiment an der gegebenen Probe zu erwarten ist.
+Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in der Abb. \ref{fig:mfm-amplitude-ft}a) wesentlich größer als die Domänengröße der Probe \textbf{DS220126} in der Abb. \ref{fig:mfm-amplitude-ft}b) ist. Darüber hinaus ist die Periodizität von Domänen in der Probe \textbf{DS211221} deutlich niedriger, als in der Probe  \textbf{DS220126}. Das widerspiegelt sich in den Fourier-Transformierten von Domänenmustern beider Proben (Abb. \ref{fig:mfm-amplitude-ft}c) und \ref{fig:mfm-amplitude-ft}d)), die proportional dem $S_m(\mathbf{q)}$ sind. In der Fourier-Transformierten von \textbf{DS220126} Domänenmuster ist ein viel schärferes Ringmuster zu sehen, das im Endeffekt bei dem Streuexperiment an der gegebenen Probe zu erwarten ist.
 
 \noindent
 In der Schlussfolgerung wurde die Probe \textbf{DS220126} wegen der stabilen Domänenperiodizität für das Streuexperiment gewählt, obwohl die erwarteten Transmissionsrate $\bar{\text{T}}$ und Gütezahlrate TP$^2$ viel niedriger sind. Für die Probe wurde zusätzlich eine Hysteresekurve mit einem selbstkonstruirten Messgerät, das sich auf dem \gls{moke} basiert, vermessen. Das Messgerät bietet keinen Zugang zur Domänenstruktur an, weil schließlich nur die Gesamtintensität des ganzen ein- und auslaufenden Strahls gemessen wird. Der Durchmesser vom Strahl ist in beiden Fällen ca. \SI{2}{\milli\meter} groß, was viel größer gegen der Domänengröße ist. So wird das durch die Fläche gemittelte Magnetisierungsgrad $\chi$ der Probe abgetastet (passt?). Die Hysteresekurve $\chi(B)$ (Abb. \ref{fig:hysterese_sample}) lässt dem Kurvenverlauf nach sagen, dass ...?
