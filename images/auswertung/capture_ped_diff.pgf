@@ -19,7 +19,7 @@
 %%   \import{<path to file>}{<filename>.pgf}
 %%
 %% Matplotlib used the following preamble
-%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra}
+%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra} \DeclareSIUnit\adu{\text{ADU}} \DeclareSIUnit\px{\text{px}} \DeclareSIUnit\photons{\text{Pho\-to\-nen}} \DeclareSIUnit\photon{\text{Pho\-ton}}
 %%
 \begingroup%
 \makeatletter%
@@ -530,8 +530,8 @@
 \pgfusepath{fill}%
 \end{pgfscope}%
 \begin{pgfscope}%
-\pgfsys@transformshift{5.496000in}{1.213535in}%
-\pgftext[left,bottom]{\includegraphics[interpolate=true,width=0.248000in,height=0.212000in]{capture_ped_diff-img4.png}}%
+\pgfsys@transformshift{5.044000in}{0.891535in}%
+\pgftext[left,bottom]{\includegraphics[interpolate=true,width=1.088000in,height=1.092000in]{capture_ped_diff-img4.png}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%

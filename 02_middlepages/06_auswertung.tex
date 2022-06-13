@@ -1,5 +1,7 @@
 \chapter{Auswertung}
 \label{text:auswertung}
+\newacronym{qe}{QE}{Quantumeffizienz}
+\newacronym{fdpa}{FDPA}{fehldetektierte Photonen pro Pixel pro Aufnahme}
 Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \num{50000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln und kann von anderen Aufnahmen unabhängig ausgewertet werden. So ist der Auswertungsvorgang leicht parallelisierbar. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
 
 \noindent
@@ -63,7 +65,7 @@ Demnach können die beiden Spektren in demselben Graph aufgetragen werden.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/rzp_phi_ev.pgf}
-    \caption{Absorptionsspektrum }
+    \caption{Das Absorptionsspektrum der zu untersuchenden Probe aufgetragen sowohl über die Motorposition, als auch über die Photonenergie.}
     \label{fig:rzp_phi_ev}
 \end{figure}
 \noindent
@@ -79,7 +81,7 @@ Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebi
 \begin{figure}[H]
     \centering
     \input{images/auswertung/capture_ped_diff.pgf}
-    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder.  Die resultierende Differenz (c) von ersten zwei Bildern und (d) angewendete Schwellenwert \SI{150}{\adu}.}
+    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder.  Die resultierende Differenz (c) von ersten zwei Bildern und (d) angewendete Schwellenwert \SI{100}{\adu}.}
     \label{fig:capture_ped_diff}
 \end{figure}
 \noindent
@@ -87,11 +89,6 @@ Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text
 \section{Hintergrundrauschen Auswertung der Streubilder}
 \label{text:streuung_counting}
 \subsection{Schwellenwert}
-Diese oben beschriebenen Algorithmen wird zu jeder Einzelaufnahme angewendet, die dann in Höhe von \num{50000} Stück in einem gemeinsamen Bild aufsummiert werden. 
-Zur Erinnerung
-\begin{equation}
-         W_{\text{Gd, M5}} =  \SI{180(1)}{\adu}.
-\end{equation}
 Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei der Schwellenwert $s_V$ im Intervall von \SIrange{50}{260}{\adu} variiert wird. In der Abbildung \ref{fig:th_50_100_125_150_170_180_200_220_260} werden die Ergebnisse der Algorithmusverarbeitung in log-Skala dargestellt.
 \begin{figure}[H]
     \centering
@@ -106,13 +103,61 @@ Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei
 %     \label{fig:th_0_100_125_150_170_180}
 % \end{figure}
 \noindent
-Um den optimalen Wert von Schwellenwert $s_V$ zu bestimmen, wird es nach dem maximalen \gls{snr} gesucht. Dafür werden die Signal- und Rauschen-Bereiche mit den binären Signal- und Rauschen-Masken (Abb. \ref{fig:th_150_mask_snr}) definiert. So werden die Bilder mit den Signal-/Rauschen-Masken multipliziert und auf die Maskenflächen normiert. Die Verhältnisse von normierten Signal- und Rauschen-Werten werden über den Schwellenwert $s_V$ aufgetragen und maximiert. Das Maximum von \gls{snr} liegt an der Stelle $s_V = \SI{150}{\adu}$. Aus diesem Grund wird das Bild als das beste Zwischenergebnis betrachtet und für die die weitere Auswertung benutzt. 
+Um den optimalen Wert von Schwellenwert $s_V$ zu bestimmen, wird es nach dem maximalen \gls{snr} gesucht. Dafür werden die einzelnen Photonen in den Aufnahmen gesucht und die Ladungsverteilung wird analysiert.
+
+\noindent
+Das Quadrat der Standardabweichung (Varianz) $\sigma_\Sigma^2$ von Summe von $i$ Zufallsvariablen, die voneinander nicht abhängen, lässt sich wie folgt darstellen
+\begin{equation}
+    \sigma_\Sigma^2 = \sum_{i} \sigma_i^2,
+\end{equation}
+wobei $\sigma_i^2$ Varianz der $i$-ten Zufallsvariable ist.\noindent
+Um die Punktspreizfunktion eines Photons zu untersuchen, werden die einzeln detektierten Photonen im $100\times\SI{100}{\px}$ Bereich gesucht. Gesucht werden diejenige Punkte, die mehr als \SI{80}{\adu} und kleiner als \SI{200}{\adu} sind, wobei die Summe über $3\times\SI{3}{\px}$-Umgebung um den Punkt im Bereich von $180-3\sigma_{3\times 3
+}$ und $180+3\sigma_{3\times 3}$ liegt.
+\begin{equation}
+    \sigma_{3\times 3}^2 = \sum_{i=1}^9\sigma_R^2 \Rightarrow \sigma_{3\times 3} = 3 \sigma_R
+\end{equation}
 \begin{figure}[H]
     \centering
-    \input{images/auswertung/th_150_mask_snr.pgf}
-    \caption{Am Beispiel mit dem $s_V = \SI{150}{\adu}$ (a) werden die Bereiche mit (grün) Signal und (aqua) Rauschen hervorgehoben. Es ist wichtig zu beachten, dass die beiden Bereiche den Direktstrahl nicht enthalten. Das \gls{snr} (b) wird über den Schwellenwert $s_V$ aufgetragen. Das maximale \gls{snr} wird an der Stelle $s_V = \SI{150}{\adu}$ angenommen.}
-    \label{fig:th_150_mask_snr}
+    \input{images/auswertung/examples_average_std_5x5_hotspot.pgf}
+    \caption{(a) Beispiele der isolierten einzelnen Photonen, und wie ihre Gesamtintensität über die benachbarte Pixels verteilt wird. Als die Bedingung für die Einzelphotondetktion wurde der Schwellenwert \SI{90}{\adu} von unten und \SI{180}{\adu} von oben festgelegt. Außerdem wird die Nebenbedingung auferlegt, dass die Intensität über 3x3 Bereich mehr als \SI{161}{\adu} und weniger als \SI{200}{\adu} beträgt, um lediglich einzelne photonen zu betrachten. Das über 100 Aufnahmen gemitteltes Bild (b) zeigt, dass die Intensität hauptsächlich innerhalb des Kreuzes verteilt wird. Die Gesamtintensität des Zentralpixels und des Kreuzes beträgt \SI{188,8}{\adu}, was gut mit dem Erwartungswert für ein Photon mit der Energie $h\nu_\text{Gd, M5}$ übereinstimmt. In (c) ist die Standardabweichung jedes Pixels gezeigt, wobei die Standardabweichung des Detektorrauschens $\sigma_R = \SI{19.94}{\adu}$ der Regel nach abgezogen wird.}
+    \label{fig:examples_average_std_5x5_hotspot}
 \end{figure}
+Das Signal wird als \gls{qe} und \gls{fdpa} ermittelt mit dem Fluss in Photonen pro Pixel pro Aufnahme
+\begin{equation}
+        S_{\text{EW}}(s_V) = N_{A}\left[\text{Fluss}\cdot\text{\gls{qe}}(s_V) - \text{\gls{fdpa}}(s_V)\right]
+\end{equation}
+\begin{equation}
+        N_{\text{EW}}(s_V) = \sqrt{N_{A}\left[\text{Fluss}\cdot\text{\gls{qe}}(s_V) + \text{\gls{fdpa}}(s_V)\right]}
+\end{equation}
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/qe_fehldetektiert_signal_noise.pgf}
+    \caption{...}
+    \label{fig:qe_fehldetektiert_signal_noise}
+\end{figure}
+
+\noindent
+Diese oben beschriebenen Algorithmen wird zu jeder Einzelaufnahme angewendet, die dann in Höhe von \num{50000} Stück in einem gemeinsamen Bild aufsummiert werden. 
+Zur Erinnerung
+\begin{equation}
+         W_{\text{Gd, M5}} =  \SI{180(1)}{\adu}.
+\end{equation}
+
+% \begin{figure}[H]
+%     \centering
+%     \input{images/auswertung/th_150_mask_snr.pgf}
+%     \caption{Am Beispiel mit dem $s_V = \SI{150}{\adu}$ (a) werden die Bereiche mit (grün) Signal und (aqua) Rauschen hervorgehoben. Es ist wichtig zu beachten, dass die beiden Bereiche den Direktstrahl nicht enthalten. Das \gls{snr} (b) wird über den Schwellenwert $s_V$ aufgetragen. Das maximale \gls{snr} wird an der Stelle $s_V = \SI{150}{\adu}$ angenommen.}
+%     \label{fig:th_150_mask_snr}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \input{images/auswertung/qe_pixel_noise_snr.pgf}
+%     \caption{Am Beispiel mit dem $s_V = \SI{150}{\adu}$ (a) werden die Bereiche mit (grün) Signal und (aqua) Rauschen hervorgehoben. Es ist wichtig zu beachten, dass die beiden Bereiche den Direktstrahl nicht enthalten. Das \gls{snr} (b) wird über den Schwellenwert $s_V$ aufgetragen. Das maximale \gls{snr} wird an der Stelle $s_V = \SI{150}{\adu}$ angenommen.}
+%     \label{fig:qe_pixel_noise_snr}
+% \end{figure}
+
+
+
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_sums.pgf}
@@ -143,7 +188,7 @@ Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedi
 Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
 
 \noindent
-Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich, der in der Abb. \ref{fig:th_150_mask_snr}a) als transparenter Bereich beider Masken gekennzeichnet wurde, zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
+Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_150_200_masked_radial_transform.pgf}
@@ -196,7 +241,13 @@ Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollme
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
-Das Fehlen des charakteristischen Ringmusters weist seinen magnetischen Ursprung nach. 
+
+Das Fehlen des charakteristischen Ringmusters weist seinen magnetischen Ursprung nach.
+
+
+
+
+
 \subsection{Clustering}
 \noindent
 Test

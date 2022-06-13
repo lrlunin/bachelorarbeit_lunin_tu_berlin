@@ -432,7 +432,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.768764in,y=0.138889in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Magnetisierung \(\displaystyle \mathbf{\hat{m}}_\perp\)}%
+\pgftext[x=0.768764in,y=0.138889in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Magnetisierung \(\displaystyle \hat{m}_\perp\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -949,7 +949,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=4.008764in,y=0.138889in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Magnetisierung \(\displaystyle \mathbf{\hat{m}}_\perp\)}%
+\pgftext[x=4.008764in,y=0.138889in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Magnetisierung \(\displaystyle \hat{m}_\perp\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%

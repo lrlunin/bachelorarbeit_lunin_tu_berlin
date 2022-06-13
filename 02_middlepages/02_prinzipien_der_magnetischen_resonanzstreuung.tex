@@ -86,7 +86,7 @@ Die Transmissionsgeometrie der Streuung an einer Probe mit der perpendikulären 
 \noindent
 Betrachtet man den Fall der zirkular polarisierten ein- und auslaufenden Strahlung, ergibt sich aus den Gleichungen (\ref{eq:atomfaktoren}) und (\ref{eq:lin_jones}) die Beziehung
 \begin{equation}
-    f_{\pm}(h\nu)=f_{c}\mp \mathbf{k_0}\mathbf{\hat{m}} f_{m1}
+    f_{\pm}(h\nu)=f_{c}\mp \mathbf{k_0}\mathbf{\hat{m}} f_{m1} = f_{c}\mp \hat{m}_\perp f_{m1}
     \label{eq:faktor_zirc}
 \end{equation}
 %  Kurze Einleitung, wie man die Röntgenstrahlung durch Belichten eines wolframzylinders bekommt (verweis auf TU-Paper). DAS SPEKTRUM von Pape
@@ -94,14 +94,14 @@ Betrachtet man den Fall der zirkular polarisierten ein- und auslaufenden Strahlu
 Nach der \emph{Bornsche Näherung} lässt sich die Intensität der Streuung $I$ an den $N$-Atomen als die Summe der Streuung an jedem $n$-ten Atom darstellen. Die Streuung am $n$-ten Atom wird  als Produkt dessen Streufaktors mit dem Streuufaktor $f_{\pm}^n$ mit dem Term $e^{i\mathbf{qr_n}}$ definiert, wobei $\mathbf{q}$ - der Streuvektor ist.
 
 \begin{equation}
-    I_{\pm} \propto \left| \sum_{n}^N f_{\pm}^n e^{i\mathbf{qr_n}} \right|^2 \propto^{(\ref{eq:faktor_zirc})} \left| \sum_{n}^N (f_{c}^n\mp \mathbf{k_0}\mathbf{\hat{m}}^n f_{m1}^n) e^{i\mathbf{qr_n}} \right|^2
+    I_{\pm} \propto \left| \sum_{n}^N f_{\pm}^n e^{i\mathbf{qr_n}} \right|^2 \propto^{(\ref{eq:faktor_zirc})} \left| \sum_{n}^N (f_{c}^n\mp {\hat{m}_\perp}^n f_{m1}^n) e^{i\mathbf{qr_n}} \right|^2
     \label{eq:intencity_circ}
 \end{equation}
 Man führt die Formfaktoren $F_c$ und $F_m$ ein, die als
 \begin{equation}
     \begin{dcases}
      F_c(\mathbf{q}) &= \sum^N_n f_c^n e^{i\mathbf{qr_n}}\\
-     F_m(\mathbf{q}) &= \sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n f_{m1}^n e^{i\mathbf{qr_n}}
+     F_m(\mathbf{q}) &= \sum^N_n {\hat{m}_\perp}^n f_{m1}^n e^{i\mathbf{qr_n}}
     \end{dcases}
     \label{eq:fc_fm_substitution}
 \end{equation}
@@ -119,7 +119,7 @@ Nach der Gleichung (\ref{eq:lin_circ_jones}) kann die Intensität der Streuung d
 \end{equation}
 bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Der Betragsquadrat vom Formfaktor $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden
 \begin{equation}
-    \left|F_m(\mathbf{q})\right|^2 =  \left|\sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n \left[f_{m1,1}^n + if_{m1,2}^n\right] e^{i\mathbf{qr_n}}\right|^2.
+    \left|F_m(\mathbf{q})\right|^2 =  \left|\sum^N_n {\hat{m}_\perp}^n \left[f_{m1,1}^n + if_{m1,2}^n\right] e^{i\mathbf{qr_n}}\right|^2.
     \label{eq:f_m}
 \end{equation}
 Wird die Streuung unter der Resonanzbedingungen für ein Element betrachtet, können die Koeffizienten $f_{m1,1/2}$ aller anderen Elemente als vernachlässigbar klein weggelassen werden. Die Annahme
@@ -128,7 +128,7 @@ Wird die Streuung unter der Resonanzbedingungen für ein Element betrachtet, kö
 \end{equation}
 lässt die Gleichung (\ref{eq:f_m}) weiter vereinfachen
 \begin{equation}
-   \left|F_m(\mathbf{q})\right|^2 = \left|f_{m1,1} + if_{m1,2}\right|^2 \cdot \left|\sum^N_n \mathbf{k_0}\mathbf{\hat{m}}^n e^{i\mathbf{qr_n}}\right|^2 = (f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}),
+   \left|F_m(\mathbf{q})\right|^2 = \left|f_{m1,1} + if_{m1,2}\right|^2 \cdot \left|\sum^N_n {\hat{m}_\perp}^n e^{i\mathbf{qr_n}}\right|^2 = (f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}),
 \end{equation}
 wobei $S_m(\mathbf{q})$ - Betragsquadrat Fourier-Transformierte magnetische Topographie der Probe ist.
 
