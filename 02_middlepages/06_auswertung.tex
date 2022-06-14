@@ -1,7 +1,8 @@
 \chapter{Auswertung}
 \label{text:auswertung}
 \newacronym{qe}{QE}{Quantumeffizienz}
-\newacronym{fdpa}{FDPA}{fehldetektierte Photonen pro Pixel pro Aufnahme}
+\newacronym{fdpa}{FDPA}{fehldetektierten Photonen pro Pixel pro Aufnahme}
+\newacronym{photnenfluss}{PF}{Photonenfluss}
 Die Auswertung von Aufnahmen wird durch ihre Größe erschwert. In einer Aufnahme-Session wird es ca. \num{50000} Aufnahmen gemacht, die insgesamt ca. 180GB groß sind. Jede Aufnahme muss einzeln und kann von anderen Aufnahmen unabhängig ausgewertet werden. So ist der Auswertungsvorgang leicht parallelisierbar. Benutzt wird die „high-level“ API Bibliothek \textit{dask-image} \cite{dask-library}, die parallelisierte und optimierte Ausführung der eingegebenen Funktionen ohne großen technischen Aufwand zulässt.
 
 \noindent
@@ -89,58 +90,84 @@ Bei jedem Auswertungsvorgang werden die beiden Algorithmen (Abschnitte \ref{text
 \section{Hintergrundrauschen Auswertung der Streubilder}
 \label{text:streuung_counting}
 \subsection{Schwellenwert}
-Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, wobei der Schwellenwert $s_V$ im Intervall von \SIrange{50}{260}{\adu} variiert wird. In der Abbildung \ref{fig:th_50_100_125_150_170_180_200_220_260} werden die Ergebnisse der Algorithmusverarbeitung in log-Skala dargestellt.
+Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet. Der Schwellenwert $s_V$ wird im Intervall von \SIrange{50}{260}{\adu} variiert. So wird ein grober Überblick über die Abhängigkeit des Ergebnisses vom Schwellenwert gegeben. In der Abbildung \ref{fig:th_50_100_125_150_170_180_200_220_260} sind die Ergebnisse der Algorithmusverarbeitung in log-Skala dargestellt.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_200_220_260.pgf}
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
     \label{fig:th_50_100_125_150_170_180_200_220_260}
 \end{figure}
-% \begin{figure}[H]
-%     \centering
-%     \input{images/auswertung/th_0_100_125_150_170_180.pgf}
-%     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{0}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Eine dunklere Linie im Zentrum vom Direktstrahl entspricht der Absorptionskante. Aufgenommen an der Resonanzfrequenz Gd M5.}
-%     \label{fig:th_0_100_125_150_170_180}
-% \end{figure}
 \noindent
-Um den optimalen Wert von Schwellenwert $s_V$ zu bestimmen, wird es nach dem maximalen \gls{snr} gesucht. Dafür werden die einzelnen Photonen in den Aufnahmen gesucht und die Ladungsverteilung wird analysiert.
+Die Abbildungen \ref{fig:th_50_100_125_150_170_180_200_220_260}d), e) und f), wo die höheren Schwellenwerte $s_V = \SI{150}{\adu}$, $\SI{170}{\adu}$ und $\SI{180}{\adu}$ eingesetzt wurden, sind wesentlich kontrastarmer im Vergleich mit den Abbildungen \ref{fig:th_50_100_125_150_170_180_200_220_260}b) und c), wo die Schwellenwerte $s_V = \qtylist{100;125}{\adu}$ verwendet wurden, obwohl ein $h\nu_\text{Gd, M5}$ Photon
+ \begin{equation}
+    W_\text{Gd, M5} = \SI{180(1)}{\adu}
+\end{equation}
+ergeben soll. Das weist direkt darauf hin, dass die erzeugte Ladung und damit der erwartete ADU-Wert über die benachbarten Pixeln verteilt wird. So muss Verteilung der einzelnen Photonen quantitativ ausgewertet werden, um den Schwellenwert $s_V$ dementsprechend anpassen zu können und die Auskunft über \gls{snr} in Bezug auf den Schwellenwert zu bekommen.
 
 \noindent
-Das Quadrat der Standardabweichung (Varianz) $\sigma_\Sigma^2$ von Summe von $i$ Zufallsvariablen, die voneinander nicht abhängen, lässt sich wie folgt darstellen
+Um die Punktspreizfunktion eines isolierten Photons zu untersuchen, werden die einzeln detektierten Photonen im 100$\times$\SI{100}{\px} Direktstrahlbereich gesucht. Zuerst werden diejenige Punkte betrachtet, deren Wert im Intervall von \SI{80}{\adu} und \SI{200}{\adu} liegt. Um die Überlagerung der Ladungsverteilung der benachbarten Punkten auszuschließen, werden nur diejenige Punkte erfasst, die keine solche Punkte in dem \SI{5}{px}-Umkreis haben. Um die Fehldetektion des Rauschens möglichst zu verringern, wird eine Nebenbedingung auferlegt und zwar, dass die Summe über die 3$\times$\SI{3}{\px}-Umgebung um den Punkt im Intervall von $(180-3\sigma_{3\times 3})$ \si{\adu} und $(180+3\sigma_{3\times 3})$ \si{\adu} liegen muss, wobei $\sigma_{3\times 3}$ die Standardabweichung dieser Summe ist.
+
+\noindent
+Das Quadrat der Standardabweichung (Varianz) $\sigma_\Sigma^2$ von Summe von $i$ Zufallsvariablen, die voneinander nicht abhängen, ergibt sich als die Summe der Varianzen jeder $i$-ten Zufallsvariable $\sigma_i^2$
 \begin{equation}
-    \sigma_\Sigma^2 = \sum_{i} \sigma_i^2,
+    \sigma_\Sigma^2 = \sum_{i} \sigma_i^2.
+    \label{eq:summ_varianz}
 \end{equation}
-wobei $\sigma_i^2$ Varianz der $i$-ten Zufallsvariable ist.\noindent
-Um die Punktspreizfunktion eines Photons zu untersuchen, werden die einzeln detektierten Photonen im $100\times\SI{100}{\px}$ Bereich gesucht. Gesucht werden diejenige Punkte, die mehr als \SI{80}{\adu} und kleiner als \SI{200}{\adu} sind, wobei die Summe über $3\times\SI{3}{\px}$-Umgebung um den Punkt im Bereich von $180-3\sigma_{3\times 3
-}$ und $180+3\sigma_{3\times 3}$ liegt.
+\noindent
+Somit kann die Standardabweichung der Summe über 3$\times$\SI{3}{\px}-Umgebung
 \begin{equation}
     \sigma_{3\times 3}^2 = \sum_{i=1}^9\sigma_R^2 \Rightarrow \sigma_{3\times 3} = 3 \sigma_R
+\end{equation}
+berechnet werden.
+
+\noindent
+Zum Schluss werden 5$\times$\SI{5}{\px}-Bereiche um den Pixeln, die die Bedingungen im oberen Paragraph erfüllen, ausgeschnitten. Die 5$\times$\SI{5}{\px}-Bereiche werden über die Anzahl der Bereiche gemittelt und die Standardabweichung jedes Pixels $\sigma_{S+R}$ im 5$\times$\SI{5}{\px}-Bereich wird berechnet. Die Standardabweichung enthält $\sigma_{S+R}$ allerdings die Standardabweichung des Detektorrauschens $\sigma_{R}$ und die Standardabweichung der ADU-Wert Verteilung eines Photons $\sigma_{S}$. Diese sind voneinander unabhängig. Daher kann die Standardabweichung $\sigma_{S}$ nach der Formel (\ref{eq:summ_varianz}) ermittelt werden:
+\begin{equation}
+    \sigma_{S+R}^2 = \sigma_{S}^2 + \sigma_{R}^2 \Rightarrow \sigma_{S} = \sqrt{\sigma_{S+R}^2 - \sigma_{R}^2}
+    \label{eq:std_entkopplung}
 \end{equation}
 \begin{figure}[H]
     \centering
     \input{images/auswertung/examples_average_std_5x5_hotspot.pgf}
-    \caption{(a) Beispiele der isolierten einzelnen Photonen, und wie ihre Gesamtintensität über die benachbarte Pixels verteilt wird. Als die Bedingung für die Einzelphotondetktion wurde der Schwellenwert \SI{90}{\adu} von unten und \SI{180}{\adu} von oben festgelegt. Außerdem wird die Nebenbedingung auferlegt, dass die Intensität über 3x3 Bereich mehr als \SI{161}{\adu} und weniger als \SI{200}{\adu} beträgt, um lediglich einzelne photonen zu betrachten. Das über 100 Aufnahmen gemitteltes Bild (b) zeigt, dass die Intensität hauptsächlich innerhalb des Kreuzes verteilt wird. Die Gesamtintensität des Zentralpixels und des Kreuzes beträgt \SI{188,8}{\adu}, was gut mit dem Erwartungswert für ein Photon mit der Energie $h\nu_\text{Gd, M5}$ übereinstimmt. In (c) ist die Standardabweichung jedes Pixels gezeigt, wobei die Standardabweichung des Detektorrauschens $\sigma_R = \SI{19.94}{\adu}$ der Regel nach abgezogen wird.}
+    \caption{(a) Beispiele der isolierten einzelnen Photonen, und wie ihre Gesamtintensität über die benachbarte Pixels verteilt wird. Als die Bedingung für die Einzelphotondetktion wurde der Schwellenwert \SI{90}{\adu} von unten und \SI{180}{\adu} von oben festgelegt. Außerdem wird die Nebenbedingung auferlegt, dass die Intensität über 3x3 Bereich mehr als \SI{161}{\adu} und weniger als \SI{200}{\adu} beträgt, um lediglich einzelne Photonen zu betrachten. Das über 534 5$\times$\SI{5}{\px}-Bereiche gemitteltes Bild (b) zeigt, dass die Intensität hauptsächlich innerhalb des Kreuzes verteilt wird. Die Gesamtintensität des Zentralpixels und des Kreuzes beträgt \SI{179.6}{\adu}, was gut mit dem Erwartungswert für ein Photon mit der Energie $h\nu_\text{Gd, M5}$ übereinstimmt. In (c) ist die Standardabweichung jedes Pixels $\sigma_{S}$ gezeigt, wobei die Standardabweichung des Detektorrauschens $\sigma_R = \SI{19.94}{\adu}$ nach der Formel (\ref{eq:std_entkopplung}) abgezogen wird.}
     \label{fig:examples_average_std_5x5_hotspot}
 \end{figure}
-Das Signal wird als \gls{qe} und \gls{fdpa} ermittelt mit dem Fluss in Photonen pro Pixel pro Aufnahme
+\noindent
+Der über 534 gemittelte 5$\times$\SI{5}{\px}-Bereich (Abb. \ref{fig:examples_average_std_5x5_hotspot}b) zeigt, dass der ADU-Wert eines Photons schließlich übers zentrale Pixel und auf die angrenzenden Pixel in vertikaler und horizontaler Richtung verteilt wird, wobei der ADU-Wert im zentralen Pixel relativ konstant bleibt und 
 \begin{equation}
-        S_{\text{EW}}(s_V) = N_{A}\left[\text{Fluss}\cdot\text{\gls{qe}}(s_V) - \text{\gls{fdpa}}(s_V)\right]
+    W_\text{Gd, M5, reell}  = \SI{116(4)}{\adu} 
 \end{equation}
+beträgt. Von den dargestellten Beispielen der 5$\times$\SI{5}{\px}-Bereich (Abb. \ref{fig:examples_average_std_5x5_hotspot}a)) und der Standardabweichung $\sigma_{S}$ der Ladungsverteilung (Abb. \ref{fig:examples_average_std_5x5_hotspot}c) ist es abzulesen, dass der gesamte ADU-Wert eines Photons in einem einzelnen Bild nicht simultan über die benachbarten Pixel verteilt wird, sondern nur in einem davon. 
+
+\noindent
+Für die weitere Analyse werden $N_A = 300$ Aufnahmen genommen. Untersucht wird der Direktstrahlbereich (ROI?) $S_\text{ROI} = 100{\times}\SI{100}{\px}$ groß. Die \gls{qe} in Bezug auf Schwellenwert $s_V$ wird dadurch ermittelt, dass es die Photonenzahl mit dem Schwellenwertalgorithmus für den gegebenen Schwellenwert $s_V$ gezählt wird und auf s.g. analoge Photonenzahl geteilt wird. Die analoge Photonenzahl wird als die Gesamtintensität der Aufnahmen in \si{\adu} durch den erwarteten ADU-Wert $W_\text{Gd, M5} = \SI{180(1)}{\adu}$ geteilt wird. Der \gls{photnenfluss} ergibt sich als die analoge Photonenzahl geteilt durch Aufnahmezahl $N_A$ und Bereichfläche $S_\text{ROI}$ und beträgt \SI{4.57e-3}{\text{Photonen pro Pixel pro Aufnahme}}. Die \gls{qe}, die für die kleinen Werte $s_V$ die Werte bis 6 annimmt, ergibt physikalisch kein Sinn und kann durch das hohe Rauschen des Detektors erklärt werden.
+
+\noindent
+Die Anzahl von \gls{fdpa} wird dadurch berechnet, dass es die Photonen mit dem Schwellenwertalgorithmus in den Dunkelbildern gezählt werden. Verwendet wurden ebenfalls $N_A = 300$ Aufnahmen. Der zu untersuchende Bereich wurde bis $300{\times}\SI{400}{\px}$ vergrößert, um die bessere Statistik insbesondere für höhere $s_V$ Werte zu bekommen.
+
+\noindent
+Bei dieser Art der Datenverarbeitung ist das s.g. Schrotrauschen die primäre Rauschenquelle. Das Signal 
 \begin{equation}
-        N_{\text{EW}}(s_V) = \sqrt{N_{A}\left[\text{Fluss}\cdot\text{\gls{qe}}(s_V) + \text{\gls{fdpa}}(s_V)\right]}
+        S_{\text{EW}}(s_V, N_P) = N_{A}N_{P}\left[\text{\gls{photnenfluss}}\cdot\text{\gls{qe}}(s_V) - \text{\gls{fdpa}}(s_V)\right]
 \end{equation}
+und dementsprechende Shrotrauschen 
+\begin{equation}
+        N_{\text{EW}}(s_V, N_P) = \sqrt{N_{A}N_{P}\left[\text{\gls{photnenfluss}}\cdot\text{\gls{qe}}(s_V) + \text{\gls{fdpa}}(s_V)\right]}
+\end{equation}
+lassen sich der Theorie nach so ausdrucken, wobei der $N_P$ - die erfasste Pixelzahl. 
+
+\noindent
+Die ermittelten Werte werden in der Abbildung zusammengefasst. Das Signal $S_{\text{EW}}(s_V, N_P)$ und Rauschen $ N_{\text{EW}}(s_V, N_P)$ werden jeweils für ein Pixel (also $N_P = \SI{1}{\px}$) angegeben.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/qe_fehldetektiert_signal_noise.pgf}
-    \caption{...}
+    \caption{(oben links), (oben rechts), (unten links), (unten rechts)}
     \label{fig:qe_fehldetektiert_signal_noise}
 \end{figure}
-
 \noindent
-Diese oben beschriebenen Algorithmen wird zu jeder Einzelaufnahme angewendet, die dann in Höhe von \num{50000} Stück in einem gemeinsamen Bild aufsummiert werden. 
-Zur Erinnerung
+In den Graphen von $S_{\text{EW}}$ und $N_{\text{EW}}$ ist es gut erkennbar, dass das Signal und Rauschen im Bereich $s_V$ \SIrange{100}{125}{\adu} pro ein Pixel ($N_P = 1$) fast gleich sind und \gls{snr} ca. 1 ist. D.h., dass die Ausewertungsverfahren, welche die Information jedes einzelnen Pixels benutzen (wie z.B. inverse Fourier-Transformation), nicht anwendbar sind. Das \gls{snr} wäscht jedoch mit der Zunahme Erhöhung der zu untersuchenden Gesamtpixelzahl $N_P$.
 \begin{equation}
-         W_{\text{Gd, M5}} =  \SI{180(1)}{\adu}.
+    \text{\gls{snr}} \approx \sqrt{N_P}
 \end{equation}
 
 % \begin{figure}[H]
@@ -165,10 +192,7 @@ Zur Erinnerung
 %     \label{fig:th_150_sums}
 % \end{figure}
 \noindent
-Die Tatsache, dass das \gls{snr} bei $s_V = \SI{150}{\adu}$ deutlich höher als bei \SI{170}{\adu} ist, weist direkt darauf hin, dass bis zu \SI{30}{\adu} ($\approx \SI{17}{\percent}$) von dem \gls{adu}-Wert $W_\text{Gd, M5} = \SI{180}{\adu}$ in die benachbarten Pixels gespreizt wird. 
-
-\noindent
-Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Pixelgebiete finden (Abb. \ref{fig:th_180_450_600}), die unter dem Schwellenwert $s_V = \SI{600}{\adu}$ verbleiben. Diese Punkte können sowohl die von der \gls{pxs} ausgelösten Elektronen, als auch hochenergetische kosmische Strahlung sein. Die Wahrscheinlichkeit, das sei 4 oder mehr Photonen, die in denselben Punkt außerhalb des Direktstrahls landeten, ist sehr gering, insbesondere in Hinblick darauf, dass es sogar im Direktstrahl keine solche Punkte (Abb.  \ref{fig:th_180_450_600}c)) vorhanden sind.
+Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Pixelgebiete finden (Abb. \ref{fig:th_180_450_600}), die unter dem Schwellenwert $s_V = \SI{600}{\adu}$ verbleiben. Diese Punkte können sowohl die von der \gls{pxs} ausgelösten Elektronen, als auch hochenergetische kosmische Strahlung sein. Die Wahrscheinlichkeit, das sei 4 oder mehr Photonen, die in denselben Punkt außerhalb des Direktstrahls landeten, ist sehr gering, insbesondere in Hinblick darauf, dass die Punkte außerhalb des Direktstrahls (Abb.  \ref{fig:th_180_450_600}c)) liegen.
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_170_180.pgf}
@@ -182,7 +206,7 @@ Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Pixelgebiete finden
     \label{fig:th_180_450_600}
 \end{figure}
 \noindent
-Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedingung im Schwellenwert-Algorithmus eingesetzt wird, und zwar, dass die \gls{adu}-Werte der Doppelungleichung $\SI{150}{\adu} < s_V < \SI{600}{\adu}$ genügen müssen. Das resultierende Bild ist in der Abb. \ref{fig:th-150-200-maske-radial-transform}a) dargestellt.
+Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedingung im Schwellenwert-Algorithmus eingesetzt wird, und zwar, dass die \gls{adu}-Werte der Doppelungleichung $\SI{100}{\adu} < s_V < \SI{600}{\adu}$ genügen müssen. Das resultierende Bild ist in der Abb. \ref{fig:th-150-200-maske-radial-transform}a) dargestellt.
 
 \noindent
 Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
@@ -191,8 +215,8 @@ Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig,
 Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
 \begin{figure}[H]
     \centering
-    \input{images/auswertung/th_150_200_masked_radial_transform.pgf}
-    \caption{Das Bild (a) ist die Summe von \num{50000} Aufnahmen, die sowie mit dem Schwellenwert $s_V = \SI{150}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurden. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Das Bild (c) ist das in Polarkoordinaten transformierte Bild (b).}
+    \input{images/auswertung/th_100_200_masked_radial_transform.pgf}
+    \caption{Die Unterabbildung (a) ist die Summe von \num{50000} Aufnahmen, die sowie mit dem Schwellenwert $s_V = \SI{100}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurden. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Die Unterabbildung (c) ist die in Polarkoordinaten transformierte Unterabbildung (b).}
     \label{fig:th-150-200-maske-radial-transform}
 \end{figure}
 \noindent
@@ -222,11 +246,11 @@ Die Umrechnung der Größen zwischen px- und \si{\milli\meter}-Einheiten erfolgt
 \begin{figure}[H]
     \centering
     \input{images/auswertung/radial_integral_fits.pgf}
-    \caption{Aufintegriertes Bild \ref{fig:mfm-amplitude-ft}d) über Azimutwinkel $\varphi$. Anpassung (aqua) $g(q)$ mit den Parametern $k = \SI{18.66(6)}{}$ und $\vartheta = \SI{0.99(3)}{}$ ($q_\text{max} = \SI{19(1)}{\micro\meter^{-1}}$). Anpassung (pink) $g(q)$ mit den Parametern $k = \SI{16.5(4)}{}$ und $\vartheta = \SI{1.16(2)}{}$ ($q_\text{max} = \SI{19.1(9)}{\micro\meter^{-1}}$). Der maximum von MFM integration liegt an der \SI{18(1)}{\micro\meter^{-1}}}
+    \caption{Aufintegriertes Bild \ref{fig:mfm-amplitude-ft}d) über Azimutwinkel $\varphi$. Anpassung (aqua) $g(q)$ mit den Parametern $k = \SI{18.66(6)}{}$ und $\vartheta = \SI{0.99(3)}{}$ ($q_\text{max} = \SI{19(1)}{\per\micro\meter}$). Anpassung (pink) $g(q)$ mit den Parametern $k = \SI{16.5(4)}{}$ und $\vartheta = \SI{1.16(2)}{}$ ($q_\text{max} = \SI{19.1(9)}{\per\micro\meter}$). Der maximum von MFM integration liegt an der \SI{18(1)}{\micro\meter^{-1}}}
     \label{fig:radius_fit}
 \end{figure}
 \noindent
-In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensität. Verteilung in den pinken Sektoren ist damit zu erklären, dass der Resonanzfrequenzbereich ist  mehr horizontal ausgezogen.
+In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensität. Verteilung in den pinken Sektoren ist damit zu erklären, dass der Resonanzfrequenzbereich mehr horizontal ausgezogen/ausgedehnt ist.
 
 \noindent
 Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
