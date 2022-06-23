@@ -143,7 +143,14 @@ beträgt. Von den dargestellten Beispielen der 5$\times$\SI{5}{\px}-Bereich (Abb
 In Anbetracht der Tatsache, dass das hellste Pixel nur \SI{116(4)}{\adu} von dem gesamten ADU-Wert $W_\text{GD, M5} = \SI{180(1)}{\adu}$ eines Photons enthält, würde die weitere Erhöhung des Schwellenwertes $s_V$ über \SI{116}{\adu}, wodurch man das Rauschen verringern könnte, zum signifikanten Verlust der Anzahl von detektierten Photonen (von Signal) führen. Die genauere Aussage zum Optimalschwellenwert $s_V$ kann jedoch erst nach der Untersuchung von Signal- und Rauschencharakteristik als Funktion des $s_V$-Wertes getroffen werden. Diese wird im nächsten Paragraph durchgeführt. 
 
 \noindent
-Es werden $N_A = 300$ Aufnahmen genommen. In jeder Aufnahme wird der Direktstrahlbereich (ROI) $S_\text{ROI} = 100{\times}\SI{100}{\px}$ groß betrachtet. Die \gls{qe} als Funktion des $s_V$-Wertes wird dadurch ermittelt, dass es die Photonenzahl mit dem Schwellenwertalgorithmus für den gegebenen Schwellenwert $s_V$ gezählt wird und auf s.g. analoge Photonenzahl geteilt wird. Die analoge Photonenzahl wird als die Gesamtintensität der Aufnahmen in \si{\adu} durch den erwarteten ADU-Wert \SI{180}{\adu} geteilt wird. Der \gls{photnenfluss} ergibt sich als die analoge Photonenzahl geteilt durch Aufnahmezahl $N_A$ und Bereichfläche $S_\text{ROI}$ und beträgt \SI{4.57e-3}{\photons\per\pixel\per\capture}.
+Es werden $N_A = 300$ Aufnahmen genommen. In jeder Aufnahme wird der Direktstrahlbereich (ROI) $S_\text{ROI} = 100{\times}\SI{100}{\px}$ groß betrachtet. Die \gls{qe} als Funktion des $s_V$-Wertes wird dadurch ermittelt, dass es die Photonenzahl mit dem Schwellenwertalgorithmus für den gegebenen Schwellenwert $s_V$ gezählt wird und auf s.g. analoge Photonenzahl geteilt wird.
+\begin{equation}
+    \text{\gls{qe}}(s_V) =  \frac{\text{digitale Pixelzahl}(s_V) - \text{\gls{fdpa}}(s_V)\cdot 300\cdot100\cdot 100  }{\text{analoge Pixelzahl}}
+\end{equation}
+
+
+
+Die analoge Photonenzahl wird als die Gesamtintensität der Aufnahmen in \si{\adu} durch den erwarteten ADU-Wert \SI{180}{\adu} geteilt wird. Der \gls{photnenfluss} ergibt sich als die analoge Photonenzahl geteilt durch Aufnahmezahl $N_A$ und Bereichfläche $S_\text{ROI}$ und beträgt \SI{4.57e-3}{\photons\per\pixel\per\capture}.
 
 \noindent
 Die Anzahl von \gls{fdpa} wird dadurch berechnet, dass es die Photonen mit dem Schwellenwertalgorithmus in den Dunkelbildern gezählt werden. Verwendet wurden ebenfalls $N_A = 300$ Aufnahmen. Der zu untersuchende Bereich wurde bis $300{\times}\SI{400}{\px}$ vergrößert, um die bessere Statistik insbesondere für höhere $s_V$ Werte zu bekommen.
@@ -151,7 +158,7 @@ Die Anzahl von \gls{fdpa} wird dadurch berechnet, dass es die Photonen mit dem S
 \noindent
 Bei dieser Art der Datenverarbeitung ist das s.g. Schrotrauschen die primäre Rauschenquelle. Das Signal 
 \begin{equation}
-        S_{\text{EW}}(s_V, N_A, N_P) = N_{A}N_{P}\left[\text{\gls{photnenfluss}}\cdot\text{\gls{qe}}(s_V) - \text{\gls{fdpa}}(s_V)\right]
+        S_{\text{EW}}(s_V, N_A, N_P) = N_{A}N_{P}\left[\text{\gls{photnenfluss}}\cdot\text{\gls{qe}}(s_V)\right]
         \label{eq:signal_ew}
 \end{equation}
 und das entsprechende Shrotrauschen 
@@ -173,32 +180,37 @@ Die ermittelten Werte werden in der Abbildung zusammengefasst. Das Signal $S_{\t
 Die \gls{qe}, die für die kleinen Werte $s_V$ die Werte bis 6 annimmt, ergibt physikalisch kein Sinn und kann durch das hohe Rauschen des Detektors erklärt werden. In den Graphen von $S_{\text{EW}}$ und $N_{\text{EW}}$ ist es gut erkennbar, dass das Signal und Rauschen im Bereich $s_V = \text{\SIrange{100}{125}{\adu}}$ fast gleich sind und \gls{snr} dementsprechend ca. 1 ist.
 
 \noindent
-Es ist wichtig zu beachten, dass die Signal- und Rauschenerartungswerte (Gleichungen (\ref{eq:signal_ew}) und  (\ref{eq:noise_ew})) nicht linear von Parametern $N_A, N_P$ und \gls{photnenfluss} abhängen und daher nicht auf den Bereich mit einem anderen \gls{photnenfluss} auf den betrachteten Signalerwartungswert linear skaliert werden können. Analog zu dem oberen Beispiel wird die Rechnung für die Auswertung der Messdaten gemacht. Es werden die Summen von $N_A = \SI{50000}{\captures}$ betrachtet, wobei der \gls{photnenfluss} am Streuring ca. \SI{3.85e-5}{\photons\per\pixel\per\capture} ist.
+Es ist wichtig zu beachten, dass die Signal- und Rauschenerartungswerte (Gleichungen (\ref{eq:signal_ew}) und  (\ref{eq:noise_ew}) nicht linear von Parametern $N_A, N_P$ und \gls{photnenfluss} abhängen und daher nicht auf den Bereich mit einem anderen \gls{photnenfluss} auf den betrachteten Signalerwartungswert linear skaliert werden können. Analog zu dem oberen Beispiel wird die Rechnung für die Auswertung der Messdaten gemacht. Es werden die Summen von $N_A = \SI{50000}{\captures}$ betrachtet, wobei der \gls{photnenfluss} am Streuring ca. \SI{3.88e-5}{\photons\per\pixel\per\capture} ist.
 
 \noindent
 Für ein erfasstes Pixel ($N_P = \SI{1}{\pixel}$) und $s_V = \SI{100}{\adu}$ ergeben sich die Erwartungswerte von Signal und Rauschen als
 \begin{equation}
     \begin{split}
-        S_\text{EW} &= \SI{0.27}{\photons}\\
+        S_\text{EW} &= \SI{1.97}{\photons}\\
         N_\text{EW} &= \SI{1.91}{\photons}\\
     \end{split}
 \end{equation}
 \noindent
-D.h., dass die Ausewertungsverfahren, welche die Information jedes einzelnen Pixels benutzen (wie z.B. inverse Fourier-Transformation), nicht anwendbar sind.
-
-\noindent
-Wird die Summe von mehrerer Pixel erfasst (z.B. über die radiale Integration des Streubildes) ist die Pixelzahl $N_P = 2\pi\cdot\SI{75}{\pixel} \approx \SI{471}{\pixel}$. Dann ergeben sich die folgenden Erwartungswerte
-\begin{equation}
-    \begin{split}
-        S_\text{EW} &= \SI{125}{\photons}\\
-        N_\text{EW} &= \SI{42}{\photons}\\
-    \end{split}
-\end{equation}
-
-
+D.h., dass die Ausewertungsverfahren, welche die Information jedes einzelnen Pixels benutzen (wie z.B. inverse Fourier-Transformation), nicht anwendbar sind. Das \gls{snr} ergibt sich wieder als ca. 1:1. D.h., dass bei der konstanten Parametern $N_A, s_V$ und $\text{\gls{photnenfluss}}$ ist das SNR
 \begin{equation}
     \text{\gls{snr}} \approx \sqrt{N_P}
 \end{equation}
+
+\noindent
+Somit kann das \gls{snr} durch die Erfassung der Summe von mehrerer Pixel (z.B. über die radiale Integration des Streubildes) erhöht. Bei der Summe von $N_P = 2\pi\cdot\SI{75}{\pixel} \approx \SI{471}{\pixel}$ ergeben sich die folgenden Erwartungswerte
+\begin{equation}
+    \begin{split}
+        S_\text{EW} &= \SI{926}{\photons}\\
+        N_\text{EW} &= \SI{42}{\photons}\\
+    \end{split}
+\end{equation}
+und gilt
+\begin{equation}
+    \text{\gls{snr}} \approx \num{22.28} \approx \sqrt{471}
+\end{equation}
+
+
+
 % \begin{figure}[H]
 %     \centering
 %     \input{images/auswertung/th_150_mask_snr.pgf}
@@ -273,9 +285,7 @@ Die Intensität in Polarkoordinaten (Abb. \ref{fig:th-100-200-maske-radial-trans
 angepasst, die solche Intensitätsverteilungen gut nähern soll \cite[Kap. 5]{bagschik_employing_2016}. Das Maximum der Funktion $g(q, k, \vartheta, A)$ liegt an der Stelle $q_\text{max} = k\vartheta$.
 
 \noindent
-Da der Direktstrahlbereich zuvor auf null gesetzt wurde und die transformierte Abbildung quadratförmig ist, ist es in der Abb. \ref{fig:th-100-200-maske-radial-transform}c) zu sehen, dass die Bereiche, wo Radius $r > \SI{125}{\px}$ und $r< \SI{50}{\px}$ ist, nicht plausibel sind, da ...
-!!!FIT UND INTEGRATIONSBEREICHE VON RADIUS 50 UND 130 PX, damit die Maske und bildgeometrie (dass zum r $> 140$ nur die ecken des originalbildes beitragen!!!
-
+Die Tatsache, dass der quadratische Direktstrahlbereich der zu transformierenden Abbildung zuvor auf Null gesetzt wurde und die Abbildung selbst quadratisch ist, führt zu einer verzerrten azimutalen Intensitätsverteilung. Diese Verzerrung taucht deutlich bei der Integration über den Azimutwinkel auf, wo die Intensität zu den Radien $r$ kleiner als \SI{50}{\px} und größer als \SI{130}{\px} ungleichmäßig (s. Abb. \ref{fig:th-100-200-maske-radial-transform}c) beigetragen wird. Daher ist die Intensitätsdichte $\rho(q)$ im Bereich von Streuvektorenbetragen $q$, die den oben gegebenen Radien entsprechen, implausibel und wird in dem Fit und der Darstellung weggelassen.
 
 \noindent
 In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensität. Verteilung in den pinken Sektoren ist damit zu erklären, dass der Resonanzfrequenzbereich mehr horizontal ausgezogen/ausgedehnt ist.
@@ -286,17 +296,20 @@ In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radial
     \label{fig:radius_fit}
 \end{figure}
 \noindent
-Die experimentellen Daten haben eine größere Breite des Streuringes, die über die Faltung mit einer nicht unendlich punktförmigen Strahlprofil zu erklären ist. Wie erwartet ist die Verteilung innerhalb der horizontalen Sektoren etwas breiter, als innerhalb des vertikalen. Die Maxima aller Verteilungen, sowohl von zwei von dem streuexperimenten als auch von der MFM-Scan, liegen innerhalb der vertrauensbereiche voneinander.
+Die experimentellen Daten haben eine größere Breite des Streuringes, die über die Faltung mit einer nicht unendlich punktförmigen Strahlprofil zu erklären ist. Wie erwartet ist die Verteilung innerhalb der horizontalen Sektoren etwas breiter, als innerhalb des vertikalen. Die Maxima aller Verteilungen, sowohl von zwei von dem streuexperimenten als auch von der MFM-Scan, liegen innerhalb der Vertrauensbereiche voneinander.
 
 \noindent
 Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
+
+\noindent
+Aufsummiert werden jeweils \SI{50000}{\captures}. Die Absoprtionsstärke ist an der Photonenfrequenz $h\nu_{\text{Gd, Off-Res}}$ erwartet kleiner. So  
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
-
+Die Abbildungen für können mit den 
 Das Fehlen des charakteristischen Ringmusters weist seinen magnetischen Ursprung nach.
 
 
