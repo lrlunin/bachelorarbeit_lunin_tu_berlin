@@ -170,16 +170,16 @@ Die Grundidee dieses Algorithmus ist die Abbildung zu jedem $i,j$-ten Pixel sein
 \noindent
 In anderen Worten wird zur Gesamtbildmatrix $\mathbf{V}$ eine Clustermatrix $\mathbf{Q}$ zugeordnet. Dieses Verfahren lässt sich formal wie folgt aufschreiben:
 \begin{equation}
-    \mathbf{V} * \mathbf{K}_{\text{N}} = \sum_{l=i-\left[\frac{\text{N}}{2}\right]}^{i+\left[\frac{\text{N}}{2}\right]-1} \sum_{m=j-\left[\frac{\text{N}}{2}\right]}^{j+\left[\frac{\text{N}}{2}\right]-1} V_{l,m} = \mathbf{Q},
+    \mathbf{V} * \mathbf{K}_{M\times L} = \sum_{l=i-\left[\frac{\text{M}}{2}\right]}^{i+\left[\frac{\text{M}}{2}\right]-1} \sum_{m=j-\left[\frac{\text{L}}{2}\right]}^{j+\left[\frac{\text{L}}{2}\right]-1} V_{l,m} = \mathbf{Q},
 \end{equation}
-wobei $\mathbf{V}$ - Auslesewerte des Sensors (Gesamtbild) dargestellt als Matrix, $\mathbf{K}_{\text{N}}$ - Cluster-Kern, mit $*$ wird die Faltung-Operation gekennzeichnet. Der Cluster-Kern lautet im Allgemeinen gleich
+wobei $\mathbf{V}$ - Auslesewerte des Sensors (Gesamtbild) dargestellt als Matrix, $\mathbf{K}_{M \times L}$ - Cluster-Kern, mit $*$ wird die Faltung-Operation gekennzeichnet. Der Cluster-Kern lautet im Allgemeinen gleich
 \begin{equation}
-    \mathbf{K}_\text{N} = \begin{bmatrix}
+    \mathbf{K}_{M \times L}  = \begin{bmatrix}
 1 & \cdots & 1\\
 \vdots & \ddots & \vdots\\
 1 & \cdots & 1
 \end{bmatrix}
-\in \mathbb{Z}^{\text{N}\times \text{N}}
+\in \mathbb{Z}^{M \times L} \text{ mit } \mathbf{K}_N = \mathbf{K}_{N \times N}
 \end{equation}
 
 \noindent
@@ -193,7 +193,7 @@ verglichen, wobei N - Kerngröße, $\sigma$ - Standardabweichung vom Hintergrund
 Beim nächsten Schritt werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und die werden gezählt. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in N$^2$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer N sein muss.
 
 \noindent
-Für den \gls{moench03} mit der Auflösung 400x400px ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Kerngrößen N für den Detektor seien 2 oder 3  \cite[Abschnitt 4]{cartier_micron_2014}. So werden die Cluster-Kerne
+Für den \gls{moench03} mit der Auflösung 400x400px ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Kerngrößen $N$ für den Detektor seien 2 oder 3 \cite[Abschnitt 4]{cartier_micron_2014}. So werden die Cluster-Kerne
 \begin{equation}
     \mathbf{K}_{2} = \begin{bmatrix}
 1 & 1\\

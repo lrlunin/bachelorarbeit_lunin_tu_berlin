@@ -133,7 +133,7 @@ Zum Schluss werden 5$\times$\SI{5}{\px}-Bereiche um den Pixeln, die die Bedingun
     \label{fig:examples_average_std_5x5_hotspot}
 \end{figure}
 \noindent
-Der 5$\times$\SI{5}{\px}-Bereich über 534 gemittelte  (Abb. \ref{fig:examples_average_std_5x5_hotspot}b) zeigt, dass der ADU-Wert eines Photons schließlich übers zentrale Pixel und auf die angrenzenden Pixel in vertikaler und horizontaler Richtung verteilt wird, wobei der ADU-Wert im zentralen Pixel relativ konstant bleibt und 
+Der \SI{5}{\px}$\times$\SI{5}{\px}-Bereich über 534 gemittelte  (Abb. \ref{fig:examples_average_std_5x5_hotspot}b) zeigt, dass der ADU-Wert eines Photons schließlich übers zentrale Pixel und auf die angrenzenden Pixel in vertikaler und horizontaler Richtung verteilt wird, wobei der ADU-Wert im zentralen Pixel relativ konstant bleibt und 
 \begin{equation}
     W_\text{Gd, M5, reell}  = \SI{116(4)}{\adu} 
 \end{equation}
@@ -177,7 +177,7 @@ Die ermittelten Werte werden in der Abbildung zusammengefasst. Das Signal $S_{\t
     \label{fig:qe_fehldetektiert_signal_noise}
 \end{figure}
 \noindent
-Die \gls{qe}, die für die kleinen Werte $s_V$ die Werte bis 6 annimmt, ergibt physikalisch kein Sinn und kann durch das hohe Rauschen des Detektors erklärt werden. In den Graphen von $S_{\text{EW}}$ und $N_{\text{EW}}$ ist es gut erkennbar, dass das Signal und Rauschen im Bereich $s_V = \text{\SIrange{100}{125}{\adu}}$ fast gleich sind und \gls{snr} dementsprechend ca. 1 ist.
+Die \gls{qe}, die für die kleinen Werte $s_V$ die Werte bis 4 annimmt, ergibt physikalisch kein Sinn und kann durch das hohe Rauschen des Detektors erklärt werden. In den Graphen von $S_{\text{EW}}$ und $N_{\text{EW}}$ ist es gut erkennbar, dass das Signal und Rauschen im Bereich $s_V = \text{\SIrange{100}{125}{\adu}}$ fast gleich sind und \gls{snr} dementsprechend ca. 1 ist.
 
 \noindent
 Es ist wichtig zu beachten, dass die Signal- und Rauschenerartungswerte (Gleichungen (\ref{eq:signal_ew}) und  (\ref{eq:noise_ew}) nicht linear von Parametern $N_A, N_P$ und \gls{photnenfluss} abhängen und daher nicht auf den Bereich mit einem anderen \gls{photnenfluss} auf den betrachteten Signalerwartungswert linear skaliert werden können. Analog zu dem oberen Beispiel wird die Rechnung für die Auswertung der Messdaten gemacht. Es werden die Summen von $N_A = \SI{50000}{\captures}$ betrachtet, wobei der \gls{photnenfluss} am Streuring ca. \SI{3.88e-5}{\photons\per\pixel\per\capture} ist.
@@ -195,7 +195,6 @@ D.h., dass die Ausewertungsverfahren, welche die Information jedes einzelnen Pix
 \begin{equation}
     \text{\gls{snr}} \approx \sqrt{N_P}
 \end{equation}
-
 \noindent
 Somit kann das \gls{snr} durch die Erfassung der Summe von mehrerer Pixel (z.B. über die radiale Integration des Streubildes) erhöht. Bei der Summe von $N_P = 2\pi\cdot\SI{75}{\pixel} \approx \SI{471}{\pixel}$ ergeben sich die folgenden Erwartungswerte
 \begin{equation}
@@ -209,7 +208,16 @@ und gilt
     \text{\gls{snr}} \approx \num{22.28} \approx \sqrt{471}
 \end{equation}
 
+\noindent
+Wichtig zu beachten, dass die Bilder, die sich als threscholdene Summe ergeben, haben die fehldetektierten Photonen \gls{fdpa} mit drin.
 
+\begin{equation}
+    I_\text{ges} = N_P N_A \left[\text{\gls{photnenfluss}}\cdot \text{\gls{qe}} + \text{\gls{fdpa}}\right] = \underbrace{N_P N_A \left[\text{\gls{photnenfluss}}\cdot \text{\gls{qe}}\right]}_{S_\text{EW}} + N_P N_A\cdot\text{\gls{fdpa}}
+\end{equation}
+So im Vergleich mit der Gleichung (\ref{eq:signal_ew}) muss die fdpa von jedem Pixel als Offset abgezogen werden:
+\begin{equation}
+    S_\text{EW} = I_\text{ges} -N_A\cdot\text{\gls{fdpa}}
+\end{equation}
 
 % \begin{figure}[H]
 %     \centering
@@ -250,7 +258,7 @@ Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedi
 Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
 
 \noindent
-Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
+Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf Null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_100_200_masked_radial_transform.pgf}
@@ -259,7 +267,6 @@ Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Gr
 \end{figure}
 \noindent
 Die endliche Breite des Streuringes kommt aus der endlichen räumlichen Energieverteilung innerhalb des Strahlprofils. Die Resonanzenergie ist deutlich stärker horizontal als vertikal ausgedehnt. Aus diesem Grund erwartet man, dass die Breite des Streuringes innerhalb der horizontalen Sektoren (pinke Sektoren, Abb. \ref{fig:th-100-200-maske-radial-transform}b und c) größer ist im Gegensatz mit den vertikalen Sektoren (hellblaue Sektoren, Abb. \ref{fig:th-100-200-maske-radial-transform}b und c).
-
 
 \noindent
 Mit der bekannten Identität (\ref{eq:px_mm_ratio}) zwischen Größen auf dem Sensor in \si{\px} und in \si{\milli\meter} kann der Radius in \si{\milli\meter} umgerechnet werden. Mit der gegebenen Streugeometrie gilt es für den Streuwinkel $\theta$  folgende Beziehung
@@ -280,12 +287,9 @@ wobei $\lambda$ - Wellenlänge von einfallenden Photonen.
 \noindent
 Die Intensität in Polarkoordinaten (Abb. \ref{fig:th-100-200-maske-radial-transform}c) wird über den Azimutwinkel $\varphi$ innerhalb der horizontalen und vertikalen Sektoren separat aufintegriert. Die radialen Intensitätsdichten werden zunächst über den Streuvektorbertrag $q$ mit der Identität (\ref{eq:streuvektor_von_radius}) aufgetragen. Die resultierenden Intensitätsdichten $\rho(q)$ werden mit der Funktion
 \begin{equation}
-    g(q, k, \vartheta, A) = A\frac{q^{k-1}\exp\left[-\frac{q}{\vartheta}\right]}{\vartheta^k\Gamma(k)}
+    g(q, \beta, \alpha, A) = A\frac{q^{\beta-1}\exp\left[-\frac{q}{\alpha}\right]}{\alpha^\beta\Gamma(\beta)}
 \end{equation}
-angepasst, die solche Intensitätsverteilungen gut nähern soll \cite[Kap. 5]{bagschik_employing_2016}. Das Maximum der Funktion $g(q, k, \vartheta, A)$ liegt an der Stelle $q_\text{max} = k\vartheta$.
-
-\noindent
-Die Tatsache, dass der quadratische Direktstrahlbereich der zu transformierenden Abbildung zuvor auf Null gesetzt wurde und die Abbildung selbst quadratisch ist, führt zu einer verzerrten azimutalen Intensitätsverteilung. Diese Verzerrung taucht deutlich bei der Integration über den Azimutwinkel auf, wo die Intensität zu den Radien $r$ kleiner als \SI{50}{\px} und größer als \SI{130}{\px} ungleichmäßig (s. Abb. \ref{fig:th-100-200-maske-radial-transform}c) beigetragen wird. Daher ist die Intensitätsdichte $\rho(q)$ im Bereich von Streuvektorenbetragen $q$, die den oben gegebenen Radien entsprechen, implausibel und wird in dem Fit und der Darstellung weggelassen.
+angepasst, die solche Intensitätsverteilungen gut nähern soll \cite[Kap. 5]{bagschik_employing_2016}. Das Maximum der Funktion $g(q, \beta, \alpha, A)$ liegt an der Stelle $q_\text{max} = \alpha\beta$.
 
 \noindent
 In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensität. Verteilung in den pinken Sektoren ist damit zu erklären, dass der Resonanzfrequenzbereich mehr horizontal ausgezogen/ausgedehnt ist.
@@ -296,46 +300,61 @@ In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radial
     \label{fig:radius_fit}
 \end{figure}
 \noindent
-Die experimentellen Daten haben eine größere Breite des Streuringes, die über die Faltung mit einer nicht unendlich punktförmigen Strahlprofil zu erklären ist. Wie erwartet ist die Verteilung innerhalb der horizontalen Sektoren etwas breiter, als innerhalb des vertikalen. Die Maxima aller Verteilungen, sowohl von zwei von dem streuexperimenten als auch von der MFM-Scan, liegen innerhalb der Vertrauensbereiche voneinander.
+Die experimentellen Daten haben eine größere Breite des Streuringes. Das ist durch die endliche Breite des Strahlprofils zu erklären ist. In dem Sinne ist die Fourier-Transformierte mit einem idealen punktförmigen Strahlprofil gefaltet. Die Maxima der Verteilungen liegen innerhalb der Vertrauensbereiche voneinander.
 
 \noindent
 Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
 
-\noindent
-Aufsummiert werden jeweils \SI{50000}{\captures}. Die Absoprtionsstärke ist an der Photonenfrequenz $h\nu_{\text{Gd, Off-Res}}$ erwartet kleiner. So  
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
     \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
-Die Abbildungen für können mit den 
-Das Fehlen des charakteristischen Ringmusters weist seinen magnetischen Ursprung nach.
-
-
-
-
+\noindent
+Das Fehlen des charakteristischen Ringmusters weist danach, dass die Photonenfrequenz $h\nu$ sehr nah an der Resonanzfrequenz von Gd liegen soll. Das Fehlen des Musters kann nicht an der zu niedrigeren Photonenfluss liegen, obwohl dieser an der Photonenfrequenz $h\nu_{\text{Gd, Off-Res}}$ tendenziell niedriger als an der $h\nu_{\text{Gd, M5}}$ sein soll. Im Gegensatz dazu ist die Absorptionsstärke der Probe an der Photonenfrequenz $h\nu_{\text{Gd, Off-Res}}$ ist nach der Abb. \ref{fig:rzp_phi_ev} im Vergleich mit $h\nu_{\text{Gd, M5}}$ wesentlich kleiner. Somit ergeben sich die vergleichbare Photonzahlen pro Pixel im Direktstrahl an den beiden Photonenenergien (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} und \ref{fig:th_50_100_125_150_170_180_off_resonance}) und betragen ca. \SI{1000}{\photons}.
 
 \subsection{Clustering}
 \noindent
-Test
+Diese Analyse der Gesamtladungsverteilung eines isolierten Photons (Abb. \ref{fig:examples_average_std_5x5_hotspot}) demonstriert die Vorteile des Clustering-Algorithmus-Ansatzes. Unter Berücksichtigung der Ergebnisse dieser Analyse und zwar, dass die Gesamtladung grundsätzlich innerhalb zwei benachbarter Pixel verteilt wurde, wird der $\mathbf{K}_2$ Cluster-Kern benutzt.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/cl_2_150_180_200_220_250_290_resonance.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Gd M5 Resonanzfrequenz.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Clustering-Algorithmuses mit Cluster-Kern $\mathbf{K}_2$ und dem Schwellenwert $s_Q$ (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Gd M5 Resonanzfrequenz.}
     \label{fig:cl_2_0_100_125_150_170_180_resonance}
 \end{figure}
-
-\begin{figure}[H]
+\noindent
+Die Ergebnisse scheinen auf den ersten Blick gut zu sein, aber es ist nötig, zunächst einen Blick auf die Messdaten an der Photonenenergie $h\nu_\text{Gd, Off-Res}$ zu werfen. \begin{figure}[H]
     \centering
     \input{images/auswertung/cl_150_180_200_220_250_290_off_resonance.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen weit von Gd M5 Resonanzfrequenz.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Clustering-Algorithmuses mit Cluster-Kern $\mathbf{K}_2$ und dem Schwellenwert $s_Q$ (a) \SI{150}{\adu}, (b) \SI{180}{\adu}, (c) \SI{200}{\adu}, (d) \SI{220}{\adu}, (e) \SI{250}{\adu} und (f) \SI{290}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
     \label{fig:cl_150_180_200_220_250_290_off_resonance}
 \end{figure}
+\noindent
+
+!!! PEDESTALS MÜSSEN IMMER MEHR OFFSET mal 4 !!!
+Wegen zu hohen Detektorrauschens ist die Anzahl von fehldetektierten Photonen so hoch, dass der Ring an der nicht resonanten frequenz sichtbar ist. Die Standardabweichung eines 2x2 Clusters ist ja 2 mal so hoch im vergleich mit einem einzelnen Pixel. SO muss der Schwellenwert $s_Q$ dementsprechend angepasst werden.
+
+\noindent
+Eine sehr große Rolle spielt die regelmäßige Aufnahme der Dunkelbilder, da nun der resultierende Offset eines clusters wird eben 4mal höher.
+
+\noindent
+Der Cluster-Kern kann ebenso in Bezug auf die Verteilung, die grundlegend in eine benachbarte pixel, angepasst werden. Zum Beispiel können jeweils die Cluster-Kerne
+\begin{equation}
+    \mathbf{K}_{2\times1} = \begin{bmatrix}
+1\\
+1
+\end{bmatrix}
+\text{ bzw. }
+    \mathbf{K}_{1\times2} = \begin{bmatrix}
+1 & 1
+\end{bmatrix}
+\end{equation}
+benutzt werden, um die Standarbweichung von $2\sigma_R$ des Clsuters bis $\sqrt{2}\sigma_R$ zu verringern.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/no_pr_cl_2_cl_3_histograms.pgf}
-    \caption{Histogramme der (a) direkten Pixelwerte und der mit (b) 2x2- und (c) 3x3- Clustering-Algorithmus bearbeiteten Pixelwerte. In den jeweils eingefügten Graphen sind die Bereiche detailliert dargestellt, wo sich die Schnittpunkte (vertikale Linien) von Dunkelbilder- und Streubilder-Histogramme befinden. Für jedes Histogramm werden \num{10000} Dunkelbilder sowie Streubilder verwendet.}
+    \caption{Histogramme der (a) direkten Pixelwerte und der mit (b) $\mathbf{K}_2$ und (c) $\mathbf{K}_3$ Clustering-Kerne bearbeiteten Pixelwerte. In den eingefügten Graphen sind die Bereiche detailliert dargestellt, wo sich die Schnittpunkte (vertikale Linien) von Dunkelbilder- und Streubilder-Histogramme befinden. Für jedes Histogramm werden \num{10000} Dunkelbilder sowie Streubilder verwendet.}
     \label{fig:no_pr_cl_2_cl_3_histograms}
 \end{figure}
 ...
