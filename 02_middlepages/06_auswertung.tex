@@ -94,7 +94,7 @@ Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet. Der S
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_200_220_260.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert $s_V$ (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
     \label{fig:th_50_100_125_150_170_180_200_220_260}
 \end{figure}
 \noindent
@@ -248,7 +248,7 @@ Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Pixelgebiete finden
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_180_450_600.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{180}{\adu}, (b) \SI{450}{\adu} und (c) \SI{600}{\adu}. Aufsummiert werden \num{50000} Aufnahmen. Die detektierten Photonen, die mit allen Schwellenwerten auftauchen, werden mit grün eingekreist.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert $s_V$ (a) \SI{180}{\adu}, (b) \SI{450}{\adu} und (c) \SI{600}{\adu}. Aufsummiert werden \num{50000} Aufnahmen. Die detektierten Photonen, die mit allen Schwellenwerten auftauchen, werden mit grün eingekreist.}
     \label{fig:th_180_450_600}
 \end{figure}
 \noindent
@@ -291,8 +291,6 @@ Die Intensität in Polarkoordinaten (Abb. \ref{fig:th-100-200-maske-radial-trans
 \end{equation}
 angepasst, die solche Intensitätsverteilungen gut nähern soll \cite[Kap. 5]{bagschik_employing_2016}. Das Maximum der Funktion $g(q, \beta, \alpha, A)$ liegt an der Stelle $q_\text{max} = \alpha\beta$.
 
-\noindent
-In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radialen Intensität. Verteilung in den pinken Sektoren ist damit zu erklären, dass der Resonanzfrequenzbereich mehr horizontal ausgezogen/ausgedehnt ist.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/radial_integral_fits.pgf}
@@ -300,23 +298,35 @@ In der Abb. \ref{fig:radius_fit} sieht man, dass das gesuchte Maximum der radial
     \label{fig:radius_fit}
 \end{figure}
 \noindent
-Die experimentellen Daten haben eine größere Breite des Streuringes. Das ist durch die endliche Breite des Strahlprofils zu erklären ist. In dem Sinne ist die Fourier-Transformierte mit einem idealen punktförmigen Strahlprofil gefaltet. Die Maxima der Verteilungen liegen innerhalb der Vertrauensbereiche voneinander.
+Die gemessene Intensitätsvertilung hat eine größere radiale Verbreitung des Streuringes, als die Fourier-Transformierte von MFM-Scan der Probe. Dieses Phänomen liegt an der endlichen Breite des Strahlprofils. In dem Sinne ist der MFM-Scan bei der Fourier-Transformation mit einem idealen punktförmigen Strahlprofil gefaltet. Das Maximum der radialen Streuintensität von Fourier-Transformierten liegen innerhalb des Fit-Vertrauensbereichs.
 
 \noindent
-Um den magnetischen Charakter dieses Effekts nachzuweisen, wurde eine Kontrollmessung an einer niedrigeren Photonenenergie $h\nu_{\text{Gd, Off-Res}}$, die weit von der Resonanzenergie $h\nu_{\text{Gd, M5}}$ liegt, durchgeführt. Die Kontrollmessung soll an einer kleineren Energie daher stattfinden, weil die Beträge von Streukoeffizienten im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ nicht komplett verschwinden und fürs Beobachten des Streuringes ausreichend bleiben können.
+Übereinstimmung von Werten der Streuvektorbeträge $q$, an denen die Fourier-Transformierte und die Streuintensität von Probe ihre Maxima annehmen, weist auf den magnetischen Grund des Effektes. Das sei jedoch eine notwendige, aber nicht hinreichende Bedingung.
 
+\noindent
+Es wird eine Kontrollmessung an einer nichtresonanten Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ durchgeführt, um zu beweisen, dass ein resonanter magnetischer Effekt der beobachtete Intensitätsverteilung zugrunde liegt. Die nichtresonante Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ muss so gewählt werden, dass die Energiedifferenzen zwischen der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ und den resonanten Photonenergien $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ und $h\nu_{\text{Gd, M4}} \approx \SI{1215}{\eV}$ wesentlich größer gegenüber der Halbwertsbreiten der Resonanzpeaks sind. So wurde die Photonenenergie $h\nu_{\text{Gd, Off-Res}} \approx \SI{1163}{\eV}$. Die genauere Disskussion wurde am Anfang des Kapitels \ref{text:auswertung} erläutert. % , damit diese garantiert nicht mit den   Ansonsten kann die Streuung im Zwischenbereich beobachtet werden, da die Streukoeffizientenbeträge im Zwischenbereich von Resonanzenergien $h\nu_{\text{Gd, M5}}$ und $h\nu_{\text{Gd, M4}}$ nicht komplett verschwinden !!!(Abb mit Streukoefizienten in der Theorie)!!!.
+
+\noindent
+Es werden \SI{50000}{\captures} aufgenommen und mit dem Scwellenwertalgorithmus bearbeitet, wobei die Scwellenwerte $s_V$ im Intervall \SIrange{50}{180}{\adu} variiert werden, damit sich die Ergebnisse mit der Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} vergleichen lassen.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_50_100_125_150_170_180_off_resonance.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert $s_V$ (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu} und (f) \SI{180}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Aufgenommen an der Photonenenergie $h\nu_\text{Gd, Off-Res} \approx \SI{1163}{\eV}$.}
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
 \noindent
-Das Fehlen des charakteristischen Ringmusters weist danach, dass die Photonenfrequenz $h\nu$ sehr nah an der Resonanzfrequenz von Gd liegen soll. Das Fehlen des Musters kann nicht an der zu niedrigeren Photonenfluss liegen, obwohl dieser an der Photonenfrequenz $h\nu_{\text{Gd, Off-Res}}$ tendenziell niedriger als an der $h\nu_{\text{Gd, M5}}$ sein soll. Im Gegensatz dazu ist die Absorptionsstärke der Probe an der Photonenfrequenz $h\nu_{\text{Gd, Off-Res}}$ ist nach der Abb. \ref{fig:rzp_phi_ev} im Vergleich mit $h\nu_{\text{Gd, M5}}$ wesentlich kleiner. Somit ergeben sich die vergleichbare Photonzahlen pro Pixel im Direktstrahl an den beiden Photonenenergien (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} und \ref{fig:th_50_100_125_150_170_180_off_resonance}) und betragen ca. \SI{1000}{\photons}.
+Das Fehlen des charakteristischen Ringmusters weist danach, dass die Photonenenergie $h\nu$ sehr nah an einer Resonanzfrequenz von Gd liegen soll. Das Fehlen des Musters kann nicht an der zu niedrigeren Photonenfluss liegen, obwohl dieser an der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ tendenziell niedriger als an der $h\nu_{\text{Gd, M5}}$ sein soll. Im Gegensatz dazu ist die Absorptionsstärke der Probe an der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ ist nach der Abb. \ref{fig:rzp_phi_ev} im Vergleich mit $h\nu_{\text{Gd, M5}}$ wesentlich kleiner. Somit ergeben sich die vergleichbaren Photonenzahlen pro Pixel im Direktstrahl an den beiden Photonenenergien (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} und \ref{fig:th_50_100_125_150_170_180_off_resonance}) und betragen ca. \SI{1000}{\photons}.
 
 \subsection{Clustering}
 \noindent
-Diese Analyse der Gesamtladungsverteilung eines isolierten Photons (Abb. \ref{fig:examples_average_std_5x5_hotspot}) demonstriert die Vorteile des Clustering-Algorithmus-Ansatzes. Unter Berücksichtigung der Ergebnisse dieser Analyse und zwar, dass die Gesamtladung grundsätzlich innerhalb zwei benachbarter Pixel verteilt wurde, wird der $\mathbf{K}_2$ Cluster-Kern benutzt.
+Diese Analyse der Gesamtladungsverteilung eines isolierten Photons (Abb. \ref{fig:examples_average_std_5x5_hotspot}) demonstriert die Vorteile des Clustering-Algorithmus-Ansatzes. Unter Berücksichtigung der Ergebnisse dieser Analyse und zwar, dass die Gesamtladung grundsätzlich innerhalb zwei benachbarter Pixel verteilt wurde, wird der Cluster-Kern
+\begin{equation}
+    \mathbf{K}_2 = \begin{bmatrix}
+1 & 1\\
+1 & 1
+\end{bmatrix}
+\end{equation}
+benutzt.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/cl_2_150_180_200_220_250_290_resonance.pgf}
@@ -357,4 +367,3 @@ benutzt werden, um die Standarbweichung von $2\sigma_R$ des Clsuters bis $\sqrt{
     \caption{Histogramme der (a) direkten Pixelwerte und der mit (b) $\mathbf{K}_2$ und (c) $\mathbf{K}_3$ Clustering-Kerne bearbeiteten Pixelwerte. In den eingefügten Graphen sind die Bereiche detailliert dargestellt, wo sich die Schnittpunkte (vertikale Linien) von Dunkelbilder- und Streubilder-Histogramme befinden. Für jedes Histogramm werden \num{10000} Dunkelbilder sowie Streubilder verwendet.}
     \label{fig:no_pr_cl_2_cl_3_histograms}
 \end{figure}
-...
