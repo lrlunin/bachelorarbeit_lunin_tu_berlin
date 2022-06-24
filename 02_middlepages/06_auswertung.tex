@@ -114,7 +114,7 @@ Das Quadrat der Standardabweichung (Varianz) $\sigma_\Sigma^2$ von Summe von $i$
     \label{eq:summ_varianz}
 \end{equation}
 \noindent
-Somit kann die Standardabweichung der Summe über 3$\times$\SI{3}{\px}-Umgebung
+Somit kann die Standardabweichung der Summe über \SI{3}{\px}$\times$\SI{3}{\px}-Umgebung
 \begin{equation}
     \sigma_{3\times 3}^2 = \sum_{i=1}^9\sigma_R^2 \Rightarrow \sigma_{3\times 3} = 3 \sigma_R
 \end{equation}
@@ -319,7 +319,7 @@ Das Fehlen des charakteristischen Ringmusters weist danach, dass die Photonenene
 
 \subsection{Clustering}
 \noindent
-Diese Analyse der Gesamtladungsverteilung eines isolierten Photons (Abb. \ref{fig:examples_average_std_5x5_hotspot}) demonstriert die Vorteile des Clustering-Algorithmus-Ansatzes. Unter Berücksichtigung der Ergebnisse dieser Analyse und zwar, dass die Gesamtladung grundsätzlich innerhalb zwei benachbarter Pixel verteilt wurde, wird der Cluster-Kern
+Die Analyse der Gesamtladungsverteilung eines isolierten Photons (Abb. \ref{fig:examples_average_std_5x5_hotspot}) demonstriert, dass die bis zu \SI{36}{\percent} dessen \gls{adu}-Wertes außerhalb des zentralen Pixels liegt. In dem Fall kann der Ansatz des Clustering-Algorithmuses vorteilhaft sein, um die Gesamtladung eines Photons zurückzugewinnen und dadurch die Selektivität der Photonendetektion zu erhöhen. Unter Berücksichtigung der Ergebnisse der durchgeführten Analyse und zwar, dass der gesamte \gls{adu}-Wert eines Photons grundsätzlich innerhalb zwei benachbarter Pixel verteilt wird, wird der Cluster-Kern
 \begin{equation}
     \mathbf{K}_2 = \begin{bmatrix}
 1 & 1\\
@@ -343,7 +343,30 @@ Die Ergebnisse scheinen auf den ersten Blick gut zu sein, aber es ist nötig, zu
 \noindent
 
 !!! PEDESTALS MÜSSEN IMMER MEHR OFFSET mal 4 !!!
-Wegen zu hohen Detektorrauschens ist die Anzahl von fehldetektierten Photonen so hoch, dass der Ring an der nicht resonanten frequenz sichtbar ist. Die Standardabweichung eines 2x2 Clusters ist ja 2 mal so hoch im vergleich mit einem einzelnen Pixel. SO muss der Schwellenwert $s_Q$ dementsprechend angepasst werden.
+Wegen zu hohen Detektorrauschens ist die Anzahl von fehldetektierten Photonen so hoch, dass der Ring an der nicht resonanten frequenz sichtbar ist. Die Standardabweichung eines 2$\times$2 Clusters ist ja 2 mal so hoch im vergleich mit einem einzelnen Pixel. SO muss der Schwellenwert $s_Q$ dementsprechend angepasst werden.
+
+\begin{equation}
+    \sigma_{2\times 2}^2 = \sum_{i=1}^4\sigma_R^2 \Rightarrow \sigma_{2\times 2} = 2\sigma_R
+\end{equation}
+
+\begin{equation}
+    \sigma_{1\times 1}^2 = \sum_{i=1}^1\sigma_R^2 \Rightarrow \sigma_{1\times 1} = \sigma_R
+\end{equation}
+\noindent
+Man kann vergleichen, welchen Anteil des Rauschens je nach $\sigma$ höher als der Schwellenwert $s_V = \SI{100}{\adu}$ bzw. Schwellenwert $s_Q = \SI{180}{\adu}$ wird und wird also als ein Photon gekennzeichnet. Dafür werden die Rausch-Verteilungen, die der Gauß-Verteilung $G(W, \mu, \sigma, A)$ (s. Gl. (\ref{eq:gauss_funktion}) unterliegen, genommen und folgende Integrale ausgerechnet:
+
+\begin{equation}
+    \int_{\SI{100}{\adu}}^\infty G(W, 0, \sigma_{1\times 1}, A) dW = \frac{A}{2}\left[1 - \erf\left({\frac{\SI{100}{\adu}}{\sqrt{2}\sigma_{1\times 1}}}\right)\right] = 2{,}65A\cdot 10^{-7}
+\end{equation}
+
+\begin{equation}
+    \int_{\SI{180}{\adu}}^\infty G(W, 0, \sigma_{2\times 2}, A) dW = \frac{A}{2}\left[1 - \erf\left({\frac{\SI{180}{\adu}}{\sqrt{2}\sigma_{2\times 2}}}\right)\right] = 3{,}19A\cdot 10^{-6}
+\end{equation}
+\noindent
+Somit ist das Verhältnis von Anzahl von Rauschclustern, die den Schwellenwert $s_Q = \SI{180}{\adu}$ unterschreiten, und von Pixeln die den Schwellenwert $s_V = \SI{100}{\adu}$
+\begin{equation}
+    \frac{3{,}19A\cdot 10^{-6}}{2{,}65A\cdot 10^{-7}} \approx \num{12}
+\end{equation}
 
 \noindent
 Eine sehr große Rolle spielt die regelmäßige Aufnahme der Dunkelbilder, da nun der resultierende Offset eines clusters wird eben 4mal höher.
