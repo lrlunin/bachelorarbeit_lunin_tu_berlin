@@ -200,21 +200,20 @@ Somit kann das \gls{snr} durch die Erfassung der Summe von mehrerer Pixel (z.B. 
 \begin{equation}
     \begin{split}
         S_\text{EW} &= \SI{926}{\photons}\\
-        N_\text{EW} &= \SI{42}{\photons}\\
+        N_\text{EW} &= \SI{42}{\photons},
     \end{split}
 \end{equation}
-und gilt
+die 
 \begin{equation}
     \text{\gls{snr}} \approx \num{22.28} \approx \sqrt{471}
 \end{equation}
 
 \noindent
-Wichtig zu beachten, dass die Bilder, die sich als threscholdene Summe ergeben, haben die fehldetektierten Photonen \gls{fdpa} mit drin.
-
+Wichtig zu beachten, dass die Summen der Bilder $I_\text{ges}$, die  mit Schwellenwert-Algorithmus bearbeitet sind, enthalten die fehldetektierten Photonen. Daher gilt:
 \begin{equation}
     I_\text{ges} = N_P N_A \left[\text{\gls{photnenfluss}}\cdot \text{\gls{qe}} + \text{\gls{fdpa}}\right] = \underbrace{N_P N_A \left[\text{\gls{photnenfluss}}\cdot \text{\gls{qe}}\right]}_{S_\text{EW}} + N_P N_A\cdot\text{\gls{fdpa}}
 \end{equation}
-So im Vergleich mit der Gleichung (\ref{eq:signal_ew}) muss die fdpa von jedem Pixel als Offset abgezogen werden:
+So im Vergleich mit der Gleichung (\ref{eq:signal_ew}) muss die \gls{fdpa} von jedem Pixel als Offset abgezogen werden:
 \begin{equation}
     S_\text{EW} = I_\text{ges} -N_A\cdot\text{\gls{fdpa}}
 \end{equation}
@@ -294,7 +293,7 @@ angepasst, die solche Intensitätsverteilungen gut nähern soll \cite[Kap. 5]{ba
 \begin{figure}[H]
     \centering
     \input{images/auswertung/radial_integral_fits.pgf}
-    \caption{azimutal aufintegrierte Fourier-Transformierte von magnetische Topographie  \ref{fig:mfm-amplitude-ft}d) mit dem Maximum  an der \SI{18(1)}{\per\micro\meter}. Anpassung (aqua) $g(q)$ mit den Parametern $k = \SI{18.66(6)}{}$ und $\vartheta = \SI{0.99(3)}{}$. Anpassung (pink) $g(q)$ mit den Parametern $k = \SI{16.5(4)}{}$ und $\vartheta = \SI{1.16(2)}{}$.}
+    \caption{azimutal aufintegrierte Fourier-Transformierte von magnetische Topographie  \ref{fig:mfm-amplitude-ft}d) mit dem Maximum an der $q =\SI{18(1)}{\per\micro\meter}$. Fit $g(q)$ mit den Parametern $\beta = \SI{9.5(5)}{}$, $\alpha = \SI{1.93(9)}{}$ und $A = \SI{39.4(8)}{}$. $q_\text{max} = \SI{18(2)}{\per\micro\meter}$.}
     \label{fig:radius_fit}
 \end{figure}
 \noindent
@@ -393,7 +392,7 @@ Der zweitwichtigste Aspekt sind die Dunkelbilder, die gemittelt und von den Stre
 Der Offset $W_\Delta$ kommt natürlich gleichfalls in dem Schwellenwert-Algorithmus vor, wird jedoch durch das Aufsummieren eines \qtyproduct{2 x 2}{\px}-Clusters vervierfacht und $4W_\Delta$ betragen.
 
 \noindent
-Das Cluster-Aglorithmus-Verfahren kann dadurch nachgebessert werden. Der Cluster-Kern kann in Bezug auf die vorliegende Gesamtladungsverteilung, die grundlegend zwischen zwei benachbarten Pixeln stattfindet, angepasst werden. Zum Beispiel können jeweils die Cluster-Kerne
+Das Cluster-Algorithmus-Verfahren kann dadurch nachgebessert werden. Der Cluster-Kern kann in Bezug auf die vorliegende Gesamtladungsverteilung, die grundlegend zwischen zwei benachbarten Pixeln stattfindet, angepasst werden. Zum Beispiel können jeweils die Cluster-Kerne
 \begin{equation}
     \mathbf{K}_{2\times1} = \begin{bmatrix}
 1\\
@@ -404,7 +403,7 @@ Das Cluster-Aglorithmus-Verfahren kann dadurch nachgebessert werden. Der Cluster
 1 & 1
 \end{bmatrix}
 \end{equation}
-benutzt werden. So wird die Standardbweichung des Clusters von $2\sigma_R$ bis $\sqrt{2}\sigma_R$ verringert. Ebenso wird der gesamte Offset nur $2W_\Delta$ statt $4W_\Delta$ betragen. Der Offset $W_\Delta$ kann durch die regelmäßige häufigere Aufnahme von Dunkelbildern gesenkt werden.
+benutzt werden. So wird die Standardbweichung des Clusters von $2\sigma_R$ bis $\sqrt{2}\sigma_R$ verringert. Ebenso wird der gesamte Offset nur $2W_\Delta$ statt $4W_\Delta$ betragen. Der Offset $W_\Delta$ kann durch die häufigere Aufnahme von Dunkelbildern gesenkt werden.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/no_pr_cl_2_cl_3_histograms.pgf}

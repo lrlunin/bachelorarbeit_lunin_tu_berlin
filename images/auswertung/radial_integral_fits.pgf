@@ -1203,16 +1203,16 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.412476in}{2.591454in}}%
-\pgfpathlineto{\pgfqpoint{6.183899in}{2.591454in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{6.211677in}{2.591454in}}{\pgfqpoint{6.211677in}{2.619232in}}%
+\pgfpathmoveto{\pgfqpoint{3.262050in}{2.077314in}}%
+\pgfpathlineto{\pgfqpoint{6.183899in}{2.077314in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{6.211677in}{2.077314in}}{\pgfqpoint{6.211677in}{2.105092in}}%
 \pgfpathlineto{\pgfqpoint{6.211677in}{3.210704in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{6.211677in}{3.238481in}}{\pgfqpoint{6.183899in}{3.238481in}}%
-\pgfpathlineto{\pgfqpoint{3.412476in}{3.238481in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.384699in}{3.238481in}}{\pgfqpoint{3.384699in}{3.210704in}}%
-\pgfpathlineto{\pgfqpoint{3.384699in}{2.619232in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.384699in}{2.591454in}}{\pgfqpoint{3.412476in}{2.591454in}}%
-\pgfpathlineto{\pgfqpoint{3.412476in}{2.591454in}}%
+\pgfpathlineto{\pgfqpoint{3.262050in}{3.238481in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{3.234272in}{3.238481in}}{\pgfqpoint{3.234272in}{3.210704in}}%
+\pgfpathlineto{\pgfqpoint{3.234272in}{2.105092in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{3.234272in}{2.077314in}}{\pgfqpoint{3.262050in}{2.077314in}}%
+\pgfpathlineto{\pgfqpoint{3.262050in}{2.077314in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -1223,22 +1223,64 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.498039,0.054902}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.440254in}{3.042540in}}%
-\pgfpathlineto{\pgfqpoint{3.579143in}{3.042540in}}%
-\pgfpathlineto{\pgfqpoint{3.718032in}{3.042540in}}%
+\pgfpathmoveto{\pgfqpoint{3.289828in}{3.042540in}}%
+\pgfpathlineto{\pgfqpoint{3.428717in}{3.042540in}}%
+\pgfpathlineto{\pgfqpoint{3.567606in}{3.042540in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.829143in, y=3.087270in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Fourier-Transformierte}%
+\pgftext[x=3.678717in, y=3.087270in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Fourier-Transformierte}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.829143in, y=2.935301in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  von MFM-Scan der Probe (Abb. \ref{fig:mfm-amplitude-ft}d)}%
+\pgftext[x=3.678717in, y=2.935301in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  von MFM-Scan der Probe (Abb. \ref{fig:mfm-amplitude-ft}d)}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\pgfsetbuttcap%
+\pgfsetroundjoin%
+\definecolor{currentfill}{rgb}{0.121569,0.466667,0.705882}%
+\pgfsetfillcolor{currentfill}%
+\pgfsetfillopacity{0.600000}%
+\pgfsetlinewidth{0.000000pt}%
+\definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
+\pgfsetstrokecolor{currentstroke}%
+\pgfsetstrokeopacity{0.600000}%
+\pgfsetdash{}{0pt}%
+\pgfsys@defobject{currentmarker}{\pgfqpoint{-0.020833in}{-0.020833in}}{\pgfqpoint{0.020833in}{0.020833in}}{%
+\pgfpathmoveto{\pgfqpoint{0.000000in}{-0.020833in}}%
+\pgfpathcurveto{\pgfqpoint{0.005525in}{-0.020833in}}{\pgfqpoint{0.010825in}{-0.018638in}}{\pgfqpoint{0.014731in}{-0.014731in}}%
+\pgfpathcurveto{\pgfqpoint{0.018638in}{-0.010825in}}{\pgfqpoint{0.020833in}{-0.005525in}}{\pgfqpoint{0.020833in}{0.000000in}}%
+\pgfpathcurveto{\pgfqpoint{0.020833in}{0.005525in}}{\pgfqpoint{0.018638in}{0.010825in}}{\pgfqpoint{0.014731in}{0.014731in}}%
+\pgfpathcurveto{\pgfqpoint{0.010825in}{0.018638in}}{\pgfqpoint{0.005525in}{0.020833in}}{\pgfqpoint{0.000000in}{0.020833in}}%
+\pgfpathcurveto{\pgfqpoint{-0.005525in}{0.020833in}}{\pgfqpoint{-0.010825in}{0.018638in}}{\pgfqpoint{-0.014731in}{0.014731in}}%
+\pgfpathcurveto{\pgfqpoint{-0.018638in}{0.010825in}}{\pgfqpoint{-0.020833in}{0.005525in}}{\pgfqpoint{-0.020833in}{0.000000in}}%
+\pgfpathcurveto{\pgfqpoint{-0.020833in}{-0.005525in}}{\pgfqpoint{-0.018638in}{-0.010825in}}{\pgfqpoint{-0.014731in}{-0.014731in}}%
+\pgfpathcurveto{\pgfqpoint{-0.010825in}{-0.018638in}}{\pgfqpoint{-0.005525in}{-0.020833in}}{\pgfqpoint{0.000000in}{-0.020833in}}%
+\pgfpathlineto{\pgfqpoint{0.000000in}{-0.020833in}}%
+\pgfpathclose%
+\pgfusepath{fill}%
+}%
+\begin{pgfscope}%
+\pgfsys@transformshift{3.428717in}{2.690757in}%
+\pgfsys@useobject{currentmarker}{}%
+\end{pgfscope}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.678717in, y=2.735487in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont ermitteltes Signal}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.678717in, y=2.583518in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  mit maskiertem Direktstrahl (Abb. \ref{fig:th-100-200-maske-radial-transform}b)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -1247,15 +1289,21 @@
 \definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.440254in}{2.762415in}}%
-\pgfpathlineto{\pgfqpoint{3.718032in}{2.762415in}}%
+\pgfpathmoveto{\pgfqpoint{3.289828in}{2.306898in}}%
+\pgfpathlineto{\pgfqpoint{3.567606in}{2.306898in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.829143in,y=2.713804in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Fit \(\displaystyle g(q)\) mit \(\displaystyle q_\text{max}\) = \SI{18(2)}{\per\micro\meter}}%
+\pgftext[x=3.678717in, y=2.375193in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Fit \(\displaystyle g(q)\) vom Signal}%
+\end{pgfscope}%
+\begin{pgfscope}%
+\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
+\pgfsetstrokecolor{textcolor}%
+\pgfsetfillcolor{textcolor}%
+\pgftext[x=3.678717in, y=2.199664in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  mit \(\displaystyle q_\text{max}\) = \SI{18(2)}{\per\micro\meter}}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%

@@ -19,7 +19,7 @@
 %%   \import{<path to file>}{<filename>.pgf}
 %%
 %% Matplotlib used the following preamble
-%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra}
+%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra} \DeclareSIUnit\adu{\text{ADU}} \DeclareSIUnit\px{\text{px}} \DeclareSIUnit\photons{\text{Pho\-to\-nen}} \DeclareSIUnit\photon{\text{Pho\-ton}}
 %%
 \begingroup%
 \makeatletter%
@@ -264,7 +264,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.344413in,y=5.022655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Pixelwert \(\displaystyle W\) in ADU}%
+\pgftext[x=3.344413in,y=5.022655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Pixelwert \(\displaystyle W\) in \si{\adu}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -370,7 +370,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.227155in,y=6.126845in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Punktzahl}%
+\pgftext[x=0.227155in,y=6.126845in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Pixelzahl}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
@@ -1500,7 +1500,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.344413in,y=2.572655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Pixelwert \(\displaystyle W\) in ADU}%
+\pgftext[x=3.344413in,y=2.572655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Gesamtwert eines Clusters \(\displaystyle W\) in \si{\adu}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -2599,7 +2599,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.344413in,y=0.122655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Pixelwert \(\displaystyle W\) in ADU}%
+\pgftext[x=3.344413in,y=0.122655in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Gesamtwert eines Clusters \(\displaystyle W\) in \si{\adu}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
