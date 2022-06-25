@@ -30,7 +30,7 @@ Die Ladungen werden seriell mit einem einzigen Verstärker zuerst in die Spannun
 
 \noindent
 Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ lang sein. Als Beispiel eines im Röntgenbereich aktiv benutzten CCD-Detektors kann ein Princeton Instruments
-PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate von \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} kann die Auslese des gesamten Sensors 2048x2048px bis \SI{4,2}{\second} dauern. Die Auslesezeit kann  durch die Auslese eines kleineren Sensorbereichs verkürzt werden und beträgt im Falle eines 400x400px Sensorunterbereichs \SI{160}{\milli\second}. Gegen einer langen Auslesezeit hat dieser Sensortyp einen Vorteil des niedrigen Hintergrundrauschenpegels.
+PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate von \SI{1}{\mega\hertz} \cite[s. 81, Readout charakterstik]{mte-manual} kann die Auslese des gesamten Sensors \qtyproduct{2048 x 2048}{\px} bis \SI{4,2}{\second} dauern. Die Auslesezeit kann  durch die Auslese eines kleineren Sensorbereichs verkürzt werden und beträgt im Falle eines \qtyproduct{400 x 400}{\px} Sensorunterbereichs \SI{160}{\milli\second}. Gegen einer langen Auslesezeit hat dieser Sensortyp einen Vorteil des niedrigen Hintergrundrauschenpegels.
 
 \section{CMOS-Sensor}
 \label{text:cmos_theorie}
@@ -48,7 +48,7 @@ Die zweite große Sensorfamilie heißt \gls{cmos}. Die wird auch häufig \gls{ap
     \label{fig:cmos_scheme}
 \end{figure}
 \noindent
-Dadurch können die Spannungen parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle eines 2048x2048px Bildes einige \si{\milli\second} betragen würde.
+Dadurch können die Spannungen parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle eines \qtyproduct{2048 x 2048}{\px} Bildes einige \si{\milli\second} betragen würde.
 
 \noindent
 Diese Sensorfamilie ist allerdings nicht frei von Nachteilen. Der entscheidende Faktor, warum \gls{cmos}-Sensoren die \gls{ccd}-Sensoren nicht in allen Bereichen verdrängten, ist der wesentlich höhere Rauschpegel. Es gibt also verschiedene Szenarien, wo ein oder anderer Sensortyp angewendet werden kann. Die Wahl hängt von der verfügbaren Zeit, erzielten Präzision und Art der Messung ab.
@@ -63,7 +63,7 @@ Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrah
     \label{fig:moench_pixel}
 \end{figure}
 \noindent
-Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung 400x400px hat und die verbesserte Rauschencharakteristik im Vergleich mit den vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Der gesamte Sensor ist 10x\SI{10}{\milli\meter} groß. So ließt sich folgende Beziehung zum Umrechnen der Größen $l$ von \si{\milli\meter} in px und umgekehrt anwenden.
+Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung \qtyproduct{400 x 400}{\px} hat und die verbesserte Rauschencharakteristik im Vergleich mit den vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Der gesamte Sensor ist \qtyproduct{10 x 10}{\milli\meter} groß. So ließt sich folgende Beziehung zum Umrechnen der Größen $l$ von \si{\milli\meter} in px und umgekehrt anwenden.
 \begin{equation}
     \begin{split}
 \SI{1}{\milli\meter}\ &\widehat{=}\ \SI{40}{px}\\
@@ -75,7 +75,7 @@ Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung 400x400px h
 Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, sei die Sensorfläche mit \SI{500}{\nano\meter} Al-Beschichtung versorgt.
 
 \noindent
-Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal (bis) auf \SI{100}{\nano\second} gesetzt werden. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
+Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal bis auf \SI{100}{\nano\second} gesetzt werden. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
 
 \noindent
 Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat ein für eine bestimmte Belichtugnszeit $\tau$ konstantes Offset, das durch den Abzug der gemittelten Dunkelbilder bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.

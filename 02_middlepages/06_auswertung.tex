@@ -133,7 +133,7 @@ Zum Schluss werden \qtyproduct{5 x 5}{\px}-Bereiche um den Pixeln, die die Bedin
     \label{fig:examples_average_std_5x5_hotspot}
 \end{figure}
 \noindent
-Der \qtyproduct{5 x 5}{\px}-Bereich über 534 gemittelte (Abb. \ref{fig:examples_average_std_5x5_hotspot}b) zeigt, dass der ADU-Wert eines Photons schließlich übers zentrale Pixel und auf die angrenzenden Pixel in vertikaler und horizontaler Richtung verteilt wird, wobei der ADU-Wert im zentralen Pixel relativ konstant bleibt und 
+Es werden insgesamt 2944 Bereiche gefunden und gemittelt. Der resultierende gemittelte \qtyproduct{5 x 5}{\px}-Bereich (Abb. \ref{fig:examples_average_std_5x5_hotspot}b) zeigt, dass der ADU-Wert eines Photons schließlich übers zentrale Pixel und auf die angrenzenden Pixel in vertikaler und horizontaler Richtung verteilt wird, wobei der ADU-Wert im zentralen Pixel relativ konstant bleibt und 
 \begin{equation}
     W_\text{Gd, M5, reell}  = \SI{116(4)}{\adu} 
 \end{equation}
@@ -196,7 +196,7 @@ D.h., dass die Ausewertungsverfahren, welche die Information jedes einzelnen Pix
     \text{\gls{snr}} \approx \sqrt{N_P}
 \end{equation}
 \noindent
-Somit kann das \gls{snr} durch die Erfassung der Summe von mehrerer Pixel (z.B. über die radiale Integration des Streubildes) erhöht. Bei der Summe von $N_P = 2\pi\cdot\SI{75}{\pixel} \approx \SI{471}{\pixel}$ ergeben sich die folgenden Erwartungswerte
+Somit kann das \gls{snr} durch die Erfassung der Summe mehrerer Pixel (z.B. über die radiale Integration des Streubildes) erhöht. Bei der Summe von $N_P = 2\pi\cdot\SI{75}{\pixel} \approx \SI{471}{\pixel}$ ergeben sich die folgenden Erwartungswerte
 \begin{equation}
     \begin{split}
         S_\text{EW} &= \SI{926}{\photons}\\
@@ -215,7 +215,8 @@ Wichtig zu beachten, dass die Summen der Bilder $I_\text{ges}$, die  mit Schwell
 \end{equation}
 So im Vergleich mit der Gleichung (\ref{eq:signal_ew}) muss die \gls{fdpa} von jedem Pixel als Offset abgezogen werden:
 \begin{equation}
-    S_\text{EW} = I_\text{ges} -N_A\cdot\text{\gls{fdpa}}
+    S_\text{EW} = I_\text{ges} - \underbrace{N_A\cdot\text{\gls{fdpa}}(s_V)}_{\Delta_\text{\gls{fdpa}}}
+    \label{eq:signal_int_fpda}
 \end{equation}
 
 % \begin{figure}[H]
@@ -257,16 +258,16 @@ Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedi
 Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
 
 \noindent
-Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf Null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen.
+Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf Null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen. Die Summe von $N_A = \SI{50000}{\captures}$. Dargestellt wird das Signal, das mit der Gleichung (\ref{eq:signal_int_fpda}) berechnet wird
+\begin{equation}
+    \Delta_\text{\gls{fdpa}} = N_A\cdot \text{\gls{fdpa}}(\SI{100}{\adu}) = \SI{1,7}{\photons\per\pixel}
+\end{equation}
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_100_200_masked_radial_transform.pgf}
-    \caption{Die Unterabbildung (a) ist die Summe von \num{50000} Aufnahmen, die sowie mit dem Schwellenwert $s_V = \SI{100}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurden. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. !!!Filter < 50 Photonen, um die flickerenden pixels auszuschliessen !!! Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Die Unterabbildung (c) ist die in Polarkoordinaten transformierte Unterabbildung (b).}
+    \caption{Die Unterabbildung (a) ist das Signal, das die Summe von $N_A = \SI{50000}{\captures}$ ist, die sowie mit dem Schwellenwert $s_V = \SI{100}{\adu}$ und der oberen Grenze \SI{600}{\adu} bearbeitet wurden, und wovon der Offset $\Delta_\text{\gls{fdpa}} = \SI{1,7}{\photons\per\pixel}$ abgezogen wird. Der grüne Punkt entspricht dem Zentrumspunkt des elliptischen Umrisses, der für die Transformation von Koordinatensystem benutzt wird. !!!Filter < 50 Photonen, um die flickerenden pixels auszuschliessen !!! Im Bild mit dem auf null gesetzten Direktstrahlbereich (b) ist der Zentrumspunkt ebenso mit dem grünen Punkt markiert und entspricht dem Radius $r=\SI{0}{px}$ im Polarkoordinatensystem. Das Pfeilende entspricht dem Winkel $\varphi = \SI{0}{\degree}$, die Pfeilrichtung entspricht der positiven Richtung der Azimutalwinkelkoordinate. Die Unterabbildung (c) ist die in Polarkoordinaten transformierte Unterabbildung (b).}
     \label{fig:th-100-200-maske-radial-transform}
 \end{figure}
-\noindent
-Die endliche Breite des Streuringes kommt aus der endlichen räumlichen Energieverteilung innerhalb des Strahlprofils. Die Resonanzenergie ist deutlich stärker horizontal als vertikal ausgedehnt. Aus diesem Grund erwartet man, dass die Breite des Streuringes innerhalb der horizontalen Sektoren (pinke Sektoren, Abb. \ref{fig:th-100-200-maske-radial-transform}b und c) größer ist im Gegensatz mit den vertikalen Sektoren (hellblaue Sektoren, Abb. \ref{fig:th-100-200-maske-radial-transform}b und c).
-
 \noindent
 Mit der bekannten Identität (\ref{eq:px_mm_ratio}) zwischen Größen auf dem Sensor in \si{\px} und in \si{\milli\meter} kann der Radius in \si{\milli\meter} umgerechnet werden. Mit der gegebenen Streugeometrie gilt es für den Streuwinkel $\theta$  folgende Beziehung
 \begin{equation}
@@ -386,10 +387,22 @@ ergibt.
 Man sieht, dass die Anzahl der fehldetektierten Photonen bei dem Ansatz des Clustering-Al\-go\-rith\-muses im besten Fall ca. 10 höher als ohne Clustering ist. 
 
 \noindent
-Der zweitwichtigste Aspekt sind die Dunkelbilder, die gemittelt und von den Streubilder abgezogen werden. Es scheint so zu sein, dass sich der statische Hintergrund im Laufe der Zeit verändert. Darüber hinaus hängt die Veränderung davon ab, wie viel Photonen in dem Gebiet detektiert wurden. Dadurch entsteht ein gewisser Offset $W_\Delta$ für den Wert jedes Pixels.
+Es werden Histogramme über die Pixelwerte und Summen von \qtyproduct{2 x 2}{\px}-Clusters von gesamten Dunkel- und Streubildern aufgetragen. Typischerweise können mehrere Peaks in dieser Verteilung identifiziert werden. So soll der erste Peak bei ca. \SI{0}{\adu} liegen und dem Rauschen entsprechen. Weiter sollen die äquidistanten Peaks folgen, die einem, zwei oder mehr Photonen entsprechen.
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/no_pr_cl_2_histograms.pgf}
+    %\input{images/auswertung/no_pr_cl_2_cl_3_histograms.pgf}  und (c) $\mathbf{K}_3$ 
+    \caption{Histogramme der (a) direkten Pixelwerte und der mit (b) $\mathbf{K}_2$-Clustering-Kerne bearbeiteten Pixelwerte. In den eingefügten Graphen sind die Bereiche detailliert dargestellt, wo sich die Schnittpunkte (vertikale Linien) von Dunkelbilder- und Streubilder-Histogramme befinden. Für jedes Histogramm werden \num{10000} Dunkelbilder sowie Streubilder verwendet.}
+    \label{fig:no_pr_cl_2_histograms}
+\end{figure}
+\noindent
+Allerdings ist es weder bei den direkten Pixelwerten in Abb. \ref{fig:no_pr_cl_2_histograms}a), noch bei den Summen von \qtyproduct{2 x 2}{\px}-Clustern in Abb. \ref{fig:no_pr_cl_2_histograms}b) nicht der Fall. Von besonderem Interesse ist die Asymmetrie des ersten Peaks im Falle der Streubilder in Abb. \ref{fig:no_pr_cl_2_histograms}a).
 
 \noindent
-Der Offset $W_\Delta$ kommt natürlich gleichfalls in dem Schwellenwert-Algorithmus vor, wird jedoch durch das Aufsummieren eines \qtyproduct{2 x 2}{\px}-Clusters vervierfacht und $4W_\Delta$ betragen.
+Der zweitwichtigste Aspekt sind die Dunkelbilder, die gemittelt und von den Streubilder abgezogen werden. Es scheint so zu sein, dass sich der statische Hintergrund im Laufe der Zeit verändert. Darüber hinaus hängt die Veränderung davon ab, wie viel Photonen in dem Sensorgebiet detektiert wurden. Dadurch entsteht ein gewisser Offset $W_\Delta$ für den Wert jedes Pixels.
+
+\noindent
+In anderen Worten wird die gaußförmige Rauschverteilung um den Wert $W_\Delta$ nach rechts verschoben. Das trägt zu bei kommt natürlich gleichfalls in dem Schwellenwert-Algorithmus vor, scheint aber vernachlässigbar klein zu sein.  jedoch durch das Aufsummieren eines \qtyproduct{2 x 2}{\px}-Clusters vervierfacht und $4W_\Delta$ betragen.
 
 \noindent
 Das Cluster-Algorithmus-Verfahren kann dadurch nachgebessert werden. Der Cluster-Kern kann in Bezug auf die vorliegende Gesamtladungsverteilung, die grundlegend zwischen zwei benachbarten Pixeln stattfindet, angepasst werden. Zum Beispiel können jeweils die Cluster-Kerne
@@ -404,9 +417,3 @@ Das Cluster-Algorithmus-Verfahren kann dadurch nachgebessert werden. Der Cluster
 \end{bmatrix}
 \end{equation}
 benutzt werden. So wird die Standardbweichung des Clusters von $2\sigma_R$ bis $\sqrt{2}\sigma_R$ verringert. Ebenso wird der gesamte Offset nur $2W_\Delta$ statt $4W_\Delta$ betragen. Der Offset $W_\Delta$ kann durch die häufigere Aufnahme von Dunkelbildern gesenkt werden.
-\begin{figure}[H]
-    \centering
-    \input{images/auswertung/no_pr_cl_2_cl_3_histograms.pgf}
-    \caption{Histogramme der (a) direkten Pixelwerte und der mit (b) $\mathbf{K}_2$ und (c) $\mathbf{K}_3$ Clustering-Kerne bearbeiteten Pixelwerte. In den eingefügten Graphen sind die Bereiche detailliert dargestellt, wo sich die Schnittpunkte (vertikale Linien) von Dunkelbilder- und Streubilder-Histogramme befinden. Für jedes Histogramm werden \num{10000} Dunkelbilder sowie Streubilder verwendet.}
-    \label{fig:no_pr_cl_2_cl_3_histograms}
-\end{figure}
