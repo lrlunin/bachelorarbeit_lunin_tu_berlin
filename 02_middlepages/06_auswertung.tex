@@ -78,7 +78,7 @@ und unterscheidet sich lediglich um $\SI{2}{\percent}$ von $W_\text{Gd, M5} = \S
 
 \noindent
 In der unteren Abbildung werden Einzelschritte des Auswertungsverfahren am Beispiel eines aufgenommenen Streubildes demonstriert. 
-Die resultierende Differenz, die in der Abb. \ref{fig:capture_ped_diff}c) abgebildet ist, ist, wie erwartet, extrem klein gegenüber das Rohbild und das gemittelte Dunkelbild, die in der Abb. \ref{fig:capture_ped_diff}a) bzw. \ref{fig:capture_ped_diff}b) zu sehen sind. 
+Die resultierende Differenz, die in Abb. \ref{fig:capture_ped_diff}c) abgebildet ist, ist, wie erwartet, extrem klein gegenüber das Rohbild und das gemittelte Dunkelbild, die in Abb. \ref{fig:capture_ped_diff}a) bzw. \ref{fig:capture_ped_diff}b) zu sehen sind. 
 \begin{figure}[H]
     \centering
     \input{images/auswertung/capture_ped_diff.pgf}
@@ -211,10 +211,13 @@ Somit kann das \gls{snr} durch die Erfassung der Summe mehrerer Pixel (z.B. übe
         N_\text{EW} &= \SI{42}{\photons},
     \end{split}
 \end{equation}
-die 
+und das 
 \begin{equation}
-    \text{\gls{snr}} \approx \num{22.28} \approx \sqrt{471}
+    \text{\gls{snr}} \approx \num{22.28},
 \end{equation}
+\noindent
+das mit dem Wert $\sqrt{471}$ gut übereinstimmt.
+
 \noindent
 Wichtig zu beachten, dass die Summen der Bilder $I_\text{ges}$, die  mit Schwellenwert-Algorithmus bearbeitet sind, enthalten die fehldetektierten Photonen. Daher gilt:
 \begin{equation}
@@ -259,16 +262,17 @@ Wird der Schwellenwert $s_V$ weiter erhöht, lassen sich die Pixelgebiete finden
     \label{fig:th_180_450_600}
 \end{figure}
 \noindent
-Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedingung im Schwellenwert-Algorithmus eingesetzt wird, und zwar, dass die \gls{adu}-Werte der Doppelungleichung $\SI{100}{\adu} < s_V < \SI{600}{\adu}$ genügen müssen. Das resultierende Bild ist in der Abb. \ref{fig:th-100-200-maske-radial-transform}a) dargestellt.
+Diese Punkte werden in dem weiteren Bild dadurch eliminiert, dass eine Nebenbedingung im Schwellenwert-Algorithmus eingesetzt wird, und zwar, dass die \gls{adu}-Werte der Doppelungleichung $\SI{100}{\adu} < s_V < \SI{600}{\adu}$ genügen müssen. Das resultierende Bild ist in Abb. \ref{fig:th-100-200-maske-radial-transform}a) dargestellt.
 
 \noindent
 Das Bild wird zunächst in Polarkoordinaten transformiert. Dafür ist es nötig, den Zentrumspunkt der Transformation von Koordinatensystem festzulegen. Die magnetische Streuung ist sehr energieselektiv (s. Abschnitt \ref{text:streuung}) und findet hauptsächlich/überwiegend an der Resonanzfrequenz statt, die in der Aufnahme als eine schmale horizontale dunklere Linie erkannt werden kann. Unter der Annahme, dass der magnetische Effekt der zu erkennenden ringförmigen Streuung zugrunde liegt, wird die vertikale Koordinate des Zentrumspunkts innerhalb der Absorptionskante gelassen. Die horizontale Koordinate des Zentrumspunkts wird durch die Anpassung eines elliptischen Umrisses ermittelt.
 
 \noindent
-Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf Null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in der Abb. \ref{fig:radius_fit}b) und c) zu sehen. Die Summe von $N_A = \SI{50000}{\captures}$. Dargestellt wird das Signal, das mit der Gleichung (\ref{eq:signal_int_fpda}) berechnet wird
+Der Direktstrahlbereich überlappt mit dem Streuring in den Ecken. Aus diesem Grund wird der Direktstrahlbereich zunächst auf Null gesetzt, um die weitere Auswertung der Streuringsintensitätsverteilung nicht zu verhindern. Diese ist in Abb. \ref{fig:radius_fit}b) und c) zu sehen. Dargestellt wird das Signal, das die um den Wert
 \begin{equation}
     \Delta_\text{\gls{fdpa}} = N_A\cdot \text{\gls{fdpa}}(\SI{100}{\adu}) = \SI{1,7}{\photons\per\pixel}
 \end{equation}
+reduzierte Summe entsprechend Gl. (\ref{eq:signal_int_fpda}) berechnet wird.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_100_200_masked_radial_transform.pgf}
@@ -322,7 +326,7 @@ Es werden \SI{50000}{\captures} aufgenommen und mit dem Scwellenwertalgorithmus 
     \label{fig:th_50_100_125_150_170_180_off_resonance}
 \end{figure}
 \noindent
-Das Fehlen des charakteristischen Ringmusters weist danach, dass die Photonenenergie $h\nu$ sehr nah an einer Resonanzfrequenz von Gd liegen soll. Das Fehlen des Musters kann nicht an der zu niedrigeren Photonenfluss liegen, obwohl dieser an der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ tendenziell niedriger als an der $h\nu_{\text{Gd, M5}}$ sein soll. Im Gegensatz dazu ist die Absorptionsstärke der Probe an der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ ist nach der Abb. \ref{fig:rzp_phi_ev} im Vergleich mit $h\nu_{\text{Gd, M5}}$ wesentlich kleiner. Somit ergeben sich die vergleichbaren Photonenzahlen pro Pixel im Direktstrahl an den beiden Photonenenergien (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} und \ref{fig:th_50_100_125_150_170_180_off_resonance}) und betragen ca. \SI{1000}{\photons}.
+Das Fehlen des charakteristischen Ringmusters weist danach, dass die Photonenenergie $h\nu$ sehr nah an einer Resonanzfrequenz von Gd liegen soll. Das Fehlen des Musters kann nicht an der zu niedrigeren Photonenfluss liegen, obwohl dieser an der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ tendenziell niedriger als an der $h\nu_{\text{Gd, M5}}$ sein soll. Im Gegensatz dazu ist die Absorptionsstärke der Probe an der Photonenenergie $h\nu_{\text{Gd, Off-Res}}$ ist nach Abb. \ref{fig:rzp_phi_ev} im Vergleich mit $h\nu_{\text{Gd, M5}}$ wesentlich kleiner. Somit ergeben sich die vergleichbaren Photonenzahlen pro Pixel im Direktstrahl an den beiden Photonenenergien (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} und \ref{fig:th_50_100_125_150_170_180_off_resonance}) und betragen ca. \SI{1000}{\photons}.
 
 \subsection{Clustering}
 \noindent
@@ -365,7 +369,7 @@ also die doppelte Standardabweichung eines einzelnen Pixels $\sigma_R$.
 Angenommen wir haben allerdings den gesamten ADU-Wert \SI{180}{\adu} eines Photons innerhalb des \qtyproduct{2 x 2}{\px}-Clusters. So kann der Schwellenwert $s_Q$ bis auf \qtyrange{170}{180}{\adu} erhöht werden.
 
 \noindent
-In der Abb. \ref{fig:noise_hist_fit} sieht man, dass sich die Rauschenverteilung mit der Gauß-Verteilung $G(W, \mu, \sigma, A)$ nähern lässt. Somit kann die Zahl der fehldetektierten Photonen im Bezug auf den eingesetzten Schwellenwert $s_{V/Q}$ und Rauschenstdanardabweichung $\sigma$ über das Integral 
+In Abb. \ref{fig:noise_hist_fit} sieht man, dass sich die Rauschenverteilung mit der Gauß-Verteilung $G(W, \mu, \sigma, A)$ nähern lässt. Somit kann die Zahl der fehldetektierten Photonen im Bezug auf den eingesetzten Schwellenwert $s_{V/Q}$ und Rauschenstdanardabweichung $\sigma$ über das Integral 
 \begin{equation}
     \int_{s_{V/Q}}^\infty G(W, 0, \sigma, A) \,dW = \frac{A}{2}\left[1 - \erf\left({\frac{s_{V/Q}}{\sqrt{2}\sigma}}\right)\right]
 \end{equation}
