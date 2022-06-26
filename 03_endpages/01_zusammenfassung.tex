@@ -1,15 +1,30 @@
 \chapter{Zusammenfassung}
-Im Rahmen dieser Arbeit wurde es experimentell nachgewiesen, dass die Strahlungscharakteristiken wie laterale Kohärenz, energetische und räumliche Strahlbündlung einer laser-getriebenen Röntgenquelle fürs Beobachten der resonanten Streuung ausreichend sind.
+Im Rahmen dieser Arbeit wurde es experimentell nachgewiesen, dass resonante magnetische Streuung an einer laser-getriebenen Röntgenquelle beobachtet werden kann.
 \begin{figure}[H]
     \centering
     \input{images/zusammenfassung/summary_ring_no_ring.pgf}
     \label{fig:summary_ring_no_ring}
 \end{figure}
 \noindent
-Dafür wurden es verschiedenen Mess- und Auswertungsverfahren entwickelt und erprobt. 
+Dafür wurde das Messverfahren entwickelt, in dem ein kommerzieller MÖNCH-Detektor mit der \SI{100}{\hertz}-Emission \SI{10}{\pico\second}-Pulse der laser-getriebenen Röntgenquelle synchronisiert wurde. Diese Messmethode kann verwendet werden, um magnetooptische Effekte mit hoher zeitlicher Auflösung zu analysieren. 
+
+\noindent
+Damit die Mess- und Auswertungsparameter optimal angepasst werden, wurde die Ladungsverteilunganalyse eines isolierten Photons mit der Photonenenergie $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ untersucht. Diese zeigte, dass ca. \SI{64,2}{\percent} der gesamten Ladung im hellsten Pixel bleiben und der Rest hauptsächlich in einem der nächsten Nachbarpixel konzentriert wird.
+
+\noindent
+Es wurden zwei Auswertungsverfahren der Einzelphotondetektion erprobt und miteinander verglichen. Der Schwellenwert-Algorithmus, in dem ein Pixelwert als Photon gekennzeichnet wird, wenn dieser den gegebenen Schwellenwert überschreitet, demonstrierte bessere Effizienz unter der Bedingung niedriges Photonenflusses und hohes Detektorrauschens. Das Signal-Rausch-Verhältnis der Summe \SI{50000}{\captures} ließ sich im Bereich des Streuringes mit 1 abschätzen und mit dem Quadratwurzel aus dem Produkt von Pixel- und Aufnahmezahl approximieren. Der Clustering-Algorithmus, in dem ein Pixel als Photon gekennzeichnet wird, wenn die Pixelwertsumme seiner \qtyproduct{2 x 2}{\px}-Pixelnachbarschaft den gegebenen Schwellenwert überschreitet, sollte durch Inbetrachtnahme der gesamten Photonenladung die Selektivität der Photonendetektion erhöhen, zeigte jedoch deutlich höhere Zahl der fehldetektierten Photonen.
 
 Dafür wurden es diverse technische und physikalische Aspekte erforscht, 
+es Mess- und Auswertungsverfahren der Einzelphotondetektion 
 
-
-
-KOHÄRENZ DER \gls{pxs} AUSREICHEND, RAUSCHENCHARAKTERISTIK BEI DIVERSEN BELICHTUNGSZEITEN UND PUNKTSPREIZFUNKTION EINES ISOLIERTEN PHOTONS AN DEM MÖNCH-DETEKTOR UNTERSUCHT, MESSMETHODE UND DIVERSE AUSWERTUNGSVERFAHREN ANGEBOTEN UND MITEINANDER VERGLICHEN, ES WIRD GEZEIGT, DASS IN DEM FALLE KLEINER DIFFERENZ ZWISCHEN PHOTONENERGIE UND RAUSCHEN-STANDARDABWEICHUNG KANN DER THRESHOLDING-ALGORITHMUS BESSERE ERGEBENISSE DEMONSTRIEREN.
+\textcolor{red}{\textbf{Für Bastian:}}
+Ich denke, diese Themen müssen in der Zusammenfassung angesprochen werden:
+\begin{itemize}
+    \item Probenvorbereitung (Analyse der Dicke und Kontrast, obwohl man eine Probe aus dem anderen Paper genommen hat)
+    \item latherale Kohärenz, Energie und Strahlbündelung des Strahls
+    \item Rauschencharaketeristik des Detektors als Funktion der Belichtungszeit $\tau$
+    \item Ladungsverteilung eines isolierten Photons
+    \item Messmethode und deren hohe Zeitauflösung bei der potenziellen Anwendungen
+    \item Vergleich der Auswertungsverfahren (in dem Fall, wenn das Rauschen so stark ist, ist der Schwellenwert-Algorithmus besser) und Schritte, die gemacht werden können, um den Einsatz des Clustering-Algorithmus zu verbessern
+    \item SNR pro Pixel und die quadratwurzelförmige Abhängigkeit von Aufnahme- und Pixelzahl $N_{A/P}$
+\end{itemize}
