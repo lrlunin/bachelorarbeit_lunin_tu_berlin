@@ -12,16 +12,13 @@ Dafür wurde das Messverfahren entwickelt, in dem ein kommerzieller MÖNCH-Detek
 Damit die Mess- und Auswertungsparameter optimal angepasst werden, wurde die Ladungsverteilunganalyse eines isolierten Photons mit der Photonenenergie $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ untersucht. Diese zeigte, dass ca. \SI{64,2}{\percent} der gesamten Ladung im hellsten Pixel bleiben und der Rest hauptsächlich in einem der nächsten Nachbarpixel konzentriert wird.
 
 \noindent
-Es wurden zwei Auswertungsverfahren der Einzelphotondetektion erprobt und miteinander verglichen. Der Schwellenwert-Algorithmus, in dem ein Pixelwert als Photon gekennzeichnet wird, wenn dieser den gegebenen Schwellenwert überschreitet, demonstrierte bessere Effizienz unter der Bedingung niedriges Photonenflusses und hohes Detektorrauschens. Das Signal-Rausch-Verhältnis der Summe \SI{50000}{\captures} ließ sich im Bereich des Streuringes mit 1 abschätzen und mit dem Quadratwurzel aus dem Produkt von Pixel- und Aufnahmezahl approximieren. Der Clustering-Algorithmus, in dem ein Pixel als Photon gekennzeichnet wird, wenn die Pixelwertsumme seiner \qtyproduct{2 x 2}{\px}-Pixelnachbarschaft den gegebenen Schwellenwert überschreitet, sollte durch Inbetrachtnahme der gesamten Photonenladung die Selektivität der Photonendetektion erhöhen, zeigte jedoch deutlich höhere Zahl der fehldetektierten Photonen.
-
-Dafür wurden es diverse technische und physikalische Aspekte erforscht, 
-es Mess- und Auswertungsverfahren der Einzelphotondetektion 
+Es wurden zwei Auswertungsverfahren der Einzelphotondetektion erprobt und miteinander verglichen. Der Schwellenwert-Algorithmus, in dem ein Pixelwert als Photon gekennzeichnet wird, wenn dieser den gegebenen Schwellenwert überschreitet, demonstrierte bessere Effizienz unter der Bedingung niedriges Photonenflusses und hohes Detektorrauschens. Das Signal-Rausch-Verhältnis der Summe \SI{50000}{\captures} ließ sich im Bereich des Streuringes mit 1 abschätzen und mit dem Quadratwurzel aus dem Produkt von Pixel- und Aufnahmezahl approximieren. Der Clustering-Algorithmus, in dem ein Pixel als Photon gekennzeichnet wird, wenn die Pixelwertsumme seiner \qtyproduct{2 x 2}{\px}-Pixelnachbarschaft den gegebenen Schwellenwert überschreitet, sollte durch Inbetrachtnahme der gesamten Photonenladung die Selektivität der Photonendetektion in Vergleich mit dem Schwellenwert-Algorithmus erhöhen, zeigte jedoch deutlich höhere Zahl der fehldetektierten Photonen. Die wesentlichen Gründe dafür sind die hohe Rauschenstandardabweichung gegenüber dem erwarteten Signalwert und die Schwankung des Rauschenmittelwerts von Null während der Messung.
 
 \textcolor{red}{\textbf{Für Bastian:}}
 Ich denke, diese Themen müssen in der Zusammenfassung angesprochen werden:
 \begin{itemize}
     \item Probenvorbereitung (Analyse der Dicke und Kontrast, obwohl man eine Probe aus dem anderen Paper genommen hat)
-    \item latherale Kohärenz, Energie und Strahlbündelung des Strahls
+    \item latherale Kohärenz, Energie und Strahlbündelung des PXS-Strahls
     \item Rauschencharaketeristik des Detektors als Funktion der Belichtungszeit $\tau$
     \item Ladungsverteilung eines isolierten Photons
     \item Messmethode und deren hohe Zeitauflösung bei der potenziellen Anwendungen
