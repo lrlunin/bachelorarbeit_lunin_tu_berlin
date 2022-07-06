@@ -61,5 +61,6 @@
     \put(0.42795129,0.16912408){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Spalt\end{tabular}}}}%
     \put(0.66138243,0.15076825){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Probe\end{tabular}}}}%
     \put(0.82322241,0.20206029){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Detektorsensor\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbau_skizze.pdf}}%
   \end{picture}%
 \endgroup%
