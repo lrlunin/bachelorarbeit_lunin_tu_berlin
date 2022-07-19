@@ -1,13 +1,13 @@
-\newacronym{moke}{MOKE}{magnetooptischem Kerr-Effekt}
+\newacronym{moke}{MOKE}{magnetooptischen Kerr-Effekts}
 \newacronym[user1=\emph{engl. magnetic force microscope}]{mfm}{MFM}{Magnetkraftmikroskop}
 \chapter{Prinzipien der magnetischen Resonanzstreuung}
 \label{text:streuung}
-In diesem Kapitel werden die Aspekte der magnetischen Streuung erläutert, um besseres Verständnis und Motivation zur Wahl des Experimentaufbaus dadurch zu bringen. Die Theorie basiert sich auf hauptsächlich \cite{kortright_resonant_2013}. 
+Die in dieser Arbeit durchgeführte Experimente basieren auf den Effekten der resonanten Streuung. Die Darstellung der Zusammenhänge orientiert sich auf \cite{kortright_resonant_2013}. 
 
 \noindent
-Die Streuung an einem Element wird durch den elementspezifischen atomaren Streufaktor
+Die resonante Streuung an einem Element wird durch den elementspezifischen atomaren Streufaktor
 \begin{align}
-f(h\nu) = (\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{e}_0})f_c - i(\mathbf{\hat{e}_f^*} \times \mathbf{\hat{e}_0})\cdot\mathbf{\hat{m}}f_{m1}+(\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{m}})(\mathbf{\hat{e}_0}\cdot\mathbf{\hat{m}})f_{m2} + \dots
+f(h\nu) = (\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{e}_0})f_c - i(\mathbf{\hat{e}_f^*} \times \mathbf{\hat{e}_0})\cdot\mathbf{\hat{m}}f_{m1} + \dots % (\mathbf{\hat{e}_f^*} \cdot \mathbf{\hat{m}})(\mathbf{\hat{e}_0}\cdot\mathbf{\hat{m}})f_{m2} + \dots
 \label{eq:atomfaktoren}
 \end{align}
 beschrieben, wobei $\mathbf{\hat{e}_f}$ und $\mathbf{\hat{e}_0}$ - die einfallenden und auslaufenden normierten Polarisationsvektoren, $\mathbf{\hat{m}}$ - der Einheitsvektor entlang der Magnetisierungsachse und $f_c(h\nu), f_{m1}(h\nu), f_{m2}(h\nu) \in \mathbb{C}$ - die energieabhängigen Streukoeffizienten von Atom. Die letzten werden auch häufig durch die Paaren von reellen Koeffzienten
@@ -55,11 +55,11 @@ darstellen lässt. Unter anderem gilt die folgende Beziehung zwischen den Vektor
 \end{equation}
 
 \noindent
-Die Streukoeffizienten lassen sich nach der physikalischen Natur der Streuung voneinander unterscheiden. Der Streuung, die mit dem Koeffizienten $f_c$ beschrieben wird, liegt die Ladung des Atoms zugrunde. Für die Beschreibung der Streuung, die sich auf den magnetischen Effekten basiert, dienen die Koeffizienten $f_{m1}$ und $f_{m2}$.
+Die Streukoeffizienten lassen sich nach der physikalischen Natur der Streuung voneinander unterscheiden. Der Streuung, die mit dem Koeffizienten $f_c$ beschrieben wird, liegt die Streuung an den gebundenen Elektronen des Atoms zugrunde. Für die Beschreibung der Streuung, die sich auf den magnetischen Effekten basiert, dienen die Koeffizienten $f_{m1}$ und $f_{m2}$.
 
 
 \noindent
-Für die Photonenfrequenz $\nu_{\text{nichtresonant}}$, die weit von der Resonanzabsorptionsfrequenz des Atoms liegt, sind die magnetischen Streukoeffizienten  $f_{m1}, f_{m2}$ ungefähr gleich 0. Aus diesem Grund hängt der Streufaktor $f(h\nu_{\text{nichtresonant}})$ lediglich von den Polarisationsvektoren $\mathbf{\hat{e}_f^*}$ und $\mathbf{\hat{e}_0}$ ab.
+Für die Photonenfrequenz $\nu_{\text{nichtresonant}}$, die weit von der Resonanzabsorptionsfrequenz des Atoms liegt, sind die magnetischen Streukoeffizienten  $f_{m1}, f_{m2}$ ungefähr gleich 0. Aus diesem Grund hängt der Streufaktor $f(h\nu_{\text{nichtresonant}})$ lediglich von dem ersten Summand in Gl. (\ref{eq:atomfaktoren}) ab.
 % \begin{figure}[ht]
 %     \centering
 %     \input{wellenvektoren.pdf_tex}
@@ -68,14 +68,15 @@ Für die Photonenfrequenz $\nu_{\text{nichtresonant}}$, die weit von der Resonan
 % \end{figure}
 
 \noindent
-Im Photonenfrequenzbereich $\nu_\text{resonant}$, der nah an der Resonanzabsorptionsfrequenz des Atoms liegt, nehmen die Streukoeffizienten $f_{m1}, f_{m2}$ zu und leisten den wesentlichen Beitrag zum Gesamtwert des Streufaktors $f$. Es ist auch wichtig zu beachten, dass der Streufaktor $f(h\nu_\text{resonant})$ nun sowohl von den Polarisationsvektoren $\mathbf{\hat{e}_f}$ und $\mathbf{\hat{e}_0}$, als auch von der räumlichen Ausrichtung der Atommagnetisierungsachse des  $\mathbf{\hat{m}}$ in Bezug auf $\mathbf{\hat{e}_f}$ und $\mathbf{\hat{e}_0}$ abhängt.
+Im Photonenfrequenzbereich $\nu_\text{resonant}$, der nah an der Resonanzabsorptionsfrequenz des Atoms liegt, nehmen die Streukoeffizienten $f_{m1}, f_{m2}$ zu und leisten einen wesentlichen Beitrag zum Gesamtwert des Streufaktors $f$. Es ist auch wichtig zu beachten, dass der Streufaktor $f(h\nu_\text{resonant})$ nun sowohl von den Polarisationsvektoren $\mathbf{\hat{e}_f}$ und $\mathbf{\hat{e}_0}$, als auch von der räumlichen Ausrichtung der Atommagnetisierungsachse des  $\mathbf{\hat{m}}$ in Bezug auf $\mathbf{\hat{e}_f}$ und $\mathbf{\hat{e}_0}$ abhängt.
 
 
 \noindent
-Weiter wird die Wechselwirkung mit einem magnetischkontrasten Material genauer betrachtet. Die theoretischen Grundlagen der physikalischen Prozessen, die zur Entstehung einer räumlich periodischen abwechselnden Magnetisierungsstruktur im Festkörper führen, gehören nicht zum Hauptthema dieser Arbeit und werden daher weggelassen.  
+Für diese Arbeit wird insbesondere der Fall betrachtet, 
+% Weiter wird die Wechselwirkung mit einem magnetischkontrasten Material genauer betrachtet. Die theoretischen Grundlagen der physikalischen Prozessen, die zur Entstehung einer räumlich periodischen abwechselnden Magnetisierungsstruktur im Festkörper führen, gehören nicht zum Hauptthema dieser Arbeit und werden daher weggelassen.  
 
 \noindent
-Die Transmissionsgeometrie der Streuung an einer Probe mit der perpendikulären Ausrichtung der magnetischen Domänen ist in Abb. \ref{fig:transmission_geometrie} dargestellt.
+Die Transmissionsgeometrie der Streuung an einer Probe mit der senkrechten Ausrichtung der magnetischen Domänen ist in Abb. \ref{fig:transmission_geometrie} dargestellt.
 \begin{figure}[ht]
     \centering
     \input{magnet_domain.pdf_tex}
@@ -84,20 +85,19 @@ Die Transmissionsgeometrie der Streuung an einer Probe mit der perpendikulären 
 \end{figure}
 
 \noindent
-Betrachtet man den Fall der zirkular polarisierten ein- und auslaufenden Strahlung, ergibt sich aus den Gleichungen (\ref{eq:atomfaktoren}) und (\ref{eq:lin_jones}) die Beziehung
+Betrachtet man den Fall von zirkular polarisierter ein- und auslaufender Strahlung, ergibt sich aus Gleichungen (\ref{eq:atomfaktoren}) und (\ref{eq:lin_jones}) die Beziehung
 \begin{equation}
     f_{\pm}(h\nu)=f_{c}\mp \mathbf{k_0}\mathbf{\hat{m}} f_{m1} = f_{c}\mp \hat{m}_\perp f_{m1}
     \label{eq:faktor_zirc}
 \end{equation}
 %  Kurze Einleitung, wie man die Röntgenstrahlung durch Belichten eines wolframzylinders bekommt (verweis auf TU-Paper). DAS SPEKTRUM von Pape
 % \section{Resonante Röntgenstreuung von mesoskopischen magnetischen Texturen}
-Nach der \emph{Bornsche Näherung} lässt sich die Intensität der Streuung $I$ an den $N$-Atomen als die Summe der Streuung an jedem $n$-ten Atom darstellen. Die Streuung am $n$-ten Atom wird  als Produkt dessen Streufaktors mit dem Streuufaktor $f_{\pm}^n$ mit dem Term $e^{i\mathbf{qr_n}}$ definiert, wobei $\mathbf{q}$ - der Streuvektor ist.
-
+Nach der \emph{Bornsche Näherung} lässt sich die Intensität der Streuung $I$ an den $N$-Atomen als die Summe der Streuung an jedem $n$-ten Atom darstellen. Die Streuung am $n$-ten Atom wird als Produkt dessen Streufaktors $f_{\pm}^n$ mit dem Phasenfaktor $e^{i\mathbf{qr_n}}$ bezeichnet, wobei $\mathbf{q}$ der Streuvektor ist.
 \begin{equation}
     I_{\pm} \propto \left| \sum_{n}^N f_{\pm}^n e^{i\mathbf{qr_n}} \right|^2 \stackrel{{(\ref{eq:faktor_zirc})}}{\propto} \left| \sum_{n}^N (f_{c}^n\mp {\hat{m}_\perp}^n f_{m1}^n) e^{i\mathbf{qr_n}} \right|^2
     \label{eq:intencity_circ}
 \end{equation}
-Man führt die Formfaktoren $F_c$ und $F_m$ ein, die als
+Man führt die Strukturfaktoren $F_c$ und $F_m$ ein, die als
 \begin{equation}
     \begin{dcases}
      F_c(\mathbf{q}) &= \sum^N_n f_c^n e^{i\mathbf{qr_n}}\\
@@ -109,44 +109,45 @@ definiert werden. Somit lässt sich die Gleichung (\ref{eq:intencity_circ}) wie 
 \begin{equation}
      I_{\pm} \propto \left| F_c \mp F_m \right|^2 = \left| F_c \right|^2 \mp 2\text{Re}(F_c^*F_m) + \left| F_m \right|^2,
 \end{equation}
-wobei $\text{Re}(z)$ - der reelle Teil der komplexen Größe ist.
+wobei $\text{Re}(z)$ der reelle Teil der komplexen Größe ist.
 
 \noindent
-Nach der Gleichung (\ref{eq:lin_circ_jones}) kann die Intensität der Streuung des linear polarisierten Lichtes $I_{\text{lin $x$}}$ als die Summe
+Nach Gleichung (\ref{eq:lin_circ_jones}) kann die Intensität der Streuung des linear polarisierten Lichtes $I_{\text{lin}}$ als die Summe
 \begin{equation}
-    I_{\text{lin $x$}} \propto I_+ + I_- \propto  \left| F_c \right|^2 + \left| F_m \right|^2
+    I_{\text{lin}} \propto I_+ + I_- \propto  \left| F_c \right|^2 + \left| F_m \right|^2
     % \left| F_c \right|^2 \underbrace{-2\text{Re}(F_c^*F_m) + 2\text{Re}(F_c^*F_m)}_{=0} + \left| F_m \right|^2 =
 \end{equation}
-bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Der Betragsquadrat vom Formfaktor $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden
+bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Das Ergebnis, dass die resonante Streuung sowohl für zirkular, als auch für linear polarisierte Strahlung zu beobachten ist, ist insbesondere im Kontext dieser Arbeit wichtig, weil die benutzte Röntgenquelle Strahlung ohne bevorzugte Polarisation emittiert. 
+
+\noindent
+Das Betragsquadrat vom Strukturfaktor $\left|F_m\right|^2$ kann in Hinblick auf Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden
 \begin{equation}
     \left|F_m(\mathbf{q})\right|^2 =  \left|\sum^N_n {\hat{m}_\perp}^n \left[f_{m1,1}^n + if_{m1,2}^n\right] e^{i\mathbf{qr_n}}\right|^2.
     \label{eq:f_m}
 \end{equation}
-Wird die Streuung unter der Resonanzbedingungen für ein Element betrachtet, können die Koeffizienten $f_{m1,1/2}$ aller anderen Elemente als vernachlässigbar klein weggelassen werden. Die Annahme
+Wird die Streuung unter der Resonanzbedingungen für ein chemisches Element betrachtet, können die Koeffizienten $f_{m1,1/2}$ aller anderen Elemente als vernachlässigbar klein weggelassen werden, wenn diese weit genug voneinander liegen. In dieser Arbeit werden somit die Photonenenergien der Fe L3-Absorptionslinie $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und Gd M5-Absorptionslinie $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ unabhängig voneinander betrachtet. Die Annahme
 \begin{equation}
     f_{m1,1/2}^n = f_{m1,1/2} = \text{konst. } \forall n \in N
 \end{equation}
-lässt die Gleichung (\ref{eq:f_m}) weiter vereinfachen
+lässt Gleichung (\ref{eq:f_m}) weiter vereinfachen
 \begin{equation}
-   \left|F_m(\mathbf{q})\right|^2 = \left|f_{m1,1} + if_{m1,2}\right|^2 \cdot \left|\sum^N_n {\hat{m}_\perp}^n e^{i\mathbf{qr_n}}\right|^2 = (f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}),
+   \left|F_m(\mathbf{q})\right|^2 = \left|f_{m1,1} + if_{m1,2}\right|^2 \cdot \left|\sum^N_n {\hat{m}_\perp}^n e^{i\mathbf{qr_n}}\right|^2 = \left(f_{m1,1}^2 + f_{m1,2}^2\right)S_m(\mathbf{q}),
 \end{equation}
-wobei $S_m(\mathbf{q})$ - Betragsquadrat Fourier-Transformierte magnetische Topographie der Probe ist.
+wobei $S_m(\mathbf{q})$ das Betragsquadrat der Fourier-transformierten der magnetischen Struktur der Probe ist.
 
 \noindent
 Schließlich ergibt sich der folgende Zusammenhang für die Streuintensität 
 \begin{equation}
-    I_{\text{lin $x$}} \propto  \left| F_c(\mathbf{q}) \right|^2 + \left(f_{m1,1}^2 + f_{m1,2}^2)S_m(\mathbf{q}\right)
+    I_{\text{lin}} \propto  \left| F_c(\mathbf{q}) \right|^2 + \left(f_{m1,1}^2 + f_{m1,2}^2\right)S_m(\mathbf{q})
     \label{eq:intensitat_fourier}
 \end{equation}
-Betrachtet werden die Photonenenergien der Fe L3-Absorptionslinie $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und Gd M5-Absorptionslinie $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$. Eine wichtige Tatsache, dass die zu betrachtenden Resonanzenergien $h\nu_{\text{Fe, L3}}$ und  $h\nu_{\text{Gd, M5}}$ sehr weit voneinander liegen, lässt die Energien separat behandeln und die Gleichung (\ref{eq:intensitat_fourier}) für die Photonenenergien unabhängig voneinander benutzen. 
-
 \noindent
-Analog zur Proportionalität des Betragsquadrats des Formfaktors $\left|F_m(\mathbf{q})\right|^2$ der Fourier-Trans\-for\-mier\-te der magnetischen Topographie $S_m(\mathbf{q})$ ist der Betragsquadrat des Formfaktors $\left|F_c(\mathbf{q})\right|^2$ proportional zur Fourier-Transformierte des Atomgitters $S_c(\mathbf{q})$. Die magnetische Topographie verändert sich jedoch auf \si{\micro\meter}-Skala, wobei die typische Bindungslänge innerhalb eines Atomgitters einige Ångströme beträgt. So ist der Beitrag von $S_c(\mathbf{q})$ zur Streuintensität nur bei deutlich größeren Streuvektorenlängen $q$ (größeren Streuwinkeln) zu betrachten.%liegen im Bereich von  sind viel größerordnung, d.h. dass unter der sehr kleinen winkeln (kleine streuvektoren) wird die magnetische streuung betrachet.
+Analog zur Proportionalität des Betragsquadrats des Strukturfaktors $\left|F_m(\mathbf{q})\right|^2$ der Fourier-Trans\-for\-mier\-ten der magnetischen Struktur $S_m(\mathbf{q})$ ist der Betragsquadrat des Formfaktors $\left|F_c(\mathbf{q})\right|^2$ proportional zur Fourier-Transformierten des Atomgitters $S_c(\mathbf{q})$. Die magnetische Struktur verändert sich jedoch typischerweise auf \SI{10}{\nano\meter}-\si{\micro\meter} Skala, wobei die typische Bindungslänge innerhalb eines Atomgitters einige Ångström beträgt. So ist der Beitrag von $S_c(\mathbf{q})$ zur gesamten Streuintensität nur bei deutlich größeren Streuvektorenlängen $q$ (größeren Streuwinkeln) zu betrachten.%liegen im Bereich von  sind viel größerordnung, d.h. dass unter der sehr kleinen winkeln (kleine streuvektoren) wird die magnetische streuung betrachet.
 
 \noindent
 So beschreibt der Faktor $S_m(\mathbf{q})$ die räumliche Streuintensitätsverteilung bei den kleinen Streuwinkeln. Im nächsten Abschnitt wird es darüber diskutiert, wie der Faktor sich $S_m(\mathbf{q})$ in Bezug auf die Zusammensetzung der Probe verändert.
 
-\section{Magnetisch hochkontraste mehrschichtige Systeme}
+\section{Magnetische Dünnschichtsysteme}
 Damit die weitere Diskussion im Zusammenhang mit der Abbildung \ref{fig:transmission_geometrie} konsistent bleibt, ist die perpendikulare Richtung als $z$-Achse festgelegt. Die Schichten, die weiter behandelt werden, liegen also in den zueinander parallelen $x$-$y$-Ebenen. 
 
 \noindent
@@ -185,34 +186,30 @@ Solche Systeme haben typischerweise diverse metastabile Zustände. Die Bildung e
 Zwecks der Kontrastoptimierung wurden zwei mehrschichtigen Proben im Rahmen der Vorbereitung zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die optimale Dicke bzw. Wiederholungszahl $N$ von [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_{\text{Fe, L3}}$ und $h\nu_{\text{Gd, M5}}$ gesucht. Die Wahl dieser zwei Elementen wird später im Kapitel \ref{text:quelle_roentgen} motiviert. Die Werte von Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto-x-ray-2005} abgeleitet. In der Zusammensetzung der Probe sollen auch ein \SI{100}{\nano\meter} Substrat SiN und zwei \SI{3}{\nano\meter} bzw. \SI{2}{\nano\meter} Schichten aus Ta mitberechnet werden.
 
 \noindent
-Mit dem Programmpaket werden die Transmissionen T$_+$ und T$_-$ fürs rechts und links polarisierte Licht berechnet. Die durchschnittliche Transmission
+Mit dem Programmpaket werden die Transmissionen T$_+$ und T$_-$ fürs rechts und links polarisierte Licht berechnet. Die durchschnittliche Transmission T und Polarisiationsgrad P werden wie folgt ermittelt
 \begin{equation}
-    \bar{\text{T}} = \frac{\text{T}_+ + \text{T}_-}{2}
+    \text{T} = \frac{\text{T}_+ + \text{T}_-}{2}; \text{P} = \frac{\text{T}_+ - \text{T}_-}{\text{T}}
 \end{equation}
-wird ermittelt und zur Berechnung der Gütezahl der Streuungsintesität
-\begin{equation}
-    \text{TP}^2 = \bar{\text{T}}\cdot\left(\frac{\text{T}_+ - \text{T}_-}{\bar{\text{T}}}\right)^2
-\end{equation}
-verwendet. Die größere Gütezahl $\text{TP}^2$ entspricht der höheren Streuungsintensität und muss deswegen maximiert werden. Die verfügbare Herstellungstechnologie von mehrschichtigen Systemen limitiert die maximale Schichtenzahl einer Probe. Ohne allzu große technische Herausforderungen könnte eine Probe mit 200 Wiederholungen erstellt werden. Aus diesem Grund werden die Maxima im Bereich der Wiederholungszahl $N$ von 1 bis 200 gesucht.
+und zur Berechnung der Gütezahl der Streuungsintesität TP$^2$ verwendet. Die größere Gütezahl $\text{TP}^2$ ist ein Maß für die Streuungsintensität und muss maximiert werden. Die verfügbare Herstellungstechnologie von mehrschichtigen Systemen limitiert die maximale Schichtenzahl einer Probe. Ohne allzu große technische Herausforderungen könnte eine Probe mit 200 Wiederholungen erstellt werden. Aus diesem Grund werden die Maxima im Bereich der Wiederholungszahl $N$ von 1 bis 200 gesucht.
 \begin{figure}[H]
     \centering
     \input{images/probe_simulation/proben_vergleich_split_center_3.pgf}
-    \caption{Die Abhängigkeit des Transmissionsmittelwertes $\bar{\text{T}}$ (orange Linien) und der Gütezahl TP$^2$ (blaue Linien) einer Probe ist in Bezug auf Wiederholungszahl $N$ abgebildet. Die Maxima der Gütezahl TP$^2$ werden bei dem Wert $N_{\text{Fe, L3}}=72$ für die Photonenenergie $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ (orange Linie) bzw. bei dem Wert $N_{\text{Gd, M5}}=52$ für die Photonenenergie $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$ (blaue Linie) erreicht.}
+    \caption{Die Abhängigkeit des Transmissionsmittelwertes $\text{T}$ (orange Linien) und der Gütezahl TP$^2$ (blaue Linien) einer Probe ist in Bezug auf Wiederholungszahl $N$ abgebildet. Die Maxima der Gütezahl TP$^2$ werden bei dem Wert $N_{\text{Fe, L3}}=72$ für die Photonenenergie $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ (orange Linie) bzw. bei dem Wert $N_{\text{Gd, M5}}=52$ für die Photonenenergie $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$ (blaue Linie) erreicht.}
     \label{fig:proben_vergleich_centered}
 \end{figure}
 \noindent
-In Abb. \ref{fig:proben_vergleich_centered} sind die Rechenergebnisse aufgetragen. Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_{\text{Fe, L3}}=72$  bzw. $N_{\text{Gd, M5}}=52$ für die Photonenenergien $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$. Außerdem ist es wichtig, dass dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenrgie $h\nu_{\text{Gd, M5}}$ ca. zwei mal so groß als bei der Photonenenrgie $h\nu_{\text{Fe, L3}}$ ist. Diese Tatsache bezeichnet die Photonenenergie $h\nu_{\text{Gd, M5}}$ als die bevorzugte zur Durchführung der Streuexperimente.
+In Abb. \ref{fig:proben_vergleich_centered} sind die Ergebnisse aufgetragen. Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_{\text{Fe, L3}}=72$  bzw. $N_{\text{Gd, M5}}=52$ für die Photonenenergien $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$. Außerdem ist es wichtig, dass dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenrgie $h\nu_{\text{Gd, M5}}$ ca. zwei mal so groß als bei der Photonenenrgie $h\nu_{\text{Fe, L3}}$ ist. Diese Tatsache bezeichnet die Photonenenergie $h\nu_{\text{Gd, M5}}$ als die bevorzugte zur Durchführung der Streuexperimente.
 
 \noindent
 Als Schlussfolgerung werden insgesamt zwei Proben hergestellt:
-Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, besteht aus 61 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Die Wiederholungszahl $\bar{N} = 61$ wurde als Mittelwert zwischen den Werten $N_{\text{Fe, L3}}=72$ und $N_{\text{Gd, M5}}=52$ genommen, um nur eine Probe herzustellen und dem zufolge die hochwertigen Materialien und die Produktionszeit zu sparen.
+Die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, besteht aus 61 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Die Wiederholungszahl $\bar{N} = 61$ wurde als Mittelwert zwischen den Werten $N_{\text{Fe, L3}}=72$ und $N_{\text{Gd, M5}}=52$ genommen.
 
 \noindent
 Die zweite zu produzierende Probe, die weiter unter dem Namen \textbf{DS220126} bezeichnet wird, besteht aus 116 Schichten Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter}) mit einer Basis-Schicht (seed-layer) aus
 Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Für die Wahl der Wiederholungszahl $N=116$ wurde \cite[Abschnitt „Sample Preparation“]{tripathi_dichroic_2011} als Referenz genommen.
 
-\section{Probenauswertung}
-Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Topographie des Materials abbilden lässt, ist ein \gls{mfm}. Die mit dem \gls{mfm} aufgenommenen Domänenmuster und ihre absoluten Beträge von Fourier-Transformierten in logarithmischer Darstellung sind in der Abbildung \ref{fig:mfm-amplitude-ft} dargestellt.
+\section{Probencharakterisierung}
+Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$ eine wichtige Rolle. Je kleiner die Periodizität der Domänenstruktur einer Probe ist, desto größer wird der der Wert $S(\mathbf{q})$. Eines der Messgeräten, das die magnetische Struktur dünner Schichten mit \si{\nano\meter}-Auflösung abbilden kann, ist ein \gls{mfm}. Die mit dem \gls{mfm} aufgenommenen Domänenmuster und ihre Betragsquadraten von Fourier-Transformierten in logarithmischer Darstellung sind in Abb. \ref{fig:mfm-amplitude-ft} dargestellt.
 % \begin{figure}[H]
 %     \centering
 %     \subfloat[]{\includegraphics[width=0.27\textwidth]{images/mfm/ds211221_R1_membrane_amplitude_crop.png} \label{fig:mfm_ds211221}}
@@ -238,11 +235,11 @@ Der Gleichung (\ref{eq:intensitat_fourier}) nach spielt der Wert $S(\mathbf{q})$
 Es ist leicht zu sehen, dass die Domänengröße der Probe \textbf{DS211221} in Abb. \ref{fig:mfm-amplitude-ft}a wesentlich größer als die Domänengröße der Probe \textbf{DS220126} in Abb. \ref{fig:mfm-amplitude-ft}b ist. Darüber hinaus ist die Periodizität von Domänen in der Probe \textbf{DS211221} deutlich niedriger, als in der Probe  \textbf{DS220126}. Das widerspiegelt sich in den Fourier-Transformierten von Domänenmustern beider Proben (Abb. \ref{fig:mfm-amplitude-ft}c) und \ref{fig:mfm-amplitude-ft}d)), die proportional dem $S_m(\mathbf{q)}$ sind. In der Fourier-Transformierten von \textbf{DS220126} Domänenmuster ist ein viel schärferes Ringmuster zu sehen, das im Endeffekt bei dem Streuexperiment an der gegebenen Probe zu erwarten ist.
 
 \noindent
-In der Schlussfolgerung wurde die Probe \textbf{DS220126} wegen der stabilen Domänenperiodizität für das Streuexperiment gewählt, obwohl die erwarteten Transmissionsrate $\bar{\text{T}}$ und Gütezahlrate TP$^2$ viel niedriger sind. Für die Probe wurde zusätzlich eine Hysteresekurve mit einem selbstkonstruirten Messgerät, das sich auf dem \gls{moke} basiert, vermessen. Das Messgerät bietet keinen Zugang zur Domänenstruktur an, weil schließlich nur die Gesamtintensität des ganzen ein- und auslaufenden Strahls gemessen wird. Der Durchmesser vom Strahl ist in beiden Fällen ca. \SI{2}{\milli\meter} groß, was viel größer gegen der Domänengröße ist. So wird das durch die Fläche gemittelte Magnetisierungsgrad $\chi$ der Probe abgetastet (passt?). Die Hysteresekurve $\chi(B)$ (Abb. \ref{fig:hysterese_sample}) lässt dem Kurvenverlauf nach sagen, dass ...?
+In der Schlussfolgerung wurde die Probe \textbf{DS220126} wegen der stabilen Domänenperiodizität für das Streuexperiment gewählt, obwohl die erwarteten Transmissionsrate $\text{T}$ und Gütezahl TP$^2$ viel niedriger sind. Für die Probe wurde zusätzlich eine Hysteresekurve mit Hilfe des \gls{moke}, vermessen. Das Messgerät bietet keinen Zugang zur Domänenstruktur, weil schließlich nur die Gesamtintensität des ganzen ein- und auslaufenden Strahls gemessen wird. Der Durchmesser vom Strahl ist in beiden Fällen ca. \SI{2}{\milli\meter} groß, was viel größer gegen der Domänengröße ist. So wird das durch die Fläche gemittelte Magnetisierungsgrad $\chi$ der Probe abgetastet (passt?). Die Hysteresekurve $\chi(B)$ (Abb. \ref{fig:hysterese_sample}) lässt dem Kurvenverlauf nach sagen, dass ...?
 \begin{figure}[H]
     \centering
     \input{images/moke/ds220107_R1_moke.pgf}
-    \caption{Die Hysteresekurve von der Probe \textbf{DS220126}. Aufgenommen mit dem selbstkonstruirten Messgerät, das sich auf dem \gls{moke} basiert. Das magnetische Feld $B$ wird senkrecht zu der Probenfläche angelegt (in Plane).}
+    \caption{Die Hysteresekurve der Probe \textbf{DS220126}, aufgenommen mit \gls{moke}. Das magnetische Feld $\mu_0 H$ wird senkrecht zu der Probenfläche angelegt.}
     \label{fig:hysterese_sample}
 \end{figure}
 \newpage

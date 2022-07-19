@@ -145,7 +145,7 @@ In Anbetracht der Tatsache, dass das hellste Pixel nur \SI{116(4)}{\adu} von dem
 \noindent
 Es werden $N_A = 300$ Aufnahmen ausgewertet. In jeder Aufnahme wird der  \qtyproduct{100 x 100}{\px} große Direktstrahlbereich betrachtet mit der Gesamtfläche $N_P = \SI{1e4}{\pixel}$. Die \gls{qe} als Funktion des $s_V$-Wertes wird dadurch ermittelt, dass es die Photonenzahl mit dem Schwellenwertalgorithmus für den gegebenen Schwellenwert $s_V$ gezählt (digitale Photonenzahl)  wird und auf s.g. analoge Photonenzahl geteilt wird. Die Anzahl von \gls{fdpa} wird dadurch berechnet, dass es die Photonen mit dem Schwellenwertalgorithmus in den Dunkelbildern gezählt werden. Verwendet wurden ebenfalls $N_A = 300$ Aufnahmen. Der zu untersuchende Bereich wurde bis $\qtyproduct{300 x 400}{\px}$ vergrößert, um die bessere Statistik insbesondere für höhere $s_V$ Werte zu bekommen.
 \begin{equation}
-    \text{\gls{qe}}(s_V) =  \frac{\text{digitale Photonenzahl}(s_V) - N_A N_P \cdot \text{\gls{fdpa}}(s_V)}{\text{analoge Photonenzahl}}
+    \text{\gls{qe}}(s_V) = \frac{\text{digitale Photonenzahl}(s_V) - N_A N_P \cdot \text{\gls{fdpa}}(s_V)}{\text{analoge Photonenzahl}}
 \end{equation}
 Die analoge Photonenzahl wird als die Summe aller $N_A$ Aufnahmen in \si{\adu} durch den erwarteten ADU-Wert \SI{180}{\adu\per\photon} geteilt wird.
 

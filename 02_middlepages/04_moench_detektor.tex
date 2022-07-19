@@ -1,6 +1,6 @@
 \chapter{Röntgen-Detektor}
 \label{text:detector_theorie}
-\newacronym[user1=\emph{engl. analog-digital untis}]{adu}{ADU}{Analog-Digital-Wandler Auslese}
+\newacronym[user1=\emph{engl. analog-digital untis}]{adu}{ADU}{Analog-Digital-Einheiten}
 \newacronym[user1=\emph{engl. analog-to-digital converter}]{adc}{ADC}{Analog-Digital-Umsetzer}
 \newacronym[user1=\emph{engl. com\-ple\-men\-tary metal-oxide-semiconductor}]{cmos}{CMOS}{komplementärer Metall-Oxid-Halbleiter}
 \newacronym[user1=\emph{engl. charge-coupled device}]{ccd}{CCD}{ladungsgekoppeltes Bauteil}
@@ -55,7 +55,7 @@ Diese Sensorfamilie ist allerdings nicht frei von Nachteilen. Der entscheidende 
 
 \section{MÖNCH-Detektor}
 \label{text:moench_theorie}
-Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrahlung von \gls{sls} am \gls{psi}. Dieser stellt einen hybrid-Detektor dar, dessen Sensor hauptsächlich seinem Aufbau nach einem \gls{cmos}-Sensor ähnelt. Die technischen Nachbersserungen in Abb. \ref{fig:moench_pixel} lassen das Verstärkungsgrad variieren und die Auslesezeit durch den Einbau eines zusätzlichen Kondensatorspeichers beschleunigen.
+Der MÖNCH-Detektor ist ein Röntgendetektorprototyp von \gls{sls} am \gls{psi}. Dieser stellt einen hybrid-Detektor dar, dessen Sensor hauptsächlich seinem Aufbau nach einem \gls{cmos}-Sensor ähnelt. Die technischen Nachbersserungen in Abb. \ref{fig:moench_pixel} lassen das Verstärkungsgrad variieren und die Auslesezeit durch den Einbau eines zusätzlichen Kondensatorspeichers beschleunigen.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{images/moench/paper_crop.png}
@@ -63,22 +63,19 @@ Der MÖNCH-Detektor ist ein kommerziell hergestellter Detektor der Röntgenstrah
     \label{fig:moench_pixel}
 \end{figure}
 \noindent
-Zur Verfügung steht nämlich die \gls{moench03}, der die Auflösung \qtyproduct{400 x 400}{\px} hat und die verbesserte Rauschencharakteristik im Vergleich mit den vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Der gesamte Sensor ist \qtyproduct{10 x 10}{\milli\meter} groß. So ließt sich folgende Beziehung zum Umrechnen der Größen $l$ von \si{\milli\meter} in px und umgekehrt anwenden.
+Für die Messungen in dieser Arbeit stand die \gls{moench03} zur Verfügung, die eine Auflösung von \qtyproduct{400 x 400}{\px} und eine verbesserte Rauschencharakteristik im Vergleich zu vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Der gesamte Sensor ist \qtyproduct{10 x 10}{\milli\meter} groß. So ließt sich folgende Beziehung zum Umrechnen der Größen $l$ von \si{\milli\meter} in px und umgekehrt anwenden.
 \begin{equation}
-    \begin{split}
-\SI{1}{\milli\meter}\ &\widehat{=}\ \SI{40}{px}\\
-\SI{1}{px}\ &\widehat{=}\ \SI{2.5e-2}{\milli\meter}
-    \end{split}
+    \SI{1}{\milli\meter}\ \widehat{=}\ \SI{40}{\px}
     \label{eq:px_mm_ratio}
 \end{equation}
 \noindent
-Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, sei die Sensorfläche mit \SI{500}{\nano\meter} Al-Beschichtung versorgt.
+Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, hat die Sensorfläche eine \SI{500}{\nano\meter} Al-Beschichtung.
 
 \noindent
-Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal bis auf \SI{100}{\nano\second} gesetzt werden. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
+Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal bis auf \SI{100}{\nano\second} gesetzt werden. Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
 
 \noindent
-Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat ein für eine bestimmte Belichtugnszeit $\tau$ konstantes Offset, das durch den Abzug der gemittelten Dunkelbilder bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
+Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat einen für eine bestimmte Belichtugnszeit $\tau$ konstanten Offset, der durch den Abzug der gemittelten Dunkelbilder bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
 
 \noindent
 Da der Rauschenpegel des Detektors von den einzelnen Bauelementen abhängt und sich innerhalb einer Baureihe unterscheiden kann, sollen die  Detektorcharateristiken im Einzelfall ausgewertet werden. Aus diesem Grund wurde die Rauschencharakteristik mit dem verfügbaren \gls{moench03} aufgenommen.
@@ -122,7 +119,7 @@ $d_\text{Al$_2$O$_3$} = \SI{4.74}{\nano\meter}$, die sehr plausibel mit der gege
 Die in Abb. \ref{fig:response_moench} dargestellte Responsecharakterstik bezeichnet die durchschnittliche Sensorresponse. D.h., dass das Responsesignal gleichmäßig auf die gesamte Photonenzahl geteilt wird, ungeachtet darauf, ob das Photon tatsächlich detektiert wird oder in der Sensorbeschichtung verlorengeht und den Sensor nicht erreicht.
 
 \noindent
-So, wenn es um das Responsesignal eines tatsächlich detektierten Photons geht, muss der Transmissionsfaktor in der Gleichung (\ref{eq:response_durchschnitt}) der Anpassungsfunktion $R$ weggelassen werden. So ergibt sich die lineare Proportionalität
+Wenn es um das Responsesignal eines einzelnen tatsächlich detektierten Photons geht, muss der Transmissionsfaktor in Gleichung (\ref{eq:response_durchschnitt}) der Anpassungsfunktion $R$ weggelassen werden. So ergibt sich die lineare Proportionalität
 \begin{equation}
     R_\text{detek}(h\nu) = h\nu \cdot r
     \label{eq:adu_to_ev}
@@ -130,8 +127,8 @@ So, wenn es um das Responsesignal eines tatsächlich detektierten Photons geht, 
 zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei derselbe Koeffizient $r = \SI{1.51e-1}{\adu\per\eV}$ pro Photon eingesetzt werden kann. Somit lassen sich die erwarteten \gls{adu}-Werte $W$ für tatsächlich detektierte Photonen mit den Enenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abschätzen. Diese ergeben sich 
 \begin{equation}
 \begin{split}
-     W_{\text{Fe, L3}} = \SI{1.51e-1}{\adu\per\eV} \cdot \SI{706.97}{\eV} &=  \SI{107(1)}{\adu}\\
-     W_{\text{Gd, M5}} = \SI{1.51e-1}{\adu\per\eV} \cdot \SI{1184.79}{\eV} &=  \SI{180(1)}{\adu}.
+     W_{\text{Fe, L3}} &=  \SI{107(1)}{\adu}\\
+     W_{\text{Gd, M5}} &=  \SI{180(1)}{\adu}.
 \end{split}
 \label{eq:auselesewerte_fe_gd}
 \end{equation}
@@ -148,11 +145,11 @@ In Hinblick darauf, dass der Photonenfluss der \gls{pxs} innerhalb eines Pulses 
 Der \gls{moench03} stellt einen Detektor dar, dessen Einsatz aufgrund des Auslesezeit-Rauschen-Ver\-hält\-nis\-ses insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}. Für die bessere Effizienz der Nachbearbeitung soll die ursprüngliche Differenz zwischen Auslesewerten von Rauschen und Signal maximiert werden. Das ist dadurch zu realisieren, dass die Belichtungszeit $\tau$ möglichst verkürzt wird, um den Rauschenpegel zu senken, und die Photonenenergie mit dem höheren erwarteten \gls{adu}-Wert nämlich $h\nu_{\text{Gd, M5}}$ gewählt wird.
 
 \noindent
-Die Erkennung (Detektion passt?) der einzelnen Photonen (in der Literatur oft als \emph{engl. single-photon counting} gezeichnet) ist nicht trivial und kommt als eine besondere algorithmische Herausforderung vor. Es gibt zahlreiche Algorithmen und es wird ständig nach besseren Lösungen gesucht. Die Effizienz eines oder anderen Algorithmen hängt von Detektorauflösung, Photonenfluss, ursprünglichen \gls{snr} und weiteren Parametern von Messdaten ab. In folgenden Unterabschnitten werden die theoretischen Grundlagen der einzusetzenden Algorithmen erfasst.
+Die Erkennung der einzelnen Photonen (in der Literatur oft als \emph{engl. single-photon counting} gezeichnet) ist nicht trivial und kommt als eine besondere algorithmische Herausforderung vor. Es gibt zahlreiche Algorithmen und es wird ständig nach besseren Lösungen gesucht. Die Effizienz eines oder anderen Algorithmen hängt von Detektorauflösung, Photonenfluss, ursprünglichen \gls{snr} und weiteren Parametern von Messdaten ab. In folgenden Unterabschnitten werden die theoretischen Grundlagen der einzusetzenden Algorithmen erfasst.
 
 \subsection{Schwellenwert-Algorithmus}
 \label{text:threshold_algorithm}
-Eine der möglichst einfachen Lösungen ist die Anwendung des Schwellenwert-Filters für die Pixelwerte. D.h., dass alle \gls{adu}-Werte, die größer als der Schwellenwert $s_V$ sind, als Pixel mit Photon(en) darin bezeichnet werden. Diejenige \gls{adu}-Werte, die dieser Ungleichung nicht genügen, werden als Photonenlose-Pixel (als Rauschen) identifiziert und auf null gesetzt.
+Eine der möglichst einfachen Lösungen ist die Anwendung des Schwellenwert-Filters für die Pixelwerte. D.h., dass alle \gls{adu}-Werte, die größer als der Schwellenwert $s_V$ sind, als Pixel mit einem Photon darin bezeichnet werden. Diejenige \gls{adu}-Werte, die dieser Ungleichung nicht genügen, werden als leeres Pixel (als Rauschen) identifiziert und auf null gesetzt.
 
 \noindent
 Das Algorithmus ist anwendungsfähig, hat aber einen fundamentalen Nachteil. Bei den reellen Sensoren tritt häufig ein Effekt auf, dass die Ladung eines Pixels über die benachbarten Pixeln verteilt wird. So ist wird auch der \gls{adu}-Wert dementsprechend verteilt. Wenn diese Ladungsverteilung  stark genug ist, kann der verbleibende \gls{adu}-Wert des Pixels, wo ein Photon tatsächlich eingefallen ist, allerdings nicht ausreichend sein, um den Schwellenwert $s_V$ zu bewältigen und als Photon bei der Auswertung gekennzeichnet/identifiziert zu werden. Die Charakteristik, die die Stärke der Ladungsverteilung beschreibt, ist detektor- und photonenenergiespezfisch und heißt \gls{psf}.
