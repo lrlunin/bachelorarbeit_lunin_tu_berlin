@@ -1362,7 +1362,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.433333in,y=2.024288in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \begin{tabular}{c}Polarisa-\\ tionsrate P\end{tabular}}%
+\pgftext[x=0.433333in,y=2.024288in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \begin{tabular}{c}magnetischer\\ Kontrast P\end{tabular}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.833025in}{1.580170in}}{\pgfqpoint{4.650000in}{0.888235in}}%

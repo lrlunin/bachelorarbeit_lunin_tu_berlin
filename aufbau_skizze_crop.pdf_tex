@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.0 (4035a4fb49, 2020-05-01), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'aufbau_skizze.pdf' (pdf, eps, ps)
+%% Accompanies image file 'aufbau_skizze_crop.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,7 +53,7 @@
   \begin{picture}(1,0.22889515)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbau_skizze.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{aufbau_skizze_crop.pdf}}%
     \put(0.04508802,0.21529428){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Scheibenlaser\end{tabular}}}}%
     \put(0.07889021,0.1720852){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Linse\end{tabular}}}}%
     \put(0.00728704,0.03920439){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Wolfram-\\zylinder\end{tabular}}}}%
@@ -61,7 +61,7 @@
     \put(0.42795129,0.16912408){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Spalt\end{tabular}}}}%
     \put(0.66138243,0.15076825){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Probe\end{tabular}}}}%
     \put(0.82322241,0.20206029){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Detektorsensor\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbau_skizze.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{aufbau_skizze_crop.pdf}}%
     \put(0.07834817,0.12414621){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Laserplasma\end{tabular}}}}%
   \end{picture}%
 \endgroup%
