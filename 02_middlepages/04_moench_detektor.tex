@@ -2,8 +2,8 @@
 \label{text:detector_theorie}
 \newacronym[user1=\emph{engl. analog-digital untis}]{adu}{ADU}{Analog-Digital-Einheiten}
 \newacronym[user1=\emph{engl. analog-to-digital converter}]{adc}{ADC}{Analog-Digital-Umsetzer}
-\newacronym[user1=\emph{engl. com\-ple\-men\-tary metal-oxide-semiconductor}]{cmos}{CMOS}{komplementärer Metall-Oxid-Halbleiter}
-\newacronym[user1=\emph{engl. charge-coupled device}]{ccd}{CCD}{ladungsgekoppeltes Bauteil}
+\newacronym[user1=\emph{engl. com\-ple\-men\-tary metal-oxide-semiconductor}]{cmos}{CMOS}{CMOS-Sensor}
+\newacronym[user1=\emph{engl. charge-coupled device}]{ccd}{CCD}{CCD-Sensor}
 \newacronym[user1=\emph{engl. active pixel sensor}]{aps}{APS}{aktiver Pixelsensor}
 \newacronym{ptb}{PTB}{Physikalisch-Technische Bundesanstalt}
 \newacronym{psi}{PSI}{Paul Scherrer Institut}
@@ -11,22 +11,22 @@
 \newacronym{moench03}{MÖNCH03}{dritte Generation des MÖNCH-Detektors}
 \newacronym[user1=\emph{engl. signal to noise ratio}]{snr}{SNR}{Signal-Rausch-Verhältnis}
 \newacronym[user1=\emph{engl. point spread function}]{psf}{PSF}{Punktspreizfunktion}
-Für die zweidimensionale Abbildung der Röntgenstrahlung sind die Detektoren gebraucht, die analog zu den üblichen Kameras für den sichtbaren Spektrumbereich funktionieren. Ein photonenempfindlicher Sensor ist das wichtigste Bauteil aller Detektoren. Die einfallende Photonen werden mit der Fotodioden an der Sensorfläche in die Ladung durch den inneren Fotoeffekt umgewandelt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es grundsätzlich zwei Primärtechnologien, wonach alle Sensoren sich aufteilen lassen.
+Um das Kleimwinkelstreusignal möglichst effizient aufzunehmen, werden heutzutage fast ausschließlich Flächendetektoren verwendet. Ein photonenempfindlicher Sensor ist das wichtigste Bauteil aller Detektoren. Die einfallenden Photonen erzeugen in den Fotodioden an der Sensorfläche Ladung durch den inneren Fotoeffekt. Für den weiteren Ladungstransport und die Datenverarbeitung gibt es grundsätzlich zwei Primärtechnologien, wonach sich alle Sensoren aufteilen lassen.
 
 \section{CCD-Sensor}
 \label{text:ccd_theorie}
-Die erste Sensorfamilie heißt ein \gls{ccd} oder \gls{ccd}-Sensor. Bei diesem Sensortyp wird zuerst die Ladung von Fotodioden an den Leiter übertragen. Danach werden die Ladungen am Leiter durch die koordinierte zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten) bis zu dem einzigen horizontalen Leiter. Dieser wird auch ein Schieberegister genannt und ermöglicht den weiteren Ladungstransport zum Verstärker. Dieses Verfahren ist genauerer in Abb. \ref{fig:ccd_scheme} dargestellt.
+Die erste Sensorfamilie heißt ein \gls{ccd}. Bei diesem Sensortyp wird zuerst die von Fotodioden erzeugte Ladung an den Leiter übertragen. Danach werden die Ladungen am Leiter durch die koordinierte zeitliche Änderung des lokalen elektrischen Potential der Reihe nach verschoben. Typischerweise erfolgt die Verschiebung vertikal (entlang der Spalten) bis zu dem einzigen horizontalen Leiter. Dieser wird auch ein Schieberegister genannt und ermöglicht den weiteren Ladungstransport zum Verstärker. Dieses Verfahren ist genauerer in Abb. \ref{fig:ccd_scheme} dargestellt.
 \begin{figure}[H]
     \centering
     \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_1_amp.pdf} \label{fig:ccd_scheme_frame_1}}
     \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_2_amp.pdf} \label{fig:ccd_scheme_frame_2}}
     \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_3_amp.pdf} \label{fig:ccd_scheme_frame_3}}
     \subfloat[]{\includegraphics[width=0.24\textwidth]{images/ccd_scheme/ccd_frame_4_amp.pdf} \label{fig:ccd_scheme_frame_4}}
-    \caption{Die prinzipiellen Schritte vom Ausleseprozess am Beispiel eines \qtyproduct{2 x 2}{\px} \gls{ccd}-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen, die gelben und brauen Tafeln entsprechen den Leiterbereichen, wo der Ladungstransport vertikal bzw. horizontal erfolgt. Der horizontale Leiter wird auch Schieberegister genannt. Der grüne Dreieck ist ein Verstärker. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden aufgebaut und (b) dann an den vertikalen Leiter übertragen. Die Ladungen von Fotodioden der untersten Reihe (c) werden auf den Schieberegister am frühsten kommen. Im Laufe der Zeit (d) werden die Ladungen im Schieberegister weiter nach rechts zum Verstärker verschoben, wo die Ladung in die Spannung umgewandelt wird. Als die Ladungen der untersten Reihe verarbeitet werden, wiederholt sich der Prozess in den Stufen (c) und (d) bis zu Ende der horizontalen Sensorauflösung.}
+    \caption{Die prinzipiellen Schritte vom Ausleseprozess am Beispiel eines \qtyproduct{2 x 2}{\px} \gls{ccd}-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen, die gelben und brauen Tafeln entsprechen den Leiterbereichen, wo der Ladungstransport vertikal bzw. horizontal erfolgt. Der horizontale Leiter wird auch Schieberegister genannt. Der grüne Dreieck ist ein Verstärker. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden aufgebaut und (b) dann an den vertikalen Leiter übertragen. Die Ladungen von Fotodioden der untersten Reihe (c) werden auf den Schieberegister am frühsten kommen. Im Laufe der Zeit (d) werden die Ladungen im Schieberegister weiter nach rechts zum Verstärker verschoben, wo die Ladung in die Spannung umgewandelt wird. Als die Ladungen der untersten Reihe verarbeitet werden, wiederholen sich die Schritte (c) und (d) bis zu Ende der horizontalen Sensorauflösung.}
     \label{fig:ccd_scheme}
 \end{figure}
 \noindent
-Die Ladungen werden seriell mit einem einzigen Verstärker zuerst in die Spannung und dann mit einem \gls{adc} ins digitale Signal umgewandelt. So wird das Gesamtbild an dem Sensor der Reihe nach ausgelesen.
+Die Ladungen werden seriell mit einem einzigen Verstärker zuerst in die Spannung und dann mit einem \gls{adc} in das digitale Signal umgewandelt. So wird das Gesamtbild an dem Sensor der Reihe nach ausgelesen.
 
 \noindent
 Die Dauer dieses Verfahrens hängt von der Sensorauflösung (Pixelanzahl) ab und kann relativ lang sein. Als Beispiel eines im Röntgenbereich aktiv benutzten \gls{ccd}-Detektors kann ein Princeton Instruments
@@ -34,7 +34,7 @@ PI-MTE: 2048B$^{\text{®}}$ dienen. Im Falle der höchsten Ausleserate von \SI{1
 
 \section{CMOS-Sensor}
 \label{text:cmos_theorie}
-Die zweite große Sensorfamilie heißt \gls{cmos}. Die wird auch häufig \gls{aps} oder auch \gls{cmos}-Sensor genannt. Bei diesem Sensortyp ist jede Fotodiode mit einem eigenen Verstärker versorgt, somit wird die Ladung unmittelbar nah an der Fotodiode ohne weiteren Ladungstransport in die Spannung umgewandelt. Die Digitalisierung der Spannung von einer bestimmten Fotodiode kann durchs Schlissen vom Paar entsprechender Schalter in der Reihe und dem Spalt, wobei alle andere Schalter geschlossen bleiben. Dieses Verfahren ist in Abb. \ref{fig:cmos_scheme} genauer dargestellt.
+Die zweite große Sensorfamilie heißt \gls{cmos}. Sie wird auch häufig \gls{aps} genannt. Bei diesem Sensortyp besitzt jede Fotodiode mit einen eigenen Verstärker und die Ladung wird unmittelbar an der Fotodiode ohne weiteren Ladungstransport in die Spannung umgewandelt. Die Digitalisierung der Spannung von einer bestimmten Fotodiode kann durch das Schließen der entsprechenden Schalter für die Reihe und Spalt des Pixels, wobei alle andere Schalter offen bleiben. Dieses Verfahren ist in Abb. \ref{fig:cmos_scheme} schematisch dargestellt.
 \begin{figure}[H]
     \centering
     \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_1_fat.pdf} \label{fig:cmos_scheme_frame_1}}
@@ -44,14 +44,14 @@ Die zweite große Sensorfamilie heißt \gls{cmos}. Die wird auch häufig \gls{ap
     \subfloat[]{\includegraphics[width=0.30\textwidth]{images/cmos_scheme/cmos_auslese_frame_3_fat.pdf} \label{fig:cmos_scheme_frame_3}}
     % \hfill
     % \subfloat[]{\includegraphics[width=0.24\textwidth]{images/cmos_scheme/cmos_auslese_frame_4_fat.pdf} \label{fig:cmos_scheme_frame_4}}
-    \caption{Die prinzipiellen Schritte vom Ausleseprozess am Beispiel eines \qtyproduct{2 x 2}{\px} CMOS-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen. Jeder grüne Dreieck ist ein Verstärker. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden aufgebaut und (b) dann durch den Verstärker an jedem Pixel in die Spannung umgewandelt. Die Schalter an bestimmter Reihe- und Spalt (c) werden geschlossen. Durch ihre Permutationen werden die Spannungen jedes Pixels übertragen. Im Gegensatz zu einem CCD-Sensor kann die Auslese von verschiedenen Spalten simultan eintreten.}
+    \caption{Die prinzipiellen Schritte vom Ausleseprozess am Beispiel eines \qtyproduct{2 x 2}{\px} CMOS-Sensors. Die hellblauen Bereiche sind als einzelne Fotodioden zu verstehen. Jeder grüne Dreieck ist ein Verstärker. Die Ladung wird (a) zuerst durch den inneren Fotoeffekt an den Fotodioden erzeugt und (b) dann durch den Verstärker an jedem Pixel in die Spannung umgewandelt. Die Schalter entsprechender Reihe und Spalt (c) werden geschlossen. Durch ihre Permutationen werden die Spannungen jedes Pixels übertragen. Im Gegensatz zu einem CCD-Sensor kann die Auslese von verschiedenen Spalten simultan laufen.}
     \label{fig:cmos_scheme}
 \end{figure}
 \noindent
-Dadurch können die Spannungen parallel in Spalten mit \gls{adc} digitalisiert werden. So sind die viel kürzeren Auslesezeiten erreichbar. Ein typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle eines \qtyproduct{2048 x 2048}{\px} Bildes einige \si{\milli\second} betragen würde.
+Dadurch können die Spannungen parallel in Spalten mit mehreren \gls{adc}s digitalisiert werden und Auslesezeiten wesemtlich kürzen. Die typische Auslesezeit einer Reihe liegt im \si{\micro\second}-Bereich, was im Falle eines \qtyproduct{2048 x 2048}{\px} Bildes einige \si{\milli\second} für den ganzen Sensor ergibt.
 
 \noindent
-Diese Sensorfamilie ist allerdings nicht frei von Nachteilen. Der entscheidende Faktor, warum \gls{cmos}-Sensoren die \gls{ccd}-Sensoren nicht in allen Bereichen verdrängten, ist der wesentlich höhere Rauschpegel. Es gibt also verschiedene Szenarien, wo ein oder anderer Sensortyp angewendet werden kann. Die Wahl hängt von der verfügbaren Zeit, erzielten Präzision und Art der Messung ab.
+Diese Sensorfamilie ist allerdings nicht frei von Nachteilen. Der entscheidende Faktor, warum \gls{cmos}-Sensoren die \gls{ccd}-Sensoren nicht in allen Bereichen verdrängt haben, ist der wesentlich höhere Rauschpegel. Die Wahl des geeigniten Detektors hängt von der verfügbaren Zeit, erzielten Präzision und Art der Messung ab.
 
 \section{MÖNCH-Detektor}
 \label{text:moench_theorie}
@@ -63,33 +63,33 @@ Der MÖNCH-Detektor ist ein Röntgendetektorprototyp von \gls{sls} am \gls{psi}.
     \label{fig:moench_pixel}
 \end{figure}
 \noindent
-Für die Messungen in dieser Arbeit stand die \gls{moench03} zur Verfügung, die eine Auflösung von \qtyproduct{400 x 400}{\px} und eine verbesserte Rauschencharakteristik im Vergleich zu vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Der gesamte Sensor ist \qtyproduct{10 x 10}{\milli\meter} groß. So ließt sich folgende Beziehung zum Umrechnen der Größen $l$ von \si{\milli\meter} in px und umgekehrt anwenden.
-\begin{equation}
-    \SI{1}{\milli\meter}\ \widehat{=}\ \SI{40}{\px}
-    \label{eq:px_mm_ratio}
-\end{equation}
-\noindent
-Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, hat die Sensorfläche eine \SI{500}{\nano\meter} Al-Beschichtung.
+Für die Messungen in dieser Arbeit stand die \gls{moench03} zur Verfügung, die eine Auflösung von \qtyproduct{400 x 400}{\px} und eine verbesserte Rauschencharakteristik im Vergleich zu vorherigen Generationen hat. Die Pixelgröße beträgt \SI{25}{\micro\meter}. Der gesamte Sensor ist \qtyproduct{10 x 10}{\milli\meter} groß. Um die unerwünschte Belichtung der Pixeln mit dem sichtbaren Licht während der Messung zu verhindern, hat die Sensorfläche eine \SI{500}{\nano\meter} Al-Beschichtung.
 
 \noindent
-Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal bis auf \SI{100}{\nano\second} gesetzt werden. Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der fremden Apparatur ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
+Die Belichtungszeit $\tau$ von \gls{moench03} kann minimal bis auf \SI{100}{\nano\second} gesetzt werden. Die Totzeit des Detektors nach einer Aufnahme beträgt \SI{250}{\micro\second}. Der Aufnahmevorgang des Detektors kann mit einem äußeren Triggersignal gestartet werden, was die zeitliche Synchronisation mit der Röntgenquelle ermöglicht. Die Werte von Intensität werden vom Detektor in den spezifischen Einheiten zur Verfügung gestellt und werden als \gls{adu} bezeichnet.
 
 \noindent
-Die Pixelwertevertelung des Hintergrundrauschen entspricht der Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat einen für eine bestimmte Belichtugnszeit $\tau$ konstanten Offset, der durch den Abzug der gemittelten Dunkelbilder bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
+Das Detektorsignal des Hintergrundrauschen folgt gut einer Gauß-Verteilung. Der Mittelwert $\bar{x}$ und die Standardabweichung $\sigma$ vom Hintergrundruaschen hängen direkt von der Belichtungszeit $\tau$ ab. Der Wert jedes Pixels hat einen für eine bestimmte Belichtugnszeit $\tau$ konstanten Offset, der durch den Abzug der gemittelten Dunkelbilder bei der Datennachbearbeitung eliminiert werden kann. Aus diesem Grund ist die Standardabweichung $\sigma$ die entscheidende Größe, die Auskunft über \gls{snr} des Detektors gibt.
 
 \noindent
 Da der Rauschenpegel des Detektors von den einzelnen Bauelementen abhängt und sich innerhalb einer Baureihe unterscheiden kann, wurde für diese Arbeit die  Rauschencharakteristik des eingesetzten Detektormodels bestimmt.
 \begin{figure}[H]
     \centering
     \input{images/moench/noise_referenz_two_plots.pgf}
-    \caption{Die Rauschcharakteristik des \gls{moench03} in Bezug auf die Belichtungszeit $\tau$ ist in (a) in \gls{adu} und logarithmisch bzw. (b) in den erzeugten Elementarladungen e$^-$ linear aufgetragen. Die entsprechenden Messungen (blau) wurden am 2. März 2022 unmittelbar mit dem \gls{moench03} durchgeführt. Die Koeffizienten für Referenz Anpassung (b) $\sigma(\tau)$ stammen aus \cite{ramilli-measurements-2017} und lauten $a=\num{0,2}$ e${^-}^2\mu \text{s}^{-1}$ und $b=\num{34.3}$ e${^-}$. Die Referenz demonstriert den vergleichbaren Rauschpegel am Anfang der Kurve und den deutlich niedrigeren Rauschpegel mit der zunehmenden Belichtungszeit $\tau$.}
+    \caption{Die Rauschcharakteristik des \gls{moench03} in Bezug auf die Belichtungszeit $\tau$ ist in (a) in \gls{adu} und logarithmisch bzw. (b) in den erzeugten Elementarladungen e$^-$ linear aufgetragen. Die entsprechenden Messungen (blau) wurden am 2. März 2022 unmittelbar mit dem \gls{moench03} durchgeführt. Die Koeffizienten für Referenz Anpassung (b) $\sigma(\tau)$ stammen aus \cite{ramilli-measurements-2017} und lauten $a=\num{0,2}$ e${^-}^2\si{\per\micro\second}$ und $b=\num{34.3}$ e${^-}$. Die Referenz demonstriert den vergleichbaren Rauschpegel am Anfang der Kurve und den deutlich niedrigeren Rauschpegel mit der zunehmenden Belichtungszeit $\tau$.}
     \label{fig:noise_moench}
 \end{figure}
 \noindent
-In dem Fall ist es zu sehen, dass die Rauschcharakterestik vom verfügbaren \gls{moench03} den deutlich niedrigen Rauschpegel für diesselben Belichtungszeiten $\tau$ zeigt, als ein \gls{moench03} im Referenzblatt \cite{ramilli-measurements-2017} von \gls{psi}.
+Die Ergebnisse einer Untersuchung des Detektorrauschens in Abhängigkeit von der Belichtungszeit $\tau$ sind in Abb. \ref{fig:noise_moench} dargestellt.
 
 \noindent
-Das Auslesesignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonenenergie $h\nu$ des einfallenden Lichtes. Der Zusammenhang dieser Größen heißt die Responsecharateristik. Diese hängt auch von der Verstärkungsgradeinstellung des Detektors. Bei der Aufnahme der Responsecharakteristik und im Laufe der weiteren Messungen wird das höchste Verstärkungsgrad (G4\_HIGHGAIN) benutzt. Der Detektor wird mithilfe eines äußeren Wasserdurchlaufkühlers auf die Temperatur von \SI{17}{\celsius} gekühlt. Wie es bereits erwähnt wurde, habe der Sensor eine \SI{500}{\nano\meter} Al-Beschichtung. Das verhindert die Photonentransmission, und zwar proportional dem photonenenergieabhängigen Absortiopnskoeffizienten $\mu_\text{Al}(h\nu)$, und beeinflusst dadurch die Responsecharakterstik des Detektors.
+In Abb. \ref{fig:noise_moench}b wird die Rauschenstandardabweichung vom verfügbaren \gls{moench03}, die von \si{\adu} in die äquivalente Zahl der erzeugten Elektronen umberechnet wurde, mit der Rauschencharakteristik vom Referenzblatt \cite{ramilli-measurements-2017} von \gls{psi} verglichen. Dafür wird das vermessene Detektorsignal zuerst von \si{\adu} in \si{\eV} nach Gl. (\ref{eq:adu_to_ev}) und dann in der äquivalenten Zahl der in Si erzeugten Elektronen mit der Bandlücke $\SI{1,1}{\eV}$ dargestellt.
+
+\noindent
+Die Rauschencharakterestik vom verfügbaren \gls{moench03} zeigt deutlich höhere Standardabweichung, insbesondere bei den größeren Belichtungzeiten $\tau$. Die zeitunabhängigen Offsets, die dem Ausleserauschen entsprechen, sind bei der kürzesten Belichtungszeit \SI{100}{\nano\second} beider Detektoren fast identisch.
+
+\noindent
+Das Detektorsignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonenenergie $h\nu$ des einfallenden Photons. Der Zusammenhang dieser Größen heißt die Responsecharateristik. Diese hängt auch von der Verstärkungsgradeinstellung des Detektors ab. Bei der Aufnahme der Responsecharakteristik und im Laufe der Messungen in dieser Arbeit wird das höchste Verstärkungsgrad (G4\_HIGHGAIN) benutzt, um ein möglichst hohes Einzelphotonsignal zu erhalten, das sich weit vom Rauschen absetzt. Der Elektronik des Detektors wird mithilfe eines äußeren Wasserdurchlaufkühlers auf die Temperatur von \SI{17}{\celsius} gekühlt. Wie es bereits erwähnt wurde, hat der Sensor eine \SI{500}{\nano\meter} Al-Beschichtung. Das verhindert die Photonentransmission, und zwar proportional dem photonenenergieabhängigen Absortiopnskoeffizienten $\mu_\text{Al}(h\nu)$, und beeinflusst dadurch die Responsecharakterstik des Detektors.
 % \begin{figure}[H]
 %     \centering
 %     \input{images/moench/response_700_1400ev.pgf}

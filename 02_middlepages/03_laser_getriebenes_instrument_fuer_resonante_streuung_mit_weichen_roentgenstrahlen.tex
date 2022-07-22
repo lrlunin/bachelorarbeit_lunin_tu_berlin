@@ -36,7 +36,19 @@ Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten
 Es ist schwer, den Photonenfluss der \gls{pxs} genau anzugeben, weil er nicht nur von der Wahl der \gls{rzp} abhängt, sondern auch von ihrer Position und dem  Photonenenergiebereich.
 
 \noindent
-So kann der Photonenfluss der \gls{pxs} an der Photonenenergie $h\nu_\text{Gd, M5}$ abgeschätzt werden. So werden ca. \SI{617}{\photons} pro Puls innerhalb des roten Vierecks in Abb. \ref{fig:butterfly_moench} detektiert. In Hinblick auf die Pulsperiode \SI{10}{\milli\second} ergibt sich der Photonenfluss in Höhe von ca. \SI{6.2e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als $\SI{1e12}{\photons\per\second}$ ist.
+Es kann beispielsweise der Photonenfluss der \gls{pxs} an der Photonenenergie $h\nu_\text{Gd, M5}$ abgeschätzt werden. So werden ca. \SI{617}{\photons} pro Puls innerhalb des roten Vierecks in Abb. \ref{fig:butterfly_moench} detektiert. In Hinblick auf die Pulsperiode \SI{10}{\milli\second} ergibt sich der Photonenfluss in Höhe von ca. \SI{6.2e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als $\SI{1e12}{\photons\per\second}$ ist.
 
 \noindent
-Dies führt dazu, dass der ausreichende Kontrast bei denselben oder vergleichbaren Belichtungszeiten des Detektors nicht zu erreichen ist. In dem Fall gibt es zwei Strategien fürs Aufnahmeverfahren: es kann entweder die extrem hohe Belichtungszeit gesetzt werden, wobei das Hintergrundrauschen des Detektors relativ klein gegen der Belichtungszeit steigt, oder eine Methode vom Trennen des Hintergrundrauschens vom dem Streusignal angewendet werden. Um die Wahl der Lösung und die Bedingungen, die dem Detektor gegebenenfalls auferlegt werden, wird es im nächsten Kapitel genauer diskutiert.
+Für die Detektion des Streusignals an der \gls{pxs} werden also erheblich höhere Belichtungszeiten des Detektors benötigt. In diesem Fall gibt es zwei Strategien für das Aufnahmeverfahren:
+
+\noindent
+Die Belichtungszeit wird hoch gesetzt, sodass eine Aufnahme Streusignal mehrerer Pulse der \gls{pxs} enthält. In diesem Fall müssen sowohl das Detektordunkelrauschen, das typischerweise mit der Zunahme der Belichtungszeit steigt, als auch das Ausleserauschen klein gegenüber Streusignal sein.
+
+\noindent
+Die andere Methode basiert sich auf Trennen des Hintergrundrauschens vom dem Streusignal. Die Belichtungszeit wird möglichst klein gesetzt, sodass jeder Puls der \gls{pxs} einzeln aufgenommen wird und das Detektordunkelrauschen gesenkt wird. In diesem Fall ist das Ausleserauschen nun dominierend und muss klein gegenüber Ein-Photon-Signal sein.
+
+\noindent
+Die beiden Methode haben gewisse Vor- und Nachteile. Die erste Aufnahmemethode ist einfach zu realisieren. Der Dynamikumfang des Detektors muss jedoch idealerweise groß genug sein, damit das gemessene Signal innerhalb des gesamten Sensors linear abgebildet wird. In der Wirklichkeit ist es kaum realisierbar. So werden typischerweise potenziell überbelichtete Sensorbereiche des Detektors vom Röntgenstrahl abgeschirmt, was weiter das Normierungsverfahren erschwert. Die zweite Aufnahmemethode lässt sich gut mit einem Anregungs-Abfrage-Experiment (\emph{engl. pump-probe experiment}) kombinieren und bietet besseren Dynamikumfang. Die Photonenerkennung kann jedoch Artefakte verursachen.
+
+\noindent
+Um die Wahl der Lösung und die Bedingungen, die dem Detektor gegebenenfalls auferlegt werden, wird es im nächsten Kapitel genauer diskutiert.
