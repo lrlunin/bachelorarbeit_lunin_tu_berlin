@@ -24,7 +24,7 @@
 \begingroup%
 \makeatletter%
 \begin{pgfpicture}%
-\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{6.185873in}{3.725148in}}%
+\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{6.185873in}{3.682112in}}%
 \pgfusepath{use as bounding box, clip}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -36,8 +36,8 @@
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.000000in}{0.000000in}}%
 \pgfpathlineto{\pgfqpoint{6.185873in}{0.000000in}}%
-\pgfpathlineto{\pgfqpoint{6.185873in}{3.725148in}}%
-\pgfpathlineto{\pgfqpoint{0.000000in}{3.725148in}}%
+\pgfpathlineto{\pgfqpoint{6.185873in}{3.682112in}}%
+\pgfpathlineto{\pgfqpoint{0.000000in}{3.682112in}}%
 \pgfpathlineto{\pgfqpoint{0.000000in}{0.000000in}}%
 \pgfpathclose%
 \pgfusepath{}%
@@ -588,7 +588,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.433333in,y=3.090170in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \begin{tabular}{c}Transmissions-\\ mittelwertsrate \(\displaystyle \text{T}\)\end{tabular}}%
+\pgftext[x=0.433333in,y=3.090170in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont \begin{tabular}{c}Transmis-\\sionsrate \(\displaystyle \text{T}\)\end{tabular}}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.833025in}{2.646053in}}{\pgfqpoint{4.650000in}{0.888235in}}%

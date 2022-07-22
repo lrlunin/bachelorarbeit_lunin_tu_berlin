@@ -19,7 +19,7 @@
 %%   \import{<path to file>}{<filename>.pgf}
 %%
 %% Matplotlib used the following preamble
-%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc}\usepackage[output-decimal-marker={,}]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra}
+%%   \usepackage{amsmath} \usepackage[utf8]{inputenc} \usepackage[T1]{fontenc} \usepackage[output-decimal-marker={,},print-unity-mantissa=false]{siunitx} \sisetup{per-mode=fraction, separate-uncertainty = true, locale = DE} \usepackage[acronym, toc, section=section, nonumberlist, nopostdot]{glossaries-extra} \DeclareSIUnit\adu{\text{ADU}} \DeclareSIUnit\px{\text{px}} \DeclareSIUnit\photons{\text{Pho\-to\-nen}} \DeclareSIUnit\photon{\text{Pho\-ton}}
 %%
 \begingroup%
 \makeatletter%
@@ -1741,16 +1741,16 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.577947in}{0.468328in}}%
+\pgfpathmoveto{\pgfqpoint{4.429625in}{0.468328in}}%
 \pgfpathlineto{\pgfqpoint{5.593030in}{0.468328in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{5.620808in}{0.468328in}}{\pgfqpoint{5.620808in}{0.496105in}}%
 \pgfpathlineto{\pgfqpoint{5.620808in}{0.884216in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{5.620808in}{0.911994in}}{\pgfqpoint{5.593030in}{0.911994in}}%
-\pgfpathlineto{\pgfqpoint{3.577947in}{0.911994in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.550169in}{0.911994in}}{\pgfqpoint{3.550169in}{0.884216in}}%
-\pgfpathlineto{\pgfqpoint{3.550169in}{0.496105in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{3.550169in}{0.468328in}}{\pgfqpoint{3.577947in}{0.468328in}}%
-\pgfpathlineto{\pgfqpoint{3.577947in}{0.468328in}}%
+\pgfpathlineto{\pgfqpoint{4.429625in}{0.911994in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.401848in}{0.911994in}}{\pgfqpoint{4.401848in}{0.884216in}}%
+\pgfpathlineto{\pgfqpoint{4.401848in}{0.496105in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.401848in}{0.468328in}}{\pgfqpoint{4.429625in}{0.468328in}}%
+\pgfpathlineto{\pgfqpoint{4.429625in}{0.468328in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -1761,16 +1761,16 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.498039,0.054902}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{3.605724in}{0.800883in}}%
-\pgfpathlineto{\pgfqpoint{3.744613in}{0.800883in}}%
-\pgfpathlineto{\pgfqpoint{3.883502in}{0.800883in}}%
+\pgfpathmoveto{\pgfqpoint{4.457403in}{0.800883in}}%
+\pgfpathlineto{\pgfqpoint{4.596292in}{0.800883in}}%
+\pgfpathlineto{\pgfqpoint{4.735181in}{0.800883in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.994613in,y=0.752272in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Anpassung \(\displaystyle R(h\nu, r, \{d_m\})\)}%
+\pgftext[x=4.846292in,y=0.752272in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Fit \(\displaystyle R(h\nu)\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -1796,7 +1796,7 @@
 \pgfusepath{stroke,fill}%
 }%
 \begin{pgfscope}%
-\pgfsys@transformshift{3.744613in}{0.599494in}%
+\pgfsys@transformshift{4.596292in}{0.599494in}%
 \pgfsys@useobject{currentmarker}{}%
 \end{pgfscope}%
 \end{pgfscope}%
@@ -1804,7 +1804,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.994613in,y=0.550883in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Messpunkte}%
+\pgftext[x=4.846292in,y=0.550883in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Messpunkte}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
