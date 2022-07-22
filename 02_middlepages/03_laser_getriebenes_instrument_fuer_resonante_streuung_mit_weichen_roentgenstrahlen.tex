@@ -13,7 +13,7 @@ Typischerweise werden resonante Streuexperimente an den Synchrotronstrahlungsque
 \end{figure}
 %textwidht = 6.49733inch
 \noindent
-Als die Quelle der weichen Röntgenstrahlung in diesem Experiment dient hingegen eine \gls{pxs}, deren Aufbau und Eigenschaften in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrem Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer \SI{44}{\pico\second} (RMS), also ca. \SI{100}{\pico\second} (FWHM), und Pulsperiode \SI{192}{\nano\second}  betragen, ist die Pulsdauer der \gls{pxs} mit \SI{10}{\pico\second} wesentlich kürzer, wobei ihre Pulsperiode viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
+Als die Quelle der weichen Röntgenstrahlung in diesem Experiment dient hingegen eine \gls{pxs}, deren Aufbau und Eigenschaften in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrem Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulsen getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer \SI{44}{\pico\second} (RMS), also ca. \SI{100}{\pico\second} (FWHM), und Pulsperiode \SI{192}{\nano\second}  betragen, ist die Pulsdauer der \gls{pxs} mit \SI{10}{\pico\second} (FWHM) wesentlich kürzer, wobei ihre Pulsperiode viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
 \begin{figure}[H]
     \centering
     \input{images/xps/xps_spectrum_700_1400_mrad.pgf}
@@ -21,10 +21,10 @@ Als die Quelle der weichen Röntgenstrahlung in diesem Experiment dient hingegen
     \label{fig:pxs_spectrum}
 \end{figure}
 \noindent
-Im Gegensatz zur hoch kollimierten monochromatischen Strahlung an der Strahllinie P04, wo die zu emittierende Photonenenergie direkt technisch voreinstellbar ist, strahlt die \gls{pxs} gleichzeitig die Photonen des ganzen Spektrums (s. Abb. \ref{fig:pxs_spectrum}) in alle Richtungen aus.
+Im Gegensatz zur hoch kollimierten Strahlung an der Strahllinie P04 strahlt die \gls{pxs} die Photonen des ganzen Spektrums (s. Abb. \ref{fig:pxs_spectrum}) in alle Richtungen aus.
 
 \noindent
-Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten Photonenenergiebereich zu selektieren. Dafür wird die emittierte Strahlung mithilfe einer \gls{rzp} fokussiert. Zur Verfügung stehen nämlich drei \gls{rzp}, die für die Zielphotonenenergien von Fe (\SI{705}{\eV}), Gd (\SI{1189}{\eV}) und Dy (\SI{1292}{\eV}) konstruiert wurden. Der mit der \gls{rzp} fokussierte Strahl wird in Form einer Sanduhr auf der Detektorfläche (s. Abb. \ref{fig:butterfly_moench}) abgebildet, wobei die Zielphotonenenergie in der Sanduhrtaille liegt und die benachbarten Photonenenergien entlang der horizontalen Symmetrieachse des Strahlprofils um den Fokuspunkt energetisch aufgelöst werden.
+Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten Photonenenergiebereich zu selektieren. Dafür wird die emittierte Strahlung mithilfe einer \gls{rzp} fokussiert. Zur Verfügung stehen drei \gls{rzp}, die für die Zielphotonenenergien von Fe (\SI{705}{\eV}), Gd (\SI{1189}{\eV}) und Dy (\SI{1292}{\eV}) konstruiert wurden. Der mit der \gls{rzp} fokussierte Strahl wird in Form einer Sanduhr auf der Detektorfläche (s. Abb. \ref{fig:butterfly_moench}) abgebildet, wobei die Zielphotonenenergie in der Sanduhrtaille liegt und die benachbarten Photonenenergien entlang der horizontalen Symmetrieachse des Strahlprofils um den Fokuspunkt energetisch aufgelöst werden.
 \begin{figure}[H]
     \centering
     \input{images/xps/butterfly_two_shots.pgf}
@@ -33,7 +33,10 @@ Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten
     \label{fig:butterfly_moench}
 \end{figure}
 \noindent
-Es kann jedoch keine sinnvolle Aussage zum Photonenfluss der \gls{pxs} gemacht werden, da er nicht nur von der Wahl der \gls{rzp} abhängt, sondern auch von ihrer Position und dem  Photonenenergiebereich. Nichtsdestotrotz kann die Photonenfluss von \gls{pxs} innerhalb eines Pulses von oben abgeschätzt werden. Dieser liegt deutlich unter 1000 Photonen pro Puls. In Hinblick auf die Pulsperiode $T_\text{PXS}=\SI{10}{\milli\second}$ ergibt sich die obere Grenze von Photonenfluss in Höhe von ca. \SI{1e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als $\SI{1e12}{\photons\per\second}$ ist.
+Es ist schwer, den Photonenfluss der \gls{pxs} genau anzugeben, weil er nicht nur von der Wahl der \gls{rzp} abhängt, sondern auch von ihrer Position und dem  Photonenenergiebereich.
+
+\noindent
+So kann der Photonenfluss der \gls{pxs} an der Photonenenergie $h\nu_\text{Gd, M5}$ abgeschätzt werden. So werden ca. \SI{617}{\photons} pro Puls innerhalb des roten Vierecks in Abb. \ref{fig:butterfly_moench} detektiert. In Hinblick auf die Pulsperiode \SI{10}{\milli\second} ergibt sich der Photonenfluss in Höhe von ca. \SI{6.2e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als $\SI{1e12}{\photons\per\second}$ ist.
 
 \noindent
 Dies führt dazu, dass der ausreichende Kontrast bei denselben oder vergleichbaren Belichtungszeiten des Detektors nicht zu erreichen ist. In dem Fall gibt es zwei Strategien fürs Aufnahmeverfahren: es kann entweder die extrem hohe Belichtungszeit gesetzt werden, wobei das Hintergrundrauschen des Detektors relativ klein gegen der Belichtungszeit steigt, oder eine Methode vom Trennen des Hintergrundrauschens vom dem Streusignal angewendet werden. Um die Wahl der Lösung und die Bedingungen, die dem Detektor gegebenenfalls auferlegt werden, wird es im nächsten Kapitel genauer diskutiert.
