@@ -2845,10 +2845,10 @@
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{2.829250in}{1.857941in}}%
-\pgfpathlineto{\pgfqpoint{4.828747in}{1.857941in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.856524in}{1.857941in}}{\pgfqpoint{4.856524in}{1.885719in}}%
-\pgfpathlineto{\pgfqpoint{4.856524in}{2.437139in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.856524in}{2.464917in}}{\pgfqpoint{4.828747in}{2.464917in}}%
+\pgfpathlineto{\pgfqpoint{4.883131in}{1.857941in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.910909in}{1.857941in}}{\pgfqpoint{4.910909in}{1.885719in}}%
+\pgfpathlineto{\pgfqpoint{4.910909in}{2.437139in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.910909in}{2.464917in}}{\pgfqpoint{4.883131in}{2.464917in}}%
 \pgfpathlineto{\pgfqpoint{2.829250in}{2.464917in}}%
 \pgfpathquadraticcurveto{\pgfqpoint{2.801472in}{2.464917in}}{\pgfqpoint{2.801472in}{2.437139in}}%
 \pgfpathlineto{\pgfqpoint{2.801472in}{1.885719in}}%
@@ -2891,13 +2891,13 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.245917in, y=2.100186in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont normierte Referenzwert \(\displaystyle \bar{\beta}\)}%
+\pgftext[x=3.245917in, y=2.100186in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont normierter Referenzwert \(\displaystyle \bar{\beta}\)}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.245917in, y=1.948210in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont von \cite[Abb. 2]{prieto-x-ray-2005}}%
+\pgftext[x=3.245917in, y=1.948210in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  von \cite[Abb. 2]{prieto-x-ray-2005}}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
