@@ -99,7 +99,7 @@ Das Detektorsignal eines Pixels in \gls{adu} hängt unmittelbar von der Photonen
 % \end{figure}
 
 \noindent
-Die Responsecharaktersik vom verfügbaren \gls{moench03} wurde an den kaliebrierten Synchrotronstrahlungsquellen MLS und BESSY II am Helmholtz-Zentrum Berlin vermessen. Die Photonenenergie wurde jeweils im Bereich von \SI{30}{\eV} bis \SI{70}{\eV} und von \SI{400}{\eV} bis \SI{1900}{\eV} frei durchgestimmt. Der Bereich von \SI{70}{\eV} bis \SI{400}{\eV} wurde absichtlich nicht vermessen, weil Silizium keine Photonen in diesem Bereich absorbiert und keine Elektronen darin erzeugt werden. An beiden Synchrotronstrahlungsquellen waren der Strom am Beschleuniger in \si{\ampere} und die Leistung in \si{\photons\per\ampere\per\second} bekannt und ließen somit den Photonenfluss in \si{\photons\per\second} ermitteln. Die Belichtungszeit wurde dem Photonenfluss so angepasst, um die Überbelichtung der Pixel auszuschließen und dadurch die Abhängigkeit des Detektorsignals von Photonenenergie möglichst linear nähern zu können. Das Detektorsignal in \si{\adu} wurde über den detektierten Strahlquerschnitt aufsummiert und durch die Photonenzahl, die sich als Produkt von Belichtungszeit und Photonenfluss ergibt, geteilt. Dieser Wert wurde über die Photonenenergie aufgetragen.
+Die Responsecharaktersik vom verfügbaren \gls{moench03} wurde an den kaliebrierten Synchrotronstrahlungsquellen MLS und BESSY II am Helmholtz-Zentrum Berlin vermessen. Die Messung wurde im Vorfeld dieser Arbeit durchgeführt. Die Photonenenergie wurde jeweils im Bereich von \SI{30}{\eV} bis \SI{70}{\eV} und von \SI{400}{\eV} bis \SI{1900}{\eV} frei durchgestimmt. Der Energiebereich zwischen \SI{70}{\eV} und \SI{400}{\eV} oberhalb der L-Kanten von Al und Si wurde ausgelassen, weil die Quanteneffizienz des Detektors in diesem Bereich extrem klein ist. An beiden Synchrotronstrahlungsquellen waren der Strom am Beschleuniger in \si{\ampere} und die Leistung in \si{\photons\per\ampere\per\second} bekannt und ließen somit den Photonenfluss in \si{\photons\per\second} ermitteln. Die Belichtungszeit wurde dem Photonenfluss so angepasst, um die Überbelichtung der Pixel auszuschließen und dadurch die Abhängigkeit des Detektorsignals von Photonenenergie möglichst linear nähern zu können. Das Detektorsignal in \si{\adu} wurde über den detektierten Strahlquerschnitt aufsummiert und durch die Photonenzahl, die sich als Produkt von Belichtungszeit und Photonenfluss ergibt, geteilt. Dieser Photonenfluss wurde über die Photonenenergie aufgetragen.
 
 \noindent
 Während diese Beschichtung niederenergetische Strahlung (z.B. sichtbares Licht) vollständig blockt, müssen auf weiche Röntgentstrahlung Verluste gemäß dem AbsoprtionsKoeffizienten in Kraft genommen werden.
@@ -134,11 +134,11 @@ Wenn es um das Responsesignal eines einzelnen tatsächlich detektierten Photons 
     R_\text{detek}(h\nu) = h\nu \cdot r
     \label{eq:adu_to_ev}
 \end{equation}
-zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei derselbe Koeffizient $r = \SI{1.51e-1}{\adu\per\eV}$ pro Photon eingesetzt werden kann. Somit lassen sich die erwarteten \gls{adu}-Werte $W$ für tatsächlich detektierte Photonen mit den Enenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abschätzen. Diese ergeben sich 
+zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei derselbe Koeffizient $r = \SI{1.51e-1}{\adu\per\eV}$ pro Photon eingesetzt werden kann. Somit lassen sich die erwarteten \gls{adu}-Werte $W$ für tatsächlich detektierte Photonen mit den Enenergien $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ abschätzen. Diese ergeben sich:
 \begin{equation}
 \begin{split}
      W_{\text{Fe, L3}} &=  \SI{107(1)}{\adu}\\
-     W_{\text{Gd, M5}} &=  \SI{180(1)}{\adu}.
+     W_{\text{Gd, M5}} &=  \SI{180(1)}{\adu}
 \end{split}
 \label{eq:auselesewerte_fe_gd}
 \end{equation}
@@ -149,7 +149,7 @@ zwischen der Photonenergie eines tatsächlich detektierten Photons $h\nu$, wobei
 Der \gls{moench03} stellt einen Detektor dar, dessen Einsatz aufgrund des Auslesezeit-Rauschen-Ver\-hält\-nis\-ses insbesondere für die Detektion von einzelnen Photonen gut eignet \cite{bergamaschi_monch_2018}. Das Triggerinterface des \gls{moench03} in Kombination mit der Totzeit ca. \SI{250}{\micro\second}, die deutlich kürzer als Pulsperiode T$_\text{PXS} = \SI{10}{\milli\second}$ ist, ermöglicht die von \gls{pxs} ausgelösten Pulse einzeln aufnehmen. Die Standardabweichung des Detektorrauschens $\sigma = \SI{19}{\adu}$ bei den kürzesten Belichtungszeit $\tau = \SI{100}{\nano\second}$, das grundlegend Auselesrauschen ist, ist kleiner als die erwarteten $W_{\text{Fe, L3}}$ und $W_{\text{Gd, M5}}$.
 
 \noindent
-Der Photonenfluss der \gls{pxs} ist ca. \SI{617}{\photons} pro Puls (s. Kap. \ref{text:quelle_roentgen}). Mit der erwarteten Transmissionsrate der Probe in Großenordnung von \SI{10}{\percent} (s. Abb. \ref{fig:proben_vergleich_centered}) soll ca. \SI{60}{\photons} pro Puls detektiert werden. So ist es möglich, die einzelnen Photonen in einer Aufnahme zu erkennen und die, als das gewünschte Signal, von ungewünschtem Hintergrundrauschen zu trennen. Diese Aufgabe ist durch die größere ursprüngliche Differenz zwischen der Standardabweichung des Detektorrauschens und erwarteten Ein-Photon-Signal zu erleichtern. Daher ist die Photonenenergie $h\nu_\text{Gd, M5}$ mit dem $W_{\text{Gd, M5}} = \SI{180}{\adu}$ gegenüber der Photonenenergie $h\nu_\text{Fe, L3}$ mit dem Wert $W_{\text{Fe, L3}} = \SI{107}{\adu}$ bevorzugt.
+Der Photonenfluss der \gls{pxs} ist ca. \SI{617}{\photons} pro Puls (s. Kap. \ref{text:quelle_roentgen}) wird in Hinblick auf die niedrige erwartete Transmissionsrate der Probe (s. Abb. \ref{fig:proben_vergleich_centered}) stark abgeschwächt. So ist es möglich, die einzelnen Photonen in einer Aufnahme zu erkennen und die, als das gewünschte Signal, von ungewünschtem Hintergrundrauschen zu trennen. Diese Aufgabe ist durch die größere ursprüngliche Differenz zwischen der Standardabweichung des Detektorrauschens und erwarteten Ein-Photon-Signal zu erleichtern. Daher ist die Photonenenergie $h\nu_\text{Gd, M5}$ mit dem $W_{\text{Gd, M5}} = \SI{180}{\adu}$ gegenüber der Photonenenergie $h\nu_\text{Fe, L3}$ mit dem Wert $W_{\text{Fe, L3}} = \SI{107}{\adu}$ bevorzugt.
 
 \noindent
 Die Erkennung der einzelnen Photonen (in der Literatur oft als \emph{engl. single-photon counting} gezeichnet) ist eine besondere nummerische Herausforderung, weil das Kompromiss zwischen Sensitivität und Spezifität getroffen werden muss. Es existieren zahlreiche Algorithmen und es wird ständig nach besseren Lösungen gesucht. Die Effizienz eines oder anderen Algorithmen hängt von der Detektorauflösung, Photonenfluss, ursprünglichen \gls{snr} und weiteren Parametern der Messdaten ab. In folgenden Unterabschnitten werden die theoretischen Grundlagen der einzusetzenden Algorithmen dargestellt.
@@ -176,7 +176,7 @@ In anderen Worten wird zur Gesamtbildmatrix $\mathbf{V}$ eine Clustermatrix $\ma
 \begin{equation}
      \mathbf{V} * \mathbf{K}_{M\times L} =  \mathbf{Q} \Leftrightarrow Q_{i, j} = \sum_{l=i-\left[\frac{M}{2}\right]}^{i+\left[\frac{M}{2}\right]-1} \sum_{m=j-\left[\frac{L}{2}\right]}^{j+\left[\frac{L}{2}\right]-1} V_{l,m},
 \end{equation}
-wobei $\mathbf{V}$ - Auslesewerte des Sensors (Gesamtbild) dargestellt als Matrix, $\mathbf{K}_{M \times L}$ - Cluster-Kern, mit $*$ wird die Faltung-Operation gekennzeichnet. Der Cluster-Kern lautet im Allgemeinen gleich
+wobei $\mathbf{V}$ - Auslesewerte des Detektors (Gesamtbild) dargestellt als Matrix, $\mathbf{K}_{M \times L}$ - Cluster-Kern, mit $*$ wird die Faltung-Operation gekennzeichnet. Der Cluster-Kern gleicht i. A.
 \begin{equation}
     \mathbf{K}_{M \times L}  = \begin{bmatrix}
 1 & \cdots & 1\\
@@ -187,14 +187,14 @@ wobei $\mathbf{V}$ - Auslesewerte des Sensors (Gesamtbild) dargestellt als Matri
 \end{equation}
 
 \noindent
-Die Einträge der Clustermatrix $Q_{i,j}$ werden mit einem Schwellenwert 
+Im nächsten Schritt werden die Einträge der Clustermatrix $Q_{i,j}$ mit dem Schwellenwert 
 \begin{equation}
     s_Q(M, L, \sigma, c) = c\sigma\sqrt{ML}
 \end{equation}
 verglichen, wobei $\sigma$ - Standardabweichung vom Hintergrundrauschen und $c$ - freier Parameter. Die Einträge, die größer als der Schwellenwert $s_Q$ sind, werden behalten und als Cluster mit einem Photon bezeichnet. Diejenige Einträge, die der Ungleichung nicht genügen, werden als Hintergrundrauschen identifiziert und auf null gesetzt.
 
 \noindent
-Beim nächsten Schritt werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und die werden gezählt. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in $M\cdot L$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer als $\max\{M,L\}$ sein muss.
+Danach werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und die werden gezählt. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in $M\cdot L$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer als $\max\{M,L\}$ sein muss.
 
 \noindent
 Für den \gls{moench03} mit der Auflösung \qtyproduct{400 x 400}{\px} ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Kerngrößen $M=L=N$ für den Detektor seien 2 oder 3 \cite[Abschnitt 4]{cartier_micron_2014}. So werden die Cluster-Kerne
