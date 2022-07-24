@@ -196,7 +196,7 @@ Im nächsten Schritt werden die Einträge der Clustermatrix $Q_{i,j}$ mit dem Sc
 verglichen, wobei $\sigma$ - Standardabweichung vom Hintergrundrauschen und $c$ - freier Parameter. Die Einträge, die größer als der Schwellenwert $s_Q$ sind, werden behalten und als Cluster mit einem Photon bezeichnet. Diejenige Einträge, die der Ungleichung nicht genügen, werden als Hintergrundrauschen identifiziert und auf null gesetzt.
 
 \noindent
-Danach werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und die werden gezählt. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in $M\cdot L$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer als $\max\{M,L\}$ sein muss.
+Danach werden nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und behalten. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels taucht in $M\cdot L$ Clustern auf. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Missinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden und zwar, dass der Mindestabstand zwischen den lokalen Maxima größer als $\max\{M,L\}$ sein muss.
 
 \noindent
 Für den \gls{moench03} mit der Auflösung \qtyproduct{400 x 400}{\px} ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Kerngrößen $M=L=N$ für den Detektor seien 2 oder 3 \cite[Abschnitt 4]{cartier_micron_2014}. So werden die Cluster-Kerne
