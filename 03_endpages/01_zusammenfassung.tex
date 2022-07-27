@@ -1,27 +1,32 @@
-\chapter{Diskussion und Zusammenfassung}
-Im Rahmen dieser Arbeit wurde es experimentell nachgewiesen, dass resonante magnetische Streuung an einer laser-getriebenen Röntgenquelle beobachtet werden kann.
-\begin{figure}[H]
-    \centering
-    \input{images/zusammenfassung/summary_ring_no_ring.pgf}
-    \label{fig:summary_ring_no_ring}
-\end{figure}
-\noindent
-Dafür wurde das Messverfahren entwickelt, in dem ein kommerzieller MÖNCH-Detektor mit der \SI{100}{\hertz}-Emission \SI{10}{\pico\second}-Pulse der laser-getriebenen Röntgenquelle synchronisiert wurde. Diese Messmethode kann verwendet werden, um magnetooptische Effekte mit hoher zeitlicher Auflösung zu analysieren. 
+\chapter{Zusammenfassung und Diskussion}
+Im Rahmen dieser Arbeit wurde ein Experiment zur resonanten magnetischen Streuung an ferromagnetischen Domänen mittels weicher Röntgenstrahlung konzipiert und durchgeführt. Meine Hauptaufgabe bestand dabei in der Realisierung der Detektion einzelner Röntgenphotonen mit Hilfe eines neuartigen Flächendetektors.
 
 \noindent
-Damit die Mess- und Auswertungsparameter optimal angepasst werden, wurde die Ladungsverteilunganalyse eines isolierten Photons mit der Photonenenergie $h\nu_\text{Gd, M5} = \SI{1184,79}{\eV}$ untersucht. Diese zeigte, dass ca. \SI{64,2}{\percent} der gesamten Ladung im hellsten Pixel bleiben und der Rest hauptsächlich in einem der nächsten Nachbarpixel konzentriert wird.
+Der verwendete MÖNCH Detektor wurde hierfür vorab ausführlich getestet und charakterisiert. Dabei wurde eine hohe Quanteneffizienz von bis zu \SI{95}{\percent} bei den Photonenenergien an den Fe L-Kanten (ca. \SI{700}{\eV}) und Gd M-Kanten (ca. \SI{1200}{\eV}) gemessen. Auch das Rauschverhalten als Funktion der Belichtungszeit wurde als wichtige Kenngröße bestimmt.
 
 \noindent
-Es wurden zwei Auswertungsverfahren der Einzelphotondetektion erprobt und miteinander verglichen. Der Schwellenwert-Algorithmus, in dem ein Pixelwert als Photon gekennzeichnet wird, wenn dieser den gegebenen Schwellenwert überschreitet, demonstrierte bessere Effizienz unter der Bedingung niedriges Photonenflusses und hohes Detektorrauschens. Das Signal-Rausch-Verhältnis der Summe \SI{50000}{\captures} ließ sich im Bereich des Streuringes mit 1 abschätzen und mit dem Quadratwurzel aus dem Produkt von Pixel- und Aufnahmezahl approximieren. Der Clustering-Algorithmus, in dem ein Pixel als Photon gekennzeichnet wird, wenn die Pixelwertsumme seiner \qtyproduct{2 x 2}{\px}-Pixelnachbarschaft den gegebenen Schwellenwert überschreitet, sollte durch Inbetrachtnahme der gesamten Photonenladung die Selektivität der Photonendetektion in Vergleich mit dem Schwellenwert-Algorithmus erhöhen, zeigte jedoch deutlich höhere Zahl der fehldetektierten Photonen. Die wesentlichen Gründe dafür sind die hohe Rauschenstandardabweichung gegenüber dem erwarteten Signalwert und die Schwankung des Rauschenmittelwerts von Null während der Messung.
+Der MÖNCH-Detektor wurde mit der Laser-getriebenen Röntgenquelle im Labor elektronisch synchronisiert, sodass jeder Puls der Röntgenquelle mit dem Detektor als einzelnes Bild aufgenommen werden konnte. Die Belichtungszeit ließ sich bis zu \SI{1}{\micro\second} reduzieren, wodurch das Detekterrauschen gesenkt wurde und eine ausreichende Differenz zwischen Ein-Photon-Signal und Rauschen im Verhältnis ca. 9:1 erreicht wurde. Die kürzeste Belichtungszeit des MÖNCH-Detektor \SI{100}{\nano\second} konnte aufgrund des Jitters zwischen dem Trigger-Generator und dem Detektor nicht eingestellt werden, was im Endeffekt nur zur vernachlässigbaren Senkung vom Detektorrauschen führen würde. Wegen des extrem niedrigen detektierten Photonenflusses, der ca. 60 einzelnen Photonen pro Puls beträgt, ist die Beobachtung eines Streumusters nicht möglich.
 
-\textcolor{red}{\textbf{Für Bastian:}}
-Ich denke, diese Themen müssen in der Zusammenfassung angesprochen werden:
-\begin{itemize}
-    \item Probenvorbereitung (Analyse der Dicke und Kontrast, obwohl man eine Probe aus dem anderen Paper genommen hat)
-    \item latherale Kohärenz, Energie und Strahlbündelung des PXS-Strahls
-    \item Rauschencharaketeristik des Detektors als Funktion der Belichtungszeit $\tau$
-    \item Ladungsverteilung eines isolierten Photons
-    \item Messmethode und deren hohe Zeitauflösung bei der potenziellen Anwendungen
-    \item Vergleich der Auswertungsverfahren (in dem Fall, wenn das Rauschen so stark ist, ist der Schwellenwert-Algorithmus besser) und Schritte, die gemacht werden können, um den Einsatz des Clustering-Algorithmus zu verbessern
-    \item SNR pro Pixel und die quadratwurzelförmige Abhängigkeit von Aufnahme- und Pixelzahl $N_{A/P}$
-\end{itemize}
+\noindent
+Zudem wurden zwei Algorithmen zur Auswertung der aufgenommenen Streubilder implementiert. Im Schwellenwret-Algorithmus wird das Signal in einem Pixel als ein Photon bestimmt, wenn dieses einen vorgegebenen Schwellenwert überschreitet. Im Clustering-Algorithmus werden zunächst die Summen von Pixel-Clustern abgebildet, die mit dem vorgegebenen Schwellenwert verglichen werden. Die beiden Algorithmen erhöhen den Kontrast der Streubilder, indem die gestreuten Photonen durch die Diskreditierung vom Hintergrundrauschen getrennt werden.
+
+\noindent
+Die Messungen wurden an der Resonanzenergie von Gd M5 durchgeführt. Die Analyse der Punktspreizfunktion eines isolierten Photons demonstrierte, dass Ein-Photon-Signal überwiegend über zwei benachbarten Pixel verteilt wird und der hellste Pixel nur ca. \SI{64}{\percent} des gesamten Signals behält. Obwohl der Clustering-Algortithmus für den Fall der starken Spreizung des Ein-Photon-Signals entwickelt wurde, demonstrierte sein Einsatz eine große Zahl der fehldetektierten Photonen. Der Einsatz des Schwellenwert-Algorithmuses war nicht nur möglich, sondern auch effizienter als der Clustering-Algorithmus und ermöglichte das erwartete Streumuster zu beobachten, obwohl es weniger gestreuten Photonen detektiert wurde.  
+
+\noindent
+Die Ergebnisse dieser Arbeit lassen mehrere Schlussfolgerungen hinsichtlich der einzelnen Aspekten und des gesamten Mess- und Auswertungsverfahrens ziehen. So wurde mit dem Experiment nachgewiesen, dass die \gls{xmcd} bedingte Streuung sich auch mit unpolarisierter Strahlung beobachten lässt. Durch die erfolgreichen Streuexperimente konnte außerdem auch die Kohärenzlänge der Laser-getriebenen Quelle als > \SI{600}{\nano\meter} (Domänenperiode) abegeschätzt werden. Die Streuungexperimente ermöglichen Zugang zur räumlichen Struktur von Proben, wobei mit der Laborquelle bisher nur Absorptionsspektren vermessen werden konnten \cite{schick_laser-driven_2021}. Das Messverfahren bietet u.a. einen großen Dynamikumfang, was die Überbelichtung im Direktstrahl vermeiden lässt. Dieser Faktor ist wichtig für die Normierung der Intensität, welche mit dem Ansatz von Beamstops bei FELs oder Synchrotronstrahlungsquellen nicht möglich ist. Der aktuelle Aufbau in Kombination mit dem beschriebenen Messverfahren ermöglicht zeithochaufgelöste Messungen im angelegten Magnetfeld und bei den verschiedenen Temperaturen der Proben. Die Aufnahme vom dargestellten Streumuster, die sich als Summe von \SI{50000}{\captures} ergab, dauerte ca. 10 Minuten in Echtzeit. Dadurch und durch die lange Betriebsdauer der Quelle von mehreren Stunden können somit zum ersten Mal ganze Messreihen zur resonanten Kleinwinkelstreuung im Labor aufgenommen werden.
+
+\noindent
+Es können einige Schritte unternommen werden, um den aktuellen experimentellen Aufbau und Auswertungsverfahren zu verbessern. Die Proben kann kleiner gemacht werden, um die Überlagerung des Direktstrahls und Streuringes zu vermeiden. Die Form der Probe kann ebenso zum Stralprofil angepasst werden, da der \gls{xmcd}-Effekt sehr energieselektiv ist und nur eine schmale horizontale Linie in dem Strahlprofil zur Streuung beiträgt. Die hohe Zahl der fehldetektierten Photonen vom Clustering-Algorithmus, die den Algorithmus nicht zur Anwendung kommen ließ, kann damit gesenkt werden, dass die kleinere Clustering-Kerne benutzt werden. Die Dunkelbilder, die gemittelt werden und von jedem Streubild subtrahiert werden, können viel häufiger aufgenommen werden. Dafür kann z. B. die Leerlaufzeit des Detektors zwischen den Röntgenpulsen ausgenutzt werden. Mit der Auslesezeit ca. \SI{250}{\micro\second} und Belichtungszeit \SI{1}{\micro\second} können es mindestens 30 Dunkelbilder innerhalb der \SI{10}{\milli\second} Periode zwischen 2 Streubildern aufgenommen werden.
+
+\noindent
+Die Messung an einer Fe L3 Resonanzenergie ist ebenfalls von großem Interesse. Der Photonenfluss der Quelle ist bei diesen niedrigeren Energien ca. doppelt so groß. Darüber hinaus ist die Reflexionszonenplatte für Fe ca. 4 Mal effizienter als die Reflexionszonenplatte für Gd. Nur der halb so große magnetische Kontrast im Vergleich zur Gd M5 Resonanz wird die Beobachtung der Streuung erschweren. Außerdem ist das Ein-Photon-Signal von Fe L3 im Vergleich mit Gd M5 \SI{60}{\percent} niedriger, was es numerisch komplizierter macht, die Photonen effizient zu erkennen.  
+
+
+
+
+% \begin{figure}[H]
+%     \centering
+%     \input{images/zusammenfassung/summary_ring_no_ring.pgf}
+%     \label{fig:summary_ring_no_ring}
+% \end{figure}

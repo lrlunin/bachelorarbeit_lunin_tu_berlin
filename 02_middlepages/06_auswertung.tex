@@ -65,34 +65,7 @@ Die Streubilder werden somit an der Motorposition $\varphi_\text{\gls{rzp}} = \n
 \end{equation}
 ergibt sich nach Gl. (\ref{eq:adu_to_ev}) und unterscheidet sich lediglich um $\SI{2}{\percent}$ von $W_\text{Gd, M5} = \SI{180(1)}{\adu}$, was im Endeffekt dieselben Parameter vom Auswertungsverfahren für die Photonendetektion zulässt.
 
-\section{Auswertung der Streubilder mit Schwellenwert-Algorithmus}
-\label{text:streuung_counting}
-Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, dessen Funktionsprinzip in Abschnitt \ref{text:threshold_algorithm} beschrieben wurde. Die Einzelschritte dessen Anwendung werden exemplarisch in Abb. \ref{fig:capture_ped_diff} am Beispiel eines aufgenommenen Streubildes mit dem Schwellenwert $s_V = \SI{100}{\adu}$ demonstriert.
-\begin{figure}[H]
-    \centering
-    \input{images/auswertung/capture_ped_diff.pgf}
-    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder.  Die resultierende Differenz (c) von ersten zwei Bildern und (d) angewendete Schwellenwert \SI{100}{\adu}.}
-    \label{fig:capture_ped_diff}
-\end{figure}
-\noindent
-Von dem mit dem \gls{moench03} aufgenommenen Streubild (Abb. \ref{fig:capture_ped_diff}a) wir der konstante Offset (\ref{fig:capture_ped_diff}b), der sich als Mittelung von \num{10000} Dunkelbildern ergibt, subtrahiert. Die resultierende Differenz (Abb. \ref{fig:capture_ped_diff}c) ist wesentlich klein gegenüber dem konstanten Offset und dem ursprünglichen Streubild, was die Wichtigkeit der regulären Aufnahme von Dunkelbildern zur Korrektur des konstanten Offsets unterstreicht. Diejenige Pixel, deren Werte den Schwellenwert $s_V$ unterschreiten, werden in Abb. \ref{fig:capture_ped_diff}d dargestellt.
-
-\noindent
-Auf diese Weise werden \SI{50000}{\captures} einzeln ausgewertet und aufsummiert. In Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} sind die Summen von ausgewerteten Aufnahmen in log-Skala dargestellt. Für die Auswertung jeder Summen wird ein Schwellenwert $s_V$ aus dem Intervall von \SIrange{50}{260}{\adu} genommen, um den Überblick auf die Abhängigkeit des Ergebnisses vom Schwellenwert zu geben.
-\begin{figure}[H]
-    \centering
-    \input{images/auswertung/th_50_100_125_150_170_180_200_220_260.pgf}
-    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert $s_V$ (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
-    \label{fig:th_50_100_125_150_170_180_200_220_260}
-\end{figure}
-\noindent
-Bei dem Einsatz der höheren Schwellenwerte $s_V = \SI{150}{\adu}$, $\SI{170}{\adu}$ und $\SI{180}{\adu}$ (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}d, e und f), wodurch weniger Rauschen als Photonen fehldetektiert wird, sind die Summen wesentlich kontrastarmer im Vergleich mit den eingesetzten Schwellenwerten $s_V = \qtylist{100;125}{\adu}$ (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}b und c), obwohl das erwartete Ein-Photon-Signal
- \begin{equation}
-    W_\text{Gd, M5} = \SI{180(1)}{\adu}
-\end{equation}
-deutlich höher sein soll. Das weist direkt darauf hin, dass die erzeugte Ladung und damit der erwartete ADU-Wert über die benachbarten Pixeln verteilt wird. Aus diesem muss Verteilung der einzelnen Photonen quantitativ ausgewertet werden, um den Schwellenwert $s_V$ dementsprechend anpassen zu können und die Auskunft über \gls{snr} in Bezug auf den Schwellenwert zu bekommen.
-
-\subsection{Punktspreizfunktion einzelner Photonenereignisse}
+\section{Punktspreizfunktion einzelner Photonenereignisse}
 \label{text:punktspreizfunktion}
 Um die Punktspreizfunktion eines isolierten Photons zu untersuchen, werden die einzeln detektierten Photonen im \qtyproduct{100 x 100}{\px} Direktstrahlbereich gesucht. Zunächst werden diejenigen Pixel betrachtet, deren Werte im Intervall von \SI{80}{\adu} bis \SI{200}{\adu} liegen. Um die Überlagerung der Ladungsverteilung der benachbarten Photonen-Ereignisse auszuschließen, werden nur diejenigen Photonen-Ereignisse erfasst, die keine Photonen-Ereignisse im \SI{5}{px}-Umkreis haben. Um die Fehldetektion des Rauschens möglichst zu verringern, wird eine Nebenbedingung auferlegt und zwar, dass die Summe über die \qtyproduct{3 x 3}{\px}-Umgebung um ein  Photonen-Ereignis im Intervall von $(180-3\sigma_{3\times 3})$ \si{\adu} bis $(180+3\sigma_{3\times 3})$ \si{\adu} liegen muss, wobei $\sigma_{3\times 3}$ die Standardabweichung dieser Summe ist und sich als $\sigma_{3\times 3} = \sqrt{9}\sigma_R = 3 \sigma_R$ berechnet.
 % \noindent
@@ -131,7 +104,22 @@ beträgt. Die dargestellten Beispiele der \qtyproduct{5 x 5}{\px}-Bereich in Abb
 In Anbetracht der Tatsache, dass das hellste Pixel nur \SI{116(4)}{\adu} von dem erwarteten gesamten Ein-Photon-Signal $W_\text{GD, M5} = \SI{180(1)}{\adu}$ enthält, würde die weitere Erhöhung des Schwellenwertes $s_V$ über \SI{116}{\adu} zum signifikanten Verlust an Zahl von detektierten Photonen (und folglich von Signal) führen.
 
 \noindent
-Aus diesem Grund wird der Schwellenwert $s_V = \SI{100}{\adu}$ in der Auswertung benutzt. Die Senkung des Schwellenwertes verringert hingegen die Selektivtät des Algorithmuses. Im nächsten Abschnitt wird das Verhältnis zwischen dem ausgewerteten Streusignal und Rauschen im Falle des bis zu \SI{100}{\adu} gesenkten Schwellenwertes diskutiert.
+Aus diesem Grund wird der Schwellenwert $s_V = \SI{100}{\adu}$ in der Auswertung benutzt. Die Senkung des Schwellenwertes verringert hingegen die Selektivtät des Algorithmuses.
+
+\section{Auswertung der Streubilder mit Schwellenwert-Algorithmus}
+\label{text:streuung_counting}
+Die Messdaten wurden zuerst mit dem Schwellenwert-Algorithmus verarbeitet, dessen Funktionsprinzip in Abschnitt \ref{text:threshold_algorithm} beschrieben wurde. Die Einzelschritte dessen Anwendung werden exemplarisch in Abb. \ref{fig:capture_ped_diff} am Beispiel eines aufgenommenen Streubildes mit dem Schwellenwert $s_V = \SI{100}{\adu}$ demonstriert.
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/capture_ped_diff.pgf}
+    \caption{(a) eine Einzelaufnahme der gestreuten Photonen, (b) ein gemitteltes Bild über \num{10000} Dunkelbilder.  Die resultierende Differenz (c) von ersten zwei Bildern und (d) angewendete Schwellenwert \SI{100}{\adu}.}
+    \label{fig:capture_ped_diff}
+\end{figure}
+\noindent
+Von dem mit dem \gls{moench03} aufgenommenen Streubild (Abb. \ref{fig:capture_ped_diff}a) wir der konstante Offset (Abb. \ref{fig:capture_ped_diff}b), der sich als Mittelung von \num{10000} Dunkelbildern ergibt, subtrahiert. Die resultierende Differenz (Abb. \ref{fig:capture_ped_diff}c) ist wesentlich klein gegenüber dem konstanten Offset und dem ursprünglichen Streubild, was die Wichtigkeit der regulären Aufnahme von Dunkelbildern zur Korrektur des konstanten Offsets unterstreicht. Diejenige Pixel, deren Werte den Schwellenwert $s_V$ überschreiten, werden in Abb. \ref{fig:capture_ped_diff}d dargestellt.
+
+\noindent
+Im nächsten Abschnitt wird das resultierende Signal-Rauschen-Verhältnis in Bezug auf den Schwellenwert $s_V$ disktutiert.
 
 \subsection{Signal-zu-Rauschen-Verhältnis}
 Um das Signal und Rauschen quantitativ auszuwerten, werden einige Begriffe und Hilfsvariablen definiert und ermittelt. Mit Variablen $N_A$ und $N_P$ wird die Zahl der erfassten Aufnahmen und Pixel bezeichnet.
@@ -205,6 +193,17 @@ Das \gls{snr} lässt sich bei den konstanten Parametern $N_A, s_V$ und $\text{\g
 \end{equation}
 nähern und kann durch die Erfassung von mehreren Pixeln, z.B. über die radiale Integration des Streubildes, erhöht werden.
 
+\section{Kleinwinkelstreuung}
+Nun werden \SI{50000}{\captures} mit dem Schwellenwert-Algorithmus einzeln ausgewertet und aufsummiert. In Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260} sind die Summen von ausgewerteten Aufnahmen in log-Skala dargestellt. Für die Auswertung jeder Summen wird ein Schwellenwert $s_V$ aus dem Intervall von \SIrange{50}{260}{\adu} genommen, um den Überblick auf die Abhängigkeit des Ergebnisses vom Schwellenwert zu geben. Der hellste rechförmige Fleck im Zentrum ist der Direktstrahl, der durch die Probe transmittiert wird. In Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}b, c und d können die ringförmigen Muster beobachtet werden, die dem erwarteten Strering entsprechen.
+\begin{figure}[H]
+    \centering
+    \input{images/auswertung/th_50_100_125_150_170_180_200_220_260.pgf}
+    \caption{Anzahl von den detektierten Photonen mithilfe des Schwellenwert-Algorithmuses mit dem Schwellenwert $s_V$ (a) \SI{50}{\adu}, (b) \SI{100}{\adu}, (c) \SI{125}{\adu}, (d) \SI{150}{\adu}, (e) \SI{170}{\adu}, (f) \SI{180}{\adu}, (g) \SI{200}{\adu}, (h) \SI{220}{\adu} und (g) \SI{260}{\adu}. Aufsummiert werden jeweils \num{50000} Aufnahmen. Die dunklere horizontale Linie im Direktstrahlzentrum entspricht der Gd M5 Absorptionskante.}
+    \label{fig:th_50_100_125_150_170_180_200_220_260}
+\end{figure}
+\noindent
+Bei dem Einsatz der höheren Schwellenwerte $s_V = \SI{150}{\adu}$, $\SI{170}{\adu}$ und $\SI{180}{\adu}$ (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}d, e und f), wodurch weniger Rauschen als Photonen fehldetektiert wird, sind die Summen wesentlich kontrastarmer im Vergleich mit den eingesetzten Schwellenwerten $s_V = \SI{100}{\adu}$ (Abb. \ref{fig:th_50_100_125_150_170_180_200_220_260}b), was auf die Spreizung des Ein-Photon-Signals zurückzuführen ist. Als Nächstes wird das Streusignal in dieser Summe ausgewertet. 
+
 % \noindent
 % Bei der Summe von $N_P = 2\pi\cdot\SI{75}{\pixel} \approx \SI{471}{\pixel}$ ergeben sich die folgenden Erwartungswerte
 % \begin{equation}
@@ -224,14 +223,14 @@ Wichtig zu beachten, dass die Summen der Aufnahmen $I_\text{ges}$, die mit Schwe
 \begin{equation}
     I_\text{ges} = N_A N_P \left[\text{\gls{photnenfluss}}\cdot \text{\gls{qe}} + \text{\gls{fdpa}}\right] = \underbrace{N_A N_P \left[\text{\gls{photnenfluss}}\cdot \text{\gls{qe}}\right]}_{S} + N_P N_A\cdot\text{\gls{fdpa}}
 \end{equation}
-So muss die \gls{fdpa} (vgl. Gl. (\ref{eq:signal_ew}) von jedem Pixel als Offset abgezogen werden:
+So muss die \gls{fdpa} (vgl. Gl. (\ref{eq:signal_ew})) von jedem Pixel als Offset abgezogen werden:
 \begin{equation}
     S = I_\text{ges} - \underbrace{N_A\cdot\text{\gls{fdpa}}(s_V)}_{\Delta_\text{\gls{fdpa}}}
     \label{eq:signal_int_fpda}
 \end{equation}
 
 \noindent
-Es können die Pixel in den Summen von Aufnahmen (Abb. \ref{fig:th_180_450_600}) nachweisen, wo sich die Photonen bei der Erhöhung von $s_V$ bis zu \SI{600}{\adu} detektieren lassen. Solche Pixel werden aussortiert, weil es sich dabei um hochenergetische kosmische Strahlung oder um die von der \gls{pxs} emittierten Elektronen handelt.
+Es können die Pixel in den Summen von Aufnahmen (Abb. \ref{fig:th_180_450_600}) gefunden werden, wo sich die Photonen bei der Erhöhung von $s_V$ bis zu \SI{600}{\adu} detektieren lassen. Solche Pixel werden aussortiert, weil es sich dabei um hochenergetische kosmische Strahlung oder um die von der \gls{pxs} emittierten Elektronen handelt.
 \begin{figure}[H]
     \centering
     \input{images/auswertung/th_180_450_600.pgf}
@@ -272,7 +271,7 @@ angepasst. Diese Verteilungsfunktionen eigenen sich gut für die Beschreibung de
 Die gemessene Intensitätsvertilung hat eine größere radiale Verbreitung des Streuringes, als die Fourier-Transformierte von MFM-Scan der Probe. Dieses Phänomen liegt an der endlichen Breite des Strahlprofils. Das Maximum der radialen Streuintensität von Fourier-Transformierten liegen innerhalb des Fit-Vertrauensbereichs.
 
 \noindent
-Der mittlere Umfang des Streurings beträgt ca. $2\pi\cdot\SI{75}{\px}$. So wird das \gls{snr} mit der azimutalen Integration von 1 bis ca. 22 nach Gl. \ref{eq:snr_pixel} erhöht.
+Der mittlere Umfang des Streurings beträgt ca. $2\pi\cdot\SI{75}{\px}$. So wird das \gls{snr} mit der azimutalen Integration von 1 bis ca. 22 nach Gl. (\ref{eq:snr_pixel}) erhöht.
 
 \subsection{Nicht-resonante Messung}
 Es wird eine Kontrollmessung an einer nichtresonanten Photonenenergie $h\nu_{\text{Gd, Off-Res}} \approx \SI{1163}{\eV}$ durchgeführt, um zu beweisen, dass ein resonanter magnetischer Effekt der beobachtete Intensitätsverteilung zugrunde liegt.
@@ -306,11 +305,11 @@ Die Einzelschritte der Anwendung des Clustering-Algorithmuses werden exemplarisc
 \begin{figure}[H]
     \centering
     \input{images/auswertung/capture_ped_diff_clustering.pgf}
-    \caption{Die Unterabbildungen (a), (b) und (c) stimmen mit Abb. \ref{fig:capture_ped_diff} überein. In (d) - Faltung mit dem Cluster-Kern $\mathbf{K}_2$, (f) - lokale Maxima sind behalten, (d) - angewendete Schwellenwert $s_Q = \SI{150}{\adu}$.}
+    \caption{Die Unterabbildungen (a), (b) und (c) stimmen mit Abb. \ref{fig:capture_ped_diff} überein. Die  (c) Differenz vom aufgenommenen Streubild und dem konstanten Offset wird mit dem Cluster-Kern $\mathbf{K}_2$ gefaltet (d). Es werden nur lokale Maxima (f) in \qtyproduct{2 x 2}{\px}-Umgebungen behalten. Zum Schluss (g) wird der Schwellenwert $s_Q = \SI{150}{\adu}$ angewendet.}
     \label{fig:capture_ped_diff_clustering}
 \end{figure}
 \noindent
-Die Schritte a und b, wo der konstant Offset vom aufgenommenen Streubild abgezogen wird, ist zum Schwellenwert-Algorithmus identisch (Abb. \ref{fig:capture_ped_diff}a und b) und wird daher weggelassen. Die resultierende Differenz (Abb. \ref{fig:capture_ped_diff_clustering}c) wird mit dem Cluster-Kern  $\mathbf{K}_2$ gefaltet (Abb. \ref{fig:capture_ped_diff_clustering}d). Als nächstes werden die lokalen Maxima in \qtyproduct{2 x 2}{\px}-Nachbarschaft gesucht und behalten (Abb. \ref{fig:capture_ped_diff_clustering}f). Zum Schluss werden diejenige Punkte, die den Wert $s_Q$ überschreiten, als Photonen bezeichnet (Abb. \ref{fig:capture_ped_diff_clustering}g). Mit dem Einsatz des Clustering-Algorithmuses können in demselben Streubild mehr Photonen detektiert werden, als mit dem Schwellenwert-Algorithmus (vgl. Abb. \ref{fig:capture_ped_diff}d).
+Die ersten zwei Schritte (Abb. \ref{fig:capture_ped_diff_clustering} a und b), in denen der konstante Offset vom aufgenommenen Streubild abgezogen wird, ist zum Schwellenwert-Algorithmus identisch (Abb. \ref{fig:capture_ped_diff}a und b) und werden daher weggelassen. Die resultierende Differenz (Abb. \ref{fig:capture_ped_diff_clustering}c) wird mit dem Cluster-Kern  $\mathbf{K}_2$ gefaltet (Abb. \ref{fig:capture_ped_diff_clustering}d). Als nächstes werden die lokalen Maxima in \qtyproduct{2 x 2}{\px}-Nachbarschaft gesucht und behalten (Abb. \ref{fig:capture_ped_diff_clustering}f). Zum Schluss werden diejenige Punkte, die den Wert $s_Q$ überschreiten, als Photonen bezeichnet (Abb. \ref{fig:capture_ped_diff_clustering}g). Mit dem Einsatz des Clustering-Algorithmuses können in demselben Streubild mehr Photonen detektiert werden, als mit dem Schwellenwert-Algorithmus (vgl. Abb. \ref{fig:capture_ped_diff}d).
 
 
 \noindent
