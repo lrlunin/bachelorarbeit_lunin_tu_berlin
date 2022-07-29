@@ -2,18 +2,18 @@
 \newacronym[user1=\emph{engl. „refection zone plate“}]{rzp}{RZP}{Reflexionszonenplatte}
 \chapter{Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen}
 \label{text:quelle_roentgen}
-Typischerweise werden resonante Streuexperimente an den Synchrotronstrahlungsquellen oder \gls{fel}s durchgeführt. Wegen der kleinen magnetischen Streuquerschnitte wird ein hoher Photonenfluss benötigt. Die Photonenenergie muss frei durchstimmbar sein und eine Kontrolle über die Polarisation ist vorteilhaft. Die Strahllinie P04 an der Synchrotronstrahlungsquelle PETRA III soll hier als Beispiel solcher Röntgenquellen dienen \cite{viefhaus_variable_2013}.
+Typischerweise werden resonante Streuexperimente an Synchrotronstrahlungsquellen oder \gls{fel}s durchgeführt. Wegen der kleinen magnetischen Streuquerschnitte wird ein hoher Photonenfluss benötigt. Die Photonenenergie muss frei durchstimmbar sein und eine Kontrolle über die Polarisation ist vorteilhaft. Die Strahllinie P04 an der Synchrotronstrahlungsquelle PETRA III soll hier als Beispiel solcher Röntgenquellen dienen \cite{viefhaus_variable_2013}.
 % \noindent
 % Der Strahl an der Strahlinie ist stark kollimiert. So ist dessen Fläche von 10 bis \SI{50}{\micro\meter\squared} groß, wobei der Photonenfluss mehr als $\SI{1e12}{\photons\per\second}$ beträgt. Die Strahlung wird in Form der zeitlich periodischen Pulsen emittiert. Die typische Pulsdauer $t_\text{PETRA}$ ist \SI{44}{\pico\second} und Pulsperiode $T_\text{PETRA}$ kann zwischen den Werten \qtylist{8;16;192}{\nano\second} variiert werden \cite{petra-values-website}.
 \begin{figure}[H]
     \centering
     \input{aufbau_skizze.pdf_tex}
-    \caption{Schematische Skizze zur Versuchsgeometrie. Röntgenstrahlung (blauer Strahl) wird erzeugt, indem ein scharf fokussierter Laserstrahl (roter Strahl) auf einen Wolframzylinder gerichtet wird. Die erzeugte Röntgenstrahlung wird mit einer Reflexionszonenplatte gebündelt, wobei die Photonenenergien entlang der vertikalen Achse aufgelöst werden. So dient ein vertikaler Spalt zum Durchlass bestimmter Photonenenergien, die auf die Probe abgebildet werden. Der an der Probe gestreute Strahl wird mit einem Detektorsensor aufgenommen. Eine zu klein eingestellte Spalthöhe kann jedoch unerwünschte Beugungseffekte an den Spaltkanten erzeugen, welche sich am Detektorsensor beobachten lassen.}
+    \caption{Schematische Skizze zur Versuchsgeometrie. Röntgenstrahlung (blauer Strahl) wird erzeugt, indem ein scharf fokussierter Laserstrahl (roter Strahl) auf einen Wolframzylinder gerichtet wird. Die erzeugte Röntgenstrahlung wird mit einer Reflexionszonenplatte gebündelt, wobei die Photonenenergien entlang der vertikalen Achse aufgelöst werden. So dient ein horizontaler Spalt zum Durchlass bestimmter Photonenenergien, die auf die Probe abgebildet werden. Der an der Probe gestreute Strahl wird mit einem Detektorsensor aufgenommen. Eine zu klein eingestellte Spalthöhe kann jedoch unerwünschte Beugungseffekte an den Spaltkanten erzeugen, welche sich auf dem Detektorsensor beobachten lassen.}
     \label{fig:pxs_aufbau}
 \end{figure}
 %textwidht = 6.49733inch
 \noindent
-Als die Quelle der weichen Röntgenstrahlung in diesem Experiment dient hingegen eine \gls{pxs}, deren Aufbau und Eigenschaften in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrem Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulse getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer \SI{44}{\pico\second} (RMS), also ca. \SI{100}{\pico\second} (FWHM), und Pulsperiode \SI{192}{\nano\second}  betragen, ist die Pulsdauer der \gls{pxs} mit \SI{10}{\pico\second} (FWHM) wesentlich kürzer, wobei ihre Pulsperiode viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
+Als Quelle der weichen Röntgenstrahlung dient in diesem Experiment hingegen eine \gls{pxs}, deren Aufbau und Eigenschaften in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrem Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulse getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer \SI{44}{\pico\second} (RMS), also ca. \SI{100}{\pico\second} (FWHM), und Pulsperiode \SI{192}{\nano\second}  betragen, ist die Pulsdauer der \gls{pxs} mit \SI{10}{\pico\second} (FWHM) wesentlich kürzer, wobei ihre Pulsperiode viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
 \begin{figure}[H]
     \centering
     \input{images/xps/xps_spectrum_700_1400_mrad.pgf}
@@ -29,7 +29,7 @@ Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten
     \centering
     \input{images/xps/butterfly_two_shots.pgf}
     \label{fig:butterfly_moench_sum}
-    \caption{Das direkte Strahprofil auf dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Abgebildet sind (a) die Summe von 26026 Pulsen und (b) ein einzelner Puls. Der hellste Bereich entspricht der \SI{1189}{\eV}, die Photonenenergie nimmt von unten nach oben ab. Der Bereich, in dem die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ abgebildet wurde, ist mit dem rotem Viereck schematisch markiert.}
+    \caption{Das direkte Strahprofil auf dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Abgebildet sind (a) die Summe von 26026 Pulsen und (b) ein einzelner Puls. Der hellste Bereich liegt um \SI{1189}{\eV}; die Photonenenergie nimmt von unten nach oben ab. Der Bereich, in dem die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ abgebildet wurde, ist mit dem roten Viereck markiert.}
     \label{fig:butterfly_moench}
 \end{figure}
 \noindent
@@ -39,7 +39,7 @@ Es ist schwer, den Photonenfluss der \gls{pxs} genau anzugeben, weil er nicht nu
 Es kann beispielsweise der Photonenfluss der \gls{pxs} an der Photonenenergie $h\nu_\text{Gd, M5}$ abgeschätzt werden. So werden ca. \SI{617}{\photons} pro Puls innerhalb des roten Vierecks in Abb. \ref{fig:butterfly_moench} detektiert. In Hinblick auf die Pulsperiode \SI{10}{\milli\second} ergibt sich der Photonenfluss in Höhe von ca. \SI[per-mode = symbol]{6.2e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als \SI[per-mode = symbol]{1e12}{\photons\per\second} ist.
 
 \noindent
-Für die Detektion des Streusignals an der \gls{pxs} werden also erheblich höhere Belichtungszeiten des Detektors benötigt. In diesem Fall gibt es zwei Strategien für das Aufnahmeverfahren:
+Für die Detektion des Streusignals an der \gls{pxs} werden also erheblich längere Belichtungszeiten des Detektors benötigt. In diesem Fall gibt es zwei Strategien für das Aufnahmeverfahren:
 
 \noindent
 Die Belichtungszeit wird hoch gesetzt, sodass eine Aufnahme Streusignal mehrerer Pulse der \gls{pxs} enthält. In diesem Fall müssen sowohl das Detektordunkelrauschen, das typischerweise mit der Zunahme der Belichtungszeit steigt, als auch das Ausleserauschen klein gegenüber dem Streusignal sein.
