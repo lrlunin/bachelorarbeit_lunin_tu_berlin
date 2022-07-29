@@ -76,12 +76,13 @@ Für diese Arbeit wird insbesondere der Fall betrachtet, wenn die Magnetisierung
 
 \noindent
 Die Transmissionsgeometrie der Streuung an einer Probe mit der senkrechten Ausrichtung der magnetischen Domänen ist in Abb. \ref{fig:transmission_geometrie} dargestellt.
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \input{magnet_domain.pdf_tex}
     \caption{Der einlaufende Wellenvektor $\mathbf{k_0}$ mit dem Polarisationsvektor $\mathbf{\hat{e}_0}$ und der auslaufende Wellenvektor $\mathbf{k_f}$ mit dem Polarisationsvektor $\mathbf{\hat{e}_f}$, sowie der Streuvektor $\mathbf{q}$.}
     \label{fig:transmission_geometrie}
 \end{figure}
+\noindent
 Die vektorielle Differenz zwischen den einlaufenden und auslaufenden  Wellenvektoren $\mathbf{k_f}$ und $\mathbf{k_0}$ wird zunächst als Streuvektor $\mathbf{q}$ bezeichnet.
 
 \noindent
@@ -120,12 +121,12 @@ Nach Gl. (\ref{eq:lin_circ_jones}) kann die Intensität der Streuung des linear 
 bestimmt werden, wobei die Mischterme $\pm2\text{Re}(F_c^*F_m)$ einander ausgleichen. Das Ergebnis, dass der \gls{xmcd}-Effekt sowohl für zirkular als auch für linear polarisierte Strahlung zu beobachten ist, ist insbesondere im Kontext dieser Arbeit wichtig, weil die benutzte Röntgenquelle Strahlung ohne bevorzugte Polarisation emittiert.
 
 \noindent
-Das Betragsquadrat vom Strukturfaktor $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:fc_fm_substitution}) und (\ref{eq:komplex_paar}) umgeschrieben werden:
+Das Betragsquadrat vom Strukturfaktor $\left|F_m\right|^2$ kann in Hinblick auf die Gleichungen (\ref{eq:komplex_paar}) und (\ref{eq:fc_fm_substitution}) umgeschrieben werden:
 \begin{equation}
     \left|F_m(\mathbf{q})\right|^2 =  \left|\sum^N_n {\hat{m}_\perp}^n \left[f_{m1,1}^n + if_{m1,2}^n\right] e^{i\mathbf{qr_n}}\right|^2
     \label{eq:f_m}
 \end{equation}
-Wird die Streuung unter der Resonanzbedingung für ein chemisches Element betrachtet, können die Koeffizienten $f_{m1,1/2}$ anderer chemischer Elemente als vernachlässigbar klein weggelassen werden, wenn diese weit genug auseinander liegen. In dieser Arbeit werden somit die resonanten Photonenenergien der Fe L3-Absorptionslinie $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und Gd M5-Absorptionslinie $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ unabhängig voneinander betrachtet. Diese Annahme
+Wird die Streuung unter der Resonanzbedingung für ein chemisches Element betrachtet, können die Koeffizienten $f_{m1,1/2}$ anderer chemischer Elemente als vernachlässigbar klein weggelassen werden, wenn ihre Resonanzenergien weit genug auseinander liegen. In dieser Arbeit werden somit die resonanten Photonenenergien der Fe L3-Absorptionslinie $h\nu_{\text{Fe, L3}} = \SI{706.97}{\eV}$ und Gd M5-Absorptionslinie $h\nu_{\text{Gd, M5}} = \SI{1184.79}{\eV}$ unabhängig voneinander betrachtet. Diese Annahme
 \begin{equation}
     f_{m1,1/2}^n = f_{m1,1/2} = \text{konst. } \forall n \in N
 \end{equation}
@@ -164,7 +165,7 @@ Die Austauschwechselwirkung ist sehr kurzreichweitig und ist zur Ausrichtung der
     \label{fig:am_fm_kopplung}
 \end{figure}
 \noindent
-Die Anisotropie führt zum Entstehen der Vorzugsachsen der Magnetisierung innerhalb eines Mediums. Typischerweise liegen die Vorzugsachsen in der Materialebene. Im Falle des Mehrschichtsystems aus Schwermetallen, wo die Schichten nur wenige \text{Ånsgtröm} dick sind, überwiegen die Grenzschichteffekte, wobei die Bahnmomenten, sowohl die Spinmomenten aufgrund der Spin-Bahn-Kopplung, an der Grenzschicht senkrecht zur Ebene ausrichten. Dies führt zur Ausbildung einer senkrechten Anisotropie.
+Die Anisotropie führt zum Entstehen der Vorzugsachsen der Magnetisierung innerhalb eines Mediums. Typischerweise liegen die Vorzugsachsen in der Materialebene. Im Falle des Mehrschichtsystems aus Schwermetallen, wo die Schichten nur wenige \text{Ånsgtröm} dick sind, überwiegen die Grenzschichteffekte, wobei die Bahnmomenten, als auch die Spinmomenten aufgrund der Spin-Bahn-Kopplung, an der Grenzschicht senkrecht zur Ebene ausrichten. Dies führt zur Ausbildung einer senkrechten Anisotropie.
 
 \noindent
 Die Magnetisierung senkrecht zur Ebene erhöht jedoch die Streufeldenergie. Diese kann minimiert werden, indem sich Domänen innerhalb des Systems bilden und magnetische Momente voneinander ausgleichen. Die Periodizität der Domänen und ihre Breite hängen von den Schichtdicken und der Schichtenzahl ab. 
@@ -180,7 +181,7 @@ Die Bildung eines bestimmten Systemzustandes hängt von mehreren inneren und äu
 
 
 \section{Probenvorbereitung}
-Zwecks der Kontrastoptimierung wurden zwei Multilagenproben im Rahmen der Vorbereitungen zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die Transmission und der magnetische Kontrast in Bezug auf die Wiederholungszahl $N$ der [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_{\text{Fe, L3}}$ und $h\nu_{\text{Gd, M5}}$ untersucht. Die Wahl dieser zwei Elemente wird später in Kapitel \ref{text:quelle_roentgen} motiviert. Die Werte der Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto-x-ray-2005} abgeleitet. In der Zusammensetzung der Probe müssen auch ein \SI{200}{\nano\meter} SiN-Substrat und zwei \SI{3}{\nano\meter} bzw. \SI{2}{\nano\meter} Schichten aus Tantal, die als Haft- bzw. Deckschicht dienen, mitberechnet werden.
+Zwecks der Kontrastoptimierung wurden zwei Multilagenproben im Rahmen der Vorbereitungen zum Experiment hergestellt. Mithilfe des Programmpakets „\emph{udkm1Dsim}“ \cite{schick_udkm1dsim_2021} wird die Transmission und der magnetische Kontrast in Bezug auf die Wiederholungszahl $N$ der [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] Doppelschicht in einer Probe bei den Photonenenergien $h\nu_{\text{Fe, L3}}$ und $h\nu_{\text{Gd, M5}}$ untersucht. Die Wahl dieser zwei Elemente wird später in Kapitel \ref{text:quelle_roentgen} thematisiert. Die Werte der Koeffizienten $f_{m1,1}$ und $f_{m1,2}$ von Fe und Gd wurden jeweils aus \cite[Abb. 4]{kortright_resonant_2000} und \cite[Abb. 2]{prieto-x-ray-2005} abgeleitet. In der Zusammensetzung der Probe müssen auch ein \SI{200}{\nano\meter} SiN-Substrat und zwei \SI{3}{\nano\meter} bzw. \SI{2}{\nano\meter} Schichten aus Tantal, die als Haft- bzw. Deckschicht dienen, mitberechnet werden.
 
 \noindent
 Mit dem Programmpaket werden die Transmissionen T$_+$ und T$_-$ für das rechts und links polarisierte Licht berechnet. Die Transmissionsrate T und der magnetische Kontrast P werden ermittelt über
@@ -195,7 +196,7 @@ und zur Bestimmung der Gütezahl der Streuungsintensität TP$^2$ verwendet. Die 
     \label{fig:proben_vergleich_centered}
 \end{figure}
 \noindent
-In Abb. \ref{fig:proben_vergleich_centered} sind die Ergebnisse aufgetragen. Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_{\text{Fe, L3}}=72$  bzw. $N_{\text{Gd, M5}}=52$ für die Photonenenergien $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$. Außerdem ist es wichtig, dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenrgie $h\nu_{\text{Gd, M5}}$ ca. doppelt so groß ist wie bei der Photonenenrgie $h\nu_{\text{Fe, L3}}$. Aus dieser Perspektive sollen die Experimente unter Verwendung der Photonenenergie $h\nu_{\text{Gd, M5}}$ durchgeführt werden.
+In Abb. \ref{fig:proben_vergleich_centered} sind die Ergebnisse aufgetragen. Die Extrema der Gütezahl TP$^2$ liegen bei den Werten $N_{\text{Fe, L3}}=72$  bzw. $N_{\text{Gd, M5}}=52$ für die Photonenenergien $h\nu_{\text{Fe, L3}}=\SI{706,97}{\eV}$ bzw. $h\nu_{\text{Gd, M5}}=\SI{1184,79}{\eV}$. Außerdem ist es wichtig, dass der absolute Betrag des Gütezahlmaximums TP$^2$ bei der Photonenenergie $h\nu_{\text{Gd, M5}}$ ca. doppelt so groß ist wie bei der Photonenenrgie $h\nu_{\text{Fe, L3}}$. Aus dieser Perspektive sollen die Experimente unter Verwendung der Photonenenergie $h\nu_{\text{Gd, M5}}$ durchgeführt werden.
 
 \noindent
 Als Schlussfolgerung werden insgesamt zwei Proben hergestellt: die erste Probe, die weiter unter dem Namen \textbf{DS211221} bezeichnet wird, wurde auf \SI{200}{\nano\meter} SiN-Substrat gewachsen und besteht aus 61 Doppelschichten [Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})] mit einer Haftschicht aus Ta(\SI{3}{\nano\meter}) und einer Deckschicht aus Ta(\SI{2}{\nano\meter}). Die Wiederholungszahl $\bar{N} = 61$ wurde als Mittelwert zwischen den Werten $N_{\text{Fe, L3}}=72$ und $N_{\text{Gd, M5}}=52$ genommen.
@@ -223,14 +224,14 @@ Eines der Messgeräte, das die magnetische Struktur dünner Schichten mit \si{\n
     % \subfloat[]{\input{images/mfm/ft/116_real.pgf}\hspace{1mm}\raisebox{0.55in plus -.5\height}{\scalebox{2}{$\stackrel{\mathcal{F}}{\rightarrow}$}}\label{fig:mfm_ds220126}}
     % \subfloat[]{\hspace{1mm}\input{images/mfm/ft/116_ft.pgf}\label{fig:mfm_ds220126_ft}}
     \input{images/mfm/mfm_fourier.pgf}
-    \caption{Die aufgenommenen Domänenmuster der Probe (a) \textbf{DS211221} und (c) \textbf{DS220126}, sowie (b),(d) die absoluten Beträge der Fourier-Transformierten in logarithmischer Darstellung von gegebenen Mustern. Die Domänenmuster wurden mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm}-Modus aufgenommen. Die hellere Farbe entspricht dem größeren Signalwert. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Die absoluten Magnetisierungsstärken verschiedener Proben sind nicht miteinander vergleichbar.}
+    \caption{Die aufgenommenen Domänenmuster der Probe (a) \textbf{DS211221} und (c) \textbf{DS220126}, und (b),(d) - die absoluten Beträge der Fourier-Transformierten von gegebenen Mustern in logarithmischer Skala. Die Domänenmuster wurden mit dem Bruker Dimension Icon$^{\text{®}}$ Rastermikroskop im \gls{mfm}-Modus aufgenommen. Die hellere Farbe entspricht dem größeren Signalwert. Die Farbskala kann nicht in die absoluten physikalischen Werte umgerechnet werden. Die absoluten Magnetisierungsstärken verschiedener Proben sind nicht miteinander vergleichbar.}
     \label{fig:mfm-amplitude-ft}
 \end{figure}
 \noindent
 Es ist leicht zu sehen, dass die Domänenbreite der Probe \textbf{DS211221} in Abb. \ref{fig:mfm-amplitude-ft}a wesentlich größer als die Domänenbreite der Probe \textbf{DS220126} in Abb. \ref{fig:mfm-amplitude-ft}c ist. Darüber hinaus ist die Periodizität von Domänen in der Probe \textbf{DS211221} deutlich niedriger als in der Probe  \textbf{DS220126}. Das spiegelt sich in den Fourier-Transformierten der Domänenmuster beider Proben (Abb. \ref{fig:mfm-amplitude-ft}b und \ref{fig:mfm-amplitude-ft}d) wider, die proportional dem $S_m(\mathbf{q)}$ sind. In der Fourier-Transformierten des Domänenmusters von \textbf{DS220126} ist ein viel schärferes Ringmuster zu sehen, das im Endeffekt bei dem Streuexperiment an der gegebenen Probe zu erwarten ist. Die Domänenbreite der Probe \textbf{DS220126} lässt sich mit \SI{300}{\nano\meter} abschätzen, die ca. \SI{20}{\per\micro\meter} im reziproken Raum entsprechen.
 
 \noindent
-In der Schlussfolgerung wurde die Probe \textbf{DS220126} wegen der stabilen Domänenperiodizität für das Streuexperiment gewählt, obwohl die erwartete Transmissionsrate $\text{T}$ und Gütezahl TP$^2$ viel niedriger sind. Für die Probe wurde zusätzlich eine Hysteresekurve mit Hilfe des \gls{moke} aufgenommen. Das Messgerät bietet keinen Zugang zur Domänenstruktur, da weder eine optische Abbildung der Probe gemacht wird, noch die Strahlgröße klein genug ist, um die \si{\micro\meter}-Strukturen aufzulösen. Die Hysteresekurve $\chi(\mu_0 H)$ in Abb. \ref{fig:hysterese_sample} lässt anhand ihres Kurvenverlaufs - ohne nachweisbare Remanenz - erwarten, dass die Domänen in der Probe ohne äußeres magnetisches Feld präsent sind. Die Probe ist beginnend mit dem Betrag des äußeren magnetischen Feldes von $\SI{120}{\milli\tesla}$ gesättigt. So sollten beim Anlegen solcher magnetischer Felder keine Domänen mehr in der Probe existieren.
+Für das Streuexperiment wurde die Probe \textbf{DS220126} wegen der stabilen Domänenperiodizität gewählt, obwohl die erwartete Transmissionsrate $\text{T}$ und Gütezahl TP$^2$ viel niedriger sind. Für die Probe wurde zusätzlich eine Hysteresekurve mit Hilfe des \gls{moke} aufgenommen. Das Messgerät bietet keinen Zugang zur Domänenstruktur, da weder eine optische Abbildung der Probe gemacht wird, noch die Strahlgröße klein genug ist, um die \si{\micro\meter}-Strukturen aufzulösen. Die Hysteresekurve $\chi(\mu_0 H)$ in Abb. \ref{fig:hysterese_sample} lässt anhand ihres Kurvenverlaufs - ohne nachweisbare Remanenz - erwarten, dass die Domänen in der Probe ohne äußeres magnetisches Feld präsent sind. Die Probe ist beginnend mit dem Betrag des äußeren magnetischen Feldes von $\SI{120}{\milli\tesla}$ gesättigt. So sollten beim Anlegen solcher magnetischer Felder keine Domänen mehr in der Probe existieren.
 \begin{figure}[H]
     \centering
     \input{images/moke/ds220107_R1_moke.pgf}
