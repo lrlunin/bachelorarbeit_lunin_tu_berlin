@@ -24,7 +24,7 @@
 \begingroup%
 \makeatletter%
 \begin{pgfpicture}%
-\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{6.185873in}{3.682112in}}%
+\pgfpathrectangle{\pgfpointorigin}{\pgfqpoint{6.185863in}{3.682112in}}%
 \pgfusepath{use as bounding box, clip}%
 \begin{pgfscope}%
 \pgfsetbuttcap%
@@ -35,8 +35,8 @@
 \pgfsetstrokeopacity{0.000000}%
 \pgfsetdash{}{0pt}%
 \pgfpathmoveto{\pgfqpoint{0.000000in}{0.000000in}}%
-\pgfpathlineto{\pgfqpoint{6.185873in}{0.000000in}}%
-\pgfpathlineto{\pgfqpoint{6.185873in}{3.682112in}}%
+\pgfpathlineto{\pgfqpoint{6.185863in}{0.000000in}}%
+\pgfpathlineto{\pgfqpoint{6.185863in}{3.682112in}}%
 \pgfpathlineto{\pgfqpoint{0.000000in}{3.682112in}}%
 \pgfpathlineto{\pgfqpoint{0.000000in}{0.000000in}}%
 \pgfpathclose%
@@ -1726,7 +1726,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.158025in,y=0.238855in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Wiederholungszahl \(\displaystyle N\) der Probe SiN(\SI{200}{\nano\meter})/Ta(\SI{3}{\nano\meter})/[Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})]\(\displaystyle _{\text{x}N}\)/Ta(\SI{2}{\nano\meter})}%
+\pgftext[x=3.158025in,y=0.238855in,,top]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Wiederholungszahl \(\displaystyle N\) der Probe SiN(\SI{200}{\micro\meter})/Ta(\SI{3}{\nano\meter})/[Fe(\SI{0.41}{\nano\meter})/Gd(\SI{0.45}{\nano\meter})]\(\displaystyle _{\text{x}N}\)/Ta(\SI{2}{\nano\meter})}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetbuttcap%

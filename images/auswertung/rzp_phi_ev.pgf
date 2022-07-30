@@ -1005,7 +1005,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.317012in,y=3.106079in,,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Motorposition \(\displaystyle \varphi_{\text{RZP}}\) in beliebigen Einheiten}%
+\pgftext[x=3.317012in,y=3.106079in,,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Motorposition \(\displaystyle \varphi_{\text{RZP}}\) in Schritten}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2531,7 +2531,7 @@
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=0.122655in,y=1.614765in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Absorptionsstärke}%
+\pgftext[x=0.122655in,y=1.614765in,,bottom,rotate=90.000000]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont normierte Absorptionsstärke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfpathrectangle{\pgfqpoint{0.452903in}{0.398883in}}{\pgfqpoint{5.728219in}{2.431763in}}%
@@ -2844,16 +2844,16 @@
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetstrokeopacity{0.800000}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{2.829250in}{1.857941in}}%
-\pgfpathlineto{\pgfqpoint{4.883131in}{1.857941in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.910909in}{1.857941in}}{\pgfqpoint{4.910909in}{1.885719in}}%
-\pgfpathlineto{\pgfqpoint{4.910909in}{2.437139in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{4.910909in}{2.464917in}}{\pgfqpoint{4.883131in}{2.464917in}}%
-\pgfpathlineto{\pgfqpoint{2.829250in}{2.464917in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{2.801472in}{2.464917in}}{\pgfqpoint{2.801472in}{2.437139in}}%
-\pgfpathlineto{\pgfqpoint{2.801472in}{1.885719in}}%
-\pgfpathquadraticcurveto{\pgfqpoint{2.801472in}{1.857941in}}{\pgfqpoint{2.829250in}{1.857941in}}%
-\pgfpathlineto{\pgfqpoint{2.829250in}{1.857941in}}%
+\pgfpathmoveto{\pgfqpoint{2.771968in}{1.857941in}}%
+\pgfpathlineto{\pgfqpoint{4.849956in}{1.857941in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.877734in}{1.857941in}}{\pgfqpoint{4.877734in}{1.885719in}}%
+\pgfpathlineto{\pgfqpoint{4.877734in}{2.285164in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{4.877734in}{2.312941in}}{\pgfqpoint{4.849956in}{2.312941in}}%
+\pgfpathlineto{\pgfqpoint{2.771968in}{2.312941in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.744190in}{2.312941in}}{\pgfqpoint{2.744190in}{2.285164in}}%
+\pgfpathlineto{\pgfqpoint{2.744190in}{1.885719in}}%
+\pgfpathquadraticcurveto{\pgfqpoint{2.744190in}{1.857941in}}{\pgfqpoint{2.771968in}{1.857941in}}%
+\pgfpathlineto{\pgfqpoint{2.771968in}{1.857941in}}%
 \pgfpathclose%
 \pgfusepath{stroke,fill}%
 \end{pgfscope}%
@@ -2864,16 +2864,16 @@
 \definecolor{currentstroke}{rgb}{0.121569,0.466667,0.705882}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{2.857028in}{2.360750in}}%
-\pgfpathlineto{\pgfqpoint{2.995917in}{2.360750in}}%
-\pgfpathlineto{\pgfqpoint{3.134806in}{2.360750in}}%
+\pgfpathmoveto{\pgfqpoint{2.799746in}{2.208775in}}%
+\pgfpathlineto{\pgfqpoint{2.938635in}{2.208775in}}%
+\pgfpathlineto{\pgfqpoint{3.077523in}{2.208775in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.245917in,y=2.312139in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont normierte Messdaten}%
+\pgftext[x=3.188635in,y=2.160164in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Messdaten}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \pgfsetrectcap%
@@ -2882,22 +2882,16 @@
 \definecolor{currentstroke}{rgb}{1.000000,0.498039,0.054902}%
 \pgfsetstrokecolor{currentstroke}%
 \pgfsetdash{}{0pt}%
-\pgfpathmoveto{\pgfqpoint{2.857028in}{2.065379in}}%
-\pgfpathlineto{\pgfqpoint{2.995917in}{2.065379in}}%
-\pgfpathlineto{\pgfqpoint{3.134806in}{2.065379in}}%
+\pgfpathmoveto{\pgfqpoint{2.799746in}{1.996821in}}%
+\pgfpathlineto{\pgfqpoint{2.938635in}{1.996821in}}%
+\pgfpathlineto{\pgfqpoint{3.077523in}{1.996821in}}%
 \pgfusepath{stroke}%
 \end{pgfscope}%
 \begin{pgfscope}%
 \definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
 \pgfsetstrokecolor{textcolor}%
 \pgfsetfillcolor{textcolor}%
-\pgftext[x=3.245917in, y=2.100186in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont normierter Referenzwert \(\displaystyle \bar{\beta}\)}%
-\end{pgfscope}%
-\begin{pgfscope}%
-\definecolor{textcolor}{rgb}{0.000000,0.000000,0.000000}%
-\pgfsetstrokecolor{textcolor}%
-\pgfsetfillcolor{textcolor}%
-\pgftext[x=3.245917in, y=1.948210in, left, base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont  von \cite[Abb. 2]{prieto-x-ray-2005}}%
+\pgftext[x=3.188635in,y=1.948210in,left,base]{\color{textcolor}\rmfamily\fontsize{10.000000}{12.000000}\selectfont Referenzwert \(\displaystyle \bar{\beta}\) \cite[Abb. 2]{prieto-x-ray-2005}}%
 \end{pgfscope}%
 \end{pgfpicture}%
 \makeatother%
