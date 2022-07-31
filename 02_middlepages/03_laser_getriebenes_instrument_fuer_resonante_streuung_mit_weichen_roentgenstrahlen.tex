@@ -1,5 +1,5 @@
-\newacronym[user1=\emph{engl. „plasma X-ray source“}]{pxs}{PXS}{Laser-getriebene Plasma-Röntgenquelle}
-\newacronym[user1=\emph{engl. „refection zone plate“}]{rzp}{RZP}{Reflexionszonenplatte}
+\newacronym[user1=\emph{engl. plasma X-ray source}]{pxs}{PXS}{Laser-getriebene Plasma-Rönt\-gen\-quelle}
+\newacronym[user1=\emph{engl. refection zone plate}]{rzp}{RZP}{Reflexionszonenplatte}
 \chapter{Laser-getriebenes Instrument für resonante Streuung mit weichen Röntgenstrahlen}
 \label{text:quelle_roentgen}
 Typischerweise werden resonante Streuexperimente an Synchrotronstrahlungsquellen oder \gls{fel}s durchgeführt. Wegen der kleinen magnetischen Streuquerschnitte wird ein hoher Photonenfluss benötigt. Die Photonenenergie muss frei durchstimmbar sein und eine Kontrolle über die Polarisation ist vorteilhaft. Die Strahllinie P04 an der Synchrotronstrahlungsquelle PETRA III soll hier als Beispiel solcher Röntgenquellen dienen \cite{viefhaus_variable_2013}.
@@ -13,7 +13,7 @@ Typischerweise werden resonante Streuexperimente an Synchrotronstrahlungsquellen
 \end{figure}
 %textwidht = 6.49733inch
 \noindent
-Als Quelle der weichen Röntgenstrahlung dient hingegen eine \gls{pxs}, deren Aufbau und Eigenschaften in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrem Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulse getrieben wird \cite{mantouvalou_high_2015}. So wird die Röntgenstrahlung an der \gls{pxs} ebenso in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer \SI{44}{\pico\second} (RMS), also ca. \SI{100}{\pico\second} (FWHM), und Pulsperiode \SI{192}{\nano\second}  betragen, ist die Pulsdauer der \gls{pxs} mit \SI{10}{\pico\second} (FWHM) wesentlich kürzer, wobei ihre Pulsperiode viel größer ist und im Bereich von \SI{10}{\milli\second} liegt.
+Als Quelle der weichen Röntgenstrahlung dient hingegen eine \gls{pxs}, deren Aufbau und Eigenschaften in \cite{schick_laser-driven_2021} detailliert beschrieben sind. Ihrem Funktionsprinzip liegt die Emission von Wolfram im weichen Röntgenbereich zugrunde, die durch die hochenergetischen Laserpulse getrieben wird \cite{mantouvalou_high_2015}. So wird auch die Röntgenstrahlung an der \gls{pxs} in Form von Pulsen emittiert. Im Vergleich zu PETRA III, wo die typische Pulsdauer \SI{100}{\pico\second} (FWHM), und Pulsperiode \SI{192}{\nano\second}  betragen, ist die Pulsdauer der \gls{pxs} mit \SI{10}{\pico\second} (FWHM) wesentlich kürzer, wobei ihre Pulsperiode mit \SI{10}{\milli\second} viel größer ist.
 \begin{figure}[H]
     \centering
     \input{images/xps/xps_spectrum_700_1400_mrad.pgf}
@@ -21,37 +21,37 @@ Als Quelle der weichen Röntgenstrahlung dient hingegen eine \gls{pxs}, deren Au
     \label{fig:pxs_spectrum}
 \end{figure}
 \noindent
-Im Gegensatz zur hoch kollimierten Strahlung an der Strahllinie P04 strahlt die \gls{pxs} die Photonen des ganzen Spektrums (s. Abb. \ref{fig:pxs_spectrum}) in alle Richtungen aus.
+Im Gegensatz zur hoch kollimierten Strahlung an der Strahllinie P04 strahlt die \gls{pxs} die Photonen in einem breiten Spektrum (s. Abb. \ref{fig:pxs_spectrum}) und in alle Raum-Richtungen aus.
 
 \noindent
-Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten Photonenenergiebereich zu selektieren. Dafür wird die emittierte Strahlung mithilfe einer \gls{rzp} fokussiert. Zur Verfügung stehen zwei \gls{rzp}, die für die Zielphotonenenergien von Fe (\SI{705}{\eV}) und Gd (\SI{1189}{\eV}) konstruiert wurden. Der mit der \gls{rzp} fokussierte Strahl wird in Form einer Sanduhr auf der Detektorfläche (s. Abb. \ref{fig:butterfly_moench}) abgebildet, wobei die Zielphotonenenergie in der Sanduhrtaille liegt und die benachbarten Photonenenergien entlang der horizontalen Symmetrieachse des Strahlprofils um den Fokuspunkt energetisch aufgelöst werden.
+Nichtsdestotrotz ist es möglich, die Strahlung zu bündeln und einen bestimmten Photonenenergiebereich zu selektieren. Dafür wird die emittierte Strahlung mithilfe einer \gls{rzp} fokussiert. Zur Verfügung stehen zwei \gls{rzp}, die für die Zielphotonenenergien von Fe (\SI{705}{\eV}) und Gd (\SI{1189}{\eV}) konstruiert wurden. Der mit der \gls{rzp} fokussierte Strahl wird in Form einer Sanduhr auf der Detektorfläche (s. Abb. \ref{fig:butterfly_moench}) abgebildet, wobei die Zielphotonenenergie in der Sanduhrtaille liegt und die benachbarten Photonenenergien entlang der vertikalen Achse energetisch aufgelöst werden.
 \begin{figure}[H]
     \centering
     \input{images/xps/butterfly_two_shots.pgf}
     \label{fig:butterfly_moench_sum}
-    \caption{Das direkte Strahprofil auf dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Abgebildet sind (a) die Summe von 26026 Pulsen und (b) ein einzelner Puls. Der hellste Bereich liegt um \SI{1189}{\eV}; die Photonenenergie nimmt von unten nach oben ab. Der Bereich, in dem die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ abgebildet wurde, ist mit dem rotem Viereck markiert.}
+    \caption{Das direkte Strahprofil auf dem Detektor, das mit der \gls{rzp} für Gd fokussierst wurde. Abgebildet sind (a) die Summe von 26026 Pulsen und (b) ein einzelner Puls. Der hellste Bereich liegt um \SI{1189}{\eV}; die Photonenenergie nimmt von unten nach oben ab. Die Bereiche, in den die Photonenenergie $h\nu_{\text{Gd, M5}} = \SI{1184,79}{\eV}$ bzw. die Zielphotonenenergie der \gls{rzp} $\SI{1189}{\eV}$, abgebildet wurden, sind mit dem rotem bzw. hellgrünen Viereck markiert.}
     \label{fig:butterfly_moench}
 \end{figure}
 \noindent
-Es ist schwer, den Photonenfluss der \gls{pxs} genau anzugeben, weil er nicht nur von der Wahl der \gls{rzp} abhängt, sondern auch von ihrer Position und dem  Photonenenergiebereich.
+Es ist schwer, den Photonenfluss der \gls{pxs} genau anzugeben, weil er nicht nur von der Wahl der \gls{rzp} abhängt, sondern auch der Photonenenergie und der Bandbreite.
 
 \noindent
-Es kann beispielsweise der Photonenfluss der \gls{pxs} an der Photonenenergie $h\nu_\text{Gd, M5}$ abgeschätzt werden. So werden ca. \SI{617}{\photons} pro Puls innerhalb des roten Vierecks in Abb. \ref{fig:butterfly_moench} detektiert. In Hinblick auf die Pulsperiode \SI{10}{\milli\second} ergibt sich der Photonenfluss in Höhe von ca. \SI[per-mode = symbol]{6.2e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als \SI[per-mode = symbol]{1e12}{\photons\per\second} ist.
+Es kann beispielsweise der Photonenfluss der \gls{pxs} an der Photonenenergie $h\nu_\text{Gd, M5}$ abgeschätzt werden. So werden ca.\ \SI{617}{\photons} pro Puls innerhalb des roten Vierecks in Abb. \ref{fig:butterfly_moench} detektiert. In Hinblick auf die Pulsperiode \SI{10}{\milli\second} ergibt sich der Photonenfluss in Höhe von ca.\ \SI[per-mode = symbol]{6.2e4}{\photons\per\second}, wobei der Photonenfluss an der Strahllinie P04 höher als \SI[per-mode = symbol]{1e12}{\photons\per\second} ist.
 
 \noindent
 Für die Detektion des Streusignals an der \gls{pxs} werden also erheblich längere Belichtungszeiten des Detektors benötigt. In diesem Fall gibt es zwei Strategien für das Aufnahmeverfahren:
 
 \noindent
-Die Belichtungszeit wird hoch gesetzt, sodass eine Aufnahme Streusignal mehrerer Pulse der \gls{pxs} enthält. In diesem Fall müssen sowohl das Detektordunkelrauschen, das typischerweise mit der Zunahme der Belichtungszeit steigt, als auch das Ausleserauschen klein gegenüber dem Streusignal sein.
+Die Belichtungszeit wird hoch gesetzt, sodass eine Aufnahme das Streusignal erzeugt von mehreren Pulsen der \gls{pxs} enthält. In diesem Fall müssen sowohl das Detektordunkelrauschen, das typischerweise mit der Zunahme der Belichtungszeit steigt, als auch das Ausleserauschen klein gegenüber dem Streusignal sein.
 
 \noindent
-Die andere Methode basiert auf dem Trennen des Hintergrundrauschens vom Streusignal. Die Belichtungszeit wird möglichst klein gesetzt, sodass jeder Puls der \gls{pxs} einzeln aufgenommen wird und das Detektordunkelrauschen gesenkt wird. In diesem Fall ist das Ausleserauschen nun dominierend und muss klein gegenüber dem Ein-Photon-Signal sein.
+Die andere Methode basiert auf der Trennenung des Hintergrundrauschens vom Streusignal. Die Belichtungszeit wird möglichst klein gewählt, sodass jeder Puls der \gls{pxs} einzeln aufgenommen wird und das Detektordunkelrauschen gesenkt wird. In diesem Fall ist das Ausleserauschen nun dominierend und muss klein gegenüber dem Signal eines einzelnen detektierten Photons sein. Dann lassen sich einzelne Photonen-Ergebnisse vom Rauschen trennen.
 
 \noindent
-Die beiden Methoden haben jeweils gewisse Vor- und Nachteile. Die erste Aufnahmemethode ist einfach zu realisieren. Der Dynamikumfang des Detektors muss jedoch idealerweise groß genug sein, damit das gemessene Signal innerhalb des gesamten Sensors linear abgebildet wird. In der Wirklichkeit ist dies kaum realisierbar. So werden typischerweise potenziell überbelichtete Sensorbereiche des Detektors vom Röntgenstrahl abgeschirmt, was weiter das Normierungsverfahren erschwert. Die zweite Aufnahmemethode lässt sich gut mit einem Anregungs-Abfrage-Experiment (\emph{engl. pump-probe experiment}) kombinieren und bietet besseren Dynamikumfang. Die Photonenerkennung kann jedoch Artefakte verursachen.
+Die beiden Methoden haben jeweils gewisse Vor- und Nachteile. Die erste Aufnahmemethode ist einfach zu realisieren. Der Dynamikumfang des Detektors muss jedoch idealerweise groß genug sein, damit das gemessene Signal innerhalb des gesamten Sensors linear abgebildet wird. In der Wirklichkeit ist das oft schwer realisierbar. So werden typischerweise potenziell überbelichtete Sensorbereiche des Detektors vom Röntgenstrahl abgeschirmt, was die Normierung des Streusignal auf die einfallende Intensität erschwert. Die zweite Aufnahmemethode lässt sich gut mit einem Anregungs-Abfrage-Experiment (\emph{engl. pump-probe experiment}) kombinieren und bietet besseren Dynamikumfang. Die Photonenerkennung kann jedoch Artefakte verursachen.
 
 \noindent
-Die Wahl der Lösung und die Bedingungen, die dem Detektor gegebenenfalls auferlegt werden, werden im nächsten Kapitel genauer diskutiert.
+In dieser Arbeit wird die zweite Methode verwendet. Dazu wurde ein neuartiger Detektor an der Laborquelle in Betrieb genommen, wie im nächsten Kapitel beschrieben. Eine besondere Herausforderung war die Entwicklung und Überprüfung von nummerischen Verfahren zur Erkennung von Einzelphotonen-Ereignissen in den Detektorbildern.
 
 
 % 11 mittig: "So dient ein vertikaler Spalt..." ich glaube, der Spalt ist horizontal, oder?
