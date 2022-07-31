@@ -196,7 +196,7 @@ verglichen, wobei $\sigma$ - Standardabweichung des Hintergrundrauschens und $c$
 Anschließend wird nach den lokalen Maxima in der Matrix $\mathbf{Q}$ gesucht und diese behalten. Es ist wichtig zu beachten, dass der \gls{adu}-Wert jedes Pixels in $M\cdot L$ Clustern auftaucht. Das kann dazu führen, dass ein detektiertes Photon mehr als einmal gezählt wird. Um diese Fehlinterpretation zu vermeiden, muss eine Nebenbedingung gestellt werden, dass der Mindestabstand zwischen den lokalen Maxima größer als $\max\{M,L\}$ sein muss.
 
 \noindent
-Für den \gls{moench03} mit der Auflösung \qtyproduct{400 x 400}{\px} ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Cluster-Kerne für den Detektor sind rechteckig $M=L=N$ (vgl. Gl. (\ref{eq:cluster-kern}) mit $N = 2$ oder 3 \cite[Abschnitt 4]{cartier_micron_2014}. So wurden die Cluster-Kerne
+Für den \gls{moench03} mit der Auflösung \qtyproduct{400 x 400}{\px} ist $\mathbf{V} \in \mathbb{Z}^{400\times 400}$. Die sinnvollen Cluster-Kerne für den Detektor sind rechteckig $M=L=N$ (vgl. Gl. (\ref{eq:cluster-kern})) mit $N = 2$ oder 3 \cite[Abschnitt 4]{cartier_micron_2014}. So wurden die Cluster-Kerne
 \begin{equation}
     \mathbf{K}_{2} = \begin{bmatrix}
 1 & 1\\
@@ -213,28 +213,3 @@ bei der Datenauswertung benutzt.
 
 \noindent
 In der Referenzarbeit wurde der Parameter $c$ von 3 bis 5 variiert. Der Schwellenwert $s_Q = cN\sigma$ mit $c=5$ und $N=2$ gleicht dem Wert $\SI{200}{\adu}$, was bereits höher als der erwartete \gls{adu}-Wert eines Photons mit Photonenenergie $h\nu_\text{Gd, M5}$ ist. Daher muss der Schwellenwert $s_Q$ im Falle der niedrigeren Photonenenergien genauer angepasst werden.
-
-
-% 27 ganz unten: ich glaube, es ist die vertikale Sensorauflösung
-% 35 Literaturverweis auf Readout-Charakteristik (Bindestrich, Großschreibung, fehlendes i)
-% 39 unten "entsprechenden Schalter für die Reihe und Spalt" soll das "Zeilen und Spalten" heißen?
-% 50 Bildunterschrift zu Abb.10: siehe Zeile 39
-% 57 unten "erzielten Präzision" Zeitform ergibt an dieser Stelle keinen Sinn: Erst erziele ich die Präzision, dann wähle ich den geeigneten Detektor aus
-% 78 "Rauschcharakteristik des eingesetzten Detektormodels" Das "Model" würde ich aus dem Wort herausnehmen, da ihr die Rauschcharakteristik vermutlich nicht mit irgendeinem Detektor der Modellreihe aufgenommen habt, sondern mit dem konkreten Detektor, mit dem alle Messungen für diese Arbeit gemacht wurden
-% 79-81 Abb. 12 Ramilli u.a.? Nicht et. al.? Wobei, ich sehe schon, dann müsste das ganze Literaturverzeichnis geändert werden...
-% 82 "Die Koeffizienten für Referenz Anpassung" versteh den Satz nicht. "für die Referenz-Anpassung"?
-% 82 "Die Referenz demonstriert den vergleichbaren Rauschpegel am Anfang der Kurve" Also ich sehe da nichts "vergleichbares" am Anfang der Kurve
-% 89 Ich musste die referenzierte Gleichung erst mal suchen... kann man die weiter nach vorne ziehen?
-% 95 letzter Satz: Wieso findet das ausgerechnet hier wieder Erwähnung? Es fällt dort ein bisschen aus dem Kontext, würde eher an den Beginn des übernächsten Absatzes (Zeile 107) passen.
-% 104 da ist wieder das im PDF unansehnlich \si{\photons\per\second}
-% 122 \gls{ptb} müsste in den Genitiv gesetzt werden (Physikalisch-TechnischeN Bundesanstalt)
-% 134-139 "So ergibt sich die lineare Proportionalität [...] zwischen der Photonenergie eines tatsächlich detektierten Photons" da fehlt der zweite Partner im linearen Zusammenhang
-% 154 "Diese Aufgabe ist durch die größere ursprüngliche Differenz zwischen der Standardabweichung des Detektorrauschens und erwarteten Ein-Photon-Signal zu erleichtern." Ich verstehe den Satz nicht, den musst du mir noch mal anders erklären.
-% 161 zweiter Satz sagt sinngemäß: "ADU-Werte werden als Pixel bezeichnet". Und das "D. h. - Komma" am Satzanfang gefällt mir auch nicht
-% 164 da soll ein Pixel als Photon identifiziert werden (gleiches Problem im verschachtelten Satzbau wie bei 161)
-% 174 Habe ich den ersten Satz korrekt interpretiert?
-% 202 Wo kommt das N auf einmal her??
-% 218 Wieder das böse "D. h. - Komma". Ich glaube, ich würde es einfach ausschreiben. Oder mal zu "Das bedeutet, dass..." variieren
-
-
-% 163 Solange die Ladung eine Wolke ist, die sich noch nicht *entschieden* hat, wie viele benachbarte Pixel sie trifft, ist es nicht "die Ladung eines Pixels". Ich glaube, genau daher stammte das Missverständnis, das wir im zoom aufklären konnten
