@@ -1,5 +1,4 @@
-# bachelorarbeit_lunin_tu_berlin
-
+# Bachelor Thesis Leonid Lunin
 You can use the following `BiBTeX` code for citation:
 ```bibtex
 @thesis{luninPulsgetriggerteDetektionResonanter2022,
